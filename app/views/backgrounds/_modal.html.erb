@@ -8,9 +8,9 @@
        <div class="flex" style="justify-content:center; margin-top:10px">
                 <div>
                   <% if background.photo.attached? %>
-                      <%= cl_image_tag background.photo.key, height: 240, width: 426, crop: :fill, class: "d-block rounded-lg" %>
-                  <% else %>
                     <img src="https://t3.ftcdn.net/jpg/04/34/72/82/360_F_434728286_OWQQvAFoXZLdGHlObozsolNeuSxhpr84.jpg" style="height:120px;width:213px" alt="...">
+                  <% else %>
+                      <%= cl_image_tag background.photo.key, height: 240, width: 426, crop: :fill, class: "d-block rounded-lg" %>
                   <% end %>
                 </div>
 
