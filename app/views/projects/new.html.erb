@@ -1,0 +1,37 @@
+<div class="page-wrap">
+  <%= render"shared/terminalnav" %>
+  <div class="flex">
+    <%= render "shared/sidebar" %>
+    <div class="flex-column"style="width:100%; margin: 20px; ">
+      <%= render "shared/pagehead" %>
+      <%= render "projects/pagetabs" %>
+      <%= render "projects/form", user: @user, projects: @user.projects %>
+    </div>
+  </div>
+</div>
+
+
+<form>
+  <% @user.backgrounds.reverse.each do |background| %>
+    <input type="radio" input_html: { multiple: false } >
+    <label for="background">
+      <%= cl_image_tag background.photo.key,
+          height: 120, width: 213, crop: :fill,
+          class: "d-block rounded-lg toprd5px",
+          input_html: { multiple: false }  %>
+      <%= background.title %>
+    </label><br>
+  <% end %>
+  <% @user.videos.reverse.each do |video| %>
+    <input type="radio">
+    <label for="video">
+      <%= cl_video_tag video.file.key,
+          height: 120,
+          width: 213,
+          crop: :fill,
+          angle: video.rotation,
+          class: "d-block rounded-lg toprd5px" %>
+      <%= video.title %>
+    </label>
+    <% end %>
+</form>

@@ -1,0 +1,49 @@
+<div class="flex-wrap content-start" style="width:80%">
+    <div class="flex flex-wrap content-start overflow-auto scroll-container" style="justify-content:space-between">
+      <% @user.projects.order(:id).reverse.each do |project| %>
+      <div >
+        <div class="project-card" style="margin-bottom:20px;margin-right:20px">
+          <%= project.prospect_first %> <%= project.prospect_last %> @
+          <%= project.prospect_company %>
+          <div class="flex" id="video_box">
+            <%# <div id="video_overlays"><%= project.message %>
+            <div class="flex space-between" style="flex-direction:column;padding-right:8px">
+                          <button class="btn btn-outline-dark flex br5" id="pills-copy" data-bs-toggle="pill" data-bs-target="#pills-video" type="button" role="tab" aria-controls="pills-video" aria-selected="true">
+                          <i class="bi bi-clipboard-check mr10"></i>Copy</button>
+                          <button class="btn btn-outline-dark flex br5 " id="pills-video-tab" data-bs-toggle="pill" data-bs-target="#pills-video" type="button" role="tab" aria-controls="pills-video" aria-selected="true">
+                          <i class="bi bi-binoculars mr10"></i><a href="/watch/<%=project.public_uid%>">View</a></button>
+                          <button class="btn btn-outline-dark flex br5" id="pills-video-tab" data-bs-toggle="pill" data-bs-target="#pills-video" type="button" role="tab" aria-controls="pills-video" aria-selected="true">
+                          <i class="bi bi-pencil-square mr10"></i><a href="/terminal/<%= @user.public_uid %>/projects/<%= project.public_uid%>/edit" >Edit</a></button>
+                          <button class="btn btn-outline-dark flex br5" id="pills-video-tab" data-bs-toggle="pill" data-bs-target="#pills-video" type="button" role="tab" aria-controls="pills-video" aria-selected="true">
+                          <i class="bi bi-trash mr10"></i><a data-turbo-method="delete"  data-turbo-confirm="Are you sure?" href="/terminal/<%= @user.public_uid %>/projects/<%= project.public_uid%>">Delete</a></button>
+
+            </div>
+
+
+            <% message_params = "g_north," + "x_" + project.background.x_axis.to_s + ",y_" + project.background.y_axis.to_s +
+                    ",w_" + project.background.width.to_s + ",c_fit,a_" + project.background.angle.to_s +
+                    ",o_" + project.opacity.to_s + ",l_text:" + project.font + "_" +
+                    project.font_size.to_s + ":" + project.message %>
+            <div class="copy-image">
+              <img src="https://res.cloudinary.com/dth8lnhas/video/upload/c_scale,dl_121,du_0.1,pg_1,so_3,w_1280/a_<%=project.video.rotation %>/c_scale,u_development:<%= project.background.photo.key %>,w_1280/<%= message_params %>/c_scale,l_play-button-icon-png-18919_ssamfy,o_53,w_349/v1665164526/development/<%= project.video.file.key %>.gif" alt="Video"
+                  width="280" height="157" > <br>
+            </div>
+
+
+          </div>
+              <p>viddex.io/watch/<%= project.public_uid %> </p>
+              <p><%= project.created_at %></p>
+        </div>
+      </div>
+
+
+      <div class="flex" style="flex-direction:column">
+      </div>
+
+      <% end %>
+    </div>
+
+
+
+    </div>
+</div>

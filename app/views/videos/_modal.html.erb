@@ -1,0 +1,24 @@
+<div class="modal fade" id=<%= "exampleModal#{video.id}" %> tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content flex flex-col justify-center items-center rounded-lg px-8 pt-8 pb-12" style="padding:5px;border-radius:5px">
+      <div class="w-full">
+
+      </div>
+      <div id="video_box">
+          <video width="560" height="315" controls preload="metadata" >
+            <source src="https://res.cloudinary.com/dth8lnhas/video/upload/v1664988466/development/<%=video.file.key%>.mp4" type="video/mp4" allowfullscreen=0>
+            <source src="mov_bbb.ogg" type="video/ogg">
+              Your browser does not support HTML video.
+          </video>
+
+      </div>
+
+      <div class="w-7/12 mt-3">
+        <h5>Title: <%= video.title %></h5>
+        <h5>Rotation angle: <%= video.rotation %>°</h5>
+        <p class="text-center mt-2"><%= video.cadence_step %></p>
+        <p class="text-center text-xl font-bold mt-2"><%= video.addressed %></p>
+      </div>
+    </div>
+  </div>
+</div>

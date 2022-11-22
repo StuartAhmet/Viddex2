@@ -1,0 +1,19 @@
+<div class="flex">
+  <img src="https://sore-fuchsia-tiger.faviconkit.com/<%= @project.prospect_email.partition("@")[2] %>/60">
+  <%= @user.email.partition("@")[2] %> <br>
+</div>
+
+<div class="flex" style="justify-content:center">
+  <div>
+    <div class="col-12 col-lg-6" id="video_box">
+      <%= render  "projects/projectvideo"%>
+    </div>
+    <div class="flex" style="justify-content:space-between">
+      <h5 style="margin-top:7px;margin-left:20px">Video for <%= @project.prospect_first.capitalize %> at <%= @project.prospect_company %> </h5>
+      <a class="btn btn-primary br5" href= https://google.com role="button">
+      <i class="bi bi-calendar-week mr10"></i>
+      Book a meeting with <%= @project.user.first_name.capitalize %>
+      </a>
+    </div>
+  </div>
+</div>

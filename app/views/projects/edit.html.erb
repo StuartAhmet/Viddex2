@@ -1,0 +1,38 @@
+<div class="page-wrap">
+  <%= render"shared/terminalnav" %>
+  <div class="flex">
+    <%= render "shared/sidebar" %>
+    <div class="flex-column"style="width:100%; margin: 20px; ">
+      <%= render "shared/pagehead" %>
+      <%= render "projects/pagetabs" %>
+      <div class="flex">
+      <div class="container pt-4 col-4">
+        <h1>Edit Project</h1>
+        <%= simple_form_for [@user, @project] do |f| %>
+          <div class="flex">
+            <%= f.input :prospect_first %>
+            <%= f.input :prospect_last  %>
+          </div>
+
+          <div class="flex">
+            <%= f.input :prospect_company %>
+            <%= f.input :prospect_email %>
+          </div>
+          <%= f.input :message %>
+          <div class="flex">
+            <%= f.submit 'Save and preview', class: 'btn btn-outline-dark', style:"border-radius:5px"%>
+          <% end %>
+            <%= link_to user_projects_path(@user, @projects) do %>
+              <button style="border-radius:5px"class="btn btn-outline-dark"  data-bs-toggle="pill" data-bs-target="#pills-video" type="button" role="tab" aria-controls="pills-video" aria-selected="true">
+                <i class="fa-solid fa-chevron-left"></i>Back
+                </button>
+            <% end %>
+          </div>
+      </div>
+      <div id="video_box">
+          <%= render  "projects/projectvideo"%>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>

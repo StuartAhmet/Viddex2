@@ -1,0 +1,21 @@
+<div class="flex-wrap content-start"style="width:40%">
+
+<%# <div class="flex-wrapper" style="display: flex; justify-content: center"> %>
+    <div class="box orange scroll-container overflow-auto" style="width: 100%; margin: 20px 20px;">
+      <div style="display:flex; justify-content:space-between; margin: 10px 20px">
+        <h3><%=@background.title.capitalize%></h3>
+      </div>
+
+      <% if @background.photo.attached? %>
+      <%= cl_image_tag @background.photo.key, height: 120, width: 213, crop: :fill, class: "d-block rounded-lg" %>
+      <% end %>
+
+          <div>
+            <%= link_to user_background_path(@user, @background), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class:"bg-red-400 flex justify-center items-center text-sm text-white rounded-lg px-4 py-2" do %>
+            <h2>Delete</h2>
+            <% end %>
+          </div>
+
+    </div>
+<%# </div> %>
+</div>

@@ -1,0 +1,33 @@
+<div class="modal fade" id=<%= "exampleModal#{background.id}" %> tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content flex flex-col justify-center items-center rounded-lg px-8 pt-8 pb-12">
+      <div class="w-full">
+
+      </div>
+
+       <div class="flex" style="justify-content:center; margin-top:10px">
+                <div>
+                  <% if background.photo.attached? %>
+                      <%= cl_image_tag background.photo.key, height: 240, width: 426, crop: :fill, class: "d-block rounded-lg" %>
+                  <% else %>
+                    <img src="https://t3.ftcdn.net/jpg/04/34/72/82/360_F_434728286_OWQQvAFoXZLdGHlObozsolNeuSxhpr84.jpg" style="height:120px;width:213px" alt="...">
+                  <% end %>
+                </div>
+
+            </div>
+
+      <div class="w-7/12 mt-3">
+        <h5 class="text-center text-xl font-bold" id="exampleModalLabel"><%= background.title.capitalize %></h5>
+
+      </div>
+      <div class="flex" style="width:426px; margin:0px 35px 0px 35px; justify-content:space-between">
+        <%# <button type="button" class="bg-black btn-modal px-5 py-2 text-white rounded-lg mt-3" data-bs-dismiss="modal">Edit</button> %>
+        <button type="button" class="bg-black btn-modal px-5 py-2 text-white rounded-lg mt-3" data-bs-dismiss="modal"><a href="/terminal/<%= @user.public_uid %>/backgrounds/<%= background.public_uid%>/edit" >Edit</a></button>
+        <a data-turbo-method="delete" class="bg-black btn-modal px-5 py-2 text-white rounded-lg mt-3" data-turbo-confirm="Are you sure?" href="/terminal/<%= @user.public_uid %>/backgrounds/<%= background.public_uid%>">
+          Delete
+        </a>
+
+      </div>
+    </div>
+  </div>
+</div>
