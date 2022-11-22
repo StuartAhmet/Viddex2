@@ -10,9 +10,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_22_113405) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_22_134754) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "backgrounds", force: :cascade do |t|
+    t.string "title"
+    t.string "public_uid"
+    t.integer "x_axis", default: 350
+    t.integer "y_axis", default: 250
+    t.integer "width", default: 350
+    t.integer "angle", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_backgrounds_on_user_id"
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string "prospect_first"
+    t.string "prospect_last"
+    t.string "prospect_company"
+    t.string "prospect_email"
+    t.string "public_uid"
+    t.integer "opacity", default: 70
+    t.string "font", default: "permanent marker"
+    t.integer "font_size", default: 38
+    t.text "message"
+    t.bigint "background_id"
+    t.bigint "video_id"
+    t.bigint "user_id"
+    t.boolean "include_meeting_link", default: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["background_id"], name: "index_projects_on_background_id"
+    t.index ["user_id"], name: "index_projects_on_user_id"
+    t.index ["video_id"], name: "index_projects_on_video_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -26,4 +60,21 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_22_113405) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "videos", force: :cascade do |t|
+    t.string "title"
+    t.string "public_uid"
+    t.string "rotation"
+    t.bigint "user_id"
+    t.boolean "bgrem_require", default: true
+    t.boolean "bgrem_complete", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_videos_on_user_id"
+  end
+
+  add_foreign_key "backgrounds", "users"
+  add_foreign_key "projects", "backgrounds"
+  add_foreign_key "projects", "users"
+  add_foreign_key "projects", "videos"
+  add_foreign_key "videos", "users"
 end
