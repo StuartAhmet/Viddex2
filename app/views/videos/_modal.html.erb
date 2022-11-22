@@ -6,8 +6,7 @@
       </div>
       <div id="video_box">
           <video width="560" height="315" controls preload="metadata" >
-            <source src="https://res.cloudinary.com/dth8lnhas/video/upload/v1664988466/development/<%=video.file.key%>.mp4" type="video/mp4" allowfullscreen=0>
-            <source src="mov_bbb.ogg" type="video/ogg">
+            <source src="https://res.cloudinary.com/dth8lnhas/video/upload/a_<%= video.rotation.to_s %>v1664988466/production/<%=video.file.key%>.mp4" type="video/mp4" allowfullscreen=0>
               Your browser does not support HTML video.
           </video>
 
@@ -16,8 +15,6 @@
       <div class="w-7/12 mt-3">
         <h5>Title: <%= video.title %></h5>
         <h5>Rotation angle: <%= video.rotation %>°</h5>
-        <p class="text-center mt-2"><%= video.cadence_step %></p>
-        <p class="text-center text-xl font-bold mt-2"><%= video.addressed %></p>
       </div>
     </div>
   </div>
