@@ -1,0 +1,18 @@
+<div class="page-wrap">
+  <%= render"shared/terminalnav" %>
+  <div class="flex">
+    <%= render "shared/sidebar" %>
+    <div class="flex-column"style="width:100%; margin: 20px; ">
+      <%= render "shared/pagehead" %>
+      <%= render "backgrounds/pagetabs" %>
+      <div class="container pt-4 col-4">
+        <h1>Edit Background</h1>
+        <%= simple_form_for [@user, @background] do |f| %>
+          <%= f.input :title %>
+          <%= f.submit class: 'btn btn-success text-white' %>
+        <% end %>
+        <br>
+      </div>
+    </div>
+  </div>
+</div>

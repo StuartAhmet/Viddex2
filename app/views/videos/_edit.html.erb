@@ -1,0 +1,9 @@
+<div class="container pt-4 col-4">
+
+  <%= simple_form_for [@user, @video] do |f| %>
+    <%= f.input :title %>
+    <%= f.input :rotation, collection: Video::ROTATION %>
+    <%= f.submit class: 'btn btn-success text-white' %>
+  <% end %>
+
+  <br>
