@@ -3,11 +3,19 @@
               <div class="flex" style="flex-direction:column"  type="button" data-bs-toggle="modal" data-bs-target=<%= "#exampleModal#{background.id}" %>>
                 <div class="item-card" style="margin-bottom:20px;margin-right:20px">
                   <% if background.photo.attached? %>
+                    <% if Rails.env == "production" %>
                       <%= cl_image_tag background.photo.key,
-                      height: 120, width: 213, crop: :fill,
-                      class: "d-block rounded-lg toprd5px" %>
-                  <% else %>
-                    <p>image not loading</p>
+                        height: 120, width: 213, crop: :fill,
+                        class: "d-block rounded-lg toprd5px" %>
+                    <% elsif Rails.env == "development" %>
+                      <%= cl_image_tag background.photo.key,
+                        height: 120, width: 213, crop: :fill,
+                        class: "d-block rounded-lg toprd5px" %>
+
+                      <%= background.photo.key %>
+
+                    <% end %>
+
                   <% end %>
                   <p style="padding:10px 0px;margin-left:12px;" ><%= background.title.capitalize %></p>
                   <% mbsize = background.photo.byte_size.to_f / 1048576 %>
