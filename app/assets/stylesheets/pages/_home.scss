@@ -1,1 +1,22 @@
 // Specific CSS for your home-page
+.wrapper{
+  justify-content: center;
+  display: flex;
+}
+
+#video_box{
+  position:relative;
+}
+#video_overlays {
+  position:absolute;
+  width:120px;
+  height:85px;
+  background-size: 120px 85px;
+  overflow-wrap: break-word;
+  z-index:3;
+  top:110px;
+  left:356px;
+  text-align:center;
+  font-family: 'Permanent Marker', cursive;
+
+}

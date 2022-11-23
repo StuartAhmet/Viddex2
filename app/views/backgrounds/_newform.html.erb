@@ -1,0 +1,11 @@
+ <%= simple_form_for @background, url: user_backgrounds_path do |f| %>
+  <div class="flex-column">
+        <%= f.input :title %>
+
+        <div class="flex" style="justify-content:space-between">
+          <%= f.input :photo, as: :file, label: false %>
+          <%= f.submit "Upload", class: "up-btn" %>
+        </div>
+
+  </div>
+<% end %>

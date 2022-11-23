@@ -1,0 +1,18 @@
+<div style="margin-top:10px">
+    <ul class="nav nav-tabs" style="margin-bottom:20px">
+      <li class="nav-item">
+        <%=link_to user_projects_path(@user, @projects) do %>
+          <button class="btn nav-link <%= "active" if current_page?(user_projects_path) %> br5">
+            <i class="bi bi-bounding-box mr10"></i>All Projects
+          </button>
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <%=link_to new_user_project_path(@user, @project) do %>
+          <button class="btn nav-link <%= "active" if current_page?(new_user_project_path) %> br5">
+            <i class="bi bi-cloud-plus mr10"></i>New Project
+          </button>
+        <% end %>
+      </li> <br>
+    </ul>
+</div>

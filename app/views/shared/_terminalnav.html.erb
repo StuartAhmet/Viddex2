@@ -1,0 +1,12 @@
+<div class="flex sticky-top" style="background-color:rgb(64, 64, 64)">
+  <%= image_tag "https://res.cloudinary.com/dth8lnhas/image/upload/v1667829304/Viddex_logo_3_frlznu.png", style: "height:77px" %>
+    <div style="display:flex; justify-content:flex-end; width:80%; margin-top: 26px; ">
+      <h2>home</h2>
+              <%= link_to destroy_user_session_path, data: {turbo_method: :false} do %>
+                <span class="nav-link">
+                  <h2 class="text-xl font-bold">Logout</h2>
+                </span>
+              <% end %>
+            </li>
+    </div>
+</div>

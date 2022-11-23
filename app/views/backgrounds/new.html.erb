@@ -1,0 +1,12 @@
+
+<div class="page-wrap">
+  <%= render"shared/terminalnav" %>
+  <div class="flex">
+    <%= render "shared/sidebar" %>
+    <div class="flex-column"style="width:100%; margin: 20px; ">
+      <%= render "shared/pagehead" %>
+      <%= render "backgrounds/pagetabs" %>
+      <%= render "backgrounds/newform", user: @user, backgrounds: @user.backgrounds %>
+    </div>
+  </div>
+</div>

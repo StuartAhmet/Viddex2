@@ -1,0 +1,21 @@
+<%# this generates a URL for the video file which is then rendered in
+the video player below %>
+<% environment = Rails.env %>
+<%  cloudinary_http = "https://res.cloudinary.com/dth8lnhas/video/upload/"
+    video_params = "dl_0/a_" + @project.video.rotation.to_s
+    background_params = "/c_fill,u_" + environment +":"+ @project.background.photo.key + ",w_1280,x_0/"
+    message_params = "g_north," + "x_" + @project.background.x_axis.to_s + ",y_" + @project.background.y_axis.to_s +
+                    ",w_" + @project.background.width.to_s + ",c_fit,a_" + @project.background.angle.to_s +
+                    ",o_" + @project.opacity.to_s + ",l_text:" + @project.font + "_" +
+                    @project.font_size.to_s + ":" + @project.message
+    video_key = "/v1665164526/"+ environment +"/" + @project.video.file.key
+    file_type = ".mp4#t=0.1"
+
+    @source_location = cloudinary_http.to_s + video_params.to_s + background_params.to_s +
+                      message_params.to_s + video_key.to_s + file_type.to_s
+    %>
+
+    <video width="900px"  controls preload="metadata" style="border-radius:10px">
+      <source src= "<%= @source_location %>" type="video/mp4" allowfullscreen=0>
+      Your browser does not support HTML video.
+    </video>
