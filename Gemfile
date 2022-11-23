@@ -31,6 +31,7 @@ gem "jbuilder"
 gem "devise"
 gem 'public_uid'
 gem "cloudinary"
+gem "bootstrap"
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
