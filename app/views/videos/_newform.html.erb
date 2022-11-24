@@ -2,7 +2,10 @@
   <div class="flex-column" >
 
       <p style="color:red">File types supported (mp4, quicktime/MOV, webm)</p>
-      <%= f.input :title %>
+      <div class="flex space-between">
+        <%= f.input :title %>
+        <%= f.input :bgrem_require, as: :radio_buttons, collection: [['Yes', true], ['No', false]], label: "Remove background for this video?", required: true %>
+      </div>
 
       <div class="flex" style="justify-content:space-between">
         <%= f.input :file, as: :file, placeholder: "files supported..", label: false %>
