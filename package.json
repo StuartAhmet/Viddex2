@@ -13,6 +13,6 @@
   },
   "scripts": {
     "build": "webpack --config webpack.config.js",
-    "build:css": "sass ./app/assets/stylesheets/application.scss:./app/assets/builds/application.css --no-source-map --load-path=node_modules"
+    "build:css": "sass ./app/assets/stylesheets/old_application.scss:./app/assets/builds/application.css --no-source-map --load-path=node_modules"
   }
 }
