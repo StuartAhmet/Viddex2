@@ -1,1 +1,19 @@
 // Entry point for your Sass build
+// @import "old_application";
+
+// Graphical variables
+@import "config/fonts";
+@import "config/colors";
+@import "config/bootstrap_variables";
+
+// External libraries
+@import "bootstrap/scss/bootstrap";
+@import "font-awesome";
+
+// Your CSS partials
+@import "components/index";
+@import "pages/index";
+@import "videos/index";
+@import "users/show";
+@import "backgrounds/index";
+@import "projects/cards";
