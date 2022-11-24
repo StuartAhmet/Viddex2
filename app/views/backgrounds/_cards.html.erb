@@ -1,6 +1,6 @@
  <div class="flex flex-wrap content-start overflow-auto " style="justify-content:flex-start">
-            <% @user.backgrounds.reverse.each do |background| %><%= render "backgrounds/modal", background: background %>
-              <div class="flex" style="flex-direction:column"  type="button" data-bs-toggle="modal" data-bs-target=<%= "#exampleModal#{background.id}" %>>
+            <% @user.backgrounds.reverse.each do |background| %>
+              <div class="flex" style="flex-direction:column">
                 <div class="item-card" style="margin-bottom:20px;margin-right:20px">
                   <% if background.photo.attached? %>
 
@@ -16,7 +16,19 @@
                   <% end %>
                   <p style="padding:10px 0px;margin-left:12px;" ><%= background.title.capitalize %></p>
                   <% mbsize = background.photo.byte_size.to_f / 1048576 %>
-                  <p style="margin-left:12px"><%=mbsize.round(2)%> MB</p>
+                  <div class="flex space-between">
+                    <p style="margin-left:12px"><%=mbsize.round(2)%> MB</p>
+                    <div class="dropdown">
+                      <button class="bi bi-three-dots-vertical mr10" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false"
+                              style="background-color:transparent;border-color:transparent">
+                      </button>
+                      <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+                        <li><a class="dropdown-item bi bi-pencil-square" href="/terminal/<%= @user.public_uid %>/backgrounds/<%= background.public_uid%>/edit"> Edit</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a data-turbo-method="delete" class="dropdown-item bi bi-trash"data-turbo-confirm="Are you sure?" href="/terminal/<%= @user.public_uid %>/backgrounds/<%= background.public_uid%>"> Delete</a></li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
               <div>
         </div>
