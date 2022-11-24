@@ -40,7 +40,7 @@ class BackgroundsController < ApplicationController
   def destroy
     @background = Background.find_by(public_uid: params[:id])
     @background.destroy
-    redirect_to user_backgrounds_path, notice: 'Background deleted', status: :see_other
+    redirect_to user_backgrounds_path
   end
 
   private

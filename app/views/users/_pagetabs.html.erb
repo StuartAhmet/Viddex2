@@ -1,0 +1,18 @@
+<div style="margin-top:10px">
+    <ul class="nav nav-tabs" style="margin-bottom:20px">
+      <li class="nav-item">
+        <%=link_to user_videos_path(@user, @videos) do %>
+          <button class="btn nav-link <%= "active" if current_page?(user_path) %> br5">
+            <i class="bi bi-bounding-box mr10"></i>All Videos
+          </button>
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <%=link_to new_user_video_path(@user, @video) do %>
+          <button class="btn nav-link <%= "active" if current_page?(user_path) %> br5">
+            <i class="bi bi-cloud-plus mr10"></i>Upload
+          </button>
+        <% end %>
+      </li> <br>
+    </ul>
+</div>
