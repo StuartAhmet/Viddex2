@@ -6,19 +6,6 @@
           <%= project.prospect_first %> <%= project.prospect_last %> @
           <%= project.prospect_company %>
           <div class="flex" id="video_box">
-            <%# <div id="video_overlays"><%= project.message %>
-            <div class="flex space-between" style="flex-direction:column;padding-right:8px">
-                          <button class="btn btn-outline-dark flex br5" id="pills-copy" data-bs-toggle="pill" data-bs-target="#pills-video" type="button" role="tab" aria-controls="pills-video" aria-selected="true">
-                          <i class="bi bi-clipboard-check mr10"></i>Copy</button>
-                          <button class="btn btn-outline-dark flex br5 " id="pills-video-tab" data-bs-toggle="pill" data-bs-target="#pills-video" type="button" role="tab" aria-controls="pills-video" aria-selected="true">
-                          <i class="bi bi-binoculars mr10"></i><a href="/watch/<%=project.public_uid%>">View</a></button>
-                          <button class="btn btn-outline-dark flex br5" id="pills-video-tab" data-bs-toggle="pill" data-bs-target="#pills-video" type="button" role="tab" aria-controls="pills-video" aria-selected="true">
-                          <i class="bi bi-pencil-square mr10"></i><a href="/terminal/<%= @user.public_uid %>/projects/<%= project.public_uid%>/edit" >Edit</a></button>
-                          <button class="btn btn-outline-dark flex br5" id="pills-video-tab" data-bs-toggle="pill" data-bs-target="#pills-video" type="button" role="tab" aria-controls="pills-video" aria-selected="true">
-                          <i class="bi bi-trash mr10"></i><a data-turbo-method="delete"  data-turbo-confirm="Are you sure?" href="/terminal/<%= @user.public_uid %>/projects/<%= project.public_uid%>">Delete</a></button>
-
-            </div>
-
 
             <% message_params = "g_north," + "x_" + project.background.x_axis.to_s + ",y_" + project.background.y_axis.to_s +
                     ",w_" + project.background.width.to_s + ",c_fit,a_" + project.background.angle.to_s +
@@ -32,7 +19,21 @@
 
           </div>
               <p>viddex.io/watch/<%= project.public_uid %> </p>
-              <p><%= project.created_at %></p>
+              <div class="flex space-between">
+                  <button class="btn btn-outline-dark flex br5" id="pills-copy" data-bs-toggle="pill" data-bs-target="#pills-video" type="button" role="tab" aria-controls="pills-video" aria-selected="true">
+                  <i class="bi bi-clipboard-check mr10"></i>Copy</button>
+                <div class="dropdown">
+                  <button class="bi bi-three-dots-vertical mr10" type="button"                  id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false"
+                    style="background-color:transparent;border-color:transparent">
+                  </button>
+                  <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+                    <li><a class="dropdown-item bi bi-binoculars mr10" href="/watch/<%= project.public_uid %>"> View</a></li>
+                    <li><a class="dropdown-item bi bi-pencil-square" href="/terminal/<%= @user.public_uid %>/projects/<%= project.public_uid%>/edit"> Edit</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a data-turbo-method="delete" class="dropdown-item bi bi-trash"data-turbo-confirm="Are you sure?" href="/terminal/<%= @user.public_uid %>/projects/<%= project.public_uid%>"> Delete</a></li>
+                  </ul>
+                </div>
+              </div>
         </div>
       </div>
 
