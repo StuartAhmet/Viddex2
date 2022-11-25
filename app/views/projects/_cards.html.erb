@@ -5,14 +5,36 @@
         <div class="project-card" style="margin-bottom:20px;margin-right:20px">
           <%= project.prospect_first %> <%= project.prospect_last %> @
           <%= project.prospect_company %>
+          <%= @url_message %>
           <div class="flex" id="video_box">
+
+<% url_friendly ={
+    "?"	=> "%3f",
+    '@'	=> '%40',
+    '!'	=> '%21',
+    '"'	=> '%22',
+    '#'	=> '%23',
+    '$'	=> '%24',
+    '%'	=> '%25',
+    '&'	=> '%26',
+    '/'	=> '%2f',
+    '.'	=>'%2e',
+    '-'	=>'%2d',
+    ','	=>'%2c',
+} %>
+
+<% if project.message_body?
+      url_message_a = project.message.gsub(Regexp.union(url_friendly.keys), url_friendly)+ "%0d"+ project.message_body.gsub(Regexp.union(url_friendly.keys), url_friendly)
+  else
+      url_message_a = project.message.gsub(Regexp.union(url_friendly.keys), url_friendly)
+  end%>
 
             <% message_params = "g_north," + "x_" + project.background.x_axis.to_s + ",y_" + project.background.y_axis.to_s +
                     ",w_" + project.background.width.to_s + ",c_fit,a_" + project.background.angle.to_s +
                     ",o_" + project.opacity.to_s + ",l_text:" + project.font + "_" +
-                    project.font_size.to_s + ":" + project.message %>
+                    project.font_size.to_s + ":" + url_message_a.to_s%>
             <div class="copy-image">
-              <img src="https://res.cloudinary.com/dth8lnhas/video/upload/c_scale,dl_121,du_0.1,pg_1,so_3,w_1280/a_<%=project.video.rotation %>/c_scale,u_<%= Rails.env %>:<%= project.background.photo.key %>,w_1280/<%= message_params %>/c_scale,l_play-button-icon-png-18919_ssamfy,o_53,w_349/v1665164526/<%= Rails.env %>/<%= project.video.file.key %>.gif" alt="Video"
+              <img src="https://res.cloudinary.com/dth8lnhas/video/upload/c_scale,dl_121,du_0.1,pg_1,so_3,w_1280/a_<%=project.video.rotation %>/c_scale,u_<%= Rails.env %>:<%= project.background.photo.key %>,w_1280/<%= message_params %>/c_scale,l_play-button-icon-png-18919_ssamfy,o_53,w_349/v1665164526/<%= Rails.env %>/<%= project.video.file.key %>.gif" alt="Unable to generate - try removing special characters"
                   width="280" height="157" > <br>
             </div>
 
