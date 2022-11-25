@@ -28,8 +28,12 @@
           <%= f.input :prospect_company %>
           <%= f.input :prospect_email %>
         </div>
-        <%= f.input :message, placeholder:
-            "Hi #{user.first_name.capitalize}, #{user.company_name} / Viddex" %>
+            <div class="flex-column">
+              <%= f.input :message,input_html: { class: "message_styling" },placeholder:
+              "Hi #{user.first_name.capitalize} "%>
+              <%= f.input :message_body, label: false,placeholder:
+              "Want to increase email response rates? " %>
+            </div>
       </div>
       </div>
 
@@ -43,13 +47,12 @@
           <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
             <div class="accordion-body">
               <div class="flex"style="justify-content:space-between">
-                <%= f.input :font  %>
+                <%= f.input :font, collection: Project::FONT  %>
                 <%= f.input :opacity, label: "Font opacity" %>
                 <%= f.input :font_size %>
               </div>
             </div>
           </div>
-
         </div>
       </div>
 

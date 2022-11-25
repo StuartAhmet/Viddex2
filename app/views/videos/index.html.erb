@@ -3,7 +3,10 @@
   <div class="flex">
     <%= render "shared/sidebar" %>
     <div class="flex-column"style="width:100%; margin: 20px; ">
-      <%= render "shared/pagehead" %>
+      <div class="flex space-between">
+        <%= render "shared/pagehead" %>
+        <%= render "unprocessedwarn" %>
+      </div>
       <%= render "videos/pagetabs" %>
       <%= render "videos/cards", user: @user, videos: @user.videos %>
     </div>
