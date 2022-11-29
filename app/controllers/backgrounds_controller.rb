@@ -34,7 +34,7 @@ class BackgroundsController < ApplicationController
   def update
     @background = Background.find_by(public_uid: params[:id])
     @background.update(background_params)
-    redirect_to user_backgrounds_path
+    redirect_to edit_user_background_path
   end
 
   def destroy
@@ -46,7 +46,7 @@ class BackgroundsController < ApplicationController
   private
 
   def background_params
-    params.require(:background).permit(:title, :photo)
+    params.require(:background).permit(:title, :photo, :x_axis, :y_axis, :width, :angle)
   end
 
   def set_user
