@@ -3,6 +3,7 @@
   <%= simple_form_for [@user, @video] do |f| %>
     <%= f.input :title %>
     <%= f.input :rotation, collection: Video::ROTATION %>
+    <%= f.input :bgrem_require, as: :radio_buttons, collection: [['Yes', true], ['No', false]], label: "Remove background for this video?", required: true %>
     <%= f.submit class: 'btn btn-success text-white' %>
   <% end %>
 

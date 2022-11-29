@@ -40,13 +40,14 @@ class VideosController < ApplicationController
   def destroy
     @video = Video.find_by(public_uid: params[:id])
     @video.destroy
-    redirect_to user_videos_path, notice: 'Video deleted', status: :see_other
+    redirect_to user_videos_path
+    # , notice: 'Video deleted', status: :see_other
   end
 
   private
 
   def video_params
-    params.require(:video).permit(:title, :cadence_step, :rotation, :addressed, :file)
+    params.require(:video).permit(:title, :cadence_step, :rotation, :addressed, :file, :bgrem_require)
   end
 
   def set_user

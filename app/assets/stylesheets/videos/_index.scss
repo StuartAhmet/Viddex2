@@ -1,5 +1,3 @@
-@import "cards";
-
 .item-card{
   width: 213px;
 
@@ -29,4 +27,11 @@
 .form-wrap{
   padding: 20px;
   width: 600px;
+}
+.scroll-container {
+  height: 670px;
+}
+.toprd5px{
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
