@@ -25,9 +25,9 @@
 
 <% if project.message_body?
       url_message_a = project.message.gsub(Regexp.union(url_friendly.keys), url_friendly)+ "%0d"+ project.message_body.gsub(Regexp.union(url_friendly.keys), url_friendly)
-  else
+    else
       url_message_a = project.message.gsub(Regexp.union(url_friendly.keys), url_friendly)
-  end%>
+    end%>
 
             <% message_params = "g_north," + "x_" + project.background.x_axis.to_s + ",y_" + project.background.y_axis.to_s +
                     ",w_" + project.background.width.to_s + ",c_fit,a_" + project.background.angle.to_s +
