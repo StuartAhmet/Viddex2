@@ -10,7 +10,7 @@
                 prompt: "Select background", label: false,
                 :inline_label => false,
                 :include_blank => false,
-                :label_method => lambda { |bg| "#{cl_image_tag(render "backgrounds/cards" )},
+                :label_method => lambda { |bg| "#{cl_image_tag(render "backgrounds/cards" )}
                 #{bg.title}".html_safe }
                  %>
         </div>
@@ -19,15 +19,8 @@
         </div>
       </div>
       <div>
-      <div class="flex"style="justify-content:space-between">
-        <%= f.input :prospect_first, label: "Prospect first name", placeholder: "" %>
-        <%= f.input :prospect_last %>
-      </div>
-      <div class="flex"style="justify-content:space-between">
-        <div class="flex" style="flex-direction:column">
-          <%= f.input :prospect_company %>
-          <%= f.input :prospect_email %>
-        </div>
+        <%= f.input :title, label: "Project title", placeholder: "eg. Video for Elon @ Tesla" %>
+
             <div class="flex-column">
               <%= f.input :message,input_html: { class: "message_styling" },placeholder:
               "Hi #{user.first_name.capitalize} "%>
@@ -35,13 +28,12 @@
               "Want to increase email response rates? " %>
             </div>
       </div>
-      </div>
 
       <div class="accordion" id="accordionPanelsStayOpenExample">
          <div class="accordion-item">
           <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-              Advanced options
+              Message options
             </button>
           </h2>
           <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">

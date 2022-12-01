@@ -3,8 +3,7 @@
       <% @user.projects.order(:id).reverse.each do |project| %>
       <div >
         <div class="project-card" style="margin-bottom:20px;margin-right:20px">
-          <%= project.prospect_first %> <%= project.prospect_last %> @
-          <%= project.prospect_company %>
+          <%= project.title %>
           <%= @url_message %>
           <div class="flex" id="video_box">
 
