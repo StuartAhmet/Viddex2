@@ -9,10 +9,8 @@ class Project < ApplicationRecord
   belongs_to :background
   belongs_to :video
 
-  validates :prospect_first, presence: true
-  validates :prospect_company, presence: true
-  validates :message, presence: true
+  validates :title, presence: true
 
-  FONT = ['Covered By Your Grace','Gloria Hallelujah','Indie Flower','Inspiration','Kalam','Nanum Brush Script','Nothing You Could Do','permanent marker',
-    'Reenie Beanie','Rock Salt','Shadows Into Light']
+  FONT = ['Covered By Your Grace','Gloria Hallelujah','Indie Flower','Inspiration','Kalam','Nanum Brush Script',
+    'Nothing You Could Do','permanent marker', 'Reenie Beanie','Rock Salt','Shadows Into Light']
 end

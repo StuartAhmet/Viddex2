@@ -1,14 +1,6 @@
       <div class="container pt-4 col-4">
         <%= simple_form_for [@user, @project] do |f| %>
-          <div class="flex">
-            <%= f.input :prospect_first %>
-            <%= f.input :prospect_last  %>
-          </div>
-
-          <div class="flex">
-            <%= f.input :prospect_company %>
-            <%= f.input :prospect_email %>
-          </div>
+          <%= f.input :title, label: "Project title", placeholder: "eg. Video for Elon @ Tesla" %>
           <div class="flex-column">
             <%= f.input :message,input_html: { class: "message_styling" } %>
             <%= f.input :message_body, label: false %>

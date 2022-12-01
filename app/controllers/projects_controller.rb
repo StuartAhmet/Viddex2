@@ -64,6 +64,6 @@ class ProjectsController < ApplicationController
   def project_params
     params.require(:project).permit(:background_id, :video_id, :prospect_first,
                                     :prospect_last, :prospect_email, :prospect_company, :message,
-                                    :message_body, :font, :opacity, :font_size)
+                                    :message_body, :font, :opacity, :font_size, :title)
   end
 end
