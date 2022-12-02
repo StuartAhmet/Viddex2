@@ -1,6 +1,6 @@
-<div class="flex">
-  <img src="https://sore-fuchsia-tiger.faviconkit.com/<%= @project.prospect_email.partition("@")[2] %>/60">
-  <%= @user.email.partition("@")[2] %> <br>
+<div class="flex show-bar">
+  <img class="favicon" src="https://sore-fuchsia-tiger.faviconkit.com/<%= @project.user.email.partition("@")[2] %>/60">
+
 </div>
 
 <div class="flex" style="justify-content:center">
@@ -11,7 +11,7 @@
     <div class="flex" style="justify-content:space-between">
       <h5 style="margin-top:7px;margin-left:20px"><%= @project.title %> </h5>
       <% if @project.user.meeting_link? %>
-        <a class="btn btn-primary br5" href= https://google.com role="button">
+        <a class="btn btn-primary br5"  href="<%= @user.meeting_link %>" target="_blank" role="button">
         <i class="bi bi-calendar-week mr10"></i>
         Book a meeting with <%= @project.user.first_name.capitalize || @project.user.full_name.capitalize%>
       <% end %>
