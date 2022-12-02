@@ -8,9 +8,9 @@ class User < ApplicationRecord
   end
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
-        #  may still need to add the following
-        # :omniauthable, omniauth_providers: [:google_oauth2]
+         :recoverable, :rememberable, :validatable,
+          #  for Google OmniAuth
+         :omniauthable, omniauth_providers: [:google_oauth2]
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
