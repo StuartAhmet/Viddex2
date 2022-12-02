@@ -1,12 +1,31 @@
-<div class="flex sticky-top" style="background-color:rgb(64, 64, 64)">
+<div class="flex fixed w-100" style="background-color:rgb(64, 64, 64); margin-top:-16px">
   <%= image_tag "https://res.cloudinary.com/dth8lnhas/image/upload/v1667829304/Viddex_logo_3_frlznu.png", style: "height:77px" %>
-    <div style="display:flex; justify-content:flex-end; width:80%; margin-top: 26px; ">
-      <h2>home</h2>
-              <%= link_to destroy_user_session_path, data: {turbo_method: :false} do %>
-                <span class="nav-link">
-                  <h2 class="text-xl font-bold">Logout</h2>
-                </span>
-              <% end %>
-            </li>
+    <div style="display:flex; justify-content:flex-end; width:80%; margin-top: 16px; ">
+      <p style="padding-top:10px;padding-right:15px">
+        <%= link_to "Home", root_path, style: "color:white" %>
+      </p>
+        <% if @user.provider == "google_oauth2" %>
+            <div class="dropdown">
+              <button data-bs-toggle="dropdown" style="background-color:transparent; border:none;" >
+                <img class="g-logo" src="<%= @user.avatar_url %>" alt="unable to locate image">
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item"> <%= @user.first_name || @user.full_name %> <br>
+                      <%= @user.email %></a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><%= link_to destroy_user_session_path, data: {turbo_method: :false} do %>
+                  <span>
+                    <p class="dropdown-item">Logout</p>
+                  </span>
+                <% end %></li>
+              </ul>
+            </div>
+        <% else %>
+          <%= link_to destroy_user_session_path, data: {turbo_method: :false} do %>
+            <span class="nav-link">
+              <p style="color:white;padding-top:10px">Logout</p>
+            </span>
+          <% end %>
+        <% end %>
     </div>
 </div>
