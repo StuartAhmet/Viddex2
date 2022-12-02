@@ -1,0 +1,32 @@
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+        <% if user_signed_in? %>
+
+          <li class="nav-item">
+            <%= link_to destroy_user_session_path, data: {turbo_method: :delete} do %>
+              <span class="nav-link">
+                <h4><%= "Logout" %></h4>
+              </span>
+              <% end %>
+            <button type="button" class="bg-black btn-modal px-5 py-2 text-white rounded-lg mt-3" data-bs-dismiss="modal"><a href="/terminal/<%= current_user.public_uid %>" >My terminal</a></button>
+          </li>
+
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Login", new_user_session_path, class: "nav-link pt-10" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Request a Demo", new_user_session_path, class: "nav-link pt-10" %>
+          </li>
+          <li class="">
+            <%= link_to "Register For Free", new_user_registration_path, class: "nav-link lb-btn"%>
+          </li>
+        <% end %>
+
+      </ul>
+    </div>
