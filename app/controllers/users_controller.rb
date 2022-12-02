@@ -13,6 +13,16 @@ class UsersController < ApplicationController
     @user = User.find_by(public_uid: params[:id])
   end
 
+  def edit
+    @user = User.find_by(public_uid: params[:id])
+  end
+
+  def update
+    @user = User.find_by(public_uid: params[:id])
+    @user.update(user_params)
+    redirect_to user_path
+  end
+
   def create
     @user = User.new(user_params)
     if @user.save
@@ -29,7 +39,8 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :company_name, :industry, :email, :password)
+    params.require(:user).permit(:first_name, :last_name, :company_name, :industry,
+          :email, :password, :meeting_link)
   end
 
 

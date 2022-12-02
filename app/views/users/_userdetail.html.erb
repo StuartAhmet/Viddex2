@@ -1,5 +1,12 @@
+<%= simple_form_for @user, url: user_path do |f| %>
+  <div class="flex">
+    <p>My meeting link</p>
+    <%= f.input :meeting_link, label: false %>
+    <%= f.submit 'Save', class: 'btn btn-outline-dark', style:"border-radius:5px"%>
+  </div>
+<% end %>
 
-<%= @user.avatar_url %>
+<%= @user.avatar_url %> <br>
 <img src="<%= @user.avatar_url %>" alt="unable to locate image">
 <%= @user.email %>
 <p style="font-family: 'Kalam', cursive;">hello</p>
