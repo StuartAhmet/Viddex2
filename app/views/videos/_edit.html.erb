@@ -1,10 +1,22 @@
-<div class="container pt-4 col-4">
-
-  <%= simple_form_for [@user, @video] do |f| %>
-    <%= f.input :title %>
-    <%= f.input :rotation, collection: Video::ROTATION %>
-    <%= f.input :bgrem_require, as: :radio_buttons, collection: [['Yes', true], ['No', false]], label: "Remove background for this video?", required: true %>
-    <%= f.submit class: 'btn btn-success text-white' %>
-  <% end %>
-
-  <br>
+<div class="flex">
+  <div style="width:400px;padding-top: 20px;margin-right: 30px;"">
+    <%= simple_form_for [@user, @video] do |f| %>
+      <div class="flex space-between">
+        <p>Title</p>
+        <%= f.input :title, label: false, input_html: { class: "form-input-medium" }  %>
+      </div>
+      <div class="flex space-between">
+        <p>Rotation Angle</p>
+        <%= f.input :rotation, collection: Video::ROTATION, label: false, input_html: { class: "form-input-medium" }  %>
+      </div>
+      <%= f.input :bgrem_require, as: :radio_buttons, collection: [['Yes', true], ['No', false]], label: "Remove background for this video?", required: true %>
+      <%= f.submit 'Save and preview', class: 'nav-link lb-btn', style: "border:none;width:100%" %>
+    <% end %>
+  </div>
+  <div>
+    <video width="560" height="315" controls preload="metadata" >
+      <source src="https://res.cloudinary.com/dth8lnhas/video/upload/a_<%= @video.rotation.to_s %>/v1664988466/<%= Rails.env %>/<%=@video.file.key%>.mp4" type="video/mp4" allowfullscreen=0>
+      Your browser does not support HTML video.
+    </video>
+  </div>
+</div>

@@ -35,12 +35,14 @@ class BackgroundsController < ApplicationController
     @background = Background.find_by(public_uid: params[:id])
     @background.update(background_params)
     redirect_to edit_user_background_path
+    flash[:notice] = "Background Updated"
   end
 
   def destroy
     @background = Background.find_by(public_uid: params[:id])
     @background.destroy
     redirect_to user_backgrounds_path
+    flash[:notice] = "Background Deleted"
   end
 
   private

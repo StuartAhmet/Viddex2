@@ -28,9 +28,9 @@ class ProjectsController < ApplicationController
 
     if @project.save
       redirect_to user_projects_path
-      flash[:notice] = "project created"
+      flash[:notice] = "Project Created"
     else
-      flash.now[:error] = "could not create project"
+      flash.now[:error] = "Could not create project"
     end
   end
 
@@ -42,6 +42,8 @@ class ProjectsController < ApplicationController
     @project = Project.find_by(public_uid: params[:id])
     @project.update(project_params)
     redirect_to edit_user_project_path
+    flash[:notice] = "Project Updated"
+
   end
 
   def destroy

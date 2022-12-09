@@ -20,7 +20,8 @@ class VideosController < ApplicationController
   def update
     @video = Video.find_by(public_uid: params[:id])
     @video.update(video_params)
-    redirect_to user_videos_path
+    redirect_to edit_user_video_path
+    flash[:notice] = "Video Updated"
   end
 
   def new
@@ -41,7 +42,7 @@ class VideosController < ApplicationController
     @video = Video.find_by(public_uid: params[:id])
     @video.destroy
     redirect_to user_videos_path
-    # , notice: 'Video deleted', status: :see_other
+    flash[:notice] = "Video Deleted"
   end
 
   private
