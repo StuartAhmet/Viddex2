@@ -28,4 +28,7 @@ class User < ApplicationRecord
   has_many :backgrounds
   has_many :projects
 
+  INDUSTRY = ["Advertising", "Finance", "Financial Services", "Information Technology", "Insurance",
+              "Marketing", "Media", "Real Estate", "Recruitment", "Software", "Technology",
+              "Telecommunications","Other - not listed"]
 end

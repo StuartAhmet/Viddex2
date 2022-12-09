@@ -1,7 +1,29 @@
 <%= simple_form_for @user, url: user_path do |f| %>
-  <div class="flex">
-    <p>My meeting link</p>
-    <%= f.input :meeting_link, label: false %>
-    <%= f.submit 'Save', class: 'btn btn-outline-dark', style:"border-radius:5px"%>
+  <div style="width:400px">
+    <div class="flex space-between">
+      <p>First Name:</p>
+      <%= f.input :first_name, label: false, input_html: { class: "form-input-medium" } %>
+    </div>
+    <div class="flex space-between">
+      <p>Last Name:</p>
+      <%= f.input :last_name, label: false, input_html: { class: "form-input-medium" } %>
+    </div>
+    <div class="flex space-between">
+      <p>Email:</p>
+      <%= f.input :email, disabled: true,label: false, input_html: { class: "form-input-medium" } %>
+    </div>
+    <div class="flex space-between">
+      <p>Company:</p>
+      <%= f.input :company_name, label: false, input_html: { class: "form-input-medium" } %>
+    </div>
+    <div class="flex space-between">
+      <p>Industry:</p>
+      <%= f.input :industry, collection: User::INDUSTRY, label: false, input_html: { class: "form-input-medium" } %>
+    </div>
+    <div class="flex space-between">
+      <p>Meeting link:</p>
+      <%= f.input :meeting_link, label: false, input_html: { class: "form-input-medium" } %>
+    </div>
   </div>
+    <%= f.submit 'Save', class: 'nav-link lb-btn', style: "border:none"%>
 <% end %>
