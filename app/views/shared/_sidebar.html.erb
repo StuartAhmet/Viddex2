@@ -1,11 +1,11 @@
 <div class="col-sm-3 col-md-2 flex-wrap p-0 vh100-smoke" >
-  <ul class="sidebar col-sm-3 col-md-2 nav btn-toggle-nav flex-column pt10 " >
+  <ul class="sidebar col-sm-3 col-md-2 nav btn-toggle-nav flex-column pt-30 pl-10 " >
     <li>
     <button style="width:165px" aria-expanded="false" class="btn btn-toggle align-items-center rounded tal" data-bs-toggle="collapse" data-bs-target=".sidebar .main-f2ad7dec"><i class="bi bi-record-circle mr10"></i>Projects  <i class="fas fa-chevron-down"></i> </button>
       <div class="collapse show main-f2ad7dec">
         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 pl20">
-          <li> <%= link_to "View all", user_projects_path(@user) %></li>
-          <li> <%= link_to "New project", new_user_project_path(@user) %></li>
+          <li><i class="bi bi-arrow-return-right"></i> <%= link_to "View all", user_projects_path(@user) %></li>
+          <li><i class="bi bi-arrow-return-right"></i> <%= link_to "New project", new_user_project_path(@user) %></li>
 
         </ul>
       </div>
@@ -14,7 +14,7 @@
     <button style="width:165px" aria-expanded="true" class="btn btn-toggle align-items-center rounded tal" data-bs-toggle="collapse" data-bs-target=".sidebar .main-f2ad7dec1"><i class="bi bi-speedometer2 mr10"></i>Dashboard  <i class="fas fa-chevron-down"></i> </button>
       <div class="collapse show main-f2ad7dec1">
         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 pl20">
-          <li> <%= link_to "Dashboard", user_path(@user) %></li>
+          <li> <i class="bi bi-arrow-return-right"></i> <%= link_to "Dashboard", user_path(@user) %></li>
         </ul>
       </div>
     </li>
@@ -22,8 +22,8 @@
     <button style="width:165px" aria-expanded="true" class="btn btn-toggle align-items-center rounded tal" data-bs-toggle="collapse" data-bs-target=".sidebar .main-846495f9"><i class="bi bi-collection mr10"></i>Assets  <i class="fas fa-chevron-down"></i> </button>
       <div class="collapse show main-846495f9">
         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 pl20">
-          <li> <%= link_to "Backgrounds", user_backgrounds_path(@user ) %> </li>
-          <li> <%= link_to "Videos", user_videos_path(@user) %> </li>
+          <li> <i class="bi bi-arrow-return-right"></i> <%= link_to "Backgrounds", user_backgrounds_path(@user ) %> </li>
+          <li> <i class="bi bi-arrow-return-right"></i> <%= link_to "Videos", user_videos_path(@user) %> </li>
         </ul>
       </div>
     </li>

@@ -1,36 +1,65 @@
-      <div class="container pt-4 col-4">
-        <%= simple_form_for [@user, @project] do |f| %>
-          <%= f.input :title, label: "Project title", placeholder: "eg. Video for Elon @ Tesla" %>
-          <div class="flex-column">
-            <%= f.input :message,input_html: { class: "message_styling" } %>
-            <%= f.input :message_body, label: false %>
-          </div>
-          <div class="accordion" id="accordionPanelsStayOpenExample">
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-                  Advanced options
-                </button>
-              </h2>
-              <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
-                <div class="accordion-body">
-                  <div class="flex"style="justify-content:space-between">
-                    <%= f.input :font, collection: Project::FONT  %>
-                    <%= f.input :opacity, label: "Font opacity" %>
-                    <%= f.input :font_size %>
-                  </div>
+<div class="flex">
+  <%= simple_form_for [@user, @project] do |f| %>
+    <div style="width:400px;padding-top: 20px;margin-right: 30px;">
+        <div class="flex space-between">
+          <p>Title:</p>
+          <%= f.input :title, label: false, placeholder: "eg. Video for Elon @ Tesla", input_html: { class: "form-input-medium" } %>
+        </div>
+        <div class="flex space-between">
+          <p>Video:</p>
+          <%= f.association :video, collection: @user.videos, label: false, :value => @user_videos, as: :select, input_html: { multiple: false, class: "form-input-medium" } %>
+        </div>
+        <div class="flex space-between">
+          <p>Background:</p>
+          <%= f.association :background, collection: @user.backgrounds,
+            label: false,
+            :value => @user_backgrounds, as: :select,
+            input_html: { multiple: false, class: "form-input-medium" }%>
+        </div>
+        <div class="flex space-between">
+          <p>Message:</p>
+            <div class="flex-column">
+              <%= f.input :message, label: false, input_html: { class: "message_styling" },placeholder:
+              "Hi Elon "%>
+              <%= f.input :message_body, label: false,placeholder:
+              "Want to increase email response rates? " %>
+            </div>
+        </div>
+      <div class="accordion" id="accordionPanelsStayOpenExample">
+         <div class="accordion-item" style="border-radius:10px">
+          <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+              Message options
+            </button>
+          </h2>
+          <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+            <div class="accordion-body">
+              <div >
+                <div class="flex space-between">
+                  <p>Font:</p>
+                  <%= f.input :font, label: false, collection: Project::FONT, input_html: {class: "form-input-small" }  %>
+                </div>
+                <div class="flex space-between">
+                  <p>Font Opacity:</p>
+                  <%= f.input :opacity, label: false , input_html: {class: "form-input-small" } %>
+                </div>
+                <div class="flex space-between">
+                  <p>Font Size:</p>
+                  <%= f.input :font_size, label: false, input_html: {class: "form-input-small" } %>
                 </div>
               </div>
             </div>
           </div>
-
-          <div class="flex">
-            <%= f.submit 'Save and preview', class: 'btn btn-outline-dark', style:"border-radius:5px"%>
-          <% end %>
-            <%= link_to user_projects_path(@user, @projects) do %>
-              <button style="border-radius:5px"class="btn btn-outline-dark"  data-bs-toggle="pill" data-bs-target="#pills-video" type="button" role="tab" aria-controls="pills-video" aria-selected="true">
-                <i class="fa-solid fa-chevron-left"></i>Back
-                </button>
-            <% end %>
-          </div>
+        </div>
       </div>
+
+      <%= f.input :include_meeting_link, as: :boolean %>
+
+
+      <div class="flex justify-start items-center pt-8">
+        <div class="flex justify-center items-center h-10 rounded-lg bg-black" style="width:100%;border-radius:5px">
+          <%= f.submit "Update and Preview", class: "nav-link lb-btn", style: "width:100%;border:none" %>
+        </div>
+      </div>
+        <% end %>
+</div>
