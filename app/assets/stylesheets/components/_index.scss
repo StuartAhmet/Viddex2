@@ -71,3 +71,11 @@
   top: 0;
   z-index: -2;
  }
+
+ video{
+  @media screen and (max-width:480px){
+    width:100%;
+  }
+
+
+ }
