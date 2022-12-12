@@ -9,7 +9,7 @@
     <div class="flex-mb">
       <h5 style="margin-top:7px;margin-left:20px"><%= @project.title %> </h5>
       <% if @project.user.meeting_link? %>
-        <a class="btn btn-primary br5"  href="<%= @user.meeting_link %>" target="_blank" role="button">
+        <a class="btn btn-primary br5"  href="<%= @project.user.meeting_link %>" target="_blank" role="button">
         <i class="bi bi-calendar-week mr10"></i>
         Book a meeting with <%= @project.user.first_name.capitalize || @project.user.full_name.capitalize%>
       <% end %>
