@@ -1,14 +1,12 @@
-<div class="flex show-bar">
-  <img class="favicon" src="https://sore-fuchsia-tiger.faviconkit.com/<%= @project.user.email.partition("@")[2] %>/60">
+<%= render  "projects/show/shownav"%>
 
-</div>
 
 <div class="flex" style="justify-content:center">
   <div>
     <div class="col-12 col-lg-6" id="video_box">
       <%= render  "projects/projectvideo"%>
     </div>
-    <div class="flex" style="justify-content:space-between">
+    <div class="flex-mb">
       <h5 style="margin-top:7px;margin-left:20px"><%= @project.title %> </h5>
       <% if @project.user.meeting_link? %>
         <a class="btn btn-primary br5"  href="<%= @user.meeting_link %>" target="_blank" role="button">
