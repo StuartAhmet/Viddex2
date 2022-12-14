@@ -1,8 +1,9 @@
-<div class="navbar show-nav" >
+<div class="navbar show-nav">
   <div class="container-fluid">
     <%= link_to "#", class: "navbar-brand" do %>
       <% favlink = @project.user.email.partition("@")[2] %>
-      <%= image_tag "https://sore-fuchsia-tiger.faviconkit.com/"+favlink+"/60" %>
+      <img style="border-radius:35px"<%= image_tag "https://sore-fuchsia-tiger.faviconkit.com/"+favlink+"/60" %>
+      <img src="" alt="">
     <% end %>
   </div>
 </div>
