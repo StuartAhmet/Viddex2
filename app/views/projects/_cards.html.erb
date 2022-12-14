@@ -3,8 +3,7 @@
       <% @user.projects.order(:id).reverse.each do |project| %>
       <div >
         <div class="project-card" style="margin-bottom:20px;margin-right:20px">
-          <%= project.prospect_first %> <%= project.prospect_last %> @
-          <%= project.prospect_company %>
+          <p style="margin-left:5px">  <%= project.title %></p>
           <%= @url_message %>
           <div class="flex" id="video_box">
 
@@ -34,16 +33,15 @@
                     ",o_" + project.opacity.to_s + ",l_text:" + project.font + "_" +
                     project.font_size.to_s + ":" + url_message_a.to_s%>
             <div class="copy-image">
-              <img src="https://res.cloudinary.com/dth8lnhas/video/upload/c_scale,dl_121,du_0.1,pg_1,so_3,w_1280/a_<%=project.video.rotation %>/c_scale,u_<%= Rails.env %>:<%= project.background.photo.key %>,w_1280/<%= message_params %>/c_scale,l_play-button-icon-png-18919_ssamfy,o_53,w_349/v1665164526/<%= Rails.env %>/<%= project.video.file.key %>.gif" alt="Unable to generate - try removing special characters"
+              <img src="https://res.cloudinary.com/dth8lnhas/video/upload/c_scale,dl_121,du_0.1,pg_1,so_3,w_1280/a_<%=project.video.rotation %>/c_scale,u_<%= Rails.env %>:<%= project.background.photo.key %>,w_1280/<%= message_params %>/c_scale,l_play-button-icon-png-18919_ssamfy,o_53,w_349/v1665164526/<%= Rails.env %>/<%= project.video.file.key %>.gif" alt="Video"
                   width="280" height="157" > <br>
             </div>
 
 
           </div>
-              <p>viddex.io/watch/<%= project.public_uid %> </p>
               <div class="flex space-between">
-                  <button class="btn btn-outline-dark flex br5" id="pills-copy" data-bs-toggle="pill" data-bs-target="#pills-video" type="button" role="tab" aria-controls="pills-video" aria-selected="true">
-                  <i class="bi bi-clipboard-check mr10"></i>Copy</button>
+              <p style="margin-left:5px">https://www.viddex.io/watch/<%= project.public_uid %> </p>
+
                 <div class="dropdown">
                   <button class="bi bi-three-dots-vertical mr10" type="button"                  id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false"
                     style="background-color:transparent;border-color:transparent">

@@ -10,23 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_25_150319) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_02_115719) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "active_admin_comments", force: :cascade do |t|
-    t.string "namespace"
-    t.text "body"
-    t.string "resource_type"
-    t.bigint "resource_id"
-    t.string "author_type"
-    t.bigint "author_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author"
-    t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
-    t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource"
-  end
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -86,6 +72,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_25_150319) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "message_body"
+    t.string "title"
     t.index ["background_id"], name: "index_projects_on_background_id"
     t.index ["user_id"], name: "index_projects_on_user_id"
     t.index ["video_id"], name: "index_projects_on_video_id"
@@ -109,6 +96,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_25_150319) do
     t.string "full_name"
     t.string "avatar_url"
     t.boolean "admin", default: false
+    t.string "meeting_link"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["public_uid"], name: "index_users_on_public_uid", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

@@ -1,15 +1,16 @@
 <%= simple_form_for @video, url: user_videos_path do |f| %>
-  <div class="flex-column" >
-
-      <p style="color:red">File types supported (mp4, quicktime/MOV, webm)</p>
+  <div style="width:400px;padding-top: 20px" >
       <div class="flex space-between">
-        <%= f.input :title %>
-        <%= f.input :bgrem_require, as: :radio_buttons, collection: [['Yes', true], ['No', false]], label: "Remove background for this video?", required: true %>
+        <p>Title</p>
+        <%= f.input :title, label: false, input_html: { class: "form-input-medium" }  %>
+      </div>
+      <div class="flex space-between">
+        <%= f.input :bgrem_require, as: :radio_buttons, label: "Remove background?", collection: [['Yes', true], ['No', false]], required: true %>
       </div>
 
-      <div class="flex" style="justify-content:space-between">
-        <%= f.input :file, as: :file, placeholder: "files supported..", label: false %>
-        <%= f.submit "Upload", class: "up-btn" %>
-      </div>
+        <p style="color:red">File types supported (mp4, quicktime/MOV, webm)</p>
+        <%= f.input :file, as: :file, label: false, style: "width:400px" %>
+
+        <%= f.submit "Upload", class: 'nav-link lb-btn', style: "border:none;width:100%" %>
   </div>
 <% end %>

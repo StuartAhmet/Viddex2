@@ -8,9 +8,9 @@ class User < ApplicationRecord
   end
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
-        #  may still need to add the following
-        # :omniauthable, omniauth_providers: [:google_oauth2]
+         :recoverable, :rememberable, :validatable,
+          #  for Google OmniAuth
+         :omniauthable, omniauth_providers: [:google_oauth2]
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
@@ -18,6 +18,9 @@ class User < ApplicationRecord
       user.password = Devise.friendly_token[0, 20]
       user.full_name = auth.info.name
       user.avatar_url = auth.info.image
+      # if you are using confirmable and the provider(s) you use validate emails,
+      # uncomment the line below to skip the confirmation emails.
+      # user.skip_confirmation!
     end
   end
 
@@ -25,4 +28,7 @@ class User < ApplicationRecord
   has_many :backgrounds
   has_many :projects
 
+  INDUSTRY = ["Advertising", "Finance", "Financial Services", "Information Technology", "Insurance",
+              "Marketing", "Media", "Real Estate", "Recruitment", "Software", "Technology",
+              "Telecommunications","Other - not listed"]
 end

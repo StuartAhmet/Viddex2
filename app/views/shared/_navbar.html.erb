@@ -1,34 +1,14 @@
+<div class="camsnav">
+
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
-    <%= link_to "#", class: "" do %>
-      <%= image_tag "https://res.cloudinary.com/dth8lnhas/image/upload/v1667829304/Viddex_logo_3_frlznu.png" %>
+  <div class="container-fluid" style="max-width:1200px">
+    <%= link_to root_path, class: "" do %>
+      <%= image_tag "https://res.cloudinary.com/dth8lnhas/image/upload/v1669992084/Viddex-home-logo.png", :class => "home-logo" %>
     <% end %>
-
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
-
-          <li class="nav-item">
-            <%= link_to destroy_user_session_path, data: {turbo_method: :delete} do %>
-              <span class="nav-link">
-                <h4><%= "Logout" %></h4>
-              </span>
-              <% end %>
-            <button type="button" class="bg-black btn-modal px-5 py-2 text-white rounded-lg mt-3" data-bs-dismiss="modal"><a href="/terminal/<%= current_user.public_uid %>" >My terminal</a></button>
-          </li>
-
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
-        <% end %>
-
-      </ul>
-    </div>
+    <%= render "pages/home/navdropdown" %>
+    <%= render "pages/home/navlogins" %>
 
   </div>
+</div>
+
 </div>

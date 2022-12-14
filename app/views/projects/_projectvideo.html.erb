@@ -29,13 +29,13 @@ the video player below %>
                     ",w_" + @project.background.width.to_s + ",c_fit,a_" + @project.background.angle.to_s +
                     ",o_" + @project.opacity.to_s + ",l_text:" + @project.font + "_" +
                     @project.font_size.to_s + ":" + @url_message.to_s
-    video_key = "/e_fade:100/v1665164526/"+ environment +"/" + @project.video.file.key
+    video_key = "/e_fade:10/v1665164526/"+ environment +"/" + @project.video.file.key
     file_type = ".mp4#t=0.1"
 
     @source_location = cloudinary_http.to_s + video_params.to_s + background_params.to_s +
                       message_params.to_s + video_key.to_s + file_type.to_s
     %>
-    <video width="900px"  controls preload="metadata" style="border-radius:10px" poster=>
+    <video controls preload="metadata" poster=>
       <source src= "<%= @source_location %>" type="video/mp4" allowfullscreen=0>
       Your browser does not support HTML video.
     </video>
