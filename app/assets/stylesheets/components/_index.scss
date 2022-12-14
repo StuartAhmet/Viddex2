@@ -73,9 +73,21 @@
  }
 
  video{
-  @media screen and (max-width:480px){
+  @media (max-width:$mobile){
     width:100%;
   }
-
+  @media (min-width:$mobile){
+    width: 90%;
+    margin: 5%;
+    border-radius: 8px;
+  }
+  @media (min-width:$laptop){
+    width: 750px;
+    border-radius: 8px;
+  }
+  @media (min-width:$screen){
+    width: 900px;
+    border-radius: 8px;
+  }
 
  }

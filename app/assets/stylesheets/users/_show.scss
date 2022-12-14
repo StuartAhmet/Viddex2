@@ -75,7 +75,7 @@ h1:last-of-type {
 
 
 
-@media (max-width: 450px) {
+@media (max-width: $mobile) {
   .box {
       height: 200px;
   }
