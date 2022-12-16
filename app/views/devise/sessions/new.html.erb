@@ -20,6 +20,8 @@
         <div class="form-actions">
           <%= f.button :submit, "Log in", class: "nav-link lb-btn", style: "width:100%;border:none" %>
         </div>
+        <%= button_to  'Login with Google', user_google_oauth2_omniauth_authorize_path, method: :post, :data => {turbo: "false"} %>
+        <%= render "devise/shared/links" %>
       <% end %>
     </div>
     <div class="footer-panel">
