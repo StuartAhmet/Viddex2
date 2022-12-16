@@ -25,13 +25,14 @@
   margin-bottom: 10px;
 }
 .lb-btn{
-  background-color: $light-blue;
+  background-color: #4eabff;
   color: white;
   border-radius: 5px;
   padding: 10px;
 }
 .pt-10{
   padding-top: 10px;
+  color:#56626c;
 }
 
 .camsnav{
@@ -41,190 +42,6 @@
 }
 
 .nav-link {
-  color:#475066;
   font-family: 'LL Circular', sans-serif;
   font-weight: 500;
 }
-
-.tablecards {
-  color:#475066;
-  font-size: 12px;
-  line-height: 1.9;
-}
-
-.tableheaders {
-  font-size:25px;
-  font-family: 'LL Circular', sans-serif;
-  font-weight: 600;
-}
-
-.tablecard{
-  padding-left: 50px;
-  padding-top:20px;
-  padding-bottom: 20px;
-  color:#475066;
-  font-family: 'LL Circular', sans-serif;
-  font-size: 13px;
-  width:400px;
-  border-top: 0.5px solid #DDE1F0;
-}
-
-.tablecard2{
-  padding-left: 50px;
-  padding-top:20px;
-  padding-bottom: 20px;
-  color:#475066;
-  font-family: 'LL Circular', sans-serif;
-  font-size: 13px;
-  background-color:#DDE1F0;
-  width:400px;
-  border-top: 0.5px solid #5e5cfa;
-}
-
-#ticks{
-  color:#50C878;
-  font-weight: bold;
-}
-
-.homestart{
-// background: image-url('homebackground.png');
-background-size: 100%;
-background-repeat: no-repeat;
-background-position: right;
-}
-
-.reviews{
-  height: 400px;
-}
-
-.salestab{
-  background-color: #e7eaf6;
-  width:100%;
-  height:600px;
-}
-
-.salesdivs{
-float: right;
-padding-right: 330px;
-padding-top:70px;
-color:#475066;
-font-family: 'LL Circular', sans-serif;
-}
-
-.marketingtab{
-  background-color: #e7eaf6;
-  width:100%;
-  height:600px;
-}
-
-.marketingdivs{
-  float: left;
-  padding-left: 330px;
-  padding-top:70px;
-  color:#475066;
-  font-family: 'LL Circular', sans-serif;
-}
-
-.faqtab{
-  width:100%;
-  height:420px;
-  // background: image-url('background2.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: right;
-}
-
-.faqdivs{
-  float: left;
-  padding-left: 330px;
-  padding-top:70px;
-  font-family: 'LL Circular', sans-serif;
-}
-
-.bottomtab{
-  background-color: #e7eaf6;
-  width:100%;
-  height:450px;
-  position: relative;
-}
-
-.bottomtableft{
-float: left;
-padding-top: 60px;
-padding-left: 300px;
-}
-
-.bottomtabright{
-float: right;
-padding-top: 60px;
-padding-right: 380px;
-font-size: 13px;
-}
-
-.bottomlinks{
-  font-family: 'LL Circular', sans-serif;
-  color:#475066;
-}
-
-.linkcells{
-  padding-right: 50px;
-  padding-top: 11px;
-  font-size:10px;
-  font-weight:bold;
-}
-
-.linkwords{
-  color:#5b627d;
-}
-
-.bottomfloor{
-  position: absolute;
-  bottom: 0;
-  width:100%;
-  height:60px;
-  }
-
-  .floorcomponents{
-    font-family: 'LL Circular', sans-serif;
-    color:#475066;
-    border-top: 1px solid;
-    border-color: #a9a9a9;
-    width:60%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .floorlinks{
-    font-weight:bold;
-    font-size:10px;
-    padding-right: 15px;
-    padding-left: 15px;
-  }
-
-  .floorright{
-    font-weight:bold;
-    font-size:10px;
-    color:#475066;
-    float:right;
-    padding-top:10px;
-  }
-
-  .tablediv{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 10px;
-  }
-
-  .floorlogos{
-    float:left;
-    padding-top: 10px;
-  }
-
-  .chatbot{
-    float:right;
-    padding-right: 20px;
-    filter: drop-shadow(0px 4px 20px #a9a9a9);
-    position:fixed;
-    right: 5px;
-  }
