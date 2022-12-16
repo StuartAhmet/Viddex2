@@ -1,0 +1,92 @@
+// CSS code for the 'home_first_tab html doc
+
+.home_first_header{
+  text-align:center;
+  color:#475066;
+  font-size: 45px;
+  font-family: 'LL Circular', sans-serif;
+  font-weight: 600;
+}
+
+.home_first_paragraph{
+  text-align:center;
+  color:#475066;
+  font-family: 'LL Circular', sans-serif;
+}
+
+.home_first_tables_combined{
+  display: flex;
+  align-items: center;
+  justify-content:center;
+}
+
+.home_first_tables_seperate{
+  border-collapse: collapse;
+}
+
+.home_first_tableheaders{
+  font-size:25px;
+  font-family: 'LL Circular', sans-serif;
+  font-weight: 600;
+}
+
+.home_first_tablecards {
+  color:#475066;
+  font-size: 12px;
+  line-height: 1.9;
+}
+
+.home_first_tablecard{
+  padding-left: 50px;
+  padding-top:20px;
+  padding-bottom: 20px;
+  color:#475066;
+  font-family: 'LL Circular', sans-serif;
+  font-size: 13px;
+  width:400px;
+  border-top: 0.5px solid #DDE1F0;
+}
+
+.home_first_tableheader1{
+  color:#475066;
+  background-color:#DDE1F0;
+  height:80px;
+  border-radius: 5px 5px 0 0;
+  padding-left: 30px;
+}
+
+.home_first_tableheader2{
+  background-color:#4eabff;
+  color:white;
+  height:105px;
+  border-radius: 5px 5px 0 0;
+  padding-left: 30px;
+}
+
+.home_first_tablecard2{
+  padding-left: 50px;
+  padding-top:20px;
+  padding-bottom: 20px;
+  color:#475066;
+  font-family: 'LL Circular', sans-serif;
+  font-size: 13px;
+  background-color:#DDE1F0;
+  width:400px;
+  border-top: 0.5px solid #4eabff;
+}
+
+#ticks{
+  color:#50C878;
+  font-weight: bold;
+}
+
+#home_first_right-bottom-table_cell{
+  height:136px
+}
+
+.home_first_bottom_paragraph{
+  text-align:center;
+  color:#475066;
+  font-family: 'LL Circular', sans-serif;
+  font-size:13px
+}
