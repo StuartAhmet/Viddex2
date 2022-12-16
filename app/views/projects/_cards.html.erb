@@ -33,14 +33,14 @@
                     ",o_" + project.opacity.to_s + ",l_text:" + project.font + "_" +
                     project.font_size.to_s + ":" + url_message_a.to_s%>
             <div class="copy-image">
-              <img src="https://res.cloudinary.com/dth8lnhas/video/upload/c_scale,dl_121,du_0.1,pg_1,so_3,w_1280/a_<%=project.video.rotation %>/c_scale,u_<%= Rails.env %>:<%= project.background.photo.key %>,w_1280/<%= message_params %>/c_scale,l_play-button-icon-png-18919_ssamfy,o_53,w_349/v1665164526/<%= Rails.env %>/<%= project.video.file.key %>.gif" alt="Unable to generate - try removing special characters"
+              <img src="https://res.cloudinary.com/dth8lnhas/video/upload/c_scale,dl_121,du_0.1,pg_1,so_3,w_1280/a_<%=project.video.rotation %>/c_scale,u_<%= Rails.env %>:<%= project.background.photo.key %>,w_1280/<%= message_params %>/c_scale,l_play-button-icon-png-18919_ssamfy,o_53,w_349/v1665164526/<%= Rails.env %>/<%= project.video.file.key %>.gif" alt="Video"
                   width="280" height="157" > <br>
             </div>
 
 
           </div>
               <div class="flex space-between">
-              <p style="margin-left:5px">viddex.io/watch/<%= project.public_uid %> </p>
+              <p style="margin-left:5px">https://www.viddex.io/watch/<%= project.public_uid %> </p>
 
                 <div class="dropdown">
                   <button class="bi bi-three-dots-vertical mr10" type="button"                  id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false"
