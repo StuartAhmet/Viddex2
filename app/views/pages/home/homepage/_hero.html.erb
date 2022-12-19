@@ -1,49 +1,60 @@
 <%# Beginning of Hero Tab %>
-<div class="herotab">
+<section class="herotab">
+  <div class="container">
+    <div class="flex space-between">
 
-  <br /><br /><br /><br /><br /><br /><br /><br />
+      <div style="margin-top:150px">
+        <%# Header %>
+        <%# <div class="heroheader"> %>
+        <h1 class="title-bold-60">Elevate your sales strategy with Viddex</h1>
+        <%# </div> %>
 
-  <%# Header %>
-  <div class="heroheader">
-    Sales Video <br />
-    Software that <br />
-    Closes More Deals
+        <br />
+
+        <%# Paragraph under Header %>
+        <p class="heroparagraph">
+          Easily connect with potential clients through video, building personal relationships and trust.
+          Start closing more deals today with Viddex.</p>
+
+
+        <br />
+
+        <%# Two buttons %>
+        <div class="herobuttons">
+
+          <%# First button %>
+          <button class="herobuttonone">
+            <div >Register for Free</div>
+          </button>
+
+          <%# Second button %>
+          <button class="herobuttontwo">
+            Get a Demo
+          </button>
+
+        </div>
+        <%# End of buttons %>
+
+        <br />
+
+        <%# A Link to a video demonstration %>
+        <%# <div class="herolink"> %>
+        <div>
+          <span class="herolinktextone">or &#10143;</span>
+          <a href="#" class="herolinktexttwo"> watch a video to see how it works </a>
+        </div>
+      </div>
+
+      <div>
+        <video width="300" height="300" controls="false" preload="metadata" style="margin-top: 75px;
+              width: 300px;
+              border-radius: 50%;" >
+          <source src= "https://www.youtube.com/watch?v=PMSbdX3NC2o"allowfullscreen=0>
+          Your browser does not support HTML video.
+        </video>
+      </div>
+
+    </div>
   </div>
-
-  <br />
-
-  <%# Paragraph under Header %>
-  <div class="heroparagraph">
-    Easily create and share personalized videos throughout your entire <br />
-    sales cycle. Communicate better with prospects, customers, and <br />
-    teams to generate more leads and close more deals. <br />
-  </div>
-
-  <br />
-
-  <%# Two buttons %>
-  <div class="herobuttons">
-
-    <%# First button %>
-    <button class="herobuttonone">
-      <div >Add to Chrome. It's Free</div>
-    </button>
-
-    <%# Second button %>
-    <button class="herobuttontwo">
-      Get a Demo
-    </button>
-
-  </div>
-  <%# End of buttons %>
-
-  <br />
-
-  <%# A Link to a video demonstration %>
-  <div class="herolink">
-    <span class="herolinktextone">or &#10143;</span>
-    <a href="#" class="herolinktexttwo"> watch a video to see how it works </a>
-  </div>
-
-</div>
+</section>
 <%# End of Hero Tab %>

@@ -1,32 +1,15 @@
 // Specific CSS for the hero tab
 
 .herotab{
-  background: image-url('homebackground.png');
+  background: url(https://img.freepik.com/free-vector/abstract-white-circle-background_331749-346.jpg?w=1380&t=st=1671208071~exp=1671208671~hmac=0ca3e1bd06437a94196395d0bb674a732af7c1b2dbdaf47a5de234177dfc8bae);
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: right;
   }
 
-.heroheader{
-  font-size:46px;
-  padding-left: 350px;
-  color:#475066;
-  font-family: 'LL Circular', sans-serif;
-  font-weight: 600;
-  background-color:fafafa;
-}
 
-.heroparagraph{
-  padding-left: 350px;
-  color:#5B627D;
-  font-family: 'LL Circular', sans-serif;
-  font-size:14px;
-  line-height: 1.9;
-}
 
-.herobuttons{
-  padding-left: 350px;
-}
+
 
 .herobuttonone{
   background-color: #4eabff;
