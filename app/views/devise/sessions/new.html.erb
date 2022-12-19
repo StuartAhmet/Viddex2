@@ -5,7 +5,20 @@
   <div class="devise-box">
     <h4 class="head-panel">Log in to your account</h4>
     <div class="login-panel">
+      <%- if devise_mapping.omniauthable? %>
+        <%- resource_class.omniauth_providers.each do |provider| %>
+          <% link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), method: :post %>
+          <%= form_for "Login",
+            url: omniauth_authorize_path(resource_name, provider),
+            method: :post,
+            data: {turbo: "false"} do |f| %>
+              <%= f.submit "Login", type: "image", src: url_for("https://developers.google.com/static/identity/images/btn_google_signin_dark_normal_web.png") %>
+          <% end %>
+        <% end %>
+      <% end %>
+
       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: {turbo: false}) do |f| %>
+
         <div class="form-inputs">
           <%= f.input :email,
                       required: false,
@@ -20,8 +33,7 @@
         <div class="form-actions">
           <%= f.button :submit, "Log in", class: "nav-link lb-btn", style: "width:100%;border:none" %>
         </div>
-        <%= button_to  'Login with Google', user_google_oauth2_omniauth_authorize_path, method: :post, :data => {turbo: "false"} %>
-        <%= render "devise/shared/links" %>
+
       <% end %>
     </div>
     <div class="footer-panel">
