@@ -1,19 +1,22 @@
+
+
 <%= render  "projects/show/shownav"%>
+  <img src="https://img.freepik.com/premium-vector/abstract-white-grey-gradient-geometric-pattern-background-modern-graphic-design_120819-2093.jpg?w=1380"
+            alt="background image" class="img-showbg">
+  <div class="flex" style="justify-content:center">
+    <div class="vs-container">
+      <h1 style="margin-top:7px;margin-left:20px"><%= @project.title %> </h1>
+      <div class="col-12 col-lg-6" id="video_box" >
+        <%= render  "projects/projectvideo"%>
+      </div>
+      <div class="flex-mb">
 
-
-<div class="flex" style="justify-content:center">
-  <div>
-    <div class="col-12 col-lg-6" id="video_box">
-      <%= render  "projects/projectvideo"%>
-    </div>
-    <div class="flex-mb">
-      <h5 style="margin-top:7px;margin-left:20px"><%= @project.title %> </h5>
-      <% if @project.user.meeting_link? %>
-        <a class="btn btn-primary br5 "  href="<%= @project.user.meeting_link %>" style="margin:5px" target="_blank" role="button">
-        <i class="bi bi-calendar-week mr10"></i>
-        Book a meeting with <%= @project.user.first_name.capitalize || @project.user.full_name.capitalize%>
-      <% end %>
-      </a>
+        <% if @project.user.meeting_link? %>
+          <a class="btn btn-primary btn-ps"  href="<%= @project.user.meeting_link %>" target="_blank" role="button">
+          <i class="bi bi-calendar-week mr10"></i>
+          Book a meeting with <%= @project.user.first_name.capitalize || @project.user.full_name.capitalize%>
+        <% end %>
+        </a>
+      </div>
     </div>
   </div>
-</div>
