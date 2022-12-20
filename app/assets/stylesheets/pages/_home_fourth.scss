@@ -1,44 +1,129 @@
+
+@media (min-width: 768px) {
 .home_fourth_salestab{
   background-color: #e7eaf6;
   width:100%;
-  height:600px;
+  height:700px;
+}
+
+.home_fourth_animationplustext{
+  display: flex;
+  flex-direction: row;
+}
+
+.home_fourth_animation_one{
+  padding-left:10%;
+  padding-top:8%;
+  color:#475066;
+  font-family: 'LL Circular', sans-serif;
+  padding-bottom: 5%;
+}
+
+.home_fourth_video_mobile{
+display: none;
 }
 
 .home_fourth_salesdivs{
 float: right;
-padding-right: 330px;
-padding-top:70px;
+margin-left: 8%;
+margin-right: 20%;
+padding-top:8%;
 color:#475066;
 font-family: 'LL Circular', sans-serif;
+padding-bottom: 5%;
 }
 
 .home_fourth_header{
-  font-size:24px;
+  font-size:32px;
   font-weight:bold;
 }
 
 .home_fourth_paragraph{
-  font-size:13px;
+  font-size:17px;
   line-height:1.9;
 }
 
 .home_fourth_list{
-  font-size:13px;
+  font-size:17px;
   line-height:1.9;
 }
 
 .home_fourth_link{
-  font-size:13px;
+  font-size:17px;
   font-weight:bold;
   color:#4eabff;
 }
 
 .home_fourth_quote{
-  font-size:11px;
+  font-size:13px;
   padding:10px;
   background-color:#f5f7ff;
   border-radius: 5px 5px 5px 5px;
   font-weight:bold;
   color:#475066;
   border: 0.5px solid #475066;
+
+}
+}
+
+@media (max-width: 767.9px) {
+  .home_fourth_salestab{
+    background-color: #e7eaf6;
+    width:110%;
+    height:700px;
+  }
+
+  .home_fourth_animationplustext{
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .home_fourth_animation_one{
+   display: none;
+  }
+
+  .home_fourth_salesdivs{
+  padding-left: 5%;
+  padding-top: 8%;
+  padding-right: 11%;
+  color:#475066;
+  font-family: 'LL Circular', sans-serif;
+  }
+
+  .home_fourth_header{
+    font-size:32px;
+    font-weight:bold;
+  }
+
+  .home_fourth_paragraph{
+    font-size:17px;
+    line-height:1.9;
+  }
+
+  .home_fourth_list{
+    font-size:16px;
+    line-height:1.9;
+  }
+
+  .home_fourth_link{
+    font-size:17px;
+    font-weight:bold;
+    color:#4eabff;
+  }
+
+  .home_fourth_quote{
+    font-size:13px;
+    padding:10px;
+    background-color:#f5f7ff;
+    border-radius: 5px 5px 5px 5px;
+    font-weight:bold;
+    color:#475066;
+    border: 0.5px solid #475066;
+
+  }
+
+  .home_fourth_video_mobile{
+    padding-top: 10%;
+    padding-left: 5%;
+  }
 }

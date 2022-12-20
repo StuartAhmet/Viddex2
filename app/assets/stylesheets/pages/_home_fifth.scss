@@ -3,40 +3,52 @@
 .home_fifth_marketing_tab{
   background-color: #e7eaf6;
   width:100%;
-  height:600px;
+  height:700px;
+}
+
+.home_fifth_vid_and_text{
+  display: flex;
+  flex-direction: row;
+}
+
+.home_fifth_videodiv{
+  padding-top:70px;
+  padding-right: 15%;
 }
 
 .home_fifth_marketing_divs{
   float: left;
-  padding-left: 330px;
-  padding-top:70px;
+  padding-left: 190px;
+  padding-top:80px;
   color:#475066;
   font-family: 'LL Circular', sans-serif;
+  margin-right: 10%;
+
 }
 
 .home_fifth_header{
-  font-size:24px;
+  font-size:32px;
   font-weight:bold;
 }
 
 .home_fifth_paragraph{
-  font-size:13px;
+  font-size:17px;
   line-height:1.9;
 }
 
 .home_fifth_list{
-  font-size:13px;
+  font-size:17px;
   line-height:1.9;
 }
 
 .home_fifth_link{
-  font-size:13px;
+  font-size:17px;
   font-weight:bold;
   color:#4eabff;
 }
 
 .home_fifth_quote{
-  font-size:11px;
+  font-size:13px;
   padding:10px;
   background-color:#f5f7ff;
   border-radius: 5px 5px 5px 5px;

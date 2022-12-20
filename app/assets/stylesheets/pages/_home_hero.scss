@@ -1,14 +1,49 @@
 // Specific CSS for the hero tab
 
+// Computer screen size
+@media (min-width: 768px) {
+
+// contains everything in tab
 .herotab{
-  background: url(https://img.freepik.com/free-vector/abstract-white-circle-background_331749-346.jpg?w=1380&t=st=1671208071~exp=1671208671~hmac=0ca3e1bd06437a94196395d0bb674a732af7c1b2dbdaf47a5de234177dfc8bae);
-  background-size: 100%;
+  background-image: url('https://res.cloudinary.com/dth8lnhas/image/upload/v1671512480/photo_two_phx9wg.png');
   background-repeat: no-repeat;
-  background-position: right;
+  background-size: auto;
+  height: 800px;
   }
 
+  .hero_inner{
+padding-left: 20%;
+  }
 
+  .hero_video{
+padding-right: 30%;
+  }
 
+.hero_content{
+  display: flex;
+  padding-top: 8%;
+}
+
+.heroheader{
+  font-size: 360%;
+  color:#475066;
+  font-family: 'LL Circular', sans-serif;
+  font-weight: 600;
+  background-color:fafafa;
+}
+
+.heroparagraph{
+  color:#5B627D;
+  font-family: 'LL Circular', sans-serif;
+  margin-top: 24px;
+  font-size:17px;
+  line-height: 1.9;
+  width: 90%;
+}
+
+.herobuttons{
+
+}
 
 
 .herobuttonone{
@@ -17,10 +52,10 @@
   font-family: 'LL Circular', sans-serif;
   font-weight: 600;
   padding: 16px 40px;
-  font-size:11px;
+  font-size:14px;
   border-radius: 2px;
   border-color: #4eabff;
-  width: 230px;
+
   height:50px
 }
 
@@ -30,23 +65,116 @@
   font-family: 'LL Circular', sans-serif;
   font-weight: 600;
   padding: 16px 40px;
-  font-size:11px;
+  font-size:14px;
   border-radius: 2px;
   border-color: #4eabff;
   height:50px
 }
 
 .herolink{
-  padding-left: 350px;
-  font-size:12px;
+
+  font-size:15px;
 }
 
 .herolinktextone{
   color:#5B627D;
-  font-size:12px;
 }
 
 .herolinktexttwo{
   text-decoration: underline;
   color:#4eabff;
+}
+
+.hero_mobile_photo{
+  display: none;
+}
+
+}
+
+// Handheld Screen Size
+@media (max-width: 767.9px) {
+  .hero_content{
+    padding-top: 30%;
+    padding-bottom: 5%;
+    padding-left: 10%;
+    padding-right: 10%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .hero_video{
+    display: none;
+      }
+
+  .heroheader{
+    font-size: 300%;
+    color:#475066;
+    font-family: 'LL Circular', sans-serif;
+    font-weight: 600;
+    background-color:fafafa;
+    text-align: center;
+  }
+
+  .heroparagraph{
+    color:#5B627D;
+    font-family: 'LL Circular', sans-serif;
+    margin-top: 12px;
+    font-size:17px;
+    line-height: 1.9;
+    text-align: center;
+  }
+
+    .herotab{
+    width: 100%;
+    }
+
+    .herobuttons{
+      display: flex;
+      flex-direction: column;
+    }
+
+    .herobuttonone{
+      background-color: #4eabff;
+      color:white;
+      font-family: 'LL Circular', sans-serif;
+      font-weight: 600;
+      margin-bottom: 5px;
+      font-size:14px;
+      border-radius: 2px;
+      border-color: #4eabff;
+      height:50px
+    }
+
+    .herobuttontwo{
+      background-color: white;
+      color:#4eabff;
+      font-family: 'LL Circular', sans-serif;
+      font-weight: 600;
+      font-size:14px;
+      border-radius: 2px;
+      border-color: #4eabff;
+      height:50px
+    }
+
+    .herolink{
+      text-align: center;
+      font-size:15px;
+    }
+
+    .herolinktextone{
+      color:#5B627D;
+    }
+
+    .herolinktexttwo{
+      text-decoration: underline;
+      color:#4eabff;
+    }
+
+    .hero_mobile_photo{
+      max-width: 100%;
+      max-height: 100%;
+      margin-top: 30%;
+    }
+
 }
