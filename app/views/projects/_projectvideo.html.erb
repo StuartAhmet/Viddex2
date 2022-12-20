@@ -35,7 +35,7 @@ the video player below %>
     @source_location = cloudinary_http.to_s + video_params.to_s + background_params.to_s +
                       message_params.to_s + video_key.to_s + file_type.to_s
     %>
-    <video controls preload="metadata" poster=>
+    <video id="vid-show" controls preload="metadata" poster=>
       <source src= "<%= @source_location %>" type="video/mp4" allowfullscreen=0>
       Your browser does not support HTML video.
     </video>
