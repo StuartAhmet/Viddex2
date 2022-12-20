@@ -1,14 +1,14 @@
-<div class="camsnav">
+<header class="camsnav">
+<%# <div class="camsnav"> %>
+  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+    <div class="container-fluid" style="max-width:1200px">
+      <%= link_to root_path, class: "" do %>
+        <%= image_tag "https://res.cloudinary.com/dth8lnhas/image/upload/v1669992084/Viddex-home-logo.png", :class => "home-logo" %>
+      <% end %>
+      <%= render "pages/home/navdropdown" %>
+      <%= render "pages/home/navlogins" %>
 
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid" style="max-width:1200px">
-    <%= link_to root_path, class: "" do %>
-      <%= image_tag "https://res.cloudinary.com/dth8lnhas/image/upload/v1669992084/Viddex-home-logo.png", :class => "home-logo" %>
-    <% end %>
-    <%= render "pages/home/navdropdown" %>
-    <%= render "pages/home/navlogins" %>
-
+    </div>
   </div>
-</div>
-
-</div>
+</header>
+<%# </div> %>

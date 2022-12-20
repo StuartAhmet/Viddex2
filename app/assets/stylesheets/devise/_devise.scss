@@ -1,0 +1,36 @@
+.gradient-blue{
+  background: rgb(71,171,255);
+  background: radial-gradient(circle, rgba(71,171,255,1) 0%, rgba(196,224,249,1) 100%);
+}
+.devise-wrap{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  // justify-content: space-between;
+  align-items: center;
+}
+.login-panel{
+  padding: 40px;
+}
+.head-panel{
+  margin: 40px 20px 0;
+  line-height: 1.5;
+  text-align: center;
+}
+.footer-panel{
+  border-top: thin solid whitesmoke;
+  padding: 15px 40px;
+  text-align: center;
+  background-color: #F2B5D4;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.devise-box{
+  width: 360px;
+  background: white;
+  border-radius: 10px;
+}
+.devise-logo{
+  text-align: center;
+  margin: 40px;
+}
