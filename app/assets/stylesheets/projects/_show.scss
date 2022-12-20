@@ -15,7 +15,7 @@
   }
 
 }
-#vid-show{
+.ps-video{
   width: 900px;
 }
 .flex-mb{
@@ -35,6 +35,12 @@
 .vs-container{
   padding: 10px 5%;
   text-align: center;
+  @media (min-width:$tablet){
+    max-width: 90%;
+  }
+  @media (min-width:$screen){
+    max-width: 900px;
+  }
 }
 .btn-ps{
   width: 100%;
