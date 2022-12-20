@@ -1,0 +1,25 @@
+// CSS for the third tab from the hero tab
+
+@media (min-width: 768px) {
+.home_third_reviews_tab{
+height: 300px;
+}
+
+.home_third_inner{
+text-align: center;
+padding-top: 5%;
+
+}
+}
+
+@media (max-width: 767.9px) {
+  .home_third_reviews_tab{
+  height: 300px;
+ }
+
+  .home_third_inner{
+  text-align: center;
+  padding-top: 30%;
+  padding-bottom: 50%;
+}
+}

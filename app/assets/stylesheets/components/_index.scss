@@ -72,22 +72,27 @@
   z-index: -2;
  }
 
- video{
-  @media (max-width:$mobile){
-    width:100%;
-  }
-  @media (min-width:$mobile){
-    width: 90%;
-    margin: 5%;
-    border-radius: 8px;
+.container{
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  @media (min-width:$tablet){
+    max-width: 720px;
   }
   @media (min-width:$laptop){
-    width: 750px;
-    border-radius: 8px;
+    max-width: 940px;
   }
   @media (min-width:$screen){
-    width: 900px;
-    border-radius: 8px;
+    max-width: 1100px;
   }
 
- }
+}
+.row{
+  margin-left: -15px;
+  margin-right: -15px;
+}
+.title-bold-60{
+  font-size: 60px;
+  font-weight: 600;
+}

@@ -1,0 +1,180 @@
+// Specific CSS for the hero tab
+
+// Computer screen size
+@media (min-width: 768px) {
+
+// contains everything in tab
+.herotab{
+  background-image: url('https://res.cloudinary.com/dth8lnhas/image/upload/v1671512480/photo_two_phx9wg.png');
+  background-repeat: no-repeat;
+  background-size: auto;
+  height: 800px;
+  }
+
+  .hero_inner{
+padding-left: 20%;
+  }
+
+  .hero_video{
+padding-right: 30%;
+  }
+
+.hero_content{
+  display: flex;
+  padding-top: 8%;
+}
+
+.heroheader{
+  font-size: 360%;
+  color:#475066;
+  font-family: 'LL Circular', sans-serif;
+  font-weight: 600;
+  background-color:fafafa;
+}
+
+.heroparagraph{
+  color:#5B627D;
+  font-family: 'LL Circular', sans-serif;
+  margin-top: 24px;
+  font-size:17px;
+  line-height: 1.9;
+  width: 90%;
+}
+
+.herobuttons{
+
+}
+
+
+.herobuttonone{
+  background-color: #4eabff;
+  color:white;
+  font-family: 'LL Circular', sans-serif;
+  font-weight: 600;
+  padding: 16px 40px;
+  font-size:14px;
+  border-radius: 2px;
+  border-color: #4eabff;
+
+  height:50px
+}
+
+.herobuttontwo{
+  background-color: white;
+  color:#4eabff;
+  font-family: 'LL Circular', sans-serif;
+  font-weight: 600;
+  padding: 16px 40px;
+  font-size:14px;
+  border-radius: 2px;
+  border-color: #4eabff;
+  height:50px
+}
+
+.herolink{
+
+  font-size:15px;
+}
+
+.herolinktextone{
+  color:#5B627D;
+}
+
+.herolinktexttwo{
+  text-decoration: underline;
+  color:#4eabff;
+}
+
+.hero_mobile_photo{
+  display: none;
+}
+
+}
+
+// Handheld Screen Size
+@media (max-width: 767.9px) {
+  .hero_content{
+    padding-top: 30%;
+    padding-bottom: 5%;
+    padding-left: 10%;
+    padding-right: 10%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .hero_video{
+    display: none;
+      }
+
+  .heroheader{
+    font-size: 300%;
+    color:#475066;
+    font-family: 'LL Circular', sans-serif;
+    font-weight: 600;
+    background-color:fafafa;
+    text-align: center;
+  }
+
+  .heroparagraph{
+    color:#5B627D;
+    font-family: 'LL Circular', sans-serif;
+    margin-top: 12px;
+    font-size:17px;
+    line-height: 1.9;
+    text-align: center;
+  }
+
+    .herotab{
+    width: 100%;
+    }
+
+    .herobuttons{
+      display: flex;
+      flex-direction: column;
+    }
+
+    .herobuttonone{
+      background-color: #4eabff;
+      color:white;
+      font-family: 'LL Circular', sans-serif;
+      font-weight: 600;
+      margin-bottom: 5px;
+      font-size:14px;
+      border-radius: 2px;
+      border-color: #4eabff;
+      height:50px
+    }
+
+    .herobuttontwo{
+      background-color: white;
+      color:#4eabff;
+      font-family: 'LL Circular', sans-serif;
+      font-weight: 600;
+      font-size:14px;
+      border-radius: 2px;
+      border-color: #4eabff;
+      height:50px
+    }
+
+    .herolink{
+      text-align: center;
+      font-size:15px;
+    }
+
+    .herolinktextone{
+      color:#5B627D;
+    }
+
+    .herolinktexttwo{
+      text-decoration: underline;
+      color:#4eabff;
+    }
+
+    .hero_mobile_photo{
+      max-width: 100%;
+      max-height: 100%;
+      margin-top: 30%;
+    }
+
+}

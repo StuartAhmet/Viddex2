@@ -1,4 +1,4 @@
-<div class="flex-wrap content-start" style="width:80%">
+<div class="flex flex-wrap content-start overflow-auto " style="justify-content:flex-start">
     <div class="flex flex-wrap content-start overflow-auto scroll-container" style="justify-content:space-between">
       <% @user.projects.order(:id).reverse.each do |project| %>
       <div >
