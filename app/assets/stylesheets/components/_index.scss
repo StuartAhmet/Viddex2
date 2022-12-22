@@ -68,6 +68,10 @@
   z-index: -2;
  }
 
+ .section{
+  overflow: hidden;
+ }
+
 .container{
   margin-right: auto;
   margin-left: auto;
@@ -80,7 +84,7 @@
     max-width: 940px;
   }
   @media (min-width:$screen){
-    max-width: 1100px;
+    max-width: 1200px;
   }
 
 }

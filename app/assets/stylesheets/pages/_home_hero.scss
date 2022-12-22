@@ -1,23 +1,48 @@
 // Specific CSS for the hero tab
 
 // Computer screen size
-@media (min-width: 768px) {
 
-// contains everything in tab
 .herotab{
   background-image: url('https://res.cloudinary.com/dth8lnhas/image/upload/v1671512480/photo_two_phx9wg.png');
   background-repeat: no-repeat;
   background-size: cover;
-  height: 800px;
+  // height: 800px;
+  @media (max-width:$tablet){
+    background-image: none;
   }
+}
 
-  .hero_inner{
-padding-left: 20%;
+.htlp{
+  @media (max-width:$tablet){
+    padding:50px 30px;
   }
+  @media (min-width:$tablet){
+    padding: 130px 40px;
+  }
+}
 
-  .hero_video{
-padding-right: 30%;
+.htrp{
+  @media (min-width:$tablet){
+  margin: 70px 70px;
   }
+}
+
+.hero_video{
+  border-radius: 50%;
+  @media (max-width:$tablet){
+    display: none;
+  }
+  @media (min-width:$tablet){
+    width: 320px;
+    height: 320px;
+  }
+}
+
+
+@media (min-width: 768px) {
+
+// contains everything in tab
+
 
 .hero_content{
   display: flex;
@@ -41,9 +66,7 @@ padding-right: 30%;
   width: 90%;
 }
 
-.herobuttons{
 
-}
 
 
 .herobuttonone{
@@ -103,9 +126,7 @@ padding-right: 30%;
     flex-direction: column;
   }
 
-  .hero_video{
-    display: none;
-      }
+
 
   .heroheader{
     font-size: 300%;
@@ -125,9 +146,7 @@ padding-right: 30%;
     text-align: center;
   }
 
-    .herotab{
-    width: 100%;
-    }
+
 
     .herobuttons{
       display: flex;
