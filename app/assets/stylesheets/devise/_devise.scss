@@ -1,7 +1,4 @@
-.gradient-blue{
-  background: rgb(71,171,255);
-  background: radial-gradient(circle, rgba(71,171,255,1) 0%, rgba(196,224,249,1) 100%);
-}
+
 .devise-wrap{
   min-height: 100vh;
   display: flex;
@@ -10,10 +7,10 @@
   align-items: center;
 }
 .login-panel{
-  padding: 40px;
+  padding: 0px 40px 24px;
 }
 .head-panel{
-  margin: 40px 20px 0;
+  margin: 20px 20px 10px;
   line-height: 1.5;
   text-align: center;
 }
@@ -26,11 +23,32 @@
   border-bottom-right-radius: 10px;
 }
 .devise-box{
-  width: 360px;
+  width: 400px;
   background: white;
-  border-radius: 10px;
+  border-radius: 4px;
+  text-align: center;
+  margin-top: 80px;
 }
 .devise-logo{
   text-align: center;
   margin: 40px;
+}
+.dev-head{
+  padding: 40px 40px 24px;
+}
+
+.dev-logo{
+  width: 75%;
+}
+
+.dev-btn{
+  width:100%;
+  border:none;
+  margin: 12px 0px;
+}
+.separator{
+  border-bottom: 1px solid gray;
+  flex: 1 0 auto;
+  height: 0.5em;
+  margin: 5px;
 }
