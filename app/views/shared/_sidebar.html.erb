@@ -1,30 +1,46 @@
-<div class="col-sm-3 col-md-2 flex-wrap p-0 vh100-smoke" >
-  <ul class="sidebar col-sm-3 col-md-2 nav btn-toggle-nav flex-column pt-30 pl-10 " >
-    <li>
-    <button style="width:165px" aria-expanded="false" class="btn btn-toggle align-items-center rounded tal" data-bs-toggle="collapse" data-bs-target=".sidebar .main-f2ad7dec"><i class="bi bi-record-circle mr10"></i>Projects  <i class="fas fa-chevron-down"></i> </button>
-      <div class="collapse show main-f2ad7dec">
-        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 pl20">
-          <li><i class="bi bi-arrow-return-right"></i> <%= link_to "View all", user_projects_path(@user) %></li>
-          <li><i class="bi bi-arrow-return-right"></i> <%= link_to "New project", new_user_project_path(@user) %></li>
+<div class="col-sm-3 col-md-2 sidebar" >
+  <%= image_tag "https://res.cloudinary.com/dth8lnhas/image/upload/v1671801094/Viddex-black-bg_wulssf.png", class:"sidebar-brand"%>
 
+  <ul class="col-sm-3 col-md-2 nav btn-toggle-nav flex-column pt-30  " >
+    <li>
+      <div class="collapse show main-f2ad7dec">
+        <ul class=" list-unstyled">
+          <li class="ptb-5"><i class="bi bi-record-circle mr10" style="color:white"></i> <%= link_to "Projects", user_projects_path(@user), style: "color:white" %></li>
+          <li class="ptb-5"><i class="bi bi-speedometer2 mr10" style="color:white"></i> <%= link_to "Dashboard", user_path(@user), style: "color:white" %></li>
+          <li class="ptb-5"><i class="bi bi-image-fill mr10" style="color:white"></i> <%= link_to "Backgrounds", user_backgrounds_path(@user ), style: "color:white" %> </li>
+          <li class="ptb-5"><i class="bi bi-camera-reels mr10" style="color:white"></i> <%= link_to "Videos", user_videos_path(@user), style: "color:white" %> </li>
+          <li class="ptb-5"><i class="bi bi-house-door mr10 " style="color:white"></i> <%= link_to "Home", root_path, style: "color:white" %></li>
+          <li class="ptb-5"><i class="bi bi-book mr10 " style="color:white"></i> <%= link_to "Tutorials", root_path, style: "color:white" %></li>
         </ul>
       </div>
     </li>
-    <li >
-    <button style="width:165px" aria-expanded="true" class="btn btn-toggle align-items-center rounded tal" data-bs-toggle="collapse" data-bs-target=".sidebar .main-f2ad7dec1"><i class="bi bi-speedometer2 mr10"></i>Dashboard  <i class="fas fa-chevron-down"></i> </button>
-      <div class="collapse show main-f2ad7dec1">
-        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 pl20">
-          <li> <i class="bi bi-arrow-return-right"></i> <%= link_to "Dashboard", user_path(@user) %></li>
-        </ul>
-      </div>
-    </li>
+
     <li >
     <button style="width:165px" aria-expanded="true" class="btn btn-toggle align-items-center rounded tal" data-bs-toggle="collapse" data-bs-target=".sidebar .main-846495f9"><i class="bi bi-collection mr10"></i>Assets  <i class="fas fa-chevron-down"></i> </button>
       <div class="collapse show main-846495f9">
-        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 pl20">
-          <li> <i class="bi bi-arrow-return-right"></i> <%= link_to "Backgrounds", user_backgrounds_path(@user ) %> </li>
-          <li> <i class="bi bi-arrow-return-right"></i> <%= link_to "Videos", user_videos_path(@user) %> </li>
-        </ul>
+        <% if @user.provider == "google_oauth2" %>
+            <div class="dropdown">
+              <button data-bs-toggle="dropdown" style="background-color:transparent; border:none;" >
+                <img class="g-logo" src="<%= @user.avatar_url %>" alt="unable to locate image">
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item"> <%= @user.first_name || @user.full_name %> <br>
+                      <%= @user.email %></a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><%= link_to destroy_user_session_path, data: {turbo_method: :false} do %>
+                  <span>
+                    <p class="dropdown-item">Logout</p>
+                  </span>
+                <% end %></li>
+              </ul>
+            </div>
+        <% else %>
+          <%= link_to destroy_user_session_path, data: {turbo_method: :false} do %>
+            <span class="nav-link">
+              <p style="color:white;padding-top:10px">Logout</p>
+            </span>
+          <% end %>
+        <% end %>
       </div>
     </li>
   </ul>
