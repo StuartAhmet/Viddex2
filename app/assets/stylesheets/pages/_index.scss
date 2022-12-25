@@ -9,10 +9,13 @@
 @import "home_sixth";
 @import "footer";
 
-.vh100-smoke{
+.sidebar{
   height: 100vh;
-  background-color: whitesmoke;
-  margin-top: 60px;
+  background-color: black;
+  padding: 2.25rem 1.5rem;
+}
+.sidebar-brand{
+  width: 175px;
 }
 .fixed{
   position: fixed;
@@ -20,8 +23,14 @@
 .w-100{
   width: 100%;
 }
+.ptb-5{
+  padding: 0.5rem 0px;
+}
 .mt-70{
   margin-top: 70px;
+}
+.mt-30{
+  margin-top: 30px;
 }
 .g-logo{
   border-radius: 50%;
