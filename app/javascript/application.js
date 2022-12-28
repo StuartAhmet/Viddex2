@@ -2,3 +2,7 @@
 import "@hotwired/turbo-rails"
 import "./controllers"
 import "bootstrap"
+
+//= require copy
+import "./copy"
+import "./controllers/copy_image_controller.js"
