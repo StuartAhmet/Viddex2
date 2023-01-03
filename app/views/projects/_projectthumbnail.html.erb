@@ -1,12 +1,26 @@
-<%  cloudinary_http = "https://res.cloudinary.com/dth8lnhas/video/upload/"
-    video_params = "dl_0/a_" + @project.video.rotation.to_s
-    background_params = "/c_fill,u_development:"+ @project.background.photo.key + ",w_1280,x_0/"
-    message_params = "g_north," + "x_" + @project.background.x_axis.to_s + ",y_" + @project.background.y_axis.to_s +
-                    ",w_" + @project.background.width.to_s + ",c_fit,a_" + @project.background.angle.to_s +
-                    ",o_" + @project.opacity.to_s + ",l_text:" + @project.font + "_" +
-                    @project.font_size.to_s + ":" + @project.message
-    video_key = "/v1665164526/development/" + @project.video.file.key
-    file_type = ".gif"
-    source_location = cloudinary_http.to_s + video_params.to_s + background_params.to_s +
-                      message_params.to_s + video_key.to_s + file_type.to_s
-    %>
+<%= cl_video_tag(@project.video.file.key,
+  controls: true,
+  preload: "metadata",
+  width: "100%",
+  poster: false,
+  :transformation=>[
+    # video params
+    {angle: @project.video.rotation},
+    # message params
+    {angle: @project.background.angle || 0,
+    gravity: "north",
+    :overlay=>{
+      font_family: @project.font,
+      font_size: @project.font_size,
+      text: @project.message + "%0d"+ @project.message_body || @project.message},
+      opacity: @project.opacity.to_s,
+      width: @project.background.width.to_s,
+      x: @project.background.x_axis.to_s,
+      y: @project.background.y_axis.to_s,
+      crop: "fit",
+      },
+    # background image params
+    {underlay: Rails.env+":"+@project.background.photo.key,
+      width: 1280,
+      crop: "scale"}])
+%>
