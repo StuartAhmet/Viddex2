@@ -6,7 +6,7 @@ class Project < ApplicationRecord
   end
 
   belongs_to :user
-  belongs_to :background
+  belongs_to :background, required: false
   belongs_to :video
 
   validates :title, presence: true

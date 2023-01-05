@@ -1,0 +1,15 @@
+<%= cl_video_tag(@video.file.key,
+    controls: true,
+    preload: "metadata",
+    width: "100%",
+    poster: false,
+    angle: @video.angle,
+    :border=>"6px_solid_rgb:000",
+    :effect=>"distort:25:35:270:20:290:180:35:210:",
+    :gravity=>"north_west",
+    :height=>@video.text_box_height,
+    # message params
+    :overlay=>{
+      :font_family=>"Neucha", :font_size=>28,
+      text: "This box is to help you set the shape and size of the text box associated with this image. The boarder will not be visible in your projects. Lorem%20ipsum%20dolor%20sit%20amet%20consectetur%20adipisicing%20elit%20sed%20do%20eiusmod%20tempor%20incididunt%20ut%20labore%20et%20dolore%20magna%20aliqua.%20Ut%20enim%20ad%20minim%20veniam%20quis%20nostrud%20exercitation%20ullamco%20laboris%20nisi%20ut%20aliquip%20ex%20ea%20commodo%20consequat" },
+      :opacity=>100, :width=>@video.text_width, :x=>@video.x_axis, :y=>@video.y_axis, :crop=>"fit") %>

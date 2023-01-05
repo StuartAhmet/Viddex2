@@ -3,11 +3,6 @@ class ProjectsController < ApplicationController
   before_action :set_project, only: %i[show edit update destroy]
   before_action :authenticate_user!, :except => [:show]
 
-
-  # before_action :user_backgrounds, only: %i[new create]
-  # after_action :set_watch, only: %i[create]
-
-
   def index
     @projects = Project.all
   end
@@ -24,8 +19,6 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     @project.user = current_user
-
-
     if @project.save
       redirect_to user_projects_path
       flash[:notice] = "Project Created"
@@ -43,14 +36,12 @@ class ProjectsController < ApplicationController
     @project.update(project_params)
     redirect_to edit_user_project_path
     flash[:notice] = "Project Updated"
-
   end
 
   def destroy
     @project = Project.find_by(public_uid: params[:id])
     @project.destroy
     redirect_to user_projects_path, notice: 'Project deleted', status: :see_other
-
   end
 
   private
@@ -66,6 +57,6 @@ class ProjectsController < ApplicationController
   def project_params
     params.require(:project).permit(:background_id, :video_id, :prospect_first,
                                     :prospect_last, :prospect_email, :prospect_company, :message,
-                                    :message_body, :font, :opacity, :font_size, :title)
+                                    :message_body, :message_body_two, :font, :opacity, :font_size, :title)
   end
 end

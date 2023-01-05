@@ -48,7 +48,14 @@ class BackgroundsController < ApplicationController
   private
 
   def background_params
-    params.require(:background).permit(:title, :photo, :x_axis, :y_axis, :width, :angle)
+    params.require(:background).permit(:title, :photo, :x_axis, :y_axis, :width, :text_box_height, :angle, :distort_nw_x,
+       :distort_nw_y,
+       :distort_ne_x,
+       :distort_ne_y,
+       :distort_sw_x,
+       :distort_sw_y,
+       :distort_se_x,
+       :distort_se_y)
   end
 
   def set_user

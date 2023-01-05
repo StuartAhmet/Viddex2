@@ -1,26 +1,43 @@
-<%= cl_video_tag(@project.video.file.key,
-  controls: true,
-  preload: "metadata",
-  width: "100%",
-  poster: false,
-  :transformation=>[
-    # video params
-    {angle: @project.video.rotation},
-    # message params
-    {angle: @project.background.angle || 0,
-    gravity: "north",
-    :overlay=>{
-      font_family: @project.font,
-      font_size: @project.font_size,
-      text: @project.message + "%0d"+ @project.message_body || @project.message},
-      opacity: @project.opacity.to_s,
-      width: @project.background.width.to_s,
-      x: @project.background.x_axis.to_s,
-      y: @project.background.y_axis.to_s,
-      crop: "fit",
-      },
-    # background image params
-    {underlay: Rails.env+":"+@project.background.photo.key,
-      width: 1280,
-      crop: "scale"}])
-%>
+<%# if the project has a background %>
+<% if @project.background_id? %>
+  <%= cl_video_tag(@project.video.file.key,
+    controls: true,
+    preload: "metadata",
+    width: "100%",
+    poster: false,
+    :transformation=>[
+      # video params
+      {angle: @project.video.rotation},
+      # message params
+      {angle: @project.background.angle,
+      gravity: "north_west",
+      :overlay=>{
+        font_family: @project.font,
+        font_size: @project.font_size,
+        text: @project.message + "%0d"+ @project.message_body + "%0d"+ @project.message_body_two},
+        opacity: @project.opacity,
+        width: @project.background.width,
+        height: @project.background.text_box_height,
+        x: @project.background.x_axis,
+        y: @project.background.y_axis,
+        crop: "fit",
+        },
+      {underlay: Rails.env+":"+@project.background.photo.key,
+        width: 1280,
+        crop: "scale"}
+        ])
+  %>
+<%# if the project doesnt have a background %>
+<% else %>
+    <%= cl_video_tag(@project.video.file.key,
+    controls: true,
+    preload: "metadata",
+    width: "100%",
+    poster: false,
+    angle: @project.video.angle,
+      :effect=>"distort:25:35:270:20:290:180:35:210:", :gravity=>"north_west",
+      :height=>230,
+        :overlay=>{:font_family=>"rock salt", :font_size=>28,
+        text: @project.message + "%0d"+ @project.message_body + "%0d"+ @project.message_body_two },
+      :opacity=>60, :width=>310, :x=>100, :y=>340, :crop=>"pad") %>
+<% end %>
