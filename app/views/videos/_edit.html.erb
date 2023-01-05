@@ -9,14 +9,24 @@
         <p>Rotation Angle</p>
         <%= f.input :rotation, collection: Video::ROTATION, label: false, input_html: { class: "form-input-medium" }  %>
       </div>
+        <%= f.input :text_width %>
+        <%= f.input :text_box_height %>
+        <%= f.input :x_axis  %>
+        <%= f.input :y_axis %>
+        <%= f.input :angle %>
+        <%= f.input :distort_nw_x %>
+        <%= f.input :distort_nw_y %>
+        <%= f.input :distort_ne_x %>
+        <%= f.input :distort_ne_y %>
+        <%= f.input :distort_sw_x %>
+        <%= f.input :distort_sw_y %>
+        <%= f.input :distort_se_x %>
+        <%= f.input :distort_se_y %>
       <%= f.input :bgrem_require, as: :radio_buttons, collection: [['Yes', true], ['No', false]], label: "Remove background for this video?", required: true %>
       <%= f.submit 'Save and preview', class: 'nav-link lb-btn', style: "border:none;width:100%" %>
     <% end %>
   </div>
   <div>
-    <video width="560" height="315" controls preload="metadata" >
-      <source src="https://res.cloudinary.com/dth8lnhas/video/upload/a_<%= @video.rotation.to_s %>/v1664988466/<%= Rails.env %>/<%=@video.file.key%>.mp4" type="video/mp4" allowfullscreen=0>
-      Your browser does not support HTML video.
-    </video>
+   <%= render "videos/editvideofile" %>
   </div>
 </div>

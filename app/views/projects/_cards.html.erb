@@ -38,12 +38,44 @@
                 url_message_a = project.message.gsub(Regexp.union(url_friendly.keys), url_friendly)
               end%>
 
-            <% message_params = "g_north," + "x_" + project.background.x_axis.to_s + ",y_" + project.background.y_axis.to_s +
+            <%# <% message_params = "g_north," + "x_" + project.background.x_axis.to_s + ",y_" + project.background.y_axis.to_s +
                           ",w_" + project.background.width.to_s + ",c_fit,a_" + project.background.angle.to_s +
                           ",o_" + project.opacity.to_s + ",l_text:" + project.font + "_" +
                           project.font_size.to_s + ":" + url_message_a.to_s%>
               <a id="image-link" href="https://www.viddex.io/watch/<%= project.public_uid %>">
-                <img id="image" src="https://res.cloudinary.com/dth8lnhas/video/upload/c_scale,dl_121,du_0.1,pg_1,so_3,w_1280/a_<%=project.video.rotation %>/c_scale,u_<%= Rails.env %>:<%= project.background.photo.key %>,w_1280/<%= message_params %>/c_scale,l_play-button-icon-png-18919_ssamfy,o_53,w_349/v1665164526/<%= Rails.env %>/<%= project.video.file.key %>.gif" alt="image" width="280" height="157" />
+                <div id="image">
+                  <%= cl_image_tag(project.video.file.key+".gif", resource_type: "video",
+                    class: "d-block rounded-lg toprd5px",
+                    :transformation=>[
+                      # video params
+                      {angle: project.video.rotation},
+                      {width: 280, crop: "scale", :end_offset=>"4", :start_offset=>"1"},
+                      # overlay play btn
+                      {:overlay=>"play-button-icon-png-18919_ssamfy", :opacity=>60, :width=>67, :crop=>"scale"},
+                      # message params
+                      {angle: -6 || project.background.angle,
+                      gravity: "north",
+                      :overlay=>{
+                        font_family: project.font,
+                        font_size: project.font_size,
+                        text: project.message + "%0d"+ project.message_body || project.message},
+                        opacity: project.opacity.to_s,
+                        # need to update first option before || to video.params
+                        width: 300 || project.background.width.to_s,
+                        x: -250 || project.background.x_axis.to_s,
+                        y: 380 || project.background.y_axis.to_s,
+                        crop: "fit",
+                        },
+                      # background params
+                      if project.background_id?
+                      {underlay: Rails.env+":"+project.background.photo.key,
+                        width: 280, crop: "scale"}
+                      else
+                      end
+                    ]
+                    )%>
+
+                </div>
               </a>
             </div>
           </div>

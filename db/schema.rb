@@ -10,9 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_02_115719) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_05_001505) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "active_admin_comments", force: :cascade do |t|
+    t.string "namespace"
+    t.text "body"
+    t.string "resource_type"
+    t.bigint "resource_id"
+    t.string "author_type"
+    t.bigint "author_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author"
+    t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
+    t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource"
+  end
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -52,6 +66,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_02_115719) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.jsonb "distort", default: {}
+    t.integer "distort_nw_x"
+    t.integer "distort_nw_y"
+    t.integer "distort_ne_x"
+    t.integer "distort_ne_y"
+    t.integer "distort_sw_x"
+    t.integer "distort_sw_y"
+    t.integer "distort_se_x"
+    t.integer "distort_se_y"
+    t.integer "text_box_height", default: 200
     t.index ["user_id"], name: "index_backgrounds_on_user_id"
   end
 
@@ -73,6 +97,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_02_115719) do
     t.datetime "updated_at", null: false
     t.text "message_body"
     t.string "title"
+    t.string "message_body_two"
     t.index ["background_id"], name: "index_projects_on_background_id"
     t.index ["user_id"], name: "index_projects_on_user_id"
     t.index ["video_id"], name: "index_projects_on_video_id"
@@ -111,6 +136,19 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_02_115719) do
     t.boolean "bgrem_complete", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "distort_nw_x"
+    t.integer "distort_nw_y"
+    t.integer "distort_ne_x"
+    t.integer "distort_ne_y"
+    t.integer "distort_sw_x"
+    t.integer "distort_sw_y"
+    t.integer "distort_se_x"
+    t.integer "distort_se_y"
+    t.integer "text_width"
+    t.integer "x_axis"
+    t.integer "y_axis"
+    t.integer "angle"
+    t.integer "text_box_height", default: 200
     t.index ["user_id"], name: "index_videos_on_user_id"
   end
 

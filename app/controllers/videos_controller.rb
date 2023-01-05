@@ -48,7 +48,20 @@ class VideosController < ApplicationController
   private
 
   def video_params
-    params.require(:video).permit(:title, :cadence_step, :rotation, :addressed, :file, :bgrem_require)
+    params.require(:video).permit(:title, :cadence_step, :rotation, :addressed, :file, :bgrem_require,
+        :distort_nw_x,
+       :distort_nw_y,
+        :distort_ne_x,
+        :distort_ne_y,
+       :distort_sw_x,
+      :distort_sw_y,
+       :distort_se_x,
+       :distort_se_y,
+       :text_width,
+       :text_box_height,
+       :x_axis,
+       :y_axis,
+       :angle)
   end
 
   def set_user
