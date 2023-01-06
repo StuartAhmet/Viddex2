@@ -49,7 +49,8 @@ class BackgroundsController < ApplicationController
 
   def background_params
     params.require(:background).permit(:title, :photo, :x_axis, :y_axis, :width, :text_box_height, :angle, :distort_nw_x,
-       :distort_nw_y,
+      :text_distortion,
+      :distort_nw_y,
        :distort_ne_x,
        :distort_ne_y,
        :distort_sw_x,

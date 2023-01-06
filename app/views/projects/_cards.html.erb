@@ -29,10 +29,13 @@
                   text_box_width = project.background.width/3
                   text_box_x = project.background.x_axis/3
                   text_box_y = project.background.y_axis/3
+                  underlay_params = {underlay: Rails.env+":"+project.background.photo.key,
+                        width: 426, crop: "scale"}
                 else
                   text_box_width = project.video.text_width/3
                   text_box_x = project.video.x_axis/3
                   text_box_y = project.video.y_axis/3
+                  underlay_params = nil
                 end%>
 
 
@@ -51,8 +54,8 @@
                       gravity: "north_west",
                       :overlay=>{
                         font_family: project.font,
-                        font_size: project.font_size,
-                        text: project.message + "%0d"+ project.message_body || project.message},
+                        font_size: project.font_size/3,
+                        text: project.message + "%0d"+ project.message_body + "%0d"+ project.message_body_two},
                         opacity: project.opacity.to_s,
                         width: text_box_width,
                         x: text_box_x,
@@ -60,11 +63,7 @@
                         crop: "fit",
                         },
                       # background params
-                      if project.background_id?
-                      {underlay: Rails.env+":"+project.background.photo.key,
-                        width: 426, crop: "scale"}
-                      else
-                      end
+                        underlay_params
                     ]
                     )%>
 
