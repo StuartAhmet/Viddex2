@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_05_001505) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_05_160104) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -76,6 +76,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_05_001505) do
     t.integer "distort_se_x"
     t.integer "distort_se_y"
     t.integer "text_box_height", default: 200
+    t.boolean "text_distortion", default: false
     t.index ["user_id"], name: "index_backgrounds_on_user_id"
   end
 
@@ -149,6 +150,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_05_001505) do
     t.integer "y_axis"
     t.integer "angle"
     t.integer "text_box_height", default: 200
+    t.boolean "text_distortion", default: false
     t.index ["user_id"], name: "index_videos_on_user_id"
   end
 

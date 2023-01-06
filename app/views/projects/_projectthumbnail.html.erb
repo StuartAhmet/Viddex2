@@ -1,5 +1,31 @@
-<%# if the project has a background %>
-<% if @project.background_id? %>
+<%# videos with backgrounds %>
+<% if @project.background_id?
+    text_box_width = @project.background.width
+    text_box_height = @project.background.text_box_height
+    text_box_x = @project.background.x_axis
+    text_box_y = @project.background.y_axis
+    project_angle = @project.background.angle
+    underlay_params = {underlay: Rails.env+":"+@project.background.photo.key,
+                      width: 1280,
+                      crop: "scale"}
+# videos without backgrounds
+  else
+    text_box_width = @project.video.text_width
+    text_box_height = @project.video.text_box_height
+    text_box_x = @project.video.x_axis
+    text_box_y = @project.video.y_axis
+    project_angle = @project.video.angle
+    underlay_params = nil
+  end%>
+
+<% if @project.background_id && @project.background.text_distortion == true
+      distortion_params = "#{@project.background.distort_nw_x}:#{@project.background.distort_nw_y}:#{@project.background.distort_ne_x}:#{@project.background.distort_ne_y}:#{@project.background.distort_se_x}:#{@project.background.distort_se_y}:#{@project.background.distort_sw_x}:#{@project.background.distort_sw_x}:"
+    elsif @project.video.text_distortion == true
+      distortion_params = "#{@project.video.distort_nw_x}:#{@project.video.distort_nw_y}:#{@project.video.distort_ne_x}:#{@project.video.distort_ne_y}:#{@project.video.distort_se_x}:#{@project.video.distort_se_y}:#{@project.video.distort_sw_x}:#{@project.video.distort_sw_x}:"
+    else
+      distortion_params = nil
+  end%>
+
   <%= cl_video_tag(@project.video.file.key,
     controls: true,
     preload: "metadata",
@@ -9,35 +35,20 @@
       # video params
       {angle: @project.video.rotation},
       # message params
-      {angle: @project.background.angle,
+      {angle: project_angle,
+      distort: distortion_params,
       gravity: "north_west",
       :overlay=>{
         font_family: @project.font,
         font_size: @project.font_size,
         text: @project.message + "%0d"+ @project.message_body + "%0d"+ @project.message_body_two},
         opacity: @project.opacity,
-        width: @project.background.width,
-        height: @project.background.text_box_height,
-        x: @project.background.x_axis,
-        y: @project.background.y_axis,
+        width: text_box_width,
+        height: text_box_height,
+        x: text_box_x,
+        y: text_box_y,
         crop: "fit",
         },
-      {underlay: Rails.env+":"+@project.background.photo.key,
-        width: 1280,
-        crop: "scale"}
+        underlay_params
         ])
   %>
-<%# if the project doesnt have a background %>
-<% else %>
-    <%= cl_video_tag(@project.video.file.key,
-    controls: true,
-    preload: "metadata",
-    width: "100%",
-    poster: false,
-    angle: @project.video.angle,
-      :effect=>"distort:25:35:270:20:290:180:35:210:", :gravity=>"north_west",
-      :height=>230,
-        :overlay=>{:font_family=>"rock salt", :font_size=>28,
-        text: @project.message + "%0d"+ @project.message_body + "%0d"+ @project.message_body_two },
-      :opacity=>60, :width=>310, :x=>100, :y=>340, :crop=>"pad") %>
-<% end %>
