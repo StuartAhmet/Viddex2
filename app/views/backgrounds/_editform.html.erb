@@ -39,6 +39,16 @@
        <% end %>
 
   </div>
+
+  <% if @background.text_distortion == true
+      distortion_params =  @background.distort_nw_x.to_s+":"+@background.distort_nw_y.to_s+":"+
+                          @background.distort_ne_x.to_s+":"+@background.distort_ne_y.to_s+":"+
+                          @background.distort_se_x.to_s+":"+@background.distort_se_y.to_s+":"+
+                          @background.distort_sw_x.to_s+":"+@background.distort_sw_y.to_s
+    else
+      distortion_params = nil
+    end %>
+
   <div class="image-100">
        <%= cl_image_tag(@background.photo.key,
        :transformation=>[
@@ -47,10 +57,7 @@
         :gravity=>"north_west", :y=>@background.y_axis,
         :width=>@background.width, :height=>@background.text_box_height, :angle=>@background.angle,
         # text distortion params
-        :effect=> "distort:"+@background.distort_nw_x.to_s+":"+@background.distort_nw_y.to_s+":"+
-        @background.distort_ne_x.to_s+":"+@background.distort_ne_y.to_s+":"+
-        @background.distort_se_x.to_s+":"+@background.distort_se_y.to_s+":"+
-        @background.distort_sw_x.to_s+":"+@background.distort_sw_y.to_s,
+        distort: distortion_params,
         #  text params
           :overlay=>
           {:font_family=>"Neucha", :font_size=>36,
