@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_05_160104) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_06_153431) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -145,9 +145,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_05_160104) do
     t.integer "distort_sw_y"
     t.integer "distort_se_x"
     t.integer "distort_se_y"
-    t.integer "text_width"
-    t.integer "x_axis"
-    t.integer "y_axis"
+    t.integer "text_width", default: 350
+    t.integer "x_axis", default: 350
+    t.integer "y_axis", default: 250
     t.integer "angle"
     t.integer "text_box_height", default: 200
     t.boolean "text_distortion", default: false
