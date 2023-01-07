@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     resources :backgrounds
     resources :projects, only: [:new, :create, :edit, :update, :index, :destroy]
     resources :videos
+    resources :audios, :path => 'audio-files'
   end
   resources :projects, :path => 'watch', only: [:show]
 end

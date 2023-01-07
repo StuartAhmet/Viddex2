@@ -11,7 +11,6 @@ RailsAdmin.config do |config|
 
   config.authorize_with do
     unless current_user.admin?
-      flash[:alert] = 'Sorry, no admin access for you.'
       redirect_to main_app.root_path
     end
   end
