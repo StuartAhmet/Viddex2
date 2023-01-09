@@ -3,56 +3,58 @@
       <% @user.projects.order(:id).reverse.each do |project| %>
         <div class="project-card">
           <div class="image-container flex-column">
-          <p><%= project.title %></p>
             <div class="flex space-between">
-              <button type="button" class="btn btn-outline-primary" id="copy-button">Copy</button>
-              <div class="dropdown">
-                <button class="bi bi-three-dots-vertical mr10" type="button"                  id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false"
-                  style="background-color:transparent;border-color:transparent">
-                </button>
-                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-                  <li><a class="dropdown-item bi bi-binoculars mr10" href="/watch/<%= project.public_uid %>"> View</a></li>
-                  <li><a class="dropdown-item bi bi-pencil-square" href="/terminal/<%= @user.public_uid %>/projects/<%= project.public_uid%>/edit"> Edit</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a data-turbo-method="delete" class="dropdown-item bi bi-trash"data-turbo-confirm="Are you sure?" href="/terminal/<%= @user.public_uid %>/projects/<%= project.public_uid%>"> Delete</a></li>
-                </ul>
-              </div>
+              <p><strong><%= project.title %></strong></p>
+              <p><%= project.created_at.strftime('%d/%m/%y') %></p>
             </div>
+              <div class="flex space-between" style = "margin-bottom:5px">
+                <button type="button" class="btn btn-outline-primary" id="copy-button">Copy</button>
+                <div class="dropdown">
+                  <button class="bi bi-three-dots-vertical mr10" type="button"                  id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false"
+                    style="background-color:transparent;border-color:transparent">
+                  </button>
+                  <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+                    <li><a class="dropdown-item bi bi-binoculars mr10" href="/watch/<%= project.public_uid %>"> View</a></li>
+                    <li><a class="dropdown-item bi bi-pencil-square" href="/terminal/<%= @user.public_uid %>/projects/<%= project.public_uid%>/edit"> Edit</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a data-turbo-method="delete" class="dropdown-item bi bi-trash"data-turbo-confirm="Are you sure?" href="/terminal/<%= @user.public_uid %>/projects/<%= project.public_uid%>"> Delete</a></li>
+                  </ul>
+                </div>
+              </div>
 
 
 
               <% if project.background_id?
-                  text_box_width = project.background.width/3
-                  text_box_x = project.background.x_axis/3
-                  text_box_y = project.background.y_axis/3
+                  text_box_width = project.background.width
+                  text_box_x = project.background.x_axis
+                  text_box_y = project.background.y_axis
                   project_angle = project.background.angle
                   underlay_params = {underlay: Rails.env+":"+project.background.photo.key,
-                        width: 426, crop: "scale"}
+                        width: 1280, crop: "scale"}, {effect: "fade:1"}
                 else
-                  text_box_width = project.video.text_width/3
-                  text_box_x = project.video.x_axis/3
-                  text_box_y = project.video.y_axis/3
+                  text_box_width = project.video.text_width
+                  text_box_x = project.video.x_axis
+                  text_box_y = project.video.y_axis
                   project_angle = project.video.angle
                   underlay_params = nil
                 end%>
 
-
               <a id="image-link" href="https://www.viddex.io/watch/<%= project.public_uid %>">
                 <div id="image">
                   <%= cl_image_tag(project.video.file.key+".gif", resource_type: "video",
-                    class: "image-100",
+                    class: "image-100 project-gif",
                     :transformation=>[
                       # video params
                       {angle: project.video.rotation},
-                      {width: 426, crop: "scale", :end_offset=>"4", :start_offset=>"1"},
+                      {crop: "scale", effect: "fade:1", :end_offset=>"2", :start_offset=>"1"},
                       # overlay play btn
-                      {:overlay=>"play-button-icon-png-18919_ssamfy", :opacity=>60, :width=>67, :crop=>"scale"},
+                      {:overlay=>"play-button-icon-png-18919_ssamfy", :opacity=>60, :width=>200, :crop=>"scale"},
                       # message params
                       {angle: project_angle,
                       gravity: "north_west",
                       :overlay=>{
                         font_family: project.font,
-                        font_size: project.font_size/3,
+                        font_size: project.font_size,
                         text: project.message + "%0d"+ project.message_body + "%0d"+ project.message_body_two},
                         opacity: project.opacity.to_s,
                         width: text_box_width,
