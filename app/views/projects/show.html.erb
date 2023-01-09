@@ -6,7 +6,7 @@
   <div class="flex" style="justify-content:center">
     <div class="vs-container">
       <h1><%= @project.title %> </h1>
-      <%= render "projects/projectthumbnail"%>
+      <%= render "projects/projectfile"%>
 
       <% if @project.user.meeting_link? %>
         <a class="btn btn-primary btn-ps"  href="<%= @project.user.meeting_link %>" target="_blank" role="button">

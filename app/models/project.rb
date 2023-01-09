@@ -8,6 +8,7 @@ class Project < ApplicationRecord
   belongs_to :user
   belongs_to :background, required: false
   belongs_to :video
+  belongs_to :audio
 
   validates :title, presence: true
 

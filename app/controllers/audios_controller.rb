@@ -46,7 +46,7 @@ class AudiosController < ApplicationController
   private
 
   def audio_params
-    params.require(:audio).permit(:title, :file)
+    params.require(:audio).permit(:title, :length, :file)
   end
 
   def set_user

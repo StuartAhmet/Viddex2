@@ -8,7 +8,7 @@
     end %>
 
 <%= cl_image_tag("#{@video.file.key}.jpg", resource_type: "video",  :transformation=>[
-      {width: "1280", crop: "scale"},
+      {crop: "scale"},
       {angle: @video.rotation},
       {angle: @video.angle,
       border: "6px_solid_rgb:000",
@@ -18,7 +18,7 @@
       # message params
       :overlay=>{
         :font_family=>"Neucha", :font_size=>28,
-        text: "V I D D E X "*50 },
+        text: "V I D D E X "*20 },
         :opacity=>100, :width=>@video.text_width,
         :x=>@video.x_axis, :y=>@video.y_axis, :crop=>"fit"}
         ])
