@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_06_224152) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_07_193636) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -62,6 +62,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_06_224152) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "length"
     t.index ["user_id"], name: "index_audios_on_user_id"
   end
 
@@ -108,6 +109,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_06_224152) do
     t.text "message_body"
     t.string "title"
     t.string "message_body_two"
+    t.bigint "audio_id"
+    t.index ["audio_id"], name: "index_projects_on_audio_id"
     t.index ["background_id"], name: "index_projects_on_background_id"
     t.index ["user_id"], name: "index_projects_on_user_id"
     t.index ["video_id"], name: "index_projects_on_video_id"
@@ -167,6 +170,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_06_224152) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "audios", "users"
   add_foreign_key "backgrounds", "users"
+  add_foreign_key "projects", "audios"
   add_foreign_key "projects", "backgrounds"
   add_foreign_key "projects", "users"
   add_foreign_key "projects", "videos"

@@ -8,7 +8,9 @@
         <%= render "unprocessedwarn" %>
       </div>
       <%= render "videos/pagetabs" %>
-      <%= render "videos/cards", user: @user, videos: @user.videos %>
+      <div data-bs-spy="scroll">
+        <%= render "videos/cards", user: @user, videos: @user.videos %>
+      </div>
     </div>
   </div>
 </div>

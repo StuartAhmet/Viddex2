@@ -19,22 +19,20 @@
               </div>
             </div>
 
-              <% if project.video.angle?
-                  project_angle = project.video.angle
-                elsif project.background.angle?
-                  project_angle = project.background.angle
-                end%>
+
 
               <% if project.background_id?
                   text_box_width = project.background.width/3
                   text_box_x = project.background.x_axis/3
                   text_box_y = project.background.y_axis/3
+                  project_angle = project.background.angle
                   underlay_params = {underlay: Rails.env+":"+project.background.photo.key,
                         width: 426, crop: "scale"}
                 else
                   text_box_width = project.video.text_width/3
                   text_box_x = project.video.x_axis/3
                   text_box_y = project.video.y_axis/3
+                  project_angle = project.video.angle
                   underlay_params = nil
                 end%>
 

@@ -1,10 +1,14 @@
 <%# projects with audio %>
 <% if @project.audio_id?
     audio_codec_params = "none"
-    end_offset_params = "2"
+    offset_params = "2"
+    audio_overlay_video = {angle: @project.video.rotation,flags:"splice", overlay:"video:"+Rails.env+":"+@project.video.file.key, start_offset:offset_params},
+      {:flags=>"layer_apply", :start_offset=>"2"}
+    audio_overlay = {overlay: "video:"+Rails.env+":"+@project.audio.file.key}
   else
     audio_codec_params = nil
-    end_offset_params = nil
+    offset_params = nil
+    audio_overlay_video = nil
   end%>
 <%# projects with backgrounds %>
 <% if @project.background_id?
@@ -25,7 +29,7 @@
     project_angle = @project.video.angle
     underlay_params = nil
   end%>
-
+<%# projects with text distortion %>
 <% if @project.background_id && @project.background.text_distortion == true
       distortion_params = "#{@project.background.distort_nw_x}:#{@project.background.distort_nw_y}:#{@project.background.distort_ne_x}:#{@project.background.distort_ne_y}:#{@project.background.distort_se_x}:#{@project.background.distort_se_y}:#{@project.background.distort_sw_x}:#{@project.background.distort_sw_x}:"
     elsif @project.video.text_distortion == true
@@ -34,30 +38,24 @@
       distortion_params = nil
   end%>
 
-  <%= cl_video_tag(@project.video.file.key,
+<%= cl_video_tag(@project.video.file.key,
     controls: true,
     preload: "metadata",
     width: "100%",
     poster: false,
     :transformation=>[
-      {:width=>1280, audio_codec: audio_codec_params, end_offset: "2", :quality=>"auto", :crop=>"scale"},
-      # video params
+      {audio_codec:audio_codec_params, end_offset:offset_params, quality:"auto", crop:"scale"},
       {angle: @project.video.rotation},
-      # message params
-      {angle: project_angle,
-      distort: distortion_params,
-      gravity: "north_west",
+      audio_overlay_video,
+      # background underlay
+      underlay_params,
+      # audio overlay
+      audio_overlay,
+      # text overlay
+      {angle:project_angle, distort:distortion_params, :gravity=>"north_west",
       :overlay=>{
-        font_family: @project.font,
-        font_size: @project.font_size,
+        font_family: @project.font,font_size: @project.font_size,
         text: @project.message + "%0d"+ @project.message_body + "%0d"+ @project.message_body_two},
-        opacity: @project.opacity,
-        width: text_box_width,
-        height: text_box_height,
-        x: text_box_x,
-        y: text_box_y,
-        crop: "fit",
-        },
-        underlay_params
-        ])
-  %>
+        opacity: @project.opacity,width: text_box_width,height: text_box_height,
+        x: text_box_x,y: text_box_y,crop: "fit",}
+  ]) %>
