@@ -1,14 +1,2 @@
 <%= render"shared/navbar" %>
-<%= cl_video_tag("result_SiMPlu9_sozmcb",
-    controls: true,
-    preload: "metadata",
-    width: "100%",
-    poster: false,
-    :transformation=>[
-      {:audio_codec=>"none", :end_offset=>"2"},
-      {:flags=>"splice", :overlay=>"video:result_SiMPlu9_sozmcb", :start_offset=>"2"},
-      {:flags=>"layer_apply", :start_offset=>"2"},
-      {:underlay=>"room_with_board_gtazil", :width=>1280, :crop=>"scale"},
-      {:overlay=>"video:New_Recording_2_nmliap"},
-      {:angle=>2, :effect=>"distort:0:0:", :gravity=>"north_west", :overlay=>{:font_family=>"Neucha", :font_size=>16, :text_align=>"center", :text=>"Helloviewers"}, :x=>900, :y=>400}
-  ]) %>
+<video controls="true" src="https://res.cloudinary.com/dth8lnhas/video/upload/dl_0,e_fade:10/c_scale,u_development:ltndau8r3prfu6tvielq94qx9w0m,w_1280/e_fade:1/v1670599255/development/h6q3raguymwa2dvn3q7uxhc4n98w.mp4"></video>

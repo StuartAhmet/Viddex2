@@ -8,6 +8,12 @@ imageContainers.forEach(imageContainer => {
   const imageLink = imageContainer.querySelector('#image-link');
 
   copyButton.addEventListener('click', () => {
+    // Change the 'copy' text to 'copied'
+    copyButton.textContent = 'Copied!';
+    setTimeout(() => {
+    copyButton.textContent = 'Copy';
+    }, 2000); // reset the text after 2 seconds (2000 milliseconds)
+
     // Create a new div element
     const copyDiv = document.createElement('div');
 
