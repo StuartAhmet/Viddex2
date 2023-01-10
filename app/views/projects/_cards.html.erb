@@ -22,10 +22,9 @@
                 </div>
               </div>
 
-
-
               <% if project.background_id?
                   text_box_width = project.background.width
+                  text_box_height = project.background.text_box_height
                   text_box_x = project.background.x_axis
                   text_box_y = project.background.y_axis
                   project_angle = project.background.angle
@@ -33,6 +32,7 @@
                         width: 1280, crop: "scale"}, {effect: "fade:1"}
                 else
                   text_box_width = project.video.text_width
+                  text_box_height = project.video.text_box_height
                   text_box_x = project.video.x_axis
                   text_box_y = project.video.y_axis
                   project_angle = project.video.angle
@@ -46,7 +46,7 @@
                     :transformation=>[
                       # video params
                       {angle: project.video.rotation},
-                      {crop: "scale", effect: "fade:1", :end_offset=>"2", :start_offset=>"1"},
+                      {crop: "scale", effect: "fade:1", duration:"0.1"},
                       # overlay play btn
                       {:overlay=>"play-button-icon-png-18919_ssamfy", :opacity=>60, :width=>200, :crop=>"scale"},
                       # message params
@@ -58,6 +58,7 @@
                         text: project.message + "%0d"+ project.message_body + "%0d"+ project.message_body_two},
                         opacity: project.opacity.to_s,
                         width: text_box_width,
+                        height: text_box_height,
                         x: text_box_x,
                         y: text_box_y,
                         crop: "fit",

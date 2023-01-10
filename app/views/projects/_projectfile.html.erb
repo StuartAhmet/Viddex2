@@ -19,7 +19,7 @@
     project_angle = @project.background.angle
     underlay_params = {underlay: Rails.env+":"+@project.background.photo.key,
                       width: 1280,
-                      crop: "scale"}
+                      crop: "scale"}, {effect: "fade:1"}
 # projects without backgrounds
   else
     text_box_width = @project.video.text_width
@@ -38,13 +38,15 @@
       distortion_params = nil
   end%>
 
+<% render "projects/index/projectgif" %>
+
 <%= cl_video_tag(@project.video.file.key,
     controls: true,
     preload: "metadata",
     width: "100%",
-    poster: false,
+    poster: @project_gif_url,
     :transformation=>[
-      {audio_codec:audio_codec_params, end_offset:offset_params, quality:"auto", crop:"scale"},
+      {audio_codec:audio_codec_params, effect: "fade:1",end_offset:offset_params, quality:"auto", crop:"scale"},
       {angle: @project.video.rotation},
       audio_overlay_video,
       # background underlay

@@ -8,7 +8,9 @@
       <div class="flex space-between">
         <%= render "projects/editform" %>
         <div id="video_box">
-          <%= render  "projects/projectthumbnail"%>
+          <% render "projects/index/projectgif" %>
+          <img style="max-width:100%"src="<%= @project_gif_url %>" alt="project image">
+          <p>create link to modal for full video</p>
         </div>
     </div>
     </div>
