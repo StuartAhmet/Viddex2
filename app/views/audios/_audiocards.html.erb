@@ -22,9 +22,7 @@
       </audio>
       <%= cl_image_tag(audio.file.key+".png", resource_type: "video",
         :transformation=>[
-          {height: 20,
-          width: 50,
-          crop: "scale"},
+          {height: 20,width: 50,crop: "scale"},
           {flags: "waveform"}
         ]) %>
     </div>
