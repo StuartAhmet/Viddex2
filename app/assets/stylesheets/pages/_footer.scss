@@ -80,8 +80,11 @@ margin-top: 10px;
   border-left: 0px;
 }
 
-@media (min-width: 1200px) {
+.footer_copyright_text:hover{
+  font-weight: bolder;
+}
 
+@media (min-width: 1200px) {
 
   .footer_slogan{
     font-size: 24px;
@@ -123,7 +126,6 @@ margin-top: 10px;
 
 @media (min-width:768px) and (max-width: 991.9px) {
 
-
   .footer_top .container{
   display: flex;
   flex-direction: column;
@@ -149,7 +151,6 @@ margin-top: 10px;
     width: 100%;
       margin-left: 0px;
       margin-right: 0px;
-
   }
 
   .footer_bottom_links{
@@ -174,7 +175,6 @@ margin-top: 10px;
   .footer_bottom_row{
     justify-content: space-around;
     padding-bottom: 5%;
-
   }
 
 }
@@ -211,7 +211,6 @@ margin-top: 10px;
       width: 100%;
         margin-left: 0px;
         margin-right: 0px;
-
     }
 
     .footer_bottom_links{
@@ -249,8 +248,8 @@ margin-top: 10px;
       padding-right: 15px;
       }
 
-      .container-sm, .container {
-        max-width: 1000px;
+    .container-sm, .container {
+      max-width: 1000px;
     }
 }
 
@@ -286,7 +285,6 @@ margin-top: 10px;
       width: 100%;
         margin-left: 0px;
         margin-right: 0px;
-
     }
 
     .footer_bottom_links{
@@ -324,10 +322,8 @@ margin-top: 10px;
       padding-right: 15px;
       }
 
-      .container-sm, .container {
-        max-width: 1000px;
+    .container-sm, .container {
+      max-width: 1000px;
     }
-
-
 
 }

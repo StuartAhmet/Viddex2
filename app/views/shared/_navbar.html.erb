@@ -1,4 +1,27 @@
-<header class="camsnav">
+<script>
+
+  function addDropShadow() {
+    var header = document.getElementById('navshadow');
+    header.style.boxShadow = '0 4px 20px rgb(15 31 41 / 16%)';
+  }
+
+  function removeDropShadow() {
+    var header = document.getElementById('navshadow');
+    header.style.boxShadow = '0 0 0 rgba(0, 0, 0, 0)';
+    header.style.transition = 'box-shadow 0.5s ease-out';
+  }
+
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 0) {
+      addDropShadow();
+    } else {
+      removeDropShadow();
+    }
+  });
+
+</script>
+
+<header class="camsnav" id="navshadow">
 <%# <div class="camsnav"> %>
   <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
     <div class="container-fluid" style="max-width:1200px">

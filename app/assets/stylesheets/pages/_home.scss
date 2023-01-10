@@ -37,17 +37,34 @@
 }
 
 .camsnav{
-  filter: drop-shadow(0px 2px 2px #a9a9a9);
-  position:fixed;
-  width:100%;
+  position: fixed;
+  width: 100%;
+  z-index: 3;
 }
 
 .nav-link {
   font-family: 'LL Circular', sans-serif;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .main-body{
   display: block;
   padding-top: 87px;
+}
+
+#navbarDropdownMenuLink{
+  color:#56626c;
+}
+
+#navbarDropdownMenuLink:active, #navbarDropdownMenuLink:focus, #navbarDropdownMenuLink:hover{
+color: #4eabff;
+}
+
+.pt-10:hover {
+  color: #4eabff;
+}
+
+.lb-btn:hover {
+  color: white;
+  background-color: #4598e1;
 }

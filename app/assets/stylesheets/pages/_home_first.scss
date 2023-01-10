@@ -1,18 +1,12 @@
 // CSS code for the 'home_first_tab html doc
 
-@media (min-width: 768px) {
-
   .home_first_tab{
-    background-image: url("https://res.cloudinary.com/dth8lnhas/image/upload/v1671418267/arrow_one_uxspmt.png");
-    background-repeat: no-repeat;
-    background-size: 20%;
-    background-position: 78%  3%;
+    width: 100%;
   }
 
   .home_first_header{
   text-align:center;
   color:#475066;
-  font-size: 45px;
   font-family: 'LL Circular', sans-serif;
   font-weight: 600;
   margin-top: 5%;
@@ -22,21 +16,14 @@
   text-align:center;
   color:#475066;
   font-family: 'LL Circular', sans-serif;
-  margin-left: 30%;
-  margin-right: 30%;
-  font-size: 17px;
 }
 
 .home_one_list{
   list-style-image: url("https://res.cloudinary.com/dth8lnhas/image/upload/c_scale,w_18/v1671421857/Screenshot_2022-12-19_145031-removebg-preview_fjinex.png");
 }
 
-
-
 .home_first_tables_combined{
   display: flex;
-  align-items: center;
-  justify-content:center;
   margin-top: 5%;
 }
 
@@ -46,14 +33,12 @@
 }
 
 .home_first_tableheaders{
-  font-size:32px;
   font-family: 'LL Circular', sans-serif;
   font-weight: 600;
 }
 
 .home_first_tablecards {
   color:#475066;
-  font-size: 17px;
   line-height: 1.9;
 }
 
@@ -63,8 +48,6 @@
   padding-bottom: 20px;
   color:#475066;
   font-family: 'LL Circular', sans-serif;
-  font-size: 17px;
-  width:400px;
   border-top: 0.5px solid #DDE1F0;
 }
 
@@ -91,10 +74,13 @@
   padding-right: 5%;
   color:#475066;
   font-family: 'LL Circular', sans-serif;
-  font-size: 17px;
   background-color:#DDE1F0;
-  width:400px;
   border-top: 0.5px solid #4eabff;
+}
+
+#ticks{
+  color:#50C878;
+  font-weight: bold;
 }
 
 #home_first_right-bottom-table_cell{
@@ -105,7 +91,6 @@
   text-align:center;
   color:#475066;
   font-family: 'LL Circular', sans-serif;
-  font-size:17px
 }
 
 .home_one_companylogos{
@@ -116,105 +101,53 @@
   text-align: center;
 }
 
-}
+  @media (min-width: 1200px) {
 
-@media (max-width: 767.9px) {
+    .home_first_container{
+      margin: 0 auto;
+      width: 1200px;
+      background-image: url("https://res.cloudinary.com/dth8lnhas/image/upload/v1671418267/arrow_one_uxspmt.png");
+      background-repeat: no-repeat;
+      background-size: 500px;
+      background-position: 125%  3%;
+    }
+
   .home_first_header{
-    text-align:center;
-    color:#475066;
-    font-size: 32px;
-    font-family: 'LL Circular', sans-serif;
-    font-weight: 600;
-    margin-top: 10%;
-  }
-
-  .home_one_list{
-    list-style-image: url("https://res.cloudinary.com/dth8lnhas/image/upload/c_scale,w_18/v1671421857/Screenshot_2022-12-19_145031-removebg-preview_fjinex.png");
+    font-size: 45px;
   }
 
   .home_first_paragraph{
-    text-align:center;
-    color: #5b627d;
-    font-family: 'LL Circular', sans-serif;
-    line-height: 1.9;
+    font-size: 17px;
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
     padding-left: 10%;
     padding-right: 10%;
-    font-size:17px;
   }
 
   .home_first_tables_combined{
-    display: flex;
-    flex-direction: column;
-    margin-top: 15%;
-    gap: 100px;
-    margin-left: 8%;
-    margin-right: 8%;
-
+    align-items: center;
+    justify-content:center;
   }
 
-  .home_first_tables_seperate{
-    border-collapse: collapse;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
-  }
 
   .home_first_tableheaders{
     font-size:32px;
-    font-family: 'LL Circular', sans-serif;
-    font-weight: 600;
   }
 
   .home_first_tablecards {
     color:#475066;
     font-size: 17px;
-    line-height: 1.9;
   }
 
   .home_first_tablecard{
-    padding-left: 60px;
-    padding-right: 60px;
-    padding-top:20px;
-    padding-bottom: 20px;
-    color:#475066;
-    font-family: 'LL Circular', sans-serif;
-    font-size: 16px;
+    font-size: 17px;
     width:400px;
-    border-top: 0.5px solid #DDE1F0;
-  }
-
-  .home_first_tableheader1{
-    color:#475066;
-    background-color:#DDE1F0;
-    padding-top: 10%;
-    padding-bottom: 10%;
-    border-radius: 5px 5px 0 0;
-    padding-left: 60px;
-  }
-
-  .home_first_tableheader2{
-    background-color:#4eabff;
-    color:white;
-    border-radius: 5px 5px 0 0;
-    padding-left: 30px;
-    padding-top: 15%;
-    padding-bottom: 15%;
   }
 
   .home_first_tablecard2{
-    padding-left: 50px;
-    padding-right: 60px;
-    padding-top:20px;
-    padding-bottom: 20px;
-    color:#475066;
-    font-family: 'LL Circular', sans-serif;
-    font-size: 16px;
-    background-color:#DDE1F0;
+    font-size: 17px;
     width:400px;
-    border-top: 0.5px solid #4eabff;
-  }
-
-  #ticks{
-    color:#50C878;
-    font-weight: bold;
   }
 
   #home_first_right-bottom-table_cell{
@@ -222,20 +155,217 @@
   }
 
   .home_first_bottom_paragraph{
-    text-align:center;
-    color:#475066;
-    font-family: 'LL Circular', sans-serif;
     font-size:17px;
-    margin-left: 5%;
-    margin-right: 5%;
-  }
-
-  .home_one_companylogos{
-    margin-top: 10%;
-    margin-bottom: 10%;
-    margin-left: 0%;
-    margin-right: 0%;
-    text-align: center;
+    margin-top: 3%;
   }
 
   }
+
+  @media (min-width: 992px) and (max-width: 1199.9px) {
+
+    .home_first_container{
+      margin: 0 auto;
+      width: 990px;
+      background-image: url("https://res.cloudinary.com/dth8lnhas/image/upload/v1671418267/arrow_one_uxspmt.png");
+      background-repeat: no-repeat;
+      background-size: 350px;
+      background-position: 120%  3%;
+    }
+
+    .home_first_header{
+    font-size: 40px;
+  }
+
+  .home_first_paragraph{
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+
+  .home_first_tables_combined{
+    align-items: center;
+    justify-content:center;
+  }
+
+  .home_first_tableheaders{
+    font-size:32px;
+  }
+
+  .home_first_tablecards {
+    font-size: 17px;
+  }
+
+  .home_first_tablecard{
+    font-size: 17px;
+    width:400px;
+  }
+
+  .home_first_tablecard2{
+    font-size: 17px;
+    width:400px;
+  }
+
+  .home_first_bottom_paragraph{
+    font-size:17px;
+    margin-top: 3%;
+  }
+
+  }
+
+  @media (min-width:768px) and (max-width: 991.9px) {
+
+  .home_first_container{
+      margin: 0 auto;
+      width: 800px;
+    }
+
+  .home_first_header{
+    font-size: 36px;
+  }
+
+  .home_first_paragraph{
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
+    padding-left: 8%;
+    padding-right: 10%;
+    line-height: 1.9;
+  }
+
+  .home_first_tables_combined{
+    align-items: center;
+    justify-content:center;
+  }
+
+  .home_first_tables_seperate{
+    width: 330px;
+  }
+
+  .home_first_tableheaders{
+    font-size:32px;
+  }
+
+  .home_first_tablecards {
+    font-size: 17px;
+  }
+
+  .home_first_tablecard{
+    font-size: 17px;
+    width:400px;
+  }
+
+  .home_first_tableheader1{
+    padding-right: 10px;
+    height: 150px;
+  }
+
+  .home_first_tableheader2{
+    padding-right: 10px;
+    height: 150px;
+  }
+
+  .home_first_tablecard2{
+    font-size: 17px;
+    width:400px;
+  }
+
+  .home_first_bottom_paragraph{
+    font-size:17px;
+    margin-top: 3%;
+    padding-top: 40px;
+  }
+
+  }
+
+  @media (max-width: 767.9px) {
+    .home_first_header{
+      text-align:center;
+      font-size: 32px;
+      margin-top: 10%;
+    }
+
+    .home_first_paragraph{
+      text-align:center;
+      line-height: 1.9;
+      padding-left: 10%;
+      padding-right: 10%;
+      font-size:17px;
+      padding-top: 5%;
+    }
+
+    .home_first_tables_combined{
+      display: flex;
+      flex-direction: column;
+      margin-top: 10%;
+      gap: 100px;
+      margin-left: 10%;
+      margin-right: 10%;
+    }
+
+    .home_first_tables_seperate{
+      border-collapse: collapse;
+    }
+
+    .home_first_tableheaders{
+      font-size:300%;
+    }
+
+    .home_first_tablecards {
+      font-size: 17px;
+      line-height: 1.9;
+    }
+
+    .home_first_tablecard{
+      padding-left: 60px;
+      padding-right: 60px;
+      padding-top:20px;
+      padding-bottom: 20px;
+      font-size: 16px;
+      width:400px;
+      border-top: 0.5px solid #DDE1F0;
+    }
+
+    .home_first_tableheader1{
+      padding-top: 10%;
+      padding-bottom: 10%;
+      border-radius: 5px 5px 0 0;
+      padding-left: 30px;
+    }
+
+    .home_first_tableheader2{
+      border-radius: 5px 5px 0 0;
+      padding-left: 30px;
+      padding-top: 10%;
+      padding-bottom: 10%;
+    }
+
+    .home_first_tablecard2{
+      padding-left: 50px;
+      padding-right: 60px;
+      padding-top:20px;
+      padding-bottom: 20px;
+      font-size: 16px;
+      width:400px;
+    }
+
+    .home_first_bottom_paragraph{
+      text-align:center;
+      font-size:17px;
+      margin-left: 5%;
+      margin-right: 5%;
+      padding-top: 10%;
+    }
+
+    .home_one_companylogos{
+      margin-top: 10%;
+      margin-bottom: 10%;
+      margin-left: 0%;
+      margin-right: 0%;
+      text-align: center;
+    }
+
+    }
