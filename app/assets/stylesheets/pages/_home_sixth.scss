@@ -34,6 +34,11 @@
   text-align:center;
 }
 
+.home_sixth_button:hover{
+  color:white;
+  background-color:#4598e1;
+}
+
 .home_sixth_container{
   display: flex;
 }
@@ -128,6 +133,7 @@
     margin-left: auto;
     padding-left: 15px;
     padding-right: 15px;
+    padding-top: 5%;
   }
 
 }
@@ -183,7 +189,6 @@
     font-size:16px;
     padding:10px;
     width:30%;
-
   }
 
   .home_sixth_container{
@@ -192,8 +197,7 @@
     margin-right: auto;
     margin-left: auto;
     max-width: 720px;
-
-
+    padding-top: 2%;
   }
 
   .home_sixth_photo_div{
@@ -265,6 +269,7 @@
     max-width: 576px;
     padding-left: 15px;
     padding-right: 15px;
+    padding-top: 3%;
   }
 
   .home_sixth_photo_div{
@@ -291,7 +296,6 @@
     margin-left: auto;
     margin-right: auto;
     padding-top: 2%;
-
     padding-left: 15px;
     padding-right: 15px;
   }
@@ -337,6 +341,7 @@
     padding-left: 15px;
     padding-right: 15px;
     padding-bottom: 5%;
+    padding-top: 3%;
   }
 
   .home_sixth_photo_div{
