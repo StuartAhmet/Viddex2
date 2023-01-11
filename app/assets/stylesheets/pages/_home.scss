@@ -68,3 +68,43 @@ color: #4eabff;
   color: white;
   background-color: #4598e1;
 }
+
+@media (min-width:821px) and (max-width: 991.9px) {
+
+  #navbarDropdownMenuLink{
+  font-size: 13px;
+  text-align: center;
+  }
+
+  .pt-10, .lb-btn{
+    font-size: 13px;
+    text-align: center;
+  }
+
+}
+
+@media (min-width:768px) and (max-width:820.9px) {
+
+  #navbarDropdownMenuLink{
+    font-size: 13px;
+    text-align: center;
+    }
+
+  .pt-10, .lb-btn{
+    font-size: 13px;
+    text-align: center;
+    margin-top: 20px;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767.9px ) {
+
+  #navbarDropdownMenuLink{
+
+    }
+
+  .pt-10, .lb-btn{
+
+  }
+
+}
