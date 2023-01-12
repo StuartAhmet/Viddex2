@@ -40,7 +40,7 @@
                 end%>
 
               <a id="image-link" href="https://www.viddex.io/watch/<%= project.public_uid %>">
-                <div id="image">
+                <div id="image" style="width:500px">
                   <%= cl_image_tag(project.video.file.key+".gif", resource_type: "video",
                     class: "image-100 project-gif",
                     :transformation=>[

@@ -3,7 +3,7 @@
     <div class="flex flex-wrap content-start overflow-auto" style="justify-content:flex-start;">
       <% @user.videos.reverse.each do |video| %>
       <div class="flex" style="flex-direction:column" >
-        <div class="item-card" style="margin-bottom:20px;margin-right:20px">
+        <div class="item-card mx-2">
           <div type="button" data-bs-toggle="modal" data-bs-target=<%= "#exampleModal#{video.id}" %>>
             <% if video.file.attached? %><%= render "videos/modal", video: video %>
               <%= cl_video_tag video.file.key,
