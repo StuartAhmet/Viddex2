@@ -4,9 +4,11 @@
         <p>Title</p>
         <%= f.input :title, label: false, input_html: { class: "form-input-medium" }  %>
       </div>
-      <div class="flex space-between">
-        <%= f.input :bgrem_require, as: :radio_buttons, label: "Remove background?", collection: [['Yes', true], ['No', false]], required: true %>
-      </div>
+
+      <div class="form-check form-switch">
+          <%= f.check_box :bgrem_require, class: "form-check-input"  %>
+          <label class="form-check-label">Remove background for this video?</label>
+        </div>
 
         <p style="color:red">File types supported (mp4, quicktime/MOV, webm)</p>
         <%= f.input :file, as: :file, label: false, style: "width:400px" %>
