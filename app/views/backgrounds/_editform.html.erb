@@ -1,46 +1,5 @@
 <div class="flex">
-    <%= simple_form_for [@user, @background] do |f| %>
-    <div style="width:400px;padding-top: 20px;margin-right: 30px;">
-      <div class="flex space-between">
-        <p>Title</p>
-        <%= f.input :title, label: false, input_html: { class: "form-input-medium" }  %>
-      </div>
-      <div class="flex space-between">
-        <p>X-Axis</p>
-        <%= f.input :x_axis, label: false, input_html: { class: "form-input-medium" }   %>
-      </div>
-      <div class="flex space-between">
-        <p>Y-Axis</p>
-        <%= f.input :y_axis, label: false, input_html: { class: "form-input-medium" }   %>
-      </div>
-      <div class="flex space-between">
-        <p>Width</p>
-        <%= f.input :width, label: false, input_html: { class: "form-input-medium" }   %>
-      </div>
-      <div class="flex space-between">
-        <p>Height</p>
-        <%= f.input :text_box_height, label: false, input_html: { class: "form-input-medium" }   %>
-      </div>
-      <div class="flex space-between">
-        <p>Angle</p>
-        <%= f.input :angle, label: false, input_html: { class: "form-input-medium" }   %>
-      </div>
-      <%= f.input :distort_nw_x %>
-      <%= f.input :distort_nw_y %>
-      <%= f.input :distort_ne_x %>
-      <%= f.input :distort_ne_y %>
-      <%= f.input :distort_sw_x %>
-      <%= f.input :distort_sw_y %>
-      <%= f.input :distort_se_x %>
-      <%= f.input :distort_se_y %>
-
-
-         <%= f.submit 'Save and preview', class: 'nav-link lb-btn', style: "border:none;width:100%"%>
-       <% end %>
-
-  </div>
-
-  <% if @background.text_distortion == true
+      <% if @background.text_distortion?
       distortion_params =  @background.distort_nw_x.to_s+":"+@background.distort_nw_y.to_s+":"+
                           @background.distort_ne_x.to_s+":"+@background.distort_ne_y.to_s+":"+
                           @background.distort_se_x.to_s+":"+@background.distort_se_y.to_s+":"+
@@ -48,8 +7,7 @@
     else
       distortion_params = nil
     end %>
-
-  <div class="image-100">
+     <div class="image-100">
        <%= cl_image_tag(@background.photo.key,
        :transformation=>[
         {:width=>1280, :quality=>"auto", :crop=>"scale"},
@@ -65,4 +23,66 @@
         :crop=>"fit"}
       ]) %>
   </div>
+    <%= simple_form_for [@user, @background] do |f| %>
+    <div style="width:400px;padding-top: 20px;margin-right: 30px;">
+      <div class="flex space-between">
+        <p>Title</p>
+        <%= f.input :title, label: false, input_html: { class: "form-input-medium" }  %>
+      </div>
+      <p>Text Box Options</p>
+      <div class="flex space-between">
+        <p>Width</p>
+        <%= f.input :width, label: false, input_html: { class: "form-input-medium" }   %>
+      </div>
+      <div class="flex space-between">
+        <p>Height</p>
+        <%= f.input :text_box_height, label: false, input_html: { class: "form-input-medium" }   %>
+      </div>
+      <div class="flex space-between">
+        <p>X-Axis</p>
+        <%= f.input :x_axis, label: false, input_html: { class: "form-input-medium" }   %>
+      </div>
+      <div class="flex space-between">
+        <p>Y-Axis</p>
+        <%= f.input :y_axis, label: false, input_html: { class: "form-input-medium" }   %>
+      </div>
+      <div class="flex space-between">
+        <p>Angle</p>
+        <%= f.input :angle, label: false, input_html: { class: "form-input-medium" }   %>
+      </div>
+      <div class="form-check form-switch">
+        <%= f.check_box :text_distortion, class: "form-check-input", id: "distort-checkbox"  %>
+        <label class="form-check-label" for="distort-checkbox">Distort text?</label>
+      </div>
+      <div class="distort-options hidden">
+        <div class="flex space-between">
+          <div class="flex"style="width:45%">
+            <%= f.input :distort_nw_x, label: "X" %>
+            <%= f.input :distort_nw_y, label: "Y" %>
+          </div>
+          <div class="flex"style="width:45%">
+            <%= f.input :distort_ne_x, label: "X" %>
+            <%= f.input :distort_ne_y, label: "Y" %>
+          </div>
+        </div>
+        <div class="flex space-between">
+          <div class="flex"style="width:45%">
+            <%= f.input :distort_sw_x, label: "X" %>
+            <%= f.input :distort_sw_y, label: "Y" %>
+          </div>
+          <div class="flex"style="width:45%">
+            <%= f.input :distort_se_x, label: "X" %>
+            <%= f.input :distort_se_y, label: "Y" %>
+          </div>
+        </div>
+      </div>
+
+         <%= f.submit 'Save and preview', class: 'nav-link lb-btn', style: "border:none;width:100%"%>
+       <% end %>
+
+  </div>
+
+
+
+
 </div>
