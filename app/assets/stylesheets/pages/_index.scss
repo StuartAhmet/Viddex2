@@ -8,16 +8,10 @@
 @import "home_fifth";
 @import "home_sixth";
 @import "footer";
+@import "sidebar";
+@import "contactus_first";
+@import "contactus_second";
 
-.sidebar{
-  height: 125vh;
-  background-color: black;
-  padding: 2.25rem 1.5rem;
-}
-.sidebar-brand{
-  width: 100%;
-  max-width: 200px;
-}
 .fixed{
   position: fixed;
 }

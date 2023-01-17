@@ -9,10 +9,10 @@
         <% if user_signed_in? %>
 
           <li class="nav-item">
-            <%= link_to "Logout", destroy_user_session_path , class: "nav-link pt-10", data: {turbo_method: :false}  %>
+            <%= link_to "Logout", destroy_user_session_path , class: "nav-link pt-10-2", data: {turbo_method: :false}  %>
           </li>
           <li class="">
-            <button type="button" class="herobuttonone"><a href="/terminal/<%= current_user.public_uid %>" style="color:white">My terminal</a></button>
+            <button type="button" class="terminalbutton"><a href="/terminal/<%= current_user.public_uid %>" style="color:white;">My Terminal</a></button>
           </li>
 
         <% else %>
