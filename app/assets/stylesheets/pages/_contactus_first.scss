@@ -1,0 +1,121 @@
+
+.contactus1_tab{
+background-image: url("https://res.cloudinary.com/dth8lnhas/image/upload/v1673938685/Untitled_design_2_hcyebt.png");
+height: 1000px;
+background-size: 100% 100%;
+background-position: top;
+background-repeat: no-repeat;
+background-color: white;
+display: flex;
+}
+
+.contact_details_container{
+  padding-top: 120px;
+}
+
+.contact_details_contents{
+  padding-top: 100px;
+  background-color: white;
+  padding-left: 70px;
+  padding-right: 70px;
+  padding-bottom: 70px;
+  border-radius: 2%;
+  box-shadow: 0 4px 20px rgba(15, 31, 41, 0.16);
+}
+
+.contactform{
+
+}
+
+.contactlabel{
+  color: #475066;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  font-size: 11px;
+}
+
+.contactfill_in{
+  color: #475066;
+  background-color: white;
+  box-shadow: 0 1px 3px 0 #dde1f0;
+}
+
+.contactustext{
+  text-align: center;
+  color:#475066;
+  padding-bottom: 30px;
+}
+
+.contactheading{
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.contactpara{
+  font-size: 18px;
+}
+
+.contactnames{
+  width: 245px;
+}
+
+.contactnot_names{
+  width: 500px;
+}
+
+.contactbutton{
+  background-color:#4eabff;
+  border-color: #4eabff;
+  width: 100%;
+  box-shadow: 0 4px 20px rgba(15, 31, 41, 0.16);
+}
+
+.contactbuttondiv{
+  padding-top: 20px;
+}
+
+.contactnamesdiv{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 1200px) {
+
+  .contactus1_tab{
+    justify-content: center;
+  }
+
+}
+
+@media (min-width: 992px) and (max-width: 1199.9px) {
+
+
+}
+
+@media (min-width:768px) and (max-width: 991.9px) {
+
+
+}
+
+@media (min-width: 576px) and (max-width: 767.9px ) {
+
+
+}
+
+@media (max-width:  575.9px) {
+
+
+}

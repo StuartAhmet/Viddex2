@@ -36,6 +36,15 @@
   color:#56626c;
 }
 
+.pt-10-2 {
+  padding-top: 15px;
+  color:#56626c;
+}
+
+.pt-10-2:hover {
+  color: #4eabff;
+}
+
 .camsnav{
   position: fixed;
   width: 100%;
@@ -67,6 +76,23 @@ color: #4eabff;
 .lb-btn:hover {
   color: white;
   background-color: #4598e1;
+}
+
+#savebutton{
+  width:400px;
+}
+
+.terminalbutton{
+  background-color: #4eabff;
+  color:white;
+  font-family: 'LL Circular', sans-serif;
+  font-weight: 600;
+  border-color: #4eabff;
+  padding-left: 15px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-right: 15px;
+  border-radius: 5%;
 }
 
 @media (min-width:821px) and (max-width: 991.9px) {

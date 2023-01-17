@@ -1,0 +1,64 @@
+#sidebarborder{
+  border-bottom: 0.5px solid white;
+  padding-bottom: 30px;
+}
+
+#sidebarborder2{
+  padding-top: 30px;
+}
+
+#sidebarborder3{
+  padding-top: 30px;
+  border-bottom: 0.5px solid white;
+  padding-bottom: 30px;
+}
+
+#sidebarborder4{
+
+}
+
+.sidebar{
+  height: 125vh;
+  background-color: black;
+  padding: 2.25rem 1.5rem;
+}
+.sidebar-brand{
+
+}
+
+@media (min-width: 640px) {
+
+  #sidebarborder{
+    width: 150px;
+    font-size: 20px;
+  }
+
+  #sidebarborder2{
+    width: 150px;
+    font-size: 20px;
+  }
+
+  #sidebarborder3{
+    width: 150px;
+    font-size: 20px;
+  }
+
+  #sidebarborder4{
+    font-size: 20px;
+  }
+
+  .sidebar{
+    width: 200px;
+
+  }
+  .sidebar-brand{
+    width: 100%;
+    max-width: 200px;
+  }
+
+}
+
+
+@media (max-width: 639px) {
+
+}
