@@ -1,0 +1,95 @@
+
+<%= render"shared/navbar" %>
+
+<div class="main-body">
+
+  <%= render"pages/admin/admin_top_bar" %>
+
+  <div class="admin_side_and_main">
+    <%= render"pages/admin/admin_sidebar" %>
+    <%= render"pages/admin/admin_mainbody" %>
+  </div>
+
+</div>
+
+  <%= render"pages/home/homepage/footer" %>
+
+  <script>
+
+    let selectedContact
+
+    // the buttons from the other file
+    const markAsReadButton = document.querySelector('.contact_checkasread_button');
+    const markAsUnReadButton = document.querySelector('.contact_checkasunread_button');
+
+    function displayContact(id) {
+      fetch(`/contacts/${id}`)
+        .then(response => response.json())
+        .then(contact => {
+          // update the elements in the main body with the contact information
+          document.querySelector('.contact_display_info').innerHTML = `
+            <p><i class='fa fa-user'></i> <b>Name:</b> ${contact.first_name} ${contact.last_name}</p>
+            <p><i class='fa fa-flag'></i> <b>Country:</b> ${contact.country}</p>
+            <p><i class='fa fa-suitcase'></i> <b>Job Title:</b> ${contact.job_title}</p>
+            <p><i class='fa fa-envelope'></i> <b>Email:</b> ${contact.email}</p>
+            <p style="border-top-style:solid; border-color:rgb(180, 180, 180); padding-top:5px;"><i class='fa fa-sticky-note-o'></i> <b>Notes:</b></p>
+            <p style="height:37%;overflow-y: scroll;"><i>${contact.notes}</i></p>
+            <p><i>Sent at: ${new Date(contact.created_at).toLocaleString()}</i></p>
+          `;
+          document.querySelector('.contact_display_info').dataset.id = contact.id;
+          // remove the 'selected' class from all sidebar contacts
+          let allContacts = document.querySelectorAll('.sidebar_contact');
+            allContacts.forEach(function(contact) {
+              contact.classList.remove('selected');
+          });
+
+            // add the 'selected' class to the sidebar contact that was clicked
+            selectedContact = document.getElementById(`sidebar_contact_${id}`);
+            selectedContact.classList.add('selected');
+         });
+    }
+                  markAsReadButton.addEventListener('click', (e) => {
+                          let contactId = selectedContact.dataset.id;
+                          fetch(`/contacts/${contactId}`, {
+                              method: 'PATCH',
+                              body: JSON.stringify({
+                                  read: "true"
+                              }),
+                              headers: {
+                                  'Content-Type': 'application/json',
+                                  'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content
+                              }
+                          })
+                              .then(response => response.json())
+                              .then(data => {
+                                  console.log(data);
+                                  document.getElementById(`sidebar_contact_${contactId}`).classList.add('read');
+                                  document.getElementById(`sidebar_contact_${contactId}`).querySelector("i").classList.add('fa-check');
+                                  document.getElementById(`sidebar_contact_${contactId}`).querySelector("i").classList.remove('fa-exclamation-circle');
+                              })
+                              .catch(error => console.error(error));
+                  });
+
+                  markAsUnReadButton.addEventListener('click', (e) => {
+                          let contactId = selectedContact.dataset.id;
+                          fetch(`/contacts/${contactId}`, {
+                              method: 'PATCH',
+                              body: JSON.stringify({
+                                  read: "false"
+                              }),
+                              headers: {
+                                  'Content-Type': 'application/json',
+                                  'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content
+                              }
+                          })
+                              .then(response => response.json())
+                              .then(data => {
+                                  console.log(data);
+                                  document.getElementById(`sidebar_contact_${contactId}`).classList.remove('read');
+                                  document.getElementById(`sidebar_contact_${contactId}`).querySelector("i").classList.add('fa-exclamation-circle');
+                                  document.getElementById(`sidebar_contact_${contactId}`).querySelector("i").classList.remove('fa-check');
+                              })
+                              .catch(error => console.error(error));
+                  });
+
+          </script>

@@ -7,8 +7,12 @@ Rails.application.routes.draw do
   }
   root to: "pages#home"
   get 'contactus', to: 'pages#contactus'
+  get 'myadmin', to: 'admin#admin'
   post '/contactus', to: 'contacts#create'
   get 'contacts/new' => 'contacts#new'
+  get '/contacts/:id', to: 'contacts#show'
+  patch '/contacts/:id', to: 'contacts#update'
+
   resources :users, :path => 'terminal' do
     resources :backgrounds
     resources :projects, only: [:new, :create, :edit, :update, :index, :destroy]

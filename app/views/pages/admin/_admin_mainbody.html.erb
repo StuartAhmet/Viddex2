@@ -1,0 +1,53 @@
+
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+
+<div class="admin_main_tab">
+
+  <div class="admin_main_contents">
+
+    <div class="contact_displayed_tab">
+
+      <div class="contact_display_info">
+        <!-- Contact information goes here -->
+      </div>
+
+
+        <div class="contact_display_extra">
+            <button class="contact_button_group" id="contact_refresh_button" onClick="refreshPage()"><i class='fa fa-refresh' style='color: white'></i> Refresh</button>
+            <button class="contact_checkasread_button contact_button_group"><i class='fa fa-check-square-o' style='color: white'></i> Mark as Read</button>
+            <button class="contact_checkasunread_button contact_button_group"><i class='fa fa-square-o' style='color: white'></i> Mark as Unread</button>
+
+        </div>
+
+
+    </div>
+
+    <div class="contact_reply_tab">
+
+      <textarea class="contact_reply_field" placeholder="Reply Here"></textarea>
+
+      <div class="replysection">
+        <div class="contact_reply_buttons">
+
+          <button class="contact_reply_button_one"><i class='fa fa-send' style='color: white'></i> Send</button>
+
+          <button class="contact_reply_button_two" onClick="document.querySelector('.contact_reply_field').value = '';">
+          <i class='fa fa-trash' style='color: white'></i> Clear
+          </button>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+
+function refreshPage() {
+  location.reload();
+}
+
+</script>

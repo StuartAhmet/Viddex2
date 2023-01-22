@@ -95,6 +95,19 @@ color: #4eabff;
   border-radius: 5%;
 }
 
+.adminbutton{
+  background-color: rgb(9, 11, 12);
+  color:white;
+  font-family: 'LL Circular', sans-serif;
+  font-weight: 600;
+  border-color: rgb(9, 11, 12);
+  padding-left: 15px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-right: 15px;
+  border-radius: 5%;
+}
+
 @media (min-width:821px) and (max-width: 991.9px) {
 
   #navbarDropdownMenuLink{
