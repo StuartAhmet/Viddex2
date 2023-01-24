@@ -16,11 +16,11 @@
 
   <script>
 
-    let selectedContact
+    var selectedContact;
 
     // the buttons from the other file
-    const markAsReadButton = document.querySelector('.contact_checkasread_button');
-    const markAsUnReadButton = document.querySelector('.contact_checkasunread_button');
+    var markAsReadButton = document.querySelector('.contact_checkasread_button');
+    var markAsUnReadButton = document.querySelector('.contact_checkasunread_button');
 
     function displayContact(id) {
       fetch(`/contacts/${id}`)

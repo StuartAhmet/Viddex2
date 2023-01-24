@@ -9,7 +9,6 @@ class Video < ApplicationRecord
   has_one_attached :file
   has_many :projects
 
-
   validates :title, presence: true
   validates :file, presence: true
 

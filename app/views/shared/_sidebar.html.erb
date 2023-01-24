@@ -1,23 +1,26 @@
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+
 <div class="col-sm-3 col-md-2 sidebar" >
   <%= image_tag "https://res.cloudinary.com/dth8lnhas/image/upload/v1671801094/Viddex-black-bg_wulssf.png", class:"sidebar-brand"%>
+  <%= image_tag "https://res.cloudinary.com/dth8lnhas/image/upload/v1674527452/Untitled_design_10_nmtpd3.png", class:"sidebar-brand_small"%>
 
   <ul class="col-sm-3 col-md-2 nav btn-toggle-nav flex-column pt-30  " >
     <li>
       <div class="collapse show main-f2ad7dec">
         <ul class=" list-unstyled">
-          <li class="ptb-5", id="sidebarborder"><i class="bi bi-record-circle mr10" style="color:white"></i> <%= link_to "Projects", user_projects_path(@user), style: "color:white" %></li>
-          <li class="ptb-5", id="sidebarborder3"><i class="bi bi-speedometer2 mr10" style="color:white"></i> <%= link_to "Dashboard", user_path(@user), style: "color:white" %></li>
-          <li class="ptb-5", id="sidebarborder2"><i class="bi bi-file-earmark-music-fill mr10" style="color:white"></i> <%= link_to "Audio Files", user_audios_path(@user ), style: "color:white" %> </li>
-          <li class="ptb-5", id="sidebarborder4"><i class="bi bi-image-fill mr10" style="color:white"></i> <%= link_to "Backgrounds", user_backgrounds_path(@user ), style: "color:white" %> </li>
-          <li class="ptb-5", id="sidebarborder"><i class="bi bi-camera-reels mr10" style="color:white"></i> <%= link_to "Videos", user_videos_path(@user), style: "color:white" %> </li>
-          <li class="ptb-5", id="sidebarborder2"><i class="bi bi-house-door mr10 " style="color:white"></i> <%= link_to "Home", root_path, style: "color:white" %></li>
-          <li class="ptb-5", id="sidebarborder"><i class="bi bi-book mr10 " style="color:white"></i> <%= link_to "Tutorials", root_path, style: "color:white" %></li>
+          <li class="ptb-5", id="sidebarborder"><a href="<%= user_projects_path(@user) %>"><i class="bi bi-record-circle mr10"></i></a><%= link_to "Projects", user_projects_path(@user), style: "color:white", class:"terminal_links"%></li>
+          <li class="ptb-5", id="sidebarborder3"><a href="<%= user_path(@user) %>"><i class="bi bi-speedometer2 mr10"></i></a> <%= link_to "Dashboard", user_path(@user), style: "color:white", class:"terminal_links" %></li>
+          <li class="ptb-5", id="sidebarborder2"><a href="<%= user_audios_path(@user) %>"><i class="bi bi-file-earmark-music-fill mr10"></i></a> <%= link_to "Audio Files", user_audios_path(@user ), style: "color:white", class:"terminal_links" %> </li>
+          <li class="ptb-5", id="sidebarborder4"><a href="<%= user_backgrounds_path(@user) %>"><i class="bi bi-image-fill mr10"></i></a> <%= link_to "Backgrounds", user_backgrounds_path(@user ), style: "color:white", class:"terminal_links" %> </li>
+          <li class="ptb-5", id="sidebarborder"><a href="<%= user_videos_path(@user) %>"><i class="bi bi-camera-reels mr10"></i></a> <%= link_to "Videos", user_videos_path(@user), style: "color:white", class:"terminal_links" %> </li>
+          <li class="ptb-5", id="sidebarborder2"><a href="<%= root_path %>"><i class="bi bi-house-door mr10 "></i></a> <%= link_to "Home", root_path, style: "color:white", class:"terminal_links" %></li>
+          <li class="ptb-5", id="sidebarborder"><a href="<%= root_path %>"><i class="bi bi-book mr10 "></i></a> <%= link_to "Tutorials", root_path, style: "color:white", class:"terminal_links" %></li>
         </ul>
       </div>
     </li>
 
     <li >
-    <button style="width:165px" aria-expanded="true" class="btn btn-toggle align-items-center rounded tal" data-bs-toggle="collapse" data-bs-target=".sidebar .main-846495f9"><i class="bi bi-collection mr10"></i>Assets  <i class="fas fa-chevron-down"></i> </button>
+    <button id="randombutton"style="width:165px" aria-expanded="true" class="btn btn-toggle align-items-center rounded tal" data-bs-toggle="collapse" data-bs-target=".sidebar .main-846495f9"><i class="bi bi-collection mr10"></i>Assets  <i class="fas fa-chevron-down"></i> </button>
       <div class="collapse show main-846495f9">
         <% if @user.provider == "google_oauth2" %>
             <div class="dropdown">
@@ -38,7 +41,7 @@
         <% else %>
           <%= link_to destroy_user_session_path, data: {turbo_method: :false} do %>
             <span class="nav-link">
-              <p style="color:white; font-size:18px; font-weight: normal">Logout</p>
+              <p class="term_nav_button" style="font-size:20px; font-weight: normal"><i class='fa fa-sign-out'></i></p><p style="color:white; font-size:18px; font-weight: normal" id="logoutbutton"> Logout</p>
             </span>
           <% end %>
         <% end %>

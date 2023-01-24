@@ -305,6 +305,7 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    select2-rails (4.0.13)
     selenium-webdriver (4.6.1)
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2, >= 3.2.5)
@@ -384,6 +385,7 @@ DEPENDENCIES
   remotipart!
   ruby-audioinfo
   sassc-rails
+  select2-rails
   selenium-webdriver
   simple_form!
   sprockets-rails

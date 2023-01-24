@@ -6,3 +6,5 @@ import "bootstrap"
 //= require copy
 import "./copy"
 import "./controllers/copy_image_controller.js"
+
+//= require select2

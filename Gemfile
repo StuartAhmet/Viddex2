@@ -39,6 +39,9 @@ gem "omniauth-google-oauth2"
 gem "omniauth-rails_csrf_protection"
 gem 'ruby-audioinfo', require: 'audioinfo'
 gem 'will_paginate', '~> 3.1', '>= 3.1.6'
+# from cam
+gem 'select2-rails'
+
 
 
 # Use Redis adapter to run Action Cable in production

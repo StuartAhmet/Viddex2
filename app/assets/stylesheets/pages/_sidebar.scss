@@ -1,29 +1,43 @@
 #sidebarborder{
   border-bottom: 0.5px solid white;
   padding-bottom: 30px;
+  color: white;
 }
 
 #sidebarborder2{
   padding-top: 30px;
+  color: white;
 }
 
 #sidebarborder3{
   padding-top: 30px;
   border-bottom: 0.5px solid white;
   padding-bottom: 30px;
+  color: white;
 }
 
-#sidebarborder4{
+#sidebarborder i, #sidebarborder2 i, #sidebarborder3 i, #sidebarborder4 i  {
+  color: white;
+}
 
+#sidebarborder i:hover, #sidebarborder2 i:hover, #sidebarborder3 i:hover, #sidebarborder4 i:hover {
+color: #4eabff;
+}
+
+.term_nav_button{
+  color: white;
+}
+
+.term_nav_button:hover{
+  color: #4eabff;
 }
 
 .sidebar{
   height: 125vh;
   background-color: black;
-  padding: 2.25rem 1.5rem;
-}
-.sidebar-brand{
-
+  padding-top: 2.25rem;
+  padding-bottom: 2.25rem;
+  padding-right: 1.5rem;
 }
 
 @media (min-width: 640px) {
@@ -49,16 +63,116 @@
 
   .sidebar{
     width: 200px;
+    padding-left: 1.5rem;
 
   }
   .sidebar-brand{
     width: 100%;
-    max-width: 200px;
+  }
+
+  .sidebar-brand_small{
+    display:none;
   }
 
 }
 
 
-@media (max-width: 639px) {
+@media (min-width: 590px) and (max-width: 639.1px ) {
+
+  #sidebarborder{
+    width: 100px;
+    font-size: 14px;
+  }
+
+  #sidebarborder2{
+    width: 100px;
+    font-size: 14px;
+  }
+
+  #sidebarborder3{
+    width: 100px;
+    font-size: 14px;
+  }
+
+  #sidebarborder4{
+    font-size: 14px;
+  }
+
+  .sidebar{
+    width: 150px;
+    padding-left: 1.5rem;
+
+  }
+  .sidebar-brand{
+    width: 100%;
+    max-width: 100px;
+  }
+
+  .sidebar-brand_small{
+    display:none;
+  }
+
+}
+
+@media (max-width:  589.9px) {
+
+  #sidebarborder{
+    font-size: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #sidebarborder2{
+    font-size: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #sidebarborder3{
+    font-size: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #sidebarborder4{
+    font-size: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .sidebar{
+    width:60px;
+    padding-left: 1rem;
+  }
+  .sidebar-brand{
+    display: none;
+  }
+
+  .sidebar-brand_small{
+    display:block;
+    width:50px;
+    padding-right: 20px;
+
+  }
+
+  #randombutton{
+    display:none;
+  }
+
+  .terminal_links{
+    display:none;
+  }
+
+  #logoutbutton{
+    display:none;
+  }
+
+  .term_button_nav{
+    font-size: 50px;
+  }
+
+  span.nav-link{
+    padding-left: 5px;
+  }
 
 }
