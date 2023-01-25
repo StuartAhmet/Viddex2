@@ -7,78 +7,82 @@
     else
       distortion_params = nil
     end %>
-     <div class="image-100">
-       <%= cl_image_tag(@background.photo.key,
-       :transformation=>[
-        {:width=>1280, :quality=>"auto", :crop=>"scale"},
-        {:border=>"6px_solid_rgb:000", :x=>@background.x_axis,
-        :gravity=>"north_west", :y=>@background.y_axis,
-        :width=>@background.width, :height=>@background.text_box_height, :angle=>@background.angle,
-        # text distortion params
-        distort: distortion_params,
-        #  text params
-          :overlay=>
-          {:font_family=>"Neucha", :font_size=>36,
-          :text=>"This box is to help you set the shape and size of the text box associated with this image. The boarder will not be visible in your projects. Lorem%20ipsum%20dolor%20sit%20amet%20consectetur%20adipisicing%20elit%20sed%20do%20eiusmod%20tempor%20incididunt%20ut%20labore%20et%20dolore%20magna%20aliqua.%20Ut%20enim%20ad%20minim%20veniam%20quis%20nostrud%20exercitation%20ullamco%20laboris%20nisi%20ut%20aliquip%20ex%20ea%20commodo%20consequat"},
-        :crop=>"fit"}
-      ]) %>
-  </div>
-    <%= simple_form_for [@user, @background] do |f| %>
-    <div style="width:400px;padding-top: 20px;margin-right: 30px;">
-      <div class="flex space-between">
-        <p>Title</p>
-        <%= f.input :title, label: false, input_html: { class: "form-input-medium" }  %>
+    <div style="max-width:50%">
+        <div class="image-100">
+          <%= cl_image_tag(@background.photo.key,
+          :transformation=>[
+            {:width=>1280, :quality=>"auto", :crop=>"scale"},
+            {:border=>"6px_solid_rgb:000", :x=>@background.x_axis,
+            :gravity=>"north_west", :y=>@background.y_axis,
+            :width=>@background.width, :height=>@background.text_box_height, :angle=>@background.angle,
+            # text distortion params
+            distort: distortion_params,
+            #  text params
+              :overlay=>
+              {:font_family=>"Neucha", :font_size=>36,
+              :text=>"This box is to help you set the shape and size of the text box associated with this image. The boarder will not be visible in your projects. Lorem%20ipsum%20dolor%20sit%20amet%20consectetur%20adipisicing%20elit%20sed%20do%20eiusmod%20tempor%20incididunt%20ut%20labore%20et%20dolore%20magna%20aliqua.%20Ut%20enim%20ad%20minim%20veniam%20quis%20nostrud%20exercitation%20ullamco%20laboris%20nisi%20ut%20aliquip%20ex%20ea%20commodo%20consequat"},
+            :crop=>"fit"}
+          ]) %>
       </div>
-      <p>Text Box Options</p>
-      <div class="flex space-between">
-        <p>Width</p>
-        <%= f.input :width, label: false, input_html: { class: "form-input-medium" }   %>
-      </div>
-      <div class="flex space-between">
-        <p>Height</p>
-        <%= f.input :text_box_height, label: false, input_html: { class: "form-input-medium" }   %>
-      </div>
-      <div class="flex space-between">
-        <p>X-Axis</p>
-        <%= f.input :x_axis, label: false, input_html: { class: "form-input-medium" }   %>
-      </div>
-      <div class="flex space-between">
-        <p>Y-Axis</p>
-        <%= f.input :y_axis, label: false, input_html: { class: "form-input-medium" }   %>
-      </div>
-      <div class="flex space-between">
-        <p>Angle</p>
-        <%= f.input :angle, label: false, input_html: { class: "form-input-medium" }   %>
-      </div>
-      <div class="form-check form-switch">
-        <%= f.check_box :text_distortion, class: "form-check-input", id: "distort-checkbox"  %>
-        <label class="form-check-label" for="distort-checkbox">Distort text?</label>
-      </div>
-      <div class="distort-options hidden">
+    </div>
+    <div>
+      <%= simple_form_for [@user, @background] do |f| %>
+      <div style="width:400px;padding-top: 20px;margin-right: 30px;">
         <div class="flex space-between">
-          <div class="flex"style="width:45%">
-            <%= f.input :distort_nw_x, label: "X" %>
-            <%= f.input :distort_nw_y, label: "Y" %>
-          </div>
-          <div class="flex"style="width:45%">
-            <%= f.input :distort_ne_x, label: "X" %>
-            <%= f.input :distort_ne_y, label: "Y" %>
-          </div>
+          <p>Title</p>
+          <%= f.input :title, label: false, input_html: { class: "form-input-medium" }  %>
+        </div>
+        <p> Text Box Options</p>
+        <div class="flex space-between">
+          <p>Width</p>
+          <%= f.input :width, label: false, input_html: { class: "form-input-medium" }   %>
         </div>
         <div class="flex space-between">
-          <div class="flex"style="width:45%">
-            <%= f.input :distort_sw_x, label: "X" %>
-            <%= f.input :distort_sw_y, label: "Y" %>
+          <p>Height</p>
+          <%= f.input :text_box_height, label: false, input_html: { class: "form-input-medium" }   %>
+        </div>
+        <div class="flex space-between">
+          <p>X-Axis</p>
+          <%= f.input :x_axis, label: false, input_html: { class: "form-input-medium" }   %>
+        </div>
+        <div class="flex space-between">
+          <p>Y-Axis</p>
+          <%= f.input :y_axis, label: false, input_html: { class: "form-input-medium" }   %>
+        </div>
+        <div class="flex space-between">
+          <p>Angle</p>
+          <%= f.input :angle, label: false, input_html: { class: "form-input-medium" }   %>
+        </div>
+        <div class="form-check form-switch">
+          <%= f.check_box :text_distortion, class: "form-check-input", id: "distort-checkbox"  %>
+          <label class="form-check-label" for="distort-checkbox">Distort text?</label>
+        </div>
+        <div class="distort-options hidden">
+          <div class="flex space-between">
+            <div class="flex"style="width:45%">
+              <%= f.input :distort_nw_x, label: "X" %>
+              <%= f.input :distort_nw_y, label: "Y" %>
+            </div>
+            <div class="flex"style="width:45%">
+              <%= f.input :distort_ne_x, label: "X" %>
+              <%= f.input :distort_ne_y, label: "Y" %>
+            </div>
           </div>
-          <div class="flex"style="width:45%">
-            <%= f.input :distort_se_x, label: "X" %>
-            <%= f.input :distort_se_y, label: "Y" %>
+          <div class="flex space-between">
+            <div class="flex"style="width:45%">
+              <%= f.input :distort_sw_x, label: "X" %>
+              <%= f.input :distort_sw_y, label: "Y" %>
+            </div>
+            <div class="flex"style="width:45%">
+              <%= f.input :distort_se_x, label: "X" %>
+              <%= f.input :distort_se_y, label: "Y" %>
+            </div>
           </div>
         </div>
-      </div>
 
-         <%= f.submit 'Save and preview', class: 'nav-link lb-btn', style: "border:none;width:100%"%>
-       <% end %>
+          <%= f.submit 'Save and preview', class: 'nav-link lb-btn', style: "border:none;width:100%"%>
+        <% end %>
+    </div>
 
   </div>
 

@@ -7,6 +7,7 @@ document.addEventListener("click", (event) => {
     image.width = 500;
     imageLink.width = 500;
 
+
     // Change the 'copy' text to 'copied'
     event.target.textContent = 'Copied!';
     setTimeout(() => {
