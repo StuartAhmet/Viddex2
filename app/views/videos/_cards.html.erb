@@ -3,7 +3,7 @@
     <div class="flex flex-wrap content-start overflow-auto" style="justify-content:flex-start;">
       <% @user.videos.reverse.each do |video| %>
       <div class="flex" style="flex-direction:column" >
-        <div class="item-card" style="margin-bottom:20px;margin-right:20px">
+        <div class="item-card mx-2">
           <div type="button" data-bs-toggle="modal" data-bs-target=<%= "#exampleModal#{video.id}" %>>
             <% if video.file.attached? %><%= render "videos/modal", video: video %>
               <%= cl_video_tag video.file.key,
@@ -11,7 +11,7 @@
               width: 213,
               crop: :fill,
               angle: video.rotation,
-              class: "d-block rounded-lg toprd5px" %>
+              class: "d-block rounded-lg card-pic" %>
             <% else %>
               <img src="https://t3.ftcdn.net/jpg/04/34/72/82/360_F_434728286_OWQQvAFoXZLdGHlObozsolNeuSxhpr84.jpg" style="height:120px;width:213px" alt="unable to load video">
             <% end %>

@@ -4,5 +4,8 @@
 
 import { application } from "./application"
 
+import ShowHideBgremOptionsController from "./show_hide_bgrem_options_controller"
+application.register("show-hide-bgrem-options", ShowHideBgremOptionsController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)

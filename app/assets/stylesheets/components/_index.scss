@@ -25,6 +25,9 @@
   width: 216px;
   margin-top: -8px;
 }
+.hidden{
+  display: none;
+}
 .image-100 img{
   max-width: 100%;
 }
@@ -47,7 +50,9 @@
 .pt10{
   padding-top: 10px;
 }
-
+.space-around{
+  justify-content: space-around;
+}
 .space-between{
   justify-content: space-between;
 }

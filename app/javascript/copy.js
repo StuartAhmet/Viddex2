@@ -1,24 +1,22 @@
 // copy.js
+document.addEventListener("click", (event) => {
+  if (event.target.id === "copy-button") {
+    const imageContainer = event.target.closest('.image-container');
+    const image = imageContainer.querySelector('#image');
+    const imageLink = imageContainer.querySelector('#image-link');
+    image.width = 500;
+    imageLink.width = 500;
 
-const imageContainers = document.querySelectorAll('.image-container');
-
-imageContainers.forEach(imageContainer => {
-  const copyButton = imageContainer.querySelector('#copy-button');
-  const image = imageContainer.querySelector('#image');
-  const imageLink = imageContainer.querySelector('#image-link');
-
-  copyButton.addEventListener('click', () => {
     // Change the 'copy' text to 'copied'
-    copyButton.textContent = 'Copied!';
+    event.target.textContent = 'Copied!';
     setTimeout(() => {
-    copyButton.textContent = 'Copy';
+      event.target.textContent = 'Copy';
     }, 2000); // reset the text after 2 seconds (2000 milliseconds)
 
     // Create a new div element
     const copyDiv = document.createElement('div');
 
     // Create copies of the image and its hyperlink
-    const imageCopy = image.cloneNode(true);
     const imageLinkCopy = imageLink.cloneNode(true);
 
     // Append the copies of the image and its hyperlink to the div
@@ -41,5 +39,5 @@ imageContainers.forEach(imageContainer => {
 
     // Clear the selection
     selection.removeAllRanges();
-  });
+  }
 });

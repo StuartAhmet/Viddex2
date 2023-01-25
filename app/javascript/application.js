@@ -8,3 +8,8 @@ import "./copy"
 import "./controllers/copy_image_controller.js"
 
 //= require select2
+
+import "./bgrem_checkbox"
+import "./controllers/index"
+import "./distort_checkbox"
+

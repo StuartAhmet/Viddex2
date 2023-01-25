@@ -16,6 +16,13 @@
             :value => @user_backgrounds, as: :select,
             input_html: { multiple: false, class: "form-input-medium" }%>
         </div>
+         <div class="flex space-between">
+          <p>Audio:</p>
+          <%= f.association :audio, collection: @user.audios,
+            label: false,
+            :value => @user_audios, as: :select,
+            input_html: { multiple: false, class: "form-input-medium" }%>
+        </div>
         <div class="flex space-between">
           <p>Message:</p>
             <div class="flex-column">
