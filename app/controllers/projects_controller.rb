@@ -19,6 +19,7 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     @project.user = current_user
+    @project.video = Video.find(project_params[:video_id])
     if @project.save
       redirect_to user_projects_path
       flash[:notice] = "Project Created"
@@ -33,6 +34,7 @@ class ProjectsController < ApplicationController
 
   def update
     @project = Project.find_by(public_uid: params[:id])
+    @project.video = Video.find(project_params[:video_id])
     @project.update(project_params)
     redirect_to edit_user_project_path
     flash[:notice] = "Project Updated"

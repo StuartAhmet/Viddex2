@@ -17,31 +17,31 @@
 
       </div>
 
-      <%= form_tag("/contact", method: "post", class: "contactform") do %>
+      <%= form_for @contact, url: '/contactus', method: :post, html: { id: 'contactformId' } do |f| %>
 
         <div class="contactnamesdiv">
           <div class="form-group">
-            <%= label_tag :first_name, "FIRST NAME: *", class:"contactlabel" %>
-            <%= text_field_tag :first_name, nil, class: "form-control contactfill_in contactnames", placeholder: "First Name" %>
+            <%= f.label :first_name, "FIRST NAME: *", class:"contactlabel" %>
+            <%= f.text_field :first_name, class: "form-control contactfill_in contactnames", placeholder: "First Name" %>
           </div>
 
           <div class="form-group">
-            <%= label_tag :last_name, "LAST NAME: *", class:"contactlabel" %>
-            <%= text_field_tag :last_name, nil, class: "form-control contactfill_in contactnames", placeholder: "Last Name" %>
+            <%= f.label :last_name, "LAST NAME: *", class:"contactlabel" %>
+            <%= f.text_field :last_name, class: "form-control contactfill_in contactnames", placeholder: "Last Name" %>
           </div>
         </div>
 
         <div class="form-group">
-          <%= label_tag :email, "EMAIL: *", class:"contactlabel" %>
-          <%= email_field_tag :email, nil, class: "form-control contactfill_in contactnot_names", placeholder: "Email" %>
+          <%= f.label :email, "EMAIL: *", class:"contactlabel" %>
+          <%= f.email_field :email, class: "form-control contactfill_in contactnot_names", placeholder: "Email" %>
         </div>
         <div class="form-group">
-          <%= label_tag :notes, "NOTES: *", class:"contactlabel" %>
-          <%= text_area_tag :notes, nil, class: "form-control contactfill_in contactnot_names", placeholder: "Notes" %>
+          <%= f.label :notes, "NOTES: *", class:"contactlabel" %>
+          <%= f.text_area :notes, class: "form-control contactfill_in contactnot_names", placeholder: "Notes" %>
         </div>
         <div class="form-group">
-          <%= label_tag :country, "COUNTRY: *", class:"contactlabel contactnot_names" %>
-          <%= select_tag :country, options_for_select(["Country", "Afghanistan", "Albania", "Algeria", "Andorra",
+          <%= f.label :country, "COUNTRY: *", class:"contactlabel contactnot_names" %>
+          <%= f.select :country, options_for_select(["Country", "Afghanistan", "Albania", "Algeria", "Andorra",
           "Angola", "Antigua and Barbuda", "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan",
           "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin",
           "Bhutan", "Bolivia", "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria",
@@ -66,14 +66,14 @@
           "Syria", "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Timor-Leste", "Togo", "Tonga", "Trinidad and Tobago",
           "Tunisia", "Turkey", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom",
           "United States", "Uruguay", "Uzbekistan", "Vanuatu", "Vatican City", "Venezuela", "Vietnam", "Yemen", "Zambia",
-          "Zimbabwe"]), class: "form-control contactfill_in" %>
+          "Zimbabwe"]), class: "form-control contactfill_in contactcountry" %>
         </div>
         <div class="form-group">
-          <%= label_tag :job_title, "JOB TITLE:", class:"contactlabel" %>
-          <%= text_field_tag :job_title, nil, class: "form-control contactfill_in contactnot_names", placeholder: "Job Title" %>
+          <%= f.label :job_title, "JOB TITLE:", class:"contactlabel" %>
+          <%= f.text_field :job_title, class: "form-control contactfill_in contactnot_names", placeholder: "Job Title" %>
         </div>
         <div class="form-group contactbuttondiv">
-          <%= submit_tag "Submit", class: "btn btn-primary contactbutton" %>
+          <%= submit_tag "Submit", class: "btn btn-primary contactbutton", id: "submit-button" %>
         </div>
       <% end %>
 
@@ -82,3 +82,7 @@
   </div>
 
 </div>
+
+<script>
+
+</script>

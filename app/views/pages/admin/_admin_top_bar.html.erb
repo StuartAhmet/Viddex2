@@ -1,0 +1,27 @@
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+
+<div class="admin_top_tab">
+
+  <div class="admin_top_contents">
+
+        <button class="admin-menu admin_top_buttons" onClick="show_admin_menu()"><i class='fa fa-bars'></i> Menu</button>
+        <ul class="admin-dropdown-menu">
+          <li class="admin-dropdown"><button class="admin_top_buttons"><i class='fa fa-wpforms'></i> Contact Forms</button></li>
+          <li class="admin-dropdown"><button class="admin_top_buttons">Option 2</button></li>
+          <li class="admin-dropdown"><button class="admin_top_buttons">Option 3</button></li>
+        </ul>
+
+  </div>
+
+</div>
+
+<script>
+
+var trigger = document.querySelector('.admin-menu');
+var menu = document.querySelector('.admin-dropdown-menu');
+
+  function show_admin_menu() {
+    menu.classList.toggle('show');
+  }
+
+</script>
