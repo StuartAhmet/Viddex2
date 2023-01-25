@@ -51,18 +51,19 @@ class VideosController < ApplicationController
     params.require(:video).permit(:title, :cadence_step, :rotation, :addressed, :file, :bgrem_require,
       :text_distortion,
       :distort_nw_x,
-       :distort_nw_y,
-        :distort_ne_x,
-        :distort_ne_y,
-       :distort_sw_x,
+      :distort_nw_y,
+      :distort_ne_x,
+      :distort_ne_y,
+      :distort_sw_x,
       :distort_sw_y,
-       :distort_se_x,
-       :distort_se_y,
-       :text_width,
-       :text_box_height,
-       :x_axis,
-       :y_axis,
-       :angle)
+      :distort_se_x,
+      :distort_se_y,
+      :text_width,
+      :text_box_height,
+      :x_axis,
+      :y_axis,
+      :angle,
+      :thumbnail)
   end
 
   def set_user
@@ -72,4 +73,9 @@ class VideosController < ApplicationController
   def set_video
     @video = Video.find_by(public_uid: params[:id])
   end
+
+  def thumbnail_url
+    self.thumbnail
+  end
+
 end

@@ -6,12 +6,13 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   root to: "pages#home"
-  get "contact", to: "pages#contact"
   get 'contactus', to: 'pages#contactus'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  get 'myadmin', to: 'admin#admin'
+  post '/contactus', to: 'contacts#create'
+  get 'contacts/new' => 'contacts#new'
+  get '/contacts/:id', to: 'contacts#show'
+  patch '/contacts/:id', to: 'contacts#update'
 
-  # Defines the root path route ("/")
-  # root "articles#index"
   resources :users, :path => 'terminal' do
     resources :backgrounds
     resources :projects, only: [:new, :create, :edit, :update, :index, :destroy]
@@ -19,4 +20,9 @@ Rails.application.routes.draw do
     resources :audios, :path => 'audio-files'
   end
   resources :projects, :path => 'watch', only: [:show]
+  resources :contacts do
+    collection do
+      post :new
+    end
+  end
 end

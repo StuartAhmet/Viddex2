@@ -8,6 +8,7 @@ class PagesController < ApplicationController
   end
 
   def contactus
+    @contact = Contact.new
   end
 
 end
