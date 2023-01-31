@@ -21,26 +21,33 @@
 
         <div class="contactnamesdiv">
           <div class="form-group">
-            <%= f.label :first_name, "FIRST NAME: *", class:"contactlabel" %>
+            <%= f.label :first_name, "FIRST NAME:", class:"contactlabel" %>
             <%= f.text_field :first_name, class: "form-control contactfill_in contactnames", placeholder: "First Name" %>
           </div>
 
           <div class="form-group">
-            <%= f.label :last_name, "LAST NAME: *", class:"contactlabel" %>
+            <%= f.label :last_name, "LAST NAME:", class:"contactlabel" %>
             <%= f.text_field :last_name, class: "form-control contactfill_in contactnames", placeholder: "Last Name" %>
           </div>
         </div>
 
         <div class="form-group">
-          <%= f.label :email, "EMAIL: *", class:"contactlabel" %>
+          <%= f.label :email, "EMAIL:", class:"contactlabel" %>
           <%= f.email_field :email, class: "form-control contactfill_in contactnot_names", placeholder: "Email" %>
         </div>
+
         <div class="form-group">
-          <%= f.label :notes, "NOTES: *", class:"contactlabel" %>
+          <%= f.label :reason, "REASON FOR CONTACT:", class:"contactlabel contactnot_names" %>
+          <%= f.select :reason, options_for_select(["General", "Technical", "Security", "Product", "Pricing"]), class: "form-control contactfill_in contactcountry" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :notes, "NOTES:", class:"contactlabel" %>
           <%= f.text_area :notes, class: "form-control contactfill_in contactnot_names", placeholder: "Notes" %>
         </div>
+
         <div class="form-group">
-          <%= f.label :country, "COUNTRY: *", class:"contactlabel contactnot_names" %>
+          <%= f.label :country, "COUNTRY:", class:"contactlabel contactnot_names" %>
           <%= f.select :country, options_for_select(["Country", "Afghanistan", "Albania", "Algeria", "Andorra",
           "Angola", "Antigua and Barbuda", "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan",
           "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin",
