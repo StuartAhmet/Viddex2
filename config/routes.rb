@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   patch '/contacts/:id', to: 'contacts#update'
 
   resources :users, :path => 'terminal' do
-    resources :backgrounds
+    resources :backgrounds, :path => 'images'
     resources :projects, only: [:new, :create, :edit, :update, :index, :destroy]
     resources :videos
     resources :audios, :path => 'audio-files'
