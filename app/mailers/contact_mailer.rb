@@ -1,6 +1,9 @@
 class ContactMailer < ApplicationMailer
-  def contact_email(message)
-    @message = message
-    mail(to: ENV['GMAIL_ADDRESS'], subject: 'New Contact Submission')
+  default to: "stuart@viddex.io"
+
+  def contact_submission(contact)
+    @contact = contact
+    mail(subject: "New Contact Submission")
   end
+
 end

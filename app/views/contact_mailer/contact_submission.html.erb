@@ -1,0 +1,28 @@
+<h2>Hi Stuart, you have a new Contact Request.</h2>
+
+<div style="border-bottom-style:solid; border-width:0.5px; padding-left:10px;">
+  <p><b>From:</b> <%= @contact.first_name %> <%= @contact.last_name %></p>
+  <p><b>Job Title:</b> <%= @contact.job_title %></p>
+  <p><b>Country:</b> <%= @contact.country %></p>
+</div>
+
+<br />
+
+<div style="border-bottom-style:solid; border-width:0.5px; padding-left:10px;">
+  <p><b>Reason for Contact:</b> <%= @contact.reason %> Inquiry</p>
+  <p><b><u>Message:</u></b></p>
+  <p><i><%= @contact.notes %></i></p>
+</div>
+
+<br />
+
+<div style="border-bottom-style:solid; border-width:0.5px; padding-left:10px;">
+  <p><b>This message was sent by <%= @contact.first_name %> on:</b></p>
+  <p><i><%= @contact.created_at.strftime("%A at %I:%M %p") %>,</i></p>
+  <p><i><%= @contact.created_at.strftime("%d-%m-%Y") %>.</i></p>
+  <p><b>Reply Here &#8594;</b> <%= @contact.email %> </p>
+</div>
+
+<br />
+
+<img src="https://res.cloudinary.com/dth8lnhas/image/upload/v1671646453/Screenshot_2022-12-21_at_18.00.50-removebg-preview_copy_n65wmo.png" style="height:50px;" >

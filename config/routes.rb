@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   root to: "pages#home"
   get 'contactus', to: 'pages#contactus'
   get 'myadmin', to: 'admin#admin'
+  get 'pricing', to: 'pages#pricing'
+  get 'about_us', to: 'pages#about_us'
   post '/contactus', to: 'contacts#create'
   get 'contacts/new' => 'contacts#new'
   get '/contacts/:id', to: 'contacts#show'
