@@ -1,4 +1,5 @@
 class ContactsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:new, :create]
   before_action :set_contact, only: [:new]
 
   def new
@@ -10,10 +11,11 @@ class ContactsController < ApplicationController
     @contact = Contact.new(contact_params)
     if @contact.save
       flash[:notice] = "Thankyou for getting in contact with us. We will get back to you via your email as soon as possible!"
+      ContactMailer.contact_submission(@contact).deliver_now
       redirect_to '/contactus'
     else
-      flash[:alert] = "Unsuccessful. Please try again.."
-      redirect_to :new
+      flash[:notice] = @contact.errors.full_messages.join(', ')
+      render 'pages/contactus', status: 422
     end
   end
 
@@ -48,6 +50,6 @@ class ContactsController < ApplicationController
   end
 
   def contact_params
-    params.require(:contact).permit(:first_name, :last_name, :email, :notes, :country, :job_title)
+    params.require(:contact).permit(:first_name, :last_name, :email, :reason, :notes, :country, :job_title)
   end
 end
