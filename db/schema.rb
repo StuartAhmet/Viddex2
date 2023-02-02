@@ -10,9 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_29_234226) do
+
+ActiveRecord::Schema[7.0].define(version: 2023_02_02_114335) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "active_admin_comments", force: :cascade do |t|
+    t.string "namespace"
+    t.text "body"
+    t.string "resource_type"
+    t.bigint "resource_id"
+    t.string "author_type"
+    t.bigint "author_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author"
+    t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
+    t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource"
+  end
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -62,6 +78,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_29_234226) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.jsonb "distort", default: {}
     t.integer "distort_nw_x"
     t.integer "distort_nw_y"
     t.integer "distort_ne_x"
@@ -97,7 +114,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_29_234226) do
     t.integer "opacity", default: 70
     t.string "font", default: "permanent marker"
     t.integer "font_size", default: 38
-    t.text "message"
     t.bigint "background_id"
     t.bigint "video_id"
     t.bigint "user_id"
@@ -106,7 +122,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_29_234226) do
     t.datetime "updated_at", null: false
     t.text "message_body"
     t.string "title"
-    t.string "message_body_two"
     t.bigint "audio_id"
     t.index ["audio_id"], name: "index_projects_on_audio_id"
     t.index ["background_id"], name: "index_projects_on_background_id"

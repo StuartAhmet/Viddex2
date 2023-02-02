@@ -18,7 +18,7 @@
 
             <ul id="dropdown-menu" class="dropdown-menu-original">
             <% @user.videos.each do |video| %>
-            <li class="thumbnail_select" onClick="choosevid(this)" data-value="<%= video.id %>" id="<%= video.title %>"><img src="<%= video.thumbnail %>", id="thumbnail-<%= video.id %>", class="thumbnails"> <br />
+            <li class="thumbnail_select" onClick="choosevid(this)" data-value="<%= video.id %>" id="<%= video.title %>"><img src="<%= video.thumbnail%>", id="thumbnail-<%= video.id %>", class="thumbnails"> <br />
             <%= video.title %></li>
             <% end %>
             <%= f.hidden_field :video_id, id: "selected_video" %>
@@ -44,12 +44,10 @@
         <div class="flex space-between">
           <p>Message:</p>
             <div class="flex-column">
-              <%= f.input :message, label: false, input_html: { class: "message_styling" },placeholder:
-              "Greeting"%>
+
               <%= f.input :message_body, label: false,placeholder:
               "Line two" %>
-              <%= f.input :message_body_two, label: false,placeholder:
-              "Line three " %>
+
             </div>
         </div>
       <div class="accordion" id="accordionPanelsStayOpenExample">

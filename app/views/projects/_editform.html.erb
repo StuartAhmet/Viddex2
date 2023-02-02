@@ -25,14 +25,7 @@
         </div>
         <div class="flex space-between">
           <p>Message:</p>
-            <div class="flex-column">
-              <%= f.input :message, label: false, input_html: { class: "message_styling" },placeholder:
-              "Greeting line"%>
-              <%= f.input :message_body, label: false,placeholder:
-              "Line two" %>
-              <%= f.input :message_body_two, label: false,placeholder:
-              "Line three " %>
-            </div>
+          <%= f.input :message_body, label: false,placeholder: "Message" %>
         </div>
       <div class="accordion" id="accordionPanelsStayOpenExample">
          <div class="accordion-item" style="border-radius:10px">
