@@ -52,7 +52,7 @@
           <div class="accord_bottom_buttons" id="accord_bottom_button1"><%= link_to "Logout", destroy_user_session_path , id: "accord_bottom_button1"  %></div>
           <div class="accord_bottom_buttons" id="accord_bottom_button2"><a id="accord_bottom_button2" href="/terminal/<%= current_user.public_uid %>"> My Terminal <i class='fas fa-network-wired'></i></a></div>
         <% else %>
-          <div class="accord_bottom_buttons" id="accord_bottom_button3"><%= link_to "Login", new_user_session_path, id: "accord_bottom_button3" %></div>
+          <div class="accord_bottom_buttons" id="accord_bottom_button3"><%= link_to "Logint", new_user_session_path, id: "accord_bottom_button3" %></div>
           <div class="accord_bottom_buttons" id="accord_bottom_button4"><%= link_to "Register Now", new_user_registration_path, id: "accord_bottom_button4" %></div>
         <% end %>
 
