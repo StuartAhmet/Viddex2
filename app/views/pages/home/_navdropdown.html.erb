@@ -1,33 +1,192 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+<link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/barlow" type="text/css"/>
 
 <div class="collapse navbar-collapse" id="navbarNavDropdown">
-  <ul class="navbar-nav">
+  <ul class="navdrop-options">
 
-    <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" >
-        Why Viddex?
-      </a>
-        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-        <li><a class="dropdown-item" href="#">Action</a></li>
-         <li><a class="dropdown-item" href="#">Another action</a></li>
-         <li><a class="dropdown-item" href="#">Something else here</a></li>
-       </ul>
+    <li class="dropdown" >
+      <div class="nav-link" id="navbarDropdownMenuLink1" style="cursor: pointer;">
+        About Us <span id="changing_arrow1"><i class='fa fa-chevron-down'></i></span>
+      </div>
+
      </li>
 
-    <li class="nav-item dropdown">
-       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Solutions
-       </a>
-      <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-        <li><a class="dropdown-item" href="#">Action</a></li>
-        <li><a class="dropdown-item" href="#">Another action</a></li>
-        <li><a class="dropdown-item" href="#">Something else here</a></li>
-       </ul>
+    <li class="dropdown" >
+      <div class="nav-link" id="navbarDropdownMenuLink2" style="cursor: pointer;">
+        Solutions <span id="changing_arrow2"><i class='fa fa-chevron-down'></i></span>
+      </div>
+
      </li>
 
       <a class="nav-link" href="<%= pricing_path %>" id="navbarDropdownMenuLink" role="button"  aria-expanded="false">
         Pricing
       </a>
 
-
    </ul>
+
+  <div id="droplist_one" class="fade-in-out">
+
+       <div class="droplistcontainer_combined">
+
+       <div class="droplistcontainer">
+
+        <ul class="navlist_dropdown">
+          <li class="dropdown_header">GET IN TOUCH</li>
+          <li class="dropdown_text"><a class="dropdown-item" href="#"><i class='fa fa-tasks'></i> Work With Us</a></li>
+          <li class="dropdown_text"><a class="dropdown-item" href="<%= contactus_path %>"><i class='fa fa-commenting-o'></i> Contact Us</a></li>
+       </ul>
+
+        <ul class="navlist_dropdown">
+          <li class="dropdown_header">COMPANY OVERVIEW</li>
+          <li class="dropdown_text"><a class="dropdown-item" href="#"><i class='fa fa-users'></i> Who We Are</a></li>
+          <li class="dropdown_text"><a class="dropdown-item" href="#"><i class='fa fa-file-video-o'></i> What We Do</a></li>
+          <li class="dropdown_text"><a class="dropdown-item" href="#"><i class='fa fa-handshake-o'></i> Why Choose Us</a></li>
+       </ul>
+
+        <ul class="navlist_dropdown">
+          <li class="dropdown_header">OUR SOCIALS</li>
+          <li class="dropdown_text"><a class="dropdown-item" href="#"><i class='fa fa-facebook-square' style="color:#1877F2"></i> Facebook</a></li>
+          <li class="dropdown_text"><a class="dropdown-item" href="#"><i class='fa fa-instagram' style="color:#E4405F"></i> Instagram</a></li>
+          <li class="dropdown_text"><a class="dropdown-item" href="#"><i class='fa fa-twitter' style="color:#1da1f2"></i> Twitter</a></li>
+          <li class="dropdown_text"><a class="dropdown-item" href="#"><i class='fa fa-linkedin-square' style="color:#0077b5"></i> LinkedIn</a></li>
+          <li class="dropdown_text"><a class="dropdown-item" href="#"><i class='fa fa-youtube-play' style="color:#ff0000"></i> Youtube</a></li>
+       </ul>
+
+      </div>
+
+      <div class="droplistcontainer2">
+
+      <div class="navdrop-right-text">
+      <p class="navright-bigtext">Transform your sales strategy with Viddex Video Solutions.</p>
+      <p class="navright-smalltext"><i class='fa fa-check' style='color:#4eabff;'></i> Connect With Potential Clients</p>
+      <p class="navright-smalltext"><i class='fa fa-check' style='color:#4eabff;'></i> Close More Deals</p>
+      <p class="navright-smalltext"><i class='fa fa-check' style='color:#4eabff;'></i> Drive Success</p>
+      </div>
+
+      </div>
+
+    </div>
+
+  </div>
+   <%# end of first dropdown menu %>
+
+  <div id="droplist_two" class="fade-in-out">
+
+       <div class="droplistcontainer_combined">
+
+       <div class="droplistcontainer_second">
+
+        <ul class="navlist_dropdown">
+          <li class="dropdown_header">THE PRODUCT</li>
+          <li class="dropdown_text"><a class="dropdown-item" href="#"><i class='fa fa-microphone'></i> Screen and Audio<br />Recorders</a></li>
+          <li class="dropdown_text"><a class="dropdown-item" href=""><i class='fa fa-files-o'></i> Video Library<br />Management</a></li>
+          <li class="dropdown_text"><a class="dropdown-item" href=""><i class='fa fa-exchange'></i> Price Offerings</a></li>
+        </ul>
+
+        <ul class="navlist_dropdown">
+          <li class="dropdown_header">CAPABILITIES</li>
+          <li class="dropdown_text"><a class="dropdown-item" href="#"><i class='fa-solid fa-handshake-angle'></i> Sales</a></li>
+          <li class="dropdown_text"><a class="dropdown-item" href="#"><i class='fa fa-bar-chart'></i> Marketing</a></li>
+          <li class="dropdown_text"><a class="dropdown-item" href="#"><i class='fa fa-comments'></i> Bussiness Comms</a></li>
+       </ul>
+
+        <ul class="navlist_dropdown">
+          <li class="dropdown_header">SUPPORT</li>
+          <li class="dropdown_text"><a class="dropdown-item" href="#"><i class='fa fa-book'></i> User Documentation</a></li>
+          <li class="dropdown_text"><a class="dropdown-item" href="#"><i class='fa fa-file-movie-o'></i> Video Tutorials</a></li>
+          <li class="dropdown_text"><a class="dropdown-item" href="#"><i class='fa fa-question-circle'></i> FAQs</a></li>
+       </ul>
+
+      </div>
+
+      <div class="droplistcontainer2_second">
+
+      <div class="navdrop-right-text_second">
+
+      <p class="navright-bigtext_second">Unleash the Video Magic. Let Our Innovative Solutions Be Your Secret Weapon.</p>
+
+      <p id="navright-gap" class="navright-smalltext_second">Create, Share and Track Videos with Confidence.
+        Discover Our Range of Video Offerings and Revolutionize Your Game <b>Today</b>.</p>
+      </div>
+
+      </div>
+
+    </div>
+
+  </div>
+  <%# end of second dropdown menu %>
+
 </div>
+<%# end of navbar dropdown file view %>
+
+<script>
+
+function showDropDown(elementId, triggerId, arrowId, elementId2, triggerId2, arrowId2)
+{
+  var element = document.getElementById(elementId);
+  var trigger = document.getElementById(triggerId);
+  var arrow = document.getElementById(arrowId);
+  var element2 = document.getElementById(elementId2);
+  var trigger2 = document.getElementById(triggerId2);
+  var arrow2 = document.getElementById(arrowId2);
+  var navbarshadow = document.getElementById('camsnav');
+
+    trigger.onmouseover = function()
+    {
+      trigger.style.color = "#4eabff";
+    };
+
+    trigger.onmouseout = function()
+    {
+      if (element.classList.contains("show"))
+      {
+        trigger.style.color = "#4eabff";
+      }
+      else
+      {
+        trigger.style.color = "#50565b";
+      }
+
+    };
+
+    trigger.onclick = function()
+    {
+
+      if (element.classList.contains("show"))
+      {
+        trigger.style.color = "#50565b";
+        element.classList.remove("show");
+        arrow.innerHTML = "<i class='fa fa-chevron-down'></i>";
+      }
+      else
+      {
+        trigger.style.color = "#4eabff";
+        element.classList.add("show");
+        arrow.innerHTML = "<i class='fa fa-chevron-up'></i>";
+      }
+
+      trigger2.style.color = "#50565b";
+      element2.classList.remove("show");
+      arrow2.innerHTML = "<i class='fa fa-chevron-down'></i>";
+    }
+
+    document.addEventListener("click", function(event)
+    {
+      if (!element.contains(event.target) && event.target !== trigger)
+        {
+          element.classList.remove("show");
+          trigger.style.color = "#50565b";
+          arrow.innerHTML = "<i class='fa fa-chevron-down'></i>";
+        }
+    });
+
+
+}
+
+showDropDown('droplist_one', 'navbarDropdownMenuLink1', 'changing_arrow1', 'droplist_two',
+'navbarDropdownMenuLink2', 'changing_arrow2');
+
+showDropDown('droplist_two', 'navbarDropdownMenuLink2', 'changing_arrow2', 'droplist_one',
+'navbarDropdownMenuLink1', 'changing_arrow1');
+
+</script>

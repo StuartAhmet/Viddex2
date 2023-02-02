@@ -13,14 +13,13 @@
 
 .heroheader{
   color:#475066;
-  font-family: 'LL Circular', sans-serif;
-  font-weight: 600;
+  font-family: "BarlowMedium", sans-serif;
   background-color:fafafa;
 }
 
 .heroparagraph{
   color:#5B627D;
-  font-family: 'LL Circular', sans-serif;
+  font-family: "BarlowSemiCondensedMedium", sans-serif;
   margin-top: 24px;
   line-height: 1.9;
 }
@@ -28,16 +27,14 @@
 .herobuttonone{
   background-color: #4eabff;
   color:white;
-  font-family: 'LL Circular', sans-serif;
-  font-weight: 600;
+  font-family: "BarlowSemiCondensedMedium", sans-serif;
   border-color: #4eabff;
 }
 
 .herobuttontwo{
   background-color: white;
   color:#4eabff;
-  font-family: 'LL Circular', sans-serif;
-  font-weight: 600;
+  font-family: "BarlowSemiCondensedMedium", sans-serif;
   border-color: #4eabff;
 }
 
@@ -52,10 +49,12 @@
 }
 
 .herolinktextone{
+  font-family: "BarlowSemiCondensedMedium", sans-serif;
   color:#5B627D;
 }
 
 .herolinktexttwo{
+  font-family: "BarlowSemiCondensedMedium", sans-serif;
   text-decoration: underline;
   color:#4eabff;
 }

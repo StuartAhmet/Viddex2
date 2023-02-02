@@ -1,4 +1,24 @@
+<header class="camsnav" id="navshadow">
+<%# <div class="camsnav"> %>
+  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+    <div class="container-fluid" style="max-width:1200px; height:70px;">
+      <%= link_to root_path, class: "" do %>
+        <%= image_tag "https://res.cloudinary.com/dth8lnhas/image/upload/v1671732023/viddex-whitebg.png", :class => "home-logo" %>
+        <%= image_tag "https://res.cloudinary.com/dth8lnhas/image/upload/v1673349545/photo_two_10_at9pwc.png", :class => "home-logo2" %>
+      <% end %>
+      <%= render "pages/home/navdropdown" %>
+      <%= render "pages/home/navlogins" %>
+
+    </div>
+  </div>
+
+</header>
+<%# </div> %>
+
 <script>
+
+  var element1 = document.getElementById('droplist_one');
+  var element2 = document.getElementById('droplist_two');
 
   function addDropShadow() {
     var header = document.getElementById('navshadow');
@@ -20,18 +40,3 @@
   });
 
 </script>
-
-<header class="camsnav" id="navshadow">
-<%# <div class="camsnav"> %>
-  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-    <div class="container-fluid" style="max-width:1200px">
-      <%= link_to root_path, class: "" do %>
-        <%= image_tag "https://res.cloudinary.com/dth8lnhas/image/upload/v1671732023/viddex-whitebg.png", :class => "home-logo" %>
-      <% end %>
-      <%= render "pages/home/navdropdown" %>
-      <%= render "pages/home/navlogins" %>
-
-    </div>
-  </div>
-</header>
-<%# </div> %>
