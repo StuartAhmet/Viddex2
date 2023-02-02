@@ -1,8 +1,7 @@
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+    <button id="nt" class="navbar-toggler" >
+      <span class="navbar-toggler-icon" id="ntc"><i class='fas fa-bars'></i></span>
     </button>
-
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
@@ -11,17 +10,21 @@
           <li class="nav-item">
             <%= link_to "Logout", destroy_user_session_path , class: "nav-link pt-10-2", data: {turbo_method: :false}  %>
           </li>
+
           <li class="">
             <button type="button" class="terminalbutton"><a href="/terminal/<%= current_user.public_uid %>" style="color:white;">My Terminal</a></button>
           </li>
 
         <% else %>
+
           <li class="nav-item">
             <%= link_to "Login", new_user_session_path, class: "nav-link pt-10" %>
           </li>
-          <li class="nav-item">
+
+          <%# <li class="nav-item">
             <%= link_to "Contact Us", contactus_path, class: "nav-link pt-10" %>
-          </li>
+          <%# </li> %>
+
           <li class="">
             <%= link_to "Register For Free", new_user_registration_path, class: "nav-link lb-btn"%>
           </li>
@@ -29,3 +32,104 @@
 
       </ul>
     </div>
+
+   <div class="accord_div" id="accord_div">
+
+    <div class="accord_container">
+
+      <div class="accord_dropdown_buttons">
+
+        <div class="accord_top_buttons"><span><i class='fas fa-users-cog'></i> About Us</span> <span><i class='fa fa-chevron-down'></i></span></div>
+        <div class="accord_top_buttons"><span><i class='fas fa-photo-video'></i> Solutions</span> <span><i class='fa fa-chevron-down'></i></span></div>
+        <div class="accord_top_buttons"><span><i class='fas fa-chalkboard-teacher'></i> Pricing</span> <span><i class='fas fa-arrow-right'></i></span></div>
+        <div class="accord_top_buttons"><a class="t_button_a" href="<%= contactus_path %>"><i class='fa-solid fa-message'></i> Get In Contact With Us</a></span> <a class="t_button_a" href="<%= contactus_path %>"><span><i class='fas fa-arrow-right'></i></span></a></div>
+
+      </div>
+
+      <div class="accord_login_buttons">
+
+        <% if user_signed_in? %>
+          <div class="accord_bottom_buttons" id="accord_bottom_button1"><%= link_to "Logout", destroy_user_session_path , id: "accord_bottom_button1"  %></div>
+          <div class="accord_bottom_buttons" id="accord_bottom_button2"><a id="accord_bottom_button2" href="/terminal/<%= current_user.public_uid %>"> My Terminal <i class='fas fa-network-wired'></i></a></div>
+        <% else %>
+          <div class="accord_bottom_buttons" id="accord_bottom_button3"><%= link_to "Login", new_user_session_path, id: "accord_bottom_button3" %></div>
+          <div class="accord_bottom_buttons" id="accord_bottom_button4"><%= link_to "Register Now", new_user_registration_path, id: "accord_bottom_button4" %></div>
+        <% end %>
+
+      </div>
+
+    </div>
+    <%# end of accordian container %>
+
+  </div>
+  <%# end of accordian div %>
+
+<script>
+
+
+
+  var minidropbox = document.getElementById('nt');
+  var minidropicon = document.getElementById('ntc');
+
+  var navbarwhole = document.getElementById('navshadow');
+  var navHeight = navbarwhole.offsetHeight;
+  var windowHeight = window.innerHeight - navHeight + 5;
+
+  var active = false;
+
+  var accordDiv = document.getElementById('accord_div');
+
+  function highlight_navMini() {
+
+    minidropbox.onclick = function() {
+
+    if (active==true)
+    {
+      // if OPEN - removes accordian on click
+      minidropbox.style.backgroundColor = "white";
+      minidropbox.style.borderColor = "#dde1f0";
+      minidropicon.style.color = "#5b627d";
+      minidropicon.innerHTML = "<i class='fas fa-bars'>";
+      accordDiv.classList.remove("show");
+      document.body.style.height = "";
+      document.body.style.overflow = "";
+      active = false;
+    }
+    else
+    {
+      // if CLOSED - adds accordian on click
+      minidropbox.style.backgroundColor = "#4eabff";
+      minidropbox.style.borderColor = "#4eabff";
+      minidropicon.style.color = "white";
+      minidropicon.innerHTML = "<i class='fa-solid fa-xmark'></i>";
+      accord_div.style.height = windowHeight + "px";
+      accordDiv.classList.add("show");
+      document.body.style.height = "100%";
+      document.body.style.overflow = "hidden";
+      active = true;
+    }
+  };
+ }
+
+  highlight_navMini();
+
+  window.addEventListener("resize", function()
+  {
+    if (window.innerWidth > 579.9)
+      {
+      minidropbox.style.backgroundColor = "white";
+      minidropbox.style.borderColor = "#dde1f0";
+      minidropicon.style.color = "#5b627d";
+      minidropicon.innerHTML = "<i class='fas fa-bars'>";
+      accordDiv.classList.remove("show");
+      active = false;
+      }
+
+    if (window.innerWidth > 579.9 && !active) {
+      document.body.style.height = "";
+      document.body.style.overflow = "";
+    }
+
+  });
+
+</script>

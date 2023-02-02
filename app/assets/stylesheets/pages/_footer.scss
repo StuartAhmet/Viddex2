@@ -1,4 +1,4 @@
-// CSS sheet for the footer file
+
 
 footer.navigation{
   background-color: #e7eaf6;
@@ -43,6 +43,10 @@ line-height: 35px;
 margin-top: 10px;
 }
 
+.link:hover{
+  color: #38393d;
+  }
+
 .heading{
   font-size: 16px;
   font-weight: bold;
@@ -81,7 +85,22 @@ margin-top: 10px;
 }
 
 .footer_copyright_text:hover{
-  font-weight: bolder;
+  color: #38393d;
+}
+
+.footer_logo{
+  color: #5b627d;
+  font-size: 20px;
+}
+
+.footer_logo:hover{
+  color: #38393d;
+}
+
+.footer_logos{
+display: flex;
+flex-direction: row;
+gap: 10px;
 }
 
 @media (min-width: 1200px) {
@@ -100,6 +119,10 @@ margin-top: 10px;
     flex-direction: row;
     width: calc(100% - 400px);
     justify-content: space-between;
+  }
+
+  .footer_top .container{
+    padding-bottom: 80px;
   }
 
 }
@@ -122,6 +145,10 @@ margin-top: 10px;
     justify-content: space-between;
   }
 
+  .footer_top .container{
+    padding-bottom: 80px;
+  }
+
 }
 
 @media (min-width:768px) and (max-width: 991.9px) {
@@ -133,6 +160,7 @@ margin-top: 10px;
   margin-left: auto;
   padding-left: 15px;
   padding-right: 15px;
+  padding-bottom: 30px;
   }
 
   footer.navigation{
@@ -187,6 +215,7 @@ margin-top: 10px;
     padding-left: 15px;
     padding-right: 15px;
     margin:0;
+    padding-bottom:20px;
     }
 
     footer.navigation{
@@ -251,6 +280,10 @@ margin-top: 10px;
     .container-sm, .container {
       max-width: 1000px;
     }
+
+    .footer_logos{
+      justify-content: center;
+      }
 }
 
 @media (max-width:  575.9px) {
@@ -325,5 +358,9 @@ margin-top: 10px;
     .container-sm, .container {
       max-width: 1000px;
     }
+
+    .footer_logos{
+      justify-content: center;
+      }
 
 }
