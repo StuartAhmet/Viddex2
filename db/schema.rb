@@ -143,7 +143,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_29_234226) do
     t.string "public_uid"
     t.string "rotation"
     t.bigint "user_id"
-    t.boolean "bgrem_require", default: true
+    t.boolean "bgrem_require", default: false
     t.boolean "bgrem_complete", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

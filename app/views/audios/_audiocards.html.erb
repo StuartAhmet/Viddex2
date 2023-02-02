@@ -1,30 +1,26 @@
  <div class="flex flex-wrap content-start overflow-auto " style="justify-content:flex-start">
   <% @user.audios.reverse.each do |audio| %>
-    <div class="item-card" style="margin-bottom:20px;margin-right:20px">
-      <%= audio.title.capitalize %>
-      <%= audio.file.byte_size %>
-      <%= audio.file.key %>
-      <%= audio.created_at.strftime('%d/%m/%y') %>
+    <div class="audio-card" style="margin-bottom:20px;margin-right:20px">
+      <div class="flex space-around">
+        <div><%= audio.title.capitalize %></div>
+        <div><%= audio.created_at.strftime('%d/%m/%y') %></div>
+        <div class="dropdown">
+          <button class="bi bi-three-dots-vertical mr10" type="button"                  id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false"
+            style="background-color:transparent;border-color:transparent">
+          </button>
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+            <li><a data-turbo-method="delete" class="dropdown-item bi bi-trash"data-turbo-confirm="Are you sure?" href="/terminal/<%= @user.public_uid %>/audio-files/<%= audio.public_uid%>"> Delete</a></li>
+          </ul>
+        </div>
+      </div>
       <% audio_source = cloudinary_url(audio.file.key+".mp3", :resource_type=>"video") %>
-      <%= audio.file.filename %>
-      <%= audio.file.content_type %>
-      <%= audio.file.metadata %>
-      <%= audio.file.service_name %>
-      <%= audio.file.checksum %>
-
-
-      <audio controls>
+      <audio controls style="max-width:100%">
         <source src=<%=audio_source %>  type="audio/aac">
         <source src=<%=audio_source %>  type="audio/ogg">
         <source src=<%=audio_source %>  type="audio/mpeg">
         <source src=<%=audio_source %>  type="audio/wav">
         Your browser does not support the audio element.
       </audio>
-      <%= cl_image_tag(audio.file.key+".png", resource_type: "video",
-        :transformation=>[
-          {height: 20,width: 50,crop: "scale"},
-          {flags: "waveform"}
-        ]) %>
     </div>
   <% end %>
 </div>
