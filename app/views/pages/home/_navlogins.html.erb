@@ -37,23 +37,87 @@
 
     <div class="accord_container">
 
-      <div class="accord_dropdown_buttons">
+      <div class="accord_dropdown_buttons" id="test1">
 
-        <div class="accord_top_buttons"><span><i class='fas fa-users-cog'></i> About Us</span> <span><i class='fa fa-chevron-down'></i></span></div>
-        <div class="accord_top_buttons"><span><i class='fas fa-photo-video'></i> Solutions</span> <span><i class='fa fa-chevron-down'></i></span></div>
-        <div class="accord_top_buttons"><span><i class='fas fa-chalkboard-teacher'></i> Pricing</span> <span><i class='fas fa-arrow-right'></i></span></div>
-        <div class="accord_top_buttons"><a class="t_button_a" href="<%= contactus_path %>"><i class='fa-solid fa-message'></i> Get In Contact With Us</a></span> <a class="t_button_a" href="<%= contactus_path %>"><span><i class='fas fa-arrow-right'></i></span></a></div>
+        <div class="accord_top_buttons" id="abButton"><span><i class='fas fa-users-cog'></i> About Us</span> <span id="acc_arrow1"><i class='fa fa-chevron-down'></i></span></div>
+
+        <div class="accord_dropdowns" id="accord_drop_height">
+          <div class="accord_inner_container" id="accordInner">
+
+            <ul class="navlist_dropdown2">
+              <li class="dropdown_header2"><span class="headerLine">GET IN TOUCH</span></li>
+              <li class="dropdown_text2"><a class="dropdown-item" href="#"><i class='fa fa-tasks'></i> Work With Us</a></li>
+              <li class="dropdown_text2"><a class="dropdown-item" href="<%= contactus_path %>"><i class='fa fa-commenting-o'></i> Contact Us</a></li>
+          </ul>
+
+            <ul class="navlist_dropdown2">
+              <li class="dropdown_header2"><span class="headerLine">COMPANY OVERVIEW</span></li>
+              <li class="dropdown_text2"><a class="dropdown-item" href="#"><i class='fa fa-users'></i> Who We Are</a></li>
+              <li class="dropdown_text2"><a class="dropdown-item" href="#"><i class='fa fa-file-video-o'></i> What We Do</a></li>
+              <li class="dropdown_text2"><a class="dropdown-item" href="#"><i class='fa fa-handshake-o'></i> Why Choose Us</a></li>
+          </ul>
+
+            <ul class="navlist_dropdown2">
+              <li class="dropdown_header2"><span class="headerLine">OUR SOCIALS</span></li>
+              <li class="dropdown_text2"><a class="dropdown-item" href="#"><i class='fa fa-facebook-square' style="color:#1877F2"></i> Facebook</a></li>
+              <li class="dropdown_text2"><a class="dropdown-item" href="#"><i class='fa fa-instagram' style="color:#E4405F"></i> Instagram</a></li>
+              <li class="dropdown_text2"><a class="dropdown-item" href="#"><i class='fa fa-twitter' style="color:#1da1f2"></i> Twitter</a></li>
+              <li class="dropdown_text2"><a class="dropdown-item" href="#"><i class='fa fa-linkedin-square' style="color:#0077b5"></i> LinkedIn</a></li>
+              <li class="dropdown_text2"><a class="dropdown-item" href="#"><i class='fa fa-youtube-play' style="color:#ff0000"></i> Youtube</a></li>
+          </ul>
+          </div>
+        </div>
+
+        <div class="accord_top_buttons" id="solsButton"><span><i class='fas fa-photo-video'></i> Solutions</span> <span id="acc_arrow2"><i class='fa fa-chevron-down'></i></span></div>
+
+        <div class="accord_dropdowns" id="accord_drop_height2">
+          <div class="accord_inner_container" id="accordInner2">
+
+            <ul class="navlist_dropdown2">
+              <li class="dropdown_header2"><span class="headerLine">THE PRODUCT</span></li>
+              <li class="dropdown_text2"><a class="dropdown-item" href="#"><i class='fa fa-microphone'></i> Screen & Audio<br />Recorders</a></li>
+              <li class="dropdown_text2"><a class="dropdown-item" href=""><i class='fa fa-files-o'></i> Video Library<br />Management</a></li>
+              <li class="dropdown_text2"><a class="dropdown-item" href=""><i class='fa fa-exchange'></i> Price Offerings</a></li>
+            </ul>
+
+            <ul class="navlist_dropdown2">
+              <li class="dropdown_header2"><span class="headerLine">CAPABILITIES</span></li>
+              <li class="dropdown_text2"><a class="dropdown-item" href="#"><i class='fa-solid fa-handshake-angle'></i> Sales</a></li>
+              <li class="dropdown_text2"><a class="dropdown-item" href="#"><i class='fa fa-bar-chart'></i> Marketing</a></li>
+              <li class="dropdown_text2"><a class="dropdown-item" href="#"><i class='fa fa-comments'></i> Bussiness Comms</a></li>
+          </ul>
+
+            <ul class="navlist_dropdown2">
+              <li class="dropdown_header2"><span class="headerLine">SUPPORT</span></li>
+              <li class="dropdown_text2"><a class="dropdown-item" href="#"><i class='fa fa-book'></i> User Docs</a></li>
+              <li class="dropdown_text2"><a class="dropdown-item" href="#"><i class='fa fa-file-movie-o'></i> Video Tutorials</a></li>
+              <li class="dropdown_text2"><a class="dropdown-item" href="#"><i class='fa fa-question-circle'></i> FAQs</a></li>
+          </ul>
+
+          </div>
+
+        </div>
+
+        <a class="redirect_accord_buttons" href="<%= pricing_path %>">
+          <div><i class='fas fa-chalkboard-teacher'></i> Pricing</div>
+          <div><i class='fas fa-arrow-right'></i></div>
+        </a>
+
+        <a class="redirect_accord_buttons" href="<%= contactus_path %>">
+          <div><i class='fa-solid fa-message'></i> Get In Contact With Us</div>
+          <div><i class='fas fa-arrow-right'></i></div>
+        </a>
 
       </div>
 
-      <div class="accord_login_buttons">
+      <div class="accord_login_buttons" id="test2">
 
         <% if user_signed_in? %>
-          <div class="accord_bottom_buttons" id="accord_bottom_button1"><%= link_to "Logout", destroy_user_session_path , id: "accord_bottom_button1"  %></div>
-          <div class="accord_bottom_buttons" id="accord_bottom_button2"><a id="accord_bottom_button2" href="/terminal/<%= current_user.public_uid %>"> My Terminal <i class='fas fa-network-wired'></i></a></div>
+          <%= link_to "Logout", destroy_user_session_path , id: "accord_bottom_button1"  %>
+          <a id="accord_bottom_button2" href="/terminal/<%= current_user.public_uid %>"> My Terminal <i class='fas fa-network-wired'></i></a>
         <% else %>
-          <div class="accord_bottom_buttons" id="accord_bottom_button3"><%= link_to "Logint", new_user_session_path, id: "accord_bottom_button3" %></div>
-          <div class="accord_bottom_buttons" id="accord_bottom_button4"><%= link_to "Register Now", new_user_registration_path, id: "accord_bottom_button4" %></div>
+          <%= link_to "Login", new_user_session_path, id: "accord_bottom_button3" %>
+          <%= link_to "Register Now", new_user_registration_path, id: "accord_bottom_button4" %>
         <% end %>
 
       </div>
@@ -66,8 +130,6 @@
 
 <script>
 
-
-
   var minidropbox = document.getElementById('nt');
   var minidropicon = document.getElementById('ntc');
 
@@ -76,53 +138,150 @@
   var windowHeight = window.innerHeight - navHeight + 5;
 
   var active = false;
+  var active2 = false;
+  var active3 = false;
 
   var accordDiv = document.getElementById('accord_div');
 
-  function highlight_navMini() {
+  var top = document.getElementById('test1');
+  var topheight = test1.offsetHeight;
+  var bottom = document.getElementById('test2');
+  var bottomheight = test2.offsetHeight;
+  var remainingHeight = windowHeight - (topheight + bottomheight) -10;
 
-    minidropbox.onclick = function() {
+  var accordDrop1 = document.getElementById('accord_drop_height');
+  accordDrop1.style.height = (remainingHeight / 2) + "px";
+  var accordDrop2 = document.getElementById('accord_drop_height2');
+  accordDrop2.style.height = (remainingHeight / 2) + "px";
 
+  var aboutButton = document.getElementById('abButton');
+  var solutionsButton = document.getElementById('solsButton');
+  var arrow1 = document.getElementById('acc_arrow1');
+  var arrow2 = document.getElementById('acc_arrow2');
+
+  function accordHover(trigger, element) {
+
+    trigger.onmouseover = function()
+    {
+      trigger.style.color = "#4eabff";
+    };
+
+    trigger.onmouseout = function()
+    {
+      if (element.classList.contains("show"))
+      {
+        trigger.style.color = "#4eabff";
+      }
+      else
+      {
+        trigger.style.color = "#50565b";
+      }
+
+    };
+  }
+
+  function playAccordian(button, trigger, accordian, arrowSymbol) {
+
+      button.onclick = function()
+        {
+          if (trigger==true)
+            {
+              // if OPEN - removes accordian on click
+              accordian.classList.remove("show");
+              trigger = false;
+              button.style.color = "#50565b";
+              arrowSymbol.innerHTML = "<i class='fa fa-chevron-down'></i>";
+            }
+          else
+            {
+              // if CLOSED - adds accordian on click
+              accordian.classList.add("show");
+              trigger = true;
+              button.style.color = "#4eabff";
+              arrowSymbol.innerHTML = "<i class='fa fa-chevron-up'></i>";
+            }
+        };
+
+          window.addEventListener("resize", function()
+          {
+            if (window.innerWidth > 579.9)
+              {
+                trigger = false;
+              }
+          });
+          window.addEventListener("click", function() {
+            if (!active) {
+              trigger = false;
+            }
+          });
+    }
+
+  function highlight_navMini()
+  {
+
+    minidropbox.onclick = function()
+    {
     if (active==true)
-    {
-      // if OPEN - removes accordian on click
-      minidropbox.style.backgroundColor = "white";
-      minidropbox.style.borderColor = "#dde1f0";
-      minidropicon.style.color = "#5b627d";
-      minidropicon.innerHTML = "<i class='fas fa-bars'>";
-      accordDiv.classList.remove("show");
-      document.body.style.height = "";
-      document.body.style.overflow = "";
-      active = false;
-    }
+      {
+        // if OPEN - removes accordian on click
+        minidropbox.style.backgroundColor = "white";
+        minidropbox.style.borderColor = "#dde1f0";
+        minidropicon.style.color = "#5b627d";
+        minidropicon.innerHTML = "<i class='fas fa-bars'>";
+        accordDiv.classList.remove("show");
+        document.body.style.height = "";
+        document.body.style.overflow = "";
+        accordDrop1.classList.remove("show");
+        accordDrop2.classList.remove("show");
+        active = false;
+        active2 = false;
+        active3 = false;
+        aboutButton.style.color = "#50565b";
+        solutionsButton.style.color = "#50565b";
+        arrow1.innerHTML = "<i class='fa fa-chevron-down'></i>";
+        arrow2.innerHTML = "<i class='fa fa-chevron-down'></i>";
+      }
     else
-    {
-      // if CLOSED - adds accordian on click
-      minidropbox.style.backgroundColor = "#4eabff";
-      minidropbox.style.borderColor = "#4eabff";
-      minidropicon.style.color = "white";
-      minidropicon.innerHTML = "<i class='fa-solid fa-xmark'></i>";
-      accord_div.style.height = windowHeight + "px";
-      accordDiv.classList.add("show");
-      document.body.style.height = "100%";
-      document.body.style.overflow = "hidden";
-      active = true;
-    }
-  };
- }
+      {
+        // if CLOSED - adds accordian on click
+        minidropbox.style.backgroundColor = "#4eabff";
+        minidropbox.style.borderColor = "#4eabff";
+        minidropicon.style.color = "white";
+        minidropicon.innerHTML = "<i class='fa-solid fa-xmark'></i>";
+        accord_div.style.height = windowHeight + "px";
+        accordDiv.classList.add("show");
+        document.body.style.height = "100%";
+        document.body.style.overflow = "hidden";
+        active = true;
+      }
+
+    };
+  }
 
   highlight_navMini();
+  playAccordian(aboutButton, active2, accordDrop1, arrow1);
+  playAccordian(solutionsButton, active3, accordDrop2, arrow2);
+  accordHover(aboutButton, accordDrop1);
+  accordHover(solutionsButton, accordDrop2);
 
   window.addEventListener("resize", function()
   {
     if (window.innerWidth > 579.9)
       {
-      minidropbox.style.backgroundColor = "white";
-      minidropbox.style.borderColor = "#dde1f0";
-      minidropicon.style.color = "#5b627d";
-      minidropicon.innerHTML = "<i class='fas fa-bars'>";
-      accordDiv.classList.remove("show");
-      active = false;
+        minidropbox.style.backgroundColor = "white";
+        minidropbox.style.borderColor = "#dde1f0";
+        minidropicon.style.color = "#5b627d";
+        minidropicon.innerHTML = "<i class='fas fa-bars'>";
+        accordDiv.classList.remove("show");
+        accordDrop1.classList.remove("show");
+        accordDrop2.classList.remove("show");
+        active = false;
+        active2 = false;
+        active3 = false;
+        aboutButton.style.color = "#50565b";
+        solutionsButton.style.color = "#50565b";
+        arrow1.innerHTML = "<i class='fa fa-chevron-down'></i>";
+        arrow2.innerHTML = "<i class='fa fa-chevron-down'></i>";
       }
 
     if (window.innerWidth > 579.9 && !active) {
