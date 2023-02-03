@@ -1,0 +1,2 @@
+class ProjectLinksController < ApplicationController
+end

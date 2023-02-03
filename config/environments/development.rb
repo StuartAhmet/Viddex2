@@ -62,11 +62,20 @@ Rails.application.configure do
   config.assets.quiet = true
 
   # Action mailer for contact form
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.default :charset => "utf-8"
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    address: 'smtp.gmail.com', port: 587, domain: 'example.com',
-    user_name: ENV['GMAIL_ADDRESS'], password: ENV['GMAIL_PASSWORD'],
-    authentication: 'plain', enable_starttls_auto: true }
+
+  config.action_mailer.smtp_settings =
+  {
+    address: 'smtp.gmail.com',
+    port: 587,
+    domain: 'viddex.io',
+    user_name: ENV['GMAIL_USERNAME'],
+    password: ENV['GMAIL_PASSWORD'],
+    authentication: 'plain',
+    enable_starttls_auto: true
+  }
 
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
@@ -77,19 +86,6 @@ Rails.application.configure do
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
 
-  config.action_mailer.perform_deliveries = true
-  config.action_mailer.default :charset => "utf-8"
-  config.action_mailer.delivery_method = :smtp
 
-  config.action_mailer.smtp_settings =
-{
-  address: 'smtp.gmail.com',
-  port: 587,
-  domain: 'viddex.io',
-  user_name: ENV['GMAIL_USERNAME'],
-  password: ENV['GMAIL_PASSWORD'],
-  authentication: 'plain',
-  enable_starttls_auto: true
-}
 
 end

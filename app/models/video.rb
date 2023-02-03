@@ -7,7 +7,8 @@ class Video < ApplicationRecord
 
   belongs_to :user
   has_one_attached :file
-  has_many :projects
+  has_many :projects, through: :project_links
+
 
   validates :title, presence: true
   validates :file, presence: true

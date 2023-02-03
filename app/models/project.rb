@@ -6,9 +6,9 @@ class Project < ApplicationRecord
   end
 
   belongs_to :user
-  belongs_to :background, required: false
-  belongs_to :video
-  belongs_to :audio, required: false
+  has_many :backgrounds, through: :project_links
+  has_many :videos, through: :project_links
+  has_many :audios, through: :project_links
 
   validates :title, presence: true
 
