@@ -187,6 +187,7 @@ p.navright-bigtext_second{
 
 .home-logo{
   margin-bottom: 10px;
+  height:70px;
 }
 
 // my terminal nav button
@@ -577,7 +578,7 @@ p.navright-bigtext_second{
   }
 
   .home-logo{
-    height: 60px;
+
   }
 
   .terminalbutton{
@@ -671,7 +672,7 @@ p.navright-bigtext_second{
 .accord_dropdown_buttons{
   display: flex;
   flex-direction: column;
-  gap:30px;
+  gap:5px;
   color:#50565b;
   padding: 10px;
 }
@@ -714,6 +715,9 @@ p.navright-bigtext_second{
   background-color: white;
   padding-top:10px;
   padding-bottom:10px;
+  text-align: center;
+  font-size: 25px;
+  font-family: "BarlowSemiCondensedMedium", sans-serif;
 }
 
 #accord_bottom_button2{
@@ -721,11 +725,17 @@ p.navright-bigtext_second{
   background-color: #4eabff;
   padding-top:10px;
   padding-bottom:10px;
+  text-align: center;
+  font-size: 25px;
+  font-family: "BarlowSemiCondensedMedium", sans-serif;
 }
 
 #accord_bottom_button3{
   color:#50565b;
   background-color: white;
+  text-align: center;
+  font-size: 25px;
+  font-family: "BarlowSemiCondensedMedium", sans-serif;
   padding-top:10px;
   padding-bottom:10px;
 }
@@ -735,6 +745,9 @@ p.navright-bigtext_second{
   background-color: #4eabff;
   padding-top:10px;
   padding-bottom:10px;
+  text-align: center;
+  font-size: 25px;
+  font-family: "BarlowSemiCondensedMedium", sans-serif;
 }
 
 
@@ -752,4 +765,86 @@ p.navright-bigtext_second{
 
 #accord_bottom_button4:hover{
   background-color: #3f8ccf;
+}
+
+.redirect_accord_buttons{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 25px;
+  font-family: "BarlowSemiCondensedMedium", sans-serif;
+  color:#50565b;
+}
+
+.redirect_accord_buttons:hover{
+  color: #4eabff;
+}
+
+.accord_inner_container{
+  box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.05), 0px -2px 1px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  height:100%;
+  background-color:#f9f9f9;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  animation: growDown 300ms ease-in-out forwards;
+  transform-origin: top center;
+}
+
+.accord_dropdowns{
+  display: none;
+}
+
+.accord_dropdowns.show{
+  display:block;
+}
+
+@keyframes growDown {
+  0% {
+      transform: scaleY(0)
+  }
+  80% {
+      transform: scaleY(1.1)
+  }
+  100% {
+      transform: scaleY(1)
+  }
+}
+
+.navlist_dropdown2{
+  list-style: none;
+  padding:5px;
+}
+
+.dropdown_text2{
+  font-family: "BarlowSemiCondensedMedium", sans-serif;
+  font-size: 17px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-left-style: solid;
+  border-color: #f9f9f9;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: #5b627d;
+  line-height: 1.9;
+}
+
+.dropdown_text2:hover{
+  color: #4eabff;
+  border-left-color: #4eabff;
+  background-color: #f1f2f6;
+}
+
+.headerLine{
+  border-bottom-style: solid;
+  border-bottom-color: #5b627d;
+  border-width: 0.5px;
+}
+
+.dropdown_header2{
+  font-family: "BarlowSemiCondensedMedium", sans-serif;
+  font-size: 20px;
+  color: #5b627d;
+  text-align: center;
 }
