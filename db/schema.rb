@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_02_114335) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_03_133545) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -103,6 +103,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_02_114335) do
     t.string "reason"
   end
 
+  create_table "project_links", force: :cascade do |t|
+    t.bigint "background_id", null: false
+    t.bigint "video_id", null: false
+    t.bigint "audio_id", null: false
+    t.bigint "project_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["audio_id"], name: "index_project_links_on_audio_id"
+    t.index ["background_id"], name: "index_project_links_on_background_id"
+    t.index ["project_id"], name: "index_project_links_on_project_id"
+    t.index ["video_id"], name: "index_project_links_on_video_id"
+  end
+
   create_table "projects", force: :cascade do |t|
     t.string "prospect_first"
     t.string "prospect_last"
@@ -182,6 +195,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_02_114335) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "audios", "users"
   add_foreign_key "backgrounds", "users"
+  add_foreign_key "project_links", "audios"
+  add_foreign_key "project_links", "backgrounds"
+  add_foreign_key "project_links", "projects"
+  add_foreign_key "project_links", "videos"
   add_foreign_key "projects", "audios"
   add_foreign_key "projects", "backgrounds"
   add_foreign_key "projects", "users"
