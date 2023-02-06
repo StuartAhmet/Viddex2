@@ -1,11 +1,11 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 
-<div class="pricing-tab1">
+<div class="pricing-tab">
 
-  <div class="pricing-container1">
+  <div class="pricing-container">
 
     <div class="pricing-header">
-      Video Price Packages to Help You Unlock Your Sales Potential
+      Simple Price Packages to Help You Accelerate Your Sales Growth.
     </div>
 
     <div class="pricing-tables-div">
@@ -13,20 +13,20 @@
       <div class="pricing-package">
 
         <div class="price-type">
-          Free
+           Free
         </div>
 
         <div class="price-description">
           Create professional-quality videos without any investment.
           Unleash your creativity and take the first step towards boosting
-          your sales with our free video creation plan.
+          your sales with our free video sales package.
         </div>
 
         <div class="price-cost">
           <span class="price-num">£0.00</span> <span class="price-note">No Card Required</span>
         </div>
 
-        <div>
+        <div class="pricing-first-button">
           <%= link_to "Sign Up For Free Now", new_user_registration_path, class:"price-button"  %>
         </div>
 
@@ -54,7 +54,8 @@
         </div>
 
         <div class="price-cost">
-          <span class="price-num">£19.99</span> <span class="price-note">* billed monthly or $_ billed anually.</span>
+          <span class="price-num2">£29.99</span> <span class="price-num">£19.99</span>
+          <span class="price-note">/per month.</span>
         </div>
 
         <div class="price-button">
@@ -85,7 +86,8 @@
         </div>
 
         <div class="price-cost">
-          <span class="price-num">£39.99</span> <span class="price-note">* billed monthly or $_ billed anually.</span>
+          <span class="price-num2">£49.99</span> <span class="price-num">£39.99</span>
+          <span class="price-note">/per month.</span>
         </div>
 
         <div class="price-button">
@@ -102,6 +104,20 @@
           </ul>
         </div>
 
+      </div>
+
+    </div>
+
+    <div class="pricing-banner">
+
+      <div>
+        <div class="pricing-banner-header">Take Your Sales to the Next Level with Viddex</div>
+        <div class="pricing-banner-text">Access Advanced Video Features with Viddex to Make Your Content Stand Out and Boost Growth.<br />Discover More Today.</div>
+      </div>
+
+      <div class="pricing-banner-right">
+        <%= link_to "Register Here", new_user_registration_path, class: "pricing-banner-button" %>
+        <a class="pricing-banner-button" href="<%= contactus_path %>">Have Questions? Contact Us</a>
       </div>
 
     </div>
