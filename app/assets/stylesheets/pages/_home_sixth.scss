@@ -5,19 +5,11 @@
 }
 
 .home_sixth_faqdivs{
-  font-family: 'LL Circular', sans-serif;
+  font-family: "BarlowMedium", sans-serif;
 }
 
-.home_sixth_header_bubble{
-  background-color:#fdadac;
-  color:#475066;
-  border-radius: 30px;
-  font-weight:bold;
-  text-align:center;
-}
 
 .home_sixth_header{
-  font-weight:bold;
   color:#475066;
 }
 
@@ -29,8 +21,7 @@
 .home_sixth_button{
   color:white;
   background-color:#4eabff;
-  border-radius: 2px 2px 2px 2px;
-  font-weight:bold;
+  border-radius: 10px;
   text-align:center;
 }
 
@@ -238,12 +229,6 @@
     align-items: center;
   }
 
-  .home_sixth_header_bubble{
-    font-size:14px;
-    width:50px;
-    padding:5px;
-  }
-
   .home_sixth_header{
     font-size:30px;
     text-align: center;
@@ -258,7 +243,7 @@
   .home_sixth_button{
     font-size:16px;
     padding:10px;
-    width:30%;
+    width:40%;
   }
 
   .home_sixth_container{
