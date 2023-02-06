@@ -6,6 +6,9 @@
   color: #475066;
   display: flex;
   justify-content: center;
+  background-image: url('https://res.cloudinary.com/dth8lnhas/image/upload/v1675663924/1_retltp.png');
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .pricing-tab-2{
@@ -17,6 +20,10 @@
   color: #475066;
   display: flex;
   justify-content: center;
+  background-image: url('https://res.cloudinary.com/dth8lnhas/image/upload/v1675663693/Untitled_design_18_peer48.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: bottom;
 }
 
 .pricing-container{
@@ -49,6 +56,14 @@
   text-align: center;
   width:60%;
   align-self: center;
+  color: white;
+}
+
+.pricing-header2{
+  font-size: 50px;
+  text-align: center;
+  width:60%;
+  align-self: center;
 }
 
 .pricing-package{
@@ -65,6 +80,7 @@
   padding-bottom:20px;
   gap:10px;
   box-shadow: 0px 2px 4px rgba(132, 131, 131, 0.5);
+  background-color: white;
 }
 
 .price-type{
@@ -381,11 +397,18 @@
     padding-bottom:50px;
     margin-left: auto;
     margin-right: auto;
+    background-image: url('https://res.cloudinary.com/dth8lnhas/image/upload/v1675662785/Untitled_design_16_grrjwp.png');
+    background-size: cover;
+  }
+
+  .pricing-tab-2{
+    background-image: url('https://res.cloudinary.com/dth8lnhas/image/upload/v1675664840/62_1_vctryi.png');
+    background-size: cover;
   }
 
   .pricing-header{
     font-size: 35px;
-    width:90%;
+    width:100%;
   }
 
   .pricing-package{
@@ -418,6 +441,8 @@
     padding-bottom:50px;
     padding-left: 10px;
     padding-right: 10px;
+    background-image: url('https://res.cloudinary.com/dth8lnhas/image/upload/v1675662785/Untitled_design_16_grrjwp.png');
+    background-size: contain;
   }
 
   .pricing-header{
