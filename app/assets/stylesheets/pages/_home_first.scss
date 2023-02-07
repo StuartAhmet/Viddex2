@@ -2,20 +2,21 @@
 
   .home_first_tab{
     width: 100%;
+    font-family: 'BarlowSemiCondensedMedium', sans-serif;
+    background-image: url('https://res.cloudinary.com/dth8lnhas/image/upload/v1675682725/Untitled_design_20_rfjqr1.png');
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 
   .home_first_header{
   text-align:center;
   color:#475066;
-  font-family: 'LL Circular', sans-serif;
-  font-weight: 600;
-  margin-top: 5%;
+
 }
 
 .home_first_paragraph{
   text-align:center;
   color:#475066;
-  font-family: 'LL Circular', sans-serif;
 }
 
 .home_one_list{
@@ -32,11 +33,6 @@
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
 }
 
-.home_first_tableheaders{
-  font-family: 'LL Circular', sans-serif;
-  font-weight: 600;
-}
-
 .home_first_tablecards {
   color:#475066;
   line-height: 1.9;
@@ -47,8 +43,8 @@
   padding-top:20px;
   padding-bottom: 20px;
   color:#475066;
-  font-family: 'LL Circular', sans-serif;
   border-top: 0.5px solid #DDE1F0;
+  background-color: white;
 }
 
 .home_first_tableheader1{
@@ -73,14 +69,12 @@
   padding-bottom: 20px;
   padding-right: 5%;
   color:#475066;
-  font-family: 'LL Circular', sans-serif;
   background-color:#DDE1F0;
   border-top: 0.5px solid #4eabff;
 }
 
 #ticks{
   color:#50C878;
-  font-weight: bold;
 }
 
 #home_first_right-bottom-table_cell{
@@ -90,7 +84,6 @@
 .home_first_bottom_paragraph{
   text-align:center;
   color:#475066;
-  font-family: 'LL Circular', sans-serif;
   display: none;
 }
 
@@ -108,18 +101,14 @@
     .home_first_container{
       margin: 0 auto;
       width: 1200px;
-      background-image: url("https://res.cloudinary.com/dth8lnhas/image/upload/v1671418267/arrow_one_uxspmt.png");
-      background-repeat: no-repeat;
-      background-size: 500px;
-      background-position: 125%  3%;
     }
 
   .home_first_header{
-    font-size: 45px;
+    font-size: 50px;
   }
 
   .home_first_paragraph{
-    font-size: 17px;
+    font-size: 19px;
     display: flex;
     justify-content: center;
     margin-top: 2%;
@@ -168,10 +157,6 @@
     .home_first_container{
       margin: 0 auto;
       width: 990px;
-      background-image: url("https://res.cloudinary.com/dth8lnhas/image/upload/v1671418267/arrow_one_uxspmt.png");
-      background-repeat: no-repeat;
-      background-size: 350px;
-      background-position: 120%  3%;
     }
 
     .home_first_header{
