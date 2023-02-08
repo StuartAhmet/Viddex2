@@ -19,7 +19,7 @@
 
 .heroparagraph{
   color:#5B627D;
-  font-family: "BarlowSemiCondensedMedium", sans-serif;
+  font-family: "BarlowMedium", sans-serif;
   margin-top: 24px;
   line-height: 1.9;
 }
@@ -64,8 +64,7 @@
   .home_hero_container{
     justify-content: center;
     flex-direction: row;
-    margin-right: 30%;
-    position: relative;
+    padding:2%;
   }
 
   .herotab{
@@ -78,15 +77,13 @@
 
   .hero_text{
     width: 600px;
+    padding-top: 2%;
+    opacity: 0;
   }
 
   .hero_video{
-    border-radius: 50%;
-    border: 16px solid #dde1f0;
-    filter: box-shadow(0px 20px 20px #a9a9a9);
-    width: 350px;
-    position: absolute;
-    z-index: 1;
+    width: 800px;
+    opacity: 0;
   }
 
   .hero_video2{
@@ -309,6 +306,9 @@
 
   .herotab{
     height: 780px;
+    background-image: url('https://res.cloudinary.com/dth8lnhas/image/upload/v1675756484/Backgrounds/62_4_uwlbok.png');
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 
   .hero_text{
@@ -332,12 +332,14 @@
   .heroheader{
     font-size: 360%;
     text-align: right;
+    color: white;
   }
 
   .heroparagraph{
     font-size:18px;
     padding-top: 2%;
     text-align: right;
+    color: white;
   }
 
   .herobuttonone{
@@ -345,6 +347,7 @@
     font-size:18px;
     border-radius: 10px;
     width: 250px;
+    border-style: none;
   }
 
   .herobuttontwo{
@@ -362,9 +365,11 @@
 
   .hero_mobile_photo{
     padding-top: 5%;
-    width: 500px;
+    padding-bottom: 5%;
+    width: 400px;
     display: block;
     margin: 0 auto;
+    opacity:0;
   }
 
   .herobuttons{
@@ -386,7 +391,10 @@
   }
 
   .herotab{
-    height: 780px;
+    height:850px;
+    background-image: url('https://res.cloudinary.com/dth8lnhas/image/upload/v1675756484/Backgrounds/62_4_uwlbok.png');
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 
   .hero_text{
@@ -410,12 +418,14 @@
   .heroheader{
     font-size: 320%;
     text-align: center;
+    color:white;
   }
 
   .heroparagraph{
     font-size:18px;
     padding-top: 2%;
     text-align: center;
+    color:white;
   }
 
   .herobuttonone{
@@ -423,6 +433,7 @@
     font-size:18px;
     border-radius: 10px;
     width: 250px;
+    border-style: none;
   }
 
   .herobuttontwo{
@@ -432,17 +443,12 @@
     width: 200px;
   }
 
-  .herolink{
-    font-size:15px;
-    padding-top: 5%;
-    text-align: center;
-  }
-
   .hero_mobile_photo{
     padding-top: 5%;
     width: 80%;
     display: block;
     margin: 0 auto;
+    opacity:0;
   }
 
   .herobuttons{

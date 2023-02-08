@@ -1,11 +1,11 @@
-<%# First tab after the Hero tab %>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 
 <section class="home_first_tab">
 
-  <div class="home_first_container">
+  <div class="home_first_container" id="home_first_containerId">
   <%# Header %>
     <div class="home_first_header">
-      Reach more clients - Get more Responses <br> Close more Deals.
+      Reach More Clients - Get More Responses <br> Close More Deals.
     </div>
 
     <%# Paragraph under the header %>
@@ -117,3 +117,21 @@
   </div>
 </section>
 <%# end of first tab %>
+
+<script>
+
+var fadeInDiv2 = document.getElementById('home_first_containerId');
+
+window.addEventListener('scroll', function() {
+
+  var windowTop2 = window.pageYOffset + window.innerHeight;
+
+  var fadeInDivTop2 = fadeInDiv2.getBoundingClientRect().top + window.pageYOffset;
+
+  if (windowTop2 >= fadeInDivTop2) {
+    fadeInDiv2.classList.add('fade-into-user-view');
+  }
+
+});
+
+</script>

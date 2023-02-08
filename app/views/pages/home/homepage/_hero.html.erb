@@ -4,11 +4,11 @@
 
   <div class="home_hero_container">
 
-  <div class="hero_text">
+  <div class="hero_text" id="hero-div">
 
-        <h1 class="heroheader">
+        <div class="heroheader">
         Elevate your Sales Strategy with Viddex
-        </h1>
+        </div>
 
         <p class="heroparagraph">
         Easily connect with potential clients through video, building personal relationships and trust.
@@ -38,20 +38,42 @@
         </div>
 
         <div>
-          <img src="https://res.cloudinary.com/dth8lnhas/image/upload/v1673340099/photo_two_8_dw6nri.png" class="hero_mobile_photo">
+          <img src="https://res.cloudinary.com/dth8lnhas/image/upload/v1675752412/Images/Untitled_design_24_pfnqpm.png" class="hero_mobile_photo" id="hero-photo">
         </div>
 
-      <div class="htrp">
-        <video class ="hero_video" autoplay loop muted>
-        <source src="https://res.cloudinary.com/dth8lnhas/video/upload/v1673239354/AdobeStock_513584954_AdobeExpress_1_i1xgcq.mp4" type="video/mp4">
-      </div>
-
-      <div class="hero_recordvid">
-        <video class ="hero_video2" autoplay loop muted>
-        <source src="https://res.cloudinary.com/dth8lnhas/video/upload/v1673348903/R-E-C1_stktxw.mp4" type="video/mp4">
+      <div>
+        <img src="https://res.cloudinary.com/dth8lnhas/image/upload/v1675836043/Images/photo_two_4_sqjdq8.png" class="hero_video" id="hero-photo2">
       </div>
 
   </div>
 
 
 </section>
+
+<script>
+
+var fadeInDiv3 = document.getElementById('hero-photo');
+var fadeInDiv4 = document.getElementById('hero-photo2');
+var fadeInDiv5 = document.getElementById('hero-div');
+
+
+window.addEventListener('scroll', function() {
+
+  var windowTop3 = window.pageYOffset + window.innerHeight;
+
+  var fadeInDivTop3 = fadeInDiv3.getBoundingClientRect().top + window.pageYOffset;
+
+  if (windowTop3 >= fadeInDivTop3) {
+    fadeInDiv3.classList.add('fade-into-user-view');
+  }
+
+});
+
+  function showtopdivs() {
+    fadeInDiv4.classList.add('fade-into-user-view');
+    fadeInDiv5.classList.add('fade-into-user-view');
+  }
+
+  window.onload(showtopdivs());
+
+</script>

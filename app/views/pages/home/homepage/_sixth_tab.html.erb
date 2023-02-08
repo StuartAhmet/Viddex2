@@ -4,7 +4,7 @@
 
   <div class="home_sixth_container">
 
-  <div class="home_sixth_faqdivs">
+  <div class="home_sixth_faqdivs" id="slideInDivs6">
 
     <div class="home_sixth_faqdivs2">
 
@@ -30,7 +30,7 @@
   </div>
   <%# end of end of faqdivs class %>
 
-  <div class="home_sixth_photo_div">
+  <div class="home_sixth_photo_div" id="slideInImage6">
     <img src="https://res.cloudinary.com/dth8lnhas/image/upload/v1675682218/Untitled_design_19_gndut2.png" class="home_sixth_photo">
   </div>
 
@@ -39,3 +39,23 @@
 
 </div>
 <%# end of faqtab class %>
+
+<script>
+
+var slideInDiv_two = document.getElementById('slideInImage6');
+var slideInDiv2_two = document.getElementById('slideInDivs6');
+
+window.addEventListener('scroll', function() {
+
+  var windowTop_two = window.pageYOffset + window.innerHeight;
+
+  var slideInDivTop_two = slideInDiv_two.getBoundingClientRect().top + window.pageYOffset;
+
+  if (windowTop_two >= slideInDivTop_two) {
+    slideInDiv_two.classList.add('slide-in-from-side');
+    slideInDiv2_two.classList.add('slide-in-from-side');
+  }
+
+});
+
+</script>

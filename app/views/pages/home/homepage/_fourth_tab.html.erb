@@ -4,26 +4,25 @@
 
     <div class="home_fourth_animationplustext">
 
-    <div class="home_fourth_videodiv">
+    <div class="home_fourth_videodiv" id="slideInImage4">
       <img class="home_four_video" src="https://res.cloudinary.com/dth8lnhas/image/upload/v1675685585/Untitled_design_22_gowxtw.png">
       </img>
     </div>
 
-    <div class="home_fourth_salesdivs">
+    <div class="home_fourth_salesdivs" id="slideInDivs4">
 
       <%# Header %>
       <div class="home_fourth_header">
-        Qualify more leads with personalised videos
+        Maximize Lead Qualification with Personalised Videos
       </div>
 
       <br />
 
       <%# Paragraph %>
       <div class="home_fourth_paragraph">
-        Become more memorable in your prospects’ inbox with
-        Viddex. Create amazing sales videos for your prospects that
-        will put a face to your name in just a few clicks- no video
-        creation expertise required.
+        Make a lasting impression with Viddex.
+        Effortlessly create engaging sales videos that introduce your brand to prospects with just a few clicks.
+        No video production skills needed.
       </div>
 
       <br />
@@ -33,12 +32,11 @@
 
       <ul class="home_one_list">
 
-        <li>Stand out from the crowd</li>
+        <li>Differentiate Yourself</li>
 
-        <li>Easily send videos by email, LinkedIn, and more</li>
+        <li>Conveniently send videos via email and other platforms</li>
 
-        <li>Know who’s watching your videos so you can follow
-        up right away</li>
+        <li>Maximise conversions with tailored, relevant videos for each prospect</li>
 
       </div>
 
@@ -49,3 +47,23 @@
   </div>
 </section>
 <%# end of salestab class %>
+
+<script>
+
+var slideInDiv = document.getElementById('slideInImage4');
+var slideInDiv2 = document.getElementById('slideInDivs4');
+
+window.addEventListener('scroll', function() {
+
+  var windowTop = window.pageYOffset + window.innerHeight;
+
+  var slideInDivTop = slideInDiv.getBoundingClientRect().top + window.pageYOffset;
+
+  if (windowTop >= slideInDivTop) {
+    slideInDiv.classList.add('slide-in-from-side');
+    slideInDiv2.classList.add('slide-in-from-side');
+  }
+
+});
+
+</script>

@@ -1,7 +1,7 @@
 
 
 footer.navigation{
-  background-color: #e7eaf6;
+  background-color: #f4f6fc;
   color: #475066;
   padding-top: 80px;
   font-family: 'BarlowSemiCondensedMedium', sans-serif;
@@ -17,6 +17,7 @@ footer.navigation{
 
 .footer_slogan{
   padding-top: 10px;
+  font-family: 'BarlowMedium', sans-serif;
 }
 
 .footer_right{
@@ -105,7 +106,7 @@ gap: 10px;
 @media (min-width: 1200px) {
 
   .footer_slogan{
-    font-size: 24px;
+    font-size: 22px;
   }
 
   .footer_left{
@@ -129,7 +130,7 @@ gap: 10px;
 @media (min-width: 992px) and (max-width: 1199.9px) {
 
   .footer_left{
-    width: 350px;
+    width: 300px;
     padding-right: 50px;
   }
 
@@ -140,7 +141,7 @@ gap: 10px;
   .footer_right{
     display: flex;
     flex-direction: row;
-    width: calc(100% - 400px);
+    gap:30px;
     justify-content: space-between;
   }
 
@@ -334,7 +335,7 @@ gap: 10px;
     }
 
     .footer_bottom_row a{
-      font-size: 15px;
+      font-size: 13px;
       white-space:nowrap;
       overflow:hidden;
       text-overflow:ellipsis;

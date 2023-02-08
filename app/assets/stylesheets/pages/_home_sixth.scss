@@ -8,6 +8,14 @@
   font-family: "BarlowMedium", sans-serif;
 }
 
+#slideInImage6{
+  transform: translateX(+300%);
+}
+
+#slideInDivs6{
+  transform: translateX(-200%);
+}
+
 
 .home_sixth_header{
   color:#475066;
@@ -38,16 +46,16 @@
 
   .home_sixth_photo{
     height: 400px;
-    padding-top: 5%;
+    padding-top: 50px;
   }
 
   .home_sixth_faqtab{
-    height: 500px;
+    height: 480px;
   }
 
   .home_sixth_faqdivs{
     padding-right: 5%;
-    padding-top: 4%;
+    padding-top: 50px;
     width: 520px;
   }
 
