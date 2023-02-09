@@ -5,21 +5,24 @@ class ProjectsController < ApplicationController
 
   def index
     @projects = Project.all
+
   end
 
   def show
     @project = Project.find_by(public_uid: params[:id])
+
   end
 
   def new
     @project = Project.new
+
     # @user_backgrounds = Background.find(params[:id])
   end
 
   def create
     @project = Project.new(project_params)
     @project.user = current_user
-    @project.video = Video.find(project_params[:video_id])
+    # @project.video = Video.find(project_params[:video_id])
     if @project.save
       redirect_to user_projects_path
       flash[:notice] = "Project Created"
@@ -57,8 +60,10 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:background_id, :video_id, :audio_id, :prospect_first,
+    params.require(:project).permit(
+                                    :prospect_first,
                                     :prospect_last, :prospect_email, :prospect_company,
-                                    :message_body, :font, :opacity, :font_size, :title)
+                                    :message_body, :font, :opacity, :font_size, :title,
+                                    backgrounds_attributes: [:id], videos_attributes: [:id], audios_attributes: [:id])
   end
 end

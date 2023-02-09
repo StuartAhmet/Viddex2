@@ -10,9 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_03_133545) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_09_142128) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "active_admin_comments", force: :cascade do |t|
+    t.string "namespace"
+    t.text "body"
+    t.string "resource_type"
+    t.bigint "resource_id"
+    t.string "author_type"
+    t.bigint "author_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author"
+    t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
+    t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource"
+  end
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -62,6 +76,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_03_133545) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.jsonb "distort", default: {}
     t.integer "distort_nw_x"
     t.integer "distort_nw_y"
     t.integer "distort_ne_x"
@@ -88,17 +103,28 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_03_133545) do
     t.string "reason"
   end
 
-  create_table "project_links", force: :cascade do |t|
-    t.bigint "background_id", null: false
-    t.bigint "video_id", null: false
-    t.bigint "audio_id", null: false
-    t.bigint "project_id", null: false
+  create_table "project_audios", force: :cascade do |t|
+    t.integer "project_id"
+    t.integer "audio_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["audio_id"], name: "index_project_links_on_audio_id"
-    t.index ["background_id"], name: "index_project_links_on_background_id"
-    t.index ["project_id"], name: "index_project_links_on_project_id"
-    t.index ["video_id"], name: "index_project_links_on_video_id"
+    t.index ["project_id", "audio_id"], name: "index_project_audios_on_project_id_and_audio_id", unique: true
+  end
+
+  create_table "project_backgrounds", force: :cascade do |t|
+    t.integer "project_id"
+    t.integer "background_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id", "background_id"], name: "index_project_backgrounds_on_project_id_and_background_id", unique: true
+  end
+
+  create_table "project_videos", force: :cascade do |t|
+    t.integer "project_id", null: false
+    t.integer "video_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id", "video_id"], name: "index_project_videos_on_project_id_and_video_id", unique: true
   end
 
   create_table "projects", force: :cascade do |t|
@@ -180,10 +206,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_03_133545) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "audios", "users"
   add_foreign_key "backgrounds", "users"
-  add_foreign_key "project_links", "audios"
-  add_foreign_key "project_links", "backgrounds"
-  add_foreign_key "project_links", "projects"
-  add_foreign_key "project_links", "videos"
   add_foreign_key "projects", "audios"
   add_foreign_key "projects", "backgrounds"
   add_foreign_key "projects", "users"

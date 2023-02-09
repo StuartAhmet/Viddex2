@@ -7,6 +7,7 @@ class Background < ApplicationRecord
 
   belongs_to :user
   has_one_attached :photo
+  has_many :project_links
   has_many :projects, through: :project_links
 
 

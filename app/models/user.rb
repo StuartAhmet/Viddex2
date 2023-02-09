@@ -30,6 +30,7 @@ class User < ApplicationRecord
   has_many :audios
   has_many :thumbnails
 
+
   INDUSTRY = ["Advertising", "Finance", "Financial Services", "Information Technology", "Insurance",
               "Marketing", "Media", "Real Estate", "Recruitment", "Software", "Technology",
               "Telecommunications","Other - not listed"]
