@@ -1,7 +1,61 @@
-<div class="home_third_reviews_tab">
+<div class="home_third_tab">
 
-  <div class="home_third_inner">
-  INSERT REVIEWS HERE
+  <div class="home_third_container" id="home_third_containerId">
+
+    <div class="home-third-header">
+      Create Unforgettable Sales Pitches Effortlessly and Quickly
+    </div>
+
+    <div class="home-third-boxes">
+
+      <div class="home-third-single-box">
+        <img class="home-third-box-image" src="https://res.cloudinary.com/dth8lnhas/image/upload/v1675738082/Images/viddex_15_gk0hmh.png"></img>
+        <div class="home-third-box-header">Efficiency Elevated</div>
+        <div class="home-third-box-text">
+          Say Goodbye to Time-Consuming Video Creation and Delivery.
+          Create Engaging Sales Videos in Record Time and Reach Your Prospects Instantly.
+          Save Time and Effort, While Boosting Your Sales Results with Viddex's Speedy Video Creation and Delivery Technology.
+        </div>
+      </div>
+
+      <div class="home-third-single-box">
+        <img class="home-third-box-image" src="https://res.cloudinary.com/dth8lnhas/image/upload/v1675737887/Images/viddex_14_lkbla9.png"></img>
+        <div class="home-third-box-header">Volume Velocity</div>
+        <div class="home-third-box-text">
+          Outpace Your Competition with the Ability to Send Multiple, Personalized Sales Videos Every Day
+          and Set Youself Apart from the Crowd. Impress Your Prospects with Your Dedication and Reach More Clients Faster.
+        </div>
+      </div>
+
+      <div class="home-third-single-box">
+        <img class="home-third-box-image" src="https://res.cloudinary.com/dth8lnhas/image/upload/v1675739255/Images/viddex_17_owb7bf.png"></img>
+        <div class="home-third-box-header">Intuitive Interface</div>
+        <div class="home-third-box-text">
+          A User-Friendly and Intuitive Platform. No More Tedious Video Editing Tools - Create Professional, Customised Videos
+          in Minutes. Get the Job Done Quickly and Easily with the Convenience and Ease of Viddex's Video Creation Suite.
+        </div>
+      </div>
+
+    </div>
+
   </div>
 
 </div>
+
+<script>
+
+var fadeInDiv = document.getElementById('home_third_containerId');
+
+window.addEventListener('scroll', function() {
+
+  var windowTop = window.pageYOffset + window.innerHeight;
+
+  var fadeInDivTop = fadeInDiv.getBoundingClientRect().top + window.pageYOffset;
+
+  if (windowTop >= fadeInDivTop) {
+    fadeInDiv.classList.add('fade-into-user-view');
+  }
+
+});
+
+</script>

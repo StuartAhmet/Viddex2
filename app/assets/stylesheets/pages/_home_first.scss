@@ -2,7 +2,7 @@
 
   .home_first_tab{
     width: 100%;
-    font-family: 'BarlowSemiCondensedMedium', sans-serif;
+    font-family: 'BarlowMedium', sans-serif;
     background-image: url('https://res.cloudinary.com/dth8lnhas/image/upload/v1675682725/Untitled_design_20_rfjqr1.png');
     background-repeat: no-repeat;
     background-size: cover;
@@ -11,7 +11,6 @@
   .home_first_header{
   text-align:center;
   color:#475066;
-
 }
 
 .home_first_paragraph{
@@ -39,7 +38,7 @@
 }
 
 .home_first_tablecard{
-  padding-left: 50px;
+  padding-left: 30px;
   padding-top:20px;
   padding-bottom: 20px;
   color:#475066;
@@ -64,7 +63,7 @@
 }
 
 .home_first_tablecard2{
-  padding-left: 50px;
+  padding-left: 30px;
   padding-top:20px;
   padding-bottom: 20px;
   padding-right: 5%;
@@ -93,7 +92,10 @@
   margin-left: 0%;
   margin-right: 0%;
   text-align: center;
+}
 
+.home_first_container{
+  opacity:0;
 }
 
   @media (min-width: 1200px) {
@@ -269,6 +271,11 @@
   }
 
   @media (max-width: 767.9px) {
+
+    .home_first_container{
+      padding-top: 20px;
+    }
+
     .home_first_header{
       text-align:center;
       font-size: 32px;

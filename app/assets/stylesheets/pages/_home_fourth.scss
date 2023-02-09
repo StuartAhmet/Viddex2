@@ -1,6 +1,6 @@
 
 .home_fourth_salestab{
-  background-color: #e7eaf6;
+  background-color: #f4f6fc;
   width: 100%;
 }
 
@@ -10,7 +10,18 @@
 
 .home_fourth_salesdivs{
 color:#475066;
-font-family: 'BarlowSemiCondensedMedium', sans-serif;
+}
+
+.home_fourth_header{
+  font-family: 'BarlowSemiCondensedMedium', sans-serif;
+}
+
+.home_fourth_paragraph{
+  font-family: 'BarlowMedium', sans-serif;
+}
+
+.home_fourth_list{
+  font-family: 'BarlowMedium', sans-serif;
 }
 
 .home_fourth_link{
@@ -21,11 +32,20 @@ font-family: 'BarlowSemiCondensedMedium', sans-serif;
   width: 100%;
 }
 
+#slideInImage4{
+  transform: translateX(-200%);
+}
+
+#slideInDivs4{
+  transform: translateX(+200%);
+}
+
+
 @media (min-width: 1200px) {
 
   .home_fourth_container{
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 40px;
+    padding-bottom: 40px;
   }
 
   .home_fourth_animationplustext{
@@ -42,6 +62,7 @@ font-family: 'BarlowSemiCondensedMedium', sans-serif;
     width: 550px;
     padding-left: 70px;
     padding-right: 15px;
+    padding-top: 25px;
   }
 
   .home_fourth_header{
@@ -56,10 +77,6 @@ font-family: 'BarlowSemiCondensedMedium', sans-serif;
   .home_fourth_list{
     font-size:17px;
     line-height:1.9;
-  }
-
-  .home_fourth_link{
-    font-size:17px;
   }
 
   .home_four_video{
@@ -91,6 +108,7 @@ font-family: 'BarlowSemiCondensedMedium', sans-serif;
     width: 550px;
     padding-left: 70px;
     padding-right: 15px;
+
   }
 
   .home_fourth_header{
@@ -245,4 +263,19 @@ font-family: 'BarlowSemiCondensedMedium', sans-serif;
     font-size:16px;
   }
 
+}
+
+.slide-in-from-side {
+  animation: slide-in-from-side 2s ease-out forwards;
+  animation-delay: 1s;
+}
+
+@keyframes slide-in-from-side {
+  from {
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
