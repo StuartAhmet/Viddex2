@@ -306,8 +306,8 @@
   }
 
   .herotab{
-    height: 780px;
-    background-image: url('https://res.cloudinary.com/dth8lnhas/image/upload/v1675907003/Backgrounds/62_6_ilrniw.png');
+    height: 820px;
+    background-image: url('https://res.cloudinary.com/dth8lnhas/image/upload/v1675918929/Backgrounds/62_11_w3b52n.png');
     background-repeat: no-repeat;
     background-size: 750px;
     background-position: top;
@@ -330,14 +330,14 @@
   .heroheader{
     font-size: 360%;
     text-align: right;
-    color: white;
+    color:#475066;
   }
 
   .heroparagraph{
     font-size:18px;
     padding-top: 2%;
     text-align: right;
-    color: white;
+    color:#475066;
   }
 
   .herobuttonone{
@@ -393,7 +393,7 @@
   }
 
   .herotab{
-    height:850px;
+    height:870px;
     background-image: url('https://res.cloudinary.com/dth8lnhas/image/upload/v1675756484/Backgrounds/62_4_uwlbok.png');
     background-repeat: no-repeat;
     background-size: cover;
@@ -454,6 +454,7 @@
   }
 
   .herobuttons{
+    padding-top: 30px;
     display: flex;
     flex-direction: column;
     gap: 30px;

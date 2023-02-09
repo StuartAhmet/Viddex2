@@ -96,11 +96,40 @@
   border-radius: 15px;
   padding-left: 10px;
   padding-top: 10px;
-  background-image: url("https://res.cloudinary.com/dth8lnhas/image/upload/v1675146496/Untitled_design_11_yszkue.png");
-  background-repeat: no-repeat;
-  background-size: 300px;
-  background-position: 125% 100%;
+  display: flex;
+  flex-direction: column;
   height: 100%;
+  //background-image: url('https://res.cloudinary.com/dth8lnhas/image/upload/v1675302310/Backgrounds/6_mrmt8g.png');
+}
+
+.nav-vid-1{
+  border-radius: 50%;
+  border-style: solid;
+  border-color: #e6e3e3;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+  width: 190px;
+  position: absolute;
+  z-index: 20;
+  right: 3%;
+  top: 22%;
+}
+
+.nav-vid-2{
+  border-radius: 50%;
+  border-style: solid;
+  border-color: #e6e3e3;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+  width: 180px;
+  position: absolute;
+  z-index: 20;
+  right: 20%;
+  bottom: 5%;
+}
+
+.nav-text-plus-image{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 // first dropdown
@@ -124,7 +153,6 @@
 .navright-smalltext{
   font-family: "Barlow Semi Condensed", sans-serif;
   font-size: 20px;
-  font-style: italic;
 }
 
 #navright-gap{
@@ -140,7 +168,7 @@
   border-radius: 15px;
   padding-left: 10px;
   padding-top: 10px;
-  background-image: url("https://res.cloudinary.com/dth8lnhas/image/upload/v1675217809/Untitled_design_pa0mfm.png");
+  background-image: url("");
   background-repeat: no-repeat;
   background-size: 300px;
   background-position: 0px 60px;
@@ -150,7 +178,7 @@
 .navright-smalltext_second{
   font-family: "Barlow Semi Condensed", sans-serif;
   font-size: 20px;
-  width:42%;
+  width:53%;
   float: right;
 }
 
@@ -218,6 +246,8 @@ p.navright-bigtext_second{
   box-shadow: none;
 }
 
+
+
 // the second dropdown items
 @media (min-width: 1180px) and (max-width: 1384.9px) {
 
@@ -233,6 +263,12 @@ p.navright-bigtext_second{
   .droplistcontainer_second{
     justify-content: left;
     gap:30px;
+  }
+
+  .nav-vid-2{
+    width: 180px;
+    right: 22%;
+    bottom: 5%;
   }
 
 }
@@ -263,6 +299,12 @@ p.navright-bigtext_second{
     gap:30px;
   }
 
+  .nav-vid-2{
+    width: 150px;
+    right: 21%;
+    bottom: 5%;
+  }
+
 }
 
 @media (min-width: 780px) and (max-width: 1089.9px) {
@@ -273,12 +315,15 @@ p.navright-bigtext_second{
   }
 
   .navdrop-right-text_second{
-    background-size: 240px;
-    background-position: 50px 65px;
-    background-image: url('https://res.cloudinary.com/dth8lnhas/image/upload/v1675217809/Untitled_design_pa0mfm.png');
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+  }
+
+  .nav-vid-2{
+    width: 145px;
+    right: 14%;
+    bottom: 30%;
   }
 
   .droplistcontainer2_second{
@@ -320,6 +365,10 @@ p.navright-bigtext_second{
   .navright-smalltext_second{
     width:100%;
     font-size: 17px;
+  }
+
+  .nav-vid-2{
+    display: none;
   }
 
   .navdrop-right-text_second{
@@ -372,6 +421,10 @@ p.navright-bigtext_second{
     font-size: 16px;
   }
 
+  .nav-vid-2{
+    display: none;
+  }
+
   .navdrop-right-text_second{
     background-size: 100px;
     background-position: 70px 25px;
@@ -417,7 +470,18 @@ p.navright-bigtext_second{
 
 }
 
+
+
 // The first dropdown items
+@media (max-width: 1380px) {
+
+  .nav-vid-1{
+    width: 150px;
+    top:30%;
+    right:1%;
+  }
+}
+
 @media (min-width: 1070px) and (max-width: 1244.9px) {
 
   #droplist_one.navdrop-right-text{
@@ -478,16 +542,20 @@ p.navright-bigtext_second{
 @media (min-width: 630px) and (max-width: 885.9px) {
 
   .navdrop-right-text{
-    background-size: 250px;
-    background-position: 130% 110%;
-    background-image:url('https://res.cloudinary.com/dth8lnhas/image/upload/v1675302310/6_mrmt8g.png');
-    background-size: 200px;
-    background-position: 100px 175px;
+    background-image:url('https://res.cloudinary.com/dth8lnhas/image/upload/v1675916268/Backgrounds/Untitled_design_31_wrmuvt.png');
+    background-size: 70px;
+    background-position: 155px 175px;
+    background-repeat: no-repeat;
+  }
+
+  .nav-vid-1{
+    display:none;
   }
 
   .droplistcontainer2{
     width:260px;
     min-width: 0px;
+    padding-right: 0px;
   }
 
   .droplistcontainer{
@@ -518,22 +586,31 @@ p.navright-bigtext_second{
     font-size: 18px;
   }
 
+  .droplistcontainer2{
+    padding-left: 0px;
+  }
+
 }
 
 @media (min-width: 0px) and (max-width: 629.9px) {
 
   .navdrop-right-text{
-    background-size: 250px;
-    background-position: 130% 110%;
-    background-image:url('https://res.cloudinary.com/dth8lnhas/image/upload/v1675302310/6_mrmt8g.png');
-    background-size: 200px;
-    background-position: 70px 60px;
+    background-image:url('https://res.cloudinary.com/dth8lnhas/image/upload/v1675916268/Backgrounds/Untitled_design_31_wrmuvt.png');
+    background-size: 60px;
+    background-position: 130px 200px;
+    background-repeat: no-repeat;
+  }
+
+  .nav-vid-1{
+    display:none;
   }
 
   .droplistcontainer2{
     width:220px;
     min-width: 0px;
     padding-top: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 
   .droplistcontainer{
@@ -569,6 +646,8 @@ p.navright-bigtext_second{
   }
 
 }
+
+
 
 // The navbar items
 @media (min-width: 992px) {
@@ -646,6 +725,8 @@ p.navright-bigtext_second{
   }
 
 }
+
+
 
 .accord_div{
   transition: opacity 0.3s ease-in-out, visibility 0.2s ease-in-out;
