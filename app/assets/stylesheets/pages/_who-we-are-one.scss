@@ -1,0 +1,46 @@
+
+.who-we-are-tab-one{
+  border-style: solid;
+  padding: 50px;
+}
+
+.who-we-are-container-one{
+  border-style: solid;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap:50px;
+}
+
+.who-we-are-title-one{
+  text-align: center;
+  align-self: center;
+  font-size: 50px;
+}
+
+.who-we-are-text-image-combined-one{
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 30px;
+}
+
+.who-we-are-text-one{
+  display:flex;
+  flex-direction: column;
+  width:500px;
+  gap:20px;
+}
+
+.who-we-are-header-one{
+  font-size: 40px;
+}
+
+.who-we-are-para-one{
+  font-size: 20px;
+}
+
+.who-we-are-image-one{
+  width:600px;
+  border-style: solid;
+}
