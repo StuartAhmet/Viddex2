@@ -60,10 +60,8 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(
-                                    :prospect_first,
+    params.require(:project).permit({:background_ids => []}, { video_ids: [] }, { audio_ids: [] }, :prospect_first,
                                     :prospect_last, :prospect_email, :prospect_company,
-                                    :message_body, :font, :opacity, :font_size, :title,
-                                    backgrounds_attributes: [:id], videos_attributes: [:id], audios_attributes: [:id])
+                                    :message_body, :font, :opacity, :font_size, :title)
   end
 end

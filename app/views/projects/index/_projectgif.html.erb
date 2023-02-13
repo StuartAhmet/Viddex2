@@ -1,26 +1,26 @@
 <%
 if @project.background_id?
-  text_box_width = @project.background.width
-  text_box_height = @project.background.text_box_height
-  text_box_x = @project.background.x_axis
-  text_box_y = @project.background.y_axis
-  project_angle = @project.background.angle
-  underlay_params = {underlay: Rails.env+":"+@project.background.photo.key,
+  text_box_width = @project.backgrounds.width
+  text_box_height = @project.backgrounds.text_box_height
+  text_box_x = @project.backgrounds.x_axis
+  text_box_y = @project.backgrounds.y_axis
+  project_angle = @project.backgrounds.angle
+  underlay_params = {underlay: Rails.env+":"+@project.backgrounds.photo.key,
             width: 1280, crop: "scale"}, {effect: "fade:1"}
 else
-  text_box_width = @project.video.text_width
-  text_box_height = @project.video.text_box_height
-  text_box_x = @project.video.x_axis
-  text_box_y = @project.video.y_axis
-  project_angle = @project.video.angle
+  text_box_width = @project.videos.first.text_width
+  text_box_height = @project.videos.first.text_box_height
+  text_box_x = @project.videos.first.x_axis
+  text_box_y = @project.videos.first.y_axis
+  project_angle = @project.videos.first.angle
   underlay_params = nil
 end %>
 <%
-@project_gif_url = cloudinary_url(@project.video.file.key+".gif", resource_type: "video",
+@project_gif_url = cloudinary_url(@project.videos.first.file.key+".gif", resource_type: "videos",
       class: "image-100 project-gif",
       :transformation=>[
         # video params
-        {angle: @project.video.rotation},
+        {angle: @project.videos.first.rotation},
         {crop: "scale", effect: "fade:1", duration:"0.1", page:"2"},
         # overlay play btn
         {:overlay=>"play-button-icon-png-18919_ssamfy", :opacity=>60, :width=>200, :crop=>"scale"},
