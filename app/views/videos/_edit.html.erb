@@ -5,10 +5,10 @@
         <p>Title</p>
         <%= f.input :title, label: false, input_html: { class: "form-input-medium" }  %>
       </div>
-      <div class="flex space-between">
+      <%# <div class="flex space-between">
         <p>Rotation Angle</p>
         <%= f.input :rotation, collection: Video::ROTATION, label: false, input_html: { class: "form-input-medium" }  %>
-      </div>
+      <%# </div> %>
       <%# <div class="form-check form-switch">
         <%= f.check_box :bgrem_require, class: "form-check-input", id: "bgrem-checkbox"   %>
         <%# <label class="form-check-label" for="bgrem-checkbox">Remove video background</label>

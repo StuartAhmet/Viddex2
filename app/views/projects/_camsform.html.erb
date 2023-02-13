@@ -10,7 +10,7 @@
           <%= f.input :title, label: false, placeholder: "eg. Video for Elon @ Tesla", input_html: { class: "form-input-medium" } %>
         </div>
 
-        <div class="flex space-between">
+        <%# <div class="flex space-between">
           <p>Video:</p>
 
             <div class="camsformdiv">
@@ -18,35 +18,40 @@
 
             <ul id="dropdown-menu" class="dropdown-menu-original">
             <% @user.videos.each do |video| %>
-            <li class="thumbnail_select" onClick="choosevid(this)" data-value="<%= video.id %>" id="<%= video.title %>"><img src="<%= video.thumbnail%>", id="thumbnail-<%= video.id %>", class="thumbnails"> <br />
-            <%= video.title %></li>
-            <% end %>
-            <%= f.hidden_field :video_id, id: "selected_video" %>
-            </ul>
+            <%# <li class="thumbnail_select" onClick="choosevid(this)" data-value="<%= video.id %>
+            <%# " id="<%= video.title %><%# "><img src="<%= video.thumbnail%><%# ", id="thumbnail-<%= video.id %><%# ", class="thumbnails"> <br /> %>
+            <%# <%= video.title %><%# </li> %>
+            <%# <% end %>
+            <%# <%= f.hidden_field :video_id, id: "selected_video" %>
+            <%# </ul>
             </div>
 
-        </div>
+        </div> %>
+        <%= f.association :videos, collection: @user.videos, :value => @user_videos,  label: false, placeholder: "Video 1", input_html: { class: "form-input-medium" } %>
+        <%= f.association :videos, collection: @user.videos, label: false, placeholder: "Video 2", input_html: { class: "form-input-medium" } %>
+        <%= f.association :videos, collection: @user.videos, label: false, placeholder: "Video 3", input_html: { class: "form-input-medium" } %>
+
 
         <div class="flex space-between">
           <p>Background:</p>
-          <%= f.association :background, collection: @user.backgrounds,
+          <%= f.association :backgrounds, collection: @user.backgrounds,
             label: false,
             :value => @user_backgrounds, as: :select,
             input_html: { multiple: false, class: "form-input-medium" }%>
         </div>
         <div class="flex space-between">
           <p>Audio Overlay:</p>
-          <%= f.association :audio, collection: @user.audios,
+          <%= f.association :audios, collection: @user.audios,
             label: false,
             :value => @user_audios, as: :select,
             input_html: { multiple: false, class: "form-input-medium" }%>
         </div>
         <div class="flex space-between">
-          <p>Message:</p>
+
             <div class="flex-column">
 
               <%= f.input :message_body, label: false,placeholder:
-              "Line two" %>
+              "Message overlay" %>
 
             </div>
         </div>

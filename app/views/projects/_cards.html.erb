@@ -31,26 +31,16 @@
                   underlay_params = {underlay: Rails.env+":"+project.background.photo.key,
                         width: 1280, crop: "scale"}, {effect: "fade:1"}
                 else
-                  text_box_width = project.video.text_width
-                  text_box_height = project.video.text_box_height
-                  text_box_x = project.video.x_axis
-                  text_box_y = project.video.y_axis
-                  project_angle = project.video.angle
+                  text_box_width = project.videos.first.text_width
+                  text_box_height = project.videos.first.text_box_height
+                  text_box_x = project.videos.first.x_axis
+                  text_box_y = project.videos.first.y_axis
+                  project_angle = project.videos.first.angle
                   underlay_params = nil
                 end%>
 
-              <a id="image-link" href="https://www.viddex.io/watch/<%= project.public_uid %>">
-                <div id="image" style="width:500px">
-                  <%= cl_image_tag(project.video.file.key+".gif", resource_type: "video",
-                    class: "image-100 project-gif",
-                    :transformation=>[
-                      # video params
-                      {angle: project.video.rotation},
-                      {crop: "scale", effect: "fade:1", duration:"0.1"},
-                      # overlay play btn
-                      {:overlay=>"play-button-icon-png-18919_ssamfy", :opacity=>60, :width=>200, :crop=>"scale"},
-                      # message params
-                      {angle: project_angle,
+                <% if project.message_body?
+                  message_params = {angle: project_angle,
                       gravity: "north_west",
                       :overlay=>{
                         font_family: project.font,
@@ -61,8 +51,24 @@
                         height: text_box_height,
                         x: text_box_x,
                         y: text_box_y,
-                        crop: "fit",
-                        },
+                        crop: "fit",}
+                else
+                  message_params = nil
+                end
+                %>
+
+              <a id="image-link" href="https://www.viddex.io/watch/<%= project.public_uid %>">
+                <div id="image" style="width:500px">
+                  <%= cl_image_tag(project.videos.first.file.key+".gif", resource_type: "video",
+                    class: "image-100 project-gif",
+                    :transformation=>[
+                      # video params
+                      # {angle: project.video.rotation},
+                      {crop: "scale", effect: "fade:1", duration:"0.1"},
+                      # overlay play btn
+                      {:overlay=>"play-button-icon-png-18919_ssamfy", :opacity=>60, :width=>200, :crop=>"scale"},
+                      # message params
+                        message_params,
                       # background params
                         underlay_params
                     ]
