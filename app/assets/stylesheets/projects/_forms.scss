@@ -28,10 +28,11 @@
 
   #thumbnail-button{
   border-radius: 10px;
-  width: 250px;
+  width: 25%;
   background-color: #F4F4F4;
   border: 1px solid #ced4da;
-  height:35px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   }
 
   .showthumbs{
@@ -64,8 +65,6 @@
 
     #thumbnail-button{
       margin-top: -20px;
-      padding-top: 10px;
-      padding-bottom: 10px;
       }
 
   }
@@ -86,8 +85,6 @@
 
     #thumbnail-button{
       margin-top: -20px;
-      padding-top: 10px;
-      padding-bottom: 10px;
       }
 
     }
@@ -101,21 +98,13 @@
       gap: 10px;
     }
 
-    .camsformdiv{
-      display: flex;
-      flex-direction: column;
-      gap:10px;
-      align-items: center;
-    }
-
     .thumbnail_select{
       width:170px;
     }
 
     #thumbnail-button{
       margin-top: -10px;
-      padding-top: 10px;
-      padding-bottom: 10px;
+
       }
 
   }

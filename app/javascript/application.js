@@ -3,11 +3,8 @@ import "@hotwired/turbo-rails"
 import "./controllers"
 import "bootstrap"
 
-//= require copy
+//= require files
 import "./copy"
-
-//= require select2
-
 import "./bgrem_checkbox"
 import "./controllers/index"
 import "./distort_checkbox"
