@@ -5,6 +5,16 @@ class Video < ApplicationRecord
     public_uid
   end
 
+  def service_url
+    "https://res.cloudinary.com/dth8lnhas/video/upload/#{Rails.env}/#{file.key}.jpg"
+  end
+
+  def video_options
+    Video.all.map do |v|
+    ["#{v.title} - #{v.file.service_url}"]
+    end
+  end
+
   belongs_to :user
   has_one_attached :file
   # has_many :project_links

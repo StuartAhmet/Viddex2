@@ -23,12 +23,14 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
     @project.user = current_user
     # @project.video = Video.find(project_params[:video_id])
-    if @project.save
-      redirect_to user_projects_path
-      flash[:notice] = "Project Created"
-    else
-      flash.now[:error] = "Could not create project"
-    end
+
+      if @project.save
+        redirect_to user_projects_path
+        flash[:notice] = "Project Created"
+      else
+        flash.now[:error] = "Could not create project"
+      end
+
   end
 
   def edit
@@ -60,8 +62,9 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit({:background_ids => []}, { video_ids: [] }, { audio_ids: [] }, :prospect_first,
+    params.require(:project).permit(:prospect_first,
                                     :prospect_last, :prospect_email, :prospect_company,
-                                    :message_body, :font, :opacity, :font_size, :title)
+                                    :message_body, :font, :opacity, :font_size, :title,
+                                    background_ids: [], video_ids: [], audio_ids: [])
   end
 end
