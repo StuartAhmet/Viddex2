@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 
-<div class="page-container pt-8">
+<div class="center-auto">
 
   <%= simple_form_for [@user, @project] do |f| %>
 
@@ -22,13 +22,13 @@
               <% @user.videos.each do |video| %>
                 <div>
                   <li class="thumbnail_select" onClick="choosevid<%=video_number%>(this)" data-value="<%=video.id %>" id="<%=video.title%>">
-                    <img src="<%= video.thumbnail%>", id="thumbnail-<%= video.id %>", class="thumbnails"><br />
+                    <img src="<%= video.service_url%>", id="thumbnail-<%= video.id %>", class="thumbnails"><br />
                     <%= video.title %>
                   </li>
                 </div>
               <% end %>
-              <%= f.association :videos, as: :hidden, collection: @user.videos, input_html: { id: "selected_video#{video_number}", multiple: true} %>
             </ul>
+              <%= f.association :videos, as: :hidden, collection: @user.videos, input_html: { id: "selected_video#{video_number}", multiple: true} %>
             <% video_number += 1 %>
           <% end %>
         </div>
