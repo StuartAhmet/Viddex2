@@ -22,7 +22,7 @@
                 </div>
               </div>
 
-              <% if project.background_id?
+              <%# <% if project.background_id?
                   text_box_width = project.background.width
                   text_box_height = project.background.text_box_height
                   text_box_x = project.background.x_axis
@@ -30,14 +30,15 @@
                   project_angle = project.background.angle
                   underlay_params = {underlay: Rails.env+":"+project.background.photo.key,
                         width: 1280, crop: "scale"}, {effect: "fade:1"}
-                else
+                else %>
+                <%
                   text_box_width = project.videos.first.text_width
                   text_box_height = project.videos.first.text_box_height
                   text_box_x = project.videos.first.x_axis
                   text_box_y = project.videos.first.y_axis
                   project_angle = project.videos.first.angle
-                  underlay_params = nil
-                end%>
+                  underlay_params = nil  %>
+                <%# end%>
 
                 <% if project.message_body?
                   message_params = {angle: project_angle,
@@ -59,7 +60,7 @@
 
               <a id="image-link" href="https://www.viddex.io/watch/<%= project.public_uid %>">
                 <div id="image" style="width:500px">
-                  <%= cl_image_tag(project.videos.first.file.key+".gif", resource_type: "video",
+                  <%= cl_image_tag(project.videos[0].file.key+".gif", resource_type: "video",
                     class: "image-100 project-gif",
                     :transformation=>[
                       # video params
@@ -69,8 +70,8 @@
                       {:overlay=>"play-button-icon-png-18919_ssamfy", :opacity=>60, :width=>200, :crop=>"scale"},
                       # message params
                         message_params,
-                      # background params
-                        underlay_params
+                      # background params (uncomment below line if background option is added)
+                        # underlay_params
                     ]
                     )%>
                   <p> Video opens in viddex.io </p>
