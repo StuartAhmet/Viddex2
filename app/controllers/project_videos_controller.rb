@@ -1,4 +1,10 @@
 class ProjectVideosController < ApplicationController
+
+  def new
+    @user = User.find(params[:user_id])
+    @project_video = ProjectVideo.new
+  end
+
   def create
     @project_video = ProjectVideo.new(project_video_params)
     if @project_video.save
@@ -8,15 +14,15 @@ class ProjectVideosController < ApplicationController
     end
   end
 
-  def destroy
-    @project_video = ProjectVideo.find(params[:id])
-    @project_video.destroy
-    redirect_to @project_video.project, notice: "Video removed from project."
-  end
+  # def destroy
+  #   @project_video = ProjectVideo.find(params[:id])
+  #   @project_video.destroy
+  #   redirect_to @project_video.project, notice: "Video removed from project."
+  # end
 
   private
 
   def project_video_params
-    params.require(:project_video).permit(:project_id, :video_id)
+    params.require(:project_video).permit(:project_id, video_ids:[])
   end
 end

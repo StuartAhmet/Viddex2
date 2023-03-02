@@ -1,8 +1,11 @@
+<%# projects with multiple videos %>
+
+
 <%# projects with audio %>
 <% if @project.audio_id?
     audio_codec_params = "none"
     offset_params = "2"
-    audio_overlay_video = {angle: @project.video.rotation,flags:"splice", overlay:"video:"+Rails.env+":"+@project.video.file.key, start_offset:offset_params},
+    audio_overlay_video = {flags:"splice", overlay:"video:"+Rails.env+":"+@project.video.file.key, start_offset:offset_params},
       {:flags=>"layer_apply", :start_offset=>"2"}
     audio_overlay = {overlay: "video:"+Rails.env+":"+@project.audio.file.key}
   else
@@ -22,7 +25,7 @@
                       crop: "scale"}, {effect: "fade:1"}
 # projects without backgrounds
   else
-    text_box_width = @project.video.text_width
+    text_box_width = @project.videos.first.text_width
     text_box_height = @project.video.text_box_height
     text_box_x = @project.video.x_axis
     text_box_y = @project.video.y_axis
@@ -47,10 +50,10 @@
     poster: @project_gif_url,
     :transformation=>[
       {audio_codec:audio_codec_params, effect: "fade:1",end_offset:offset_params, quality:"auto", crop:"scale"},
-      {angle: @project.video.rotation},
+      # {angle: @project.video.rotation},
       audio_overlay_video,
       # background underlay
-      underlay_params,
+      # underlay_params, **uncomment this line if you want to add backgrounds**
       # audio overlay
       audio_overlay,
       # text overlay

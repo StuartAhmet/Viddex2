@@ -9,18 +9,21 @@
         </div>
         <div class="flex space-between">
           <p>Video:</p>
-          <%= f.association :video, collection: @user.videos, label: false, :value => @user_videos, as: :select, input_html: { multiple: false, class: "form-input-medium" } %>
+          <%= f.association :videos, collection: @user.videos, label: false, :value => @user_videos, as: :select, input_html: { multiple: true, class: "form-input-medium" } %>
+          <%= f.association :videos, collection: @user.videos, label: false, :value => @user_videos, as: :select, input_html: { multiple: true, class: "form-input-medium" } %>
+          <%= f.association :videos, collection: @user.videos, label: false, :value => @user_videos, as: :select, input_html: { multiple: true, class: "form-input-medium" } %>
+
         </div>
         <div class="flex space-between">
           <p>Background:</p>
-          <%= f.association :background, collection: @user.backgrounds,
+          <%= f.association :backgrounds, collection: @user.backgrounds,
             label: false,
             :value => @user_backgrounds, as: :select,
             input_html: { multiple: false, class: "form-input-medium" }%>
         </div>
         <div class="flex space-between">
           <p>Audio Overlay:</p>
-          <%= f.association :audio, collection: @user.audios,
+          <%= f.association :audios, collection: @user.audios,
             label: false,
             :value => @user_audios, as: :select,
             input_html: { multiple: false, class: "form-input-medium" }%>

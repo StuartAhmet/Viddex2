@@ -5,7 +5,11 @@ class ProjectsController < ApplicationController
 
   def index
     @projects = Project.all
+  end
 
+  def choosevid
+    @project = Project.find(params[:id])
+    @selectedVideos = @project.videos.order(:position)
   end
 
   def show
@@ -62,9 +66,9 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:prospect_first,
+    new_params = params.require(:project).permit(:prospect_first,
                                     :prospect_last, :prospect_email, :prospect_company,
                                     :message_body, :font, :opacity, :font_size, :title,
-                                    background_ids: [], video_ids: [], audio_ids: [])
+                                    background_ids: [], video_ids: [],audio_ids: [])
   end
 end
