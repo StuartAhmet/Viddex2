@@ -20,6 +20,8 @@ class Project < ApplicationRecord
 
   has_many :project_videos, -> { order(position: :asc) }, dependent: :destroy
   has_many :videos, through: :project_videos
+  accepts_nested_attributes_for :project_videos
+
 
   # accepts_nested_attributes_for :videos, allow_destroy: true
   # accepts_nested_attributes_for :backgrounds, allow_destroy: true

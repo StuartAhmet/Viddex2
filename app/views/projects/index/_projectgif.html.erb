@@ -8,19 +8,19 @@ if @project.background_id?
   underlay_params = {underlay: Rails.env+":"+@project.backgrounds.photo.key,
             width: 1280, crop: "scale"}, {effect: "fade:1"}
 else
-  text_box_width = @project.videos.first.text_width
-  text_box_height = @project.videos.first.text_box_height
-  text_box_x = @project.videos.first.x_axis
-  text_box_y = @project.videos.first.y_axis
-  project_angle = @project.videos.first.angle
+  text_box_width = @project.videos[0].text_width
+  text_box_height = @project.videos[0].text_box_height
+  text_box_x = @project.videos[0].x_axis
+  text_box_y = @project.videos[0].y_axis
+  project_angle = @project.videos[0].angle
   underlay_params = nil
 end %>
 <%
-@project_gif_url = cloudinary_url(@project.videos.first.file.key+".gif", resource_type: "videos",
+@project_gif_url = cloudinary_url(@project.videos[0].file.key+".gif", resource_type: "videos",
       class: "image-100 project-gif",
       :transformation=>[
         # video params
-        {angle: @project.videos.first.rotation},
+        {angle: @project.videos[0].rotation},
         {crop: "scale", effect: "fade:1", duration:"0.1", page:"2"},
         # overlay play btn
         {:overlay=>"play-button-icon-png-18919_ssamfy", :opacity=>60, :width=>200, :crop=>"scale"},

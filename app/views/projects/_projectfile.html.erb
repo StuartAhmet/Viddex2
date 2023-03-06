@@ -5,7 +5,7 @@
 <% if @project.audio_id?
     audio_codec_params = "none"
     offset_params = "2"
-    audio_overlay_video = {flags:"splice", overlay:"video:"+Rails.env+":"+@project.video.file.key, start_offset:offset_params},
+    audio_overlay_video = {flags:"splice", overlay:"video:"+Rails.env+":"+@project.videos[0].file.key, start_offset:offset_params},
       {:flags=>"layer_apply", :start_offset=>"2"}
     audio_overlay = {overlay: "video:"+Rails.env+":"+@project.audio.file.key}
   else
@@ -25,37 +25,40 @@
                       crop: "scale"}, {effect: "fade:1"}
 # projects without backgrounds
   else
-    text_box_width = @project.videos.first.text_width
-    text_box_height = @project.video.text_box_height
-    text_box_x = @project.video.x_axis
-    text_box_y = @project.video.y_axis
-    project_angle = @project.video.angle
+    text_box_width = @project.videos[0].text_width
+    text_box_height = @project.videos[0].text_box_height
+    text_box_x = @project.videos[0].x_axis
+    text_box_y = @project.videos[0].y_axis
+    project_angle = @project.videos[0].angle
     underlay_params = nil
   end%>
 <%# projects with text distortion %>
 <% if @project.background_id && @project.background.text_distortion == true
       distortion_params = "#{@project.background.distort_nw_x}:#{@project.background.distort_nw_y}:#{@project.background.distort_ne_x}:#{@project.background.distort_ne_y}:#{@project.background.distort_se_x}:#{@project.background.distort_se_y}:#{@project.background.distort_sw_x}:#{@project.background.distort_sw_x}:"
-    elsif @project.video.text_distortion == true
-      distortion_params = "#{@project.video.distort_nw_x}:#{@project.video.distort_nw_y}:#{@project.video.distort_ne_x}:#{@project.video.distort_ne_y}:#{@project.video.distort_se_x}:#{@project.video.distort_se_y}:#{@project.video.distort_sw_x}:#{@project.video.distort_sw_x}:"
+    elsif @project.videos[0].text_distortion == true
+      distortion_params = "#{@project.videos[0].distort_nw_x}:#{@project.videos[0].distort_nw_y}:#{@project.videos[0].distort_ne_x}:#{@project.videos[0].distort_ne_y}:#{@project.videos[0].distort_se_x}:#{@project.videos[0].distort_se_y}:#{@project.videos[0].distort_sw_x}:#{@project.videos[0].distort_sw_x}:"
     else
       distortion_params = nil
   end%>
 
-<% render "projects/index/projectgif" %>
 
-<%= cl_video_tag(@project.video.file.key,
+<%= cl_video_tag(@project.videos[0].file.key,
     controls: true,
     preload: "metadata",
     width: "100%",
-    poster: @project_gif_url,
+    poster: @project.videos[0].service_url,
     :transformation=>[
       {audio_codec:audio_codec_params, effect: "fade:1",end_offset:offset_params, quality:"auto", crop:"scale"},
       # {angle: @project.video.rotation},
       audio_overlay_video,
       # background underlay
-      # underlay_params, **uncomment this line if you want to add backgrounds**
+      # underlay_params, **uncomment this line if you want to add backgrounds/images**
       # audio overlay
       audio_overlay,
+      # params for multiple videos
+      {flags: "splice", overlay: "video:"+Rails.env+":"+@project.videos[1].file.key},
+      {flags: "splice", overlay: "video:"+Rails.env+":"+@project.videos[2].file.key},
+
       # text overlay
       {angle:project_angle, distort:distortion_params, :gravity=>"north_west",
       :overlay=>{

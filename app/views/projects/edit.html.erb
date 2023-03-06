@@ -8,8 +8,8 @@
       <div class="flex space-between">
         <%= render "projects/editform" %>
         <div type="button" data-bs-toggle="modal" data-bs-target=<%= "#exampleModal#{@project.public_uid}"%>>
-          <% render "projects/index/projectgif" %>
-          <img style="max-width:80%"src="<%= @project_gif_url %>" alt="project image">
+          <%# <% render "projects/index/projectgif" %>
+          <img style="max-width:80%"src="<%= @project.videos[0].service_url %>" alt="project image">
           <p>create link to modal for full video</p>
         </div>
     </div>

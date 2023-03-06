@@ -19,7 +19,7 @@ class Video < ApplicationRecord
   has_one_attached :file
 
   has_many :project_videos
-  has_many :projects, through: :project_videos
+  has_many :projects, through: :project_videos, dependent: :destroy
   # has_and_belongs_to_many :projects
   scope :by_posiiton, -> { joins(:project_videos).order('project_video.position ASC')}
 
