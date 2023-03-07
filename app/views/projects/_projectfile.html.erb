@@ -1,18 +1,24 @@
 <%# projects with multiple videos %>
+  <% reiterate = @project.videos.count.to_i - 1%>
+  <% video_pos = 0 %>
+  <% reiterate.times do
+    video_pos += 1 %>
 
+  <% end%>
 
 <%# projects with audio %>
-<% if @project.audio_id?
+<% if @project.audios.exists?
     audio_codec_params = "none"
     offset_params = "2"
     audio_overlay_video = {flags:"splice", overlay:"video:"+Rails.env+":"+@project.videos[0].file.key, start_offset:offset_params},
       {:flags=>"layer_apply", :start_offset=>"2"}
-    audio_overlay = {overlay: "video:"+Rails.env+":"+@project.audio.file.key}
+    audio_overlay = {overlay: "video:"+Rails.env+":"+@project.audios[0].file.key}
   else
     audio_codec_params = nil
     offset_params = nil
     audio_overlay_video = nil
   end%>
+
 <%# projects with backgrounds %>
 <% if @project.background_id?
     text_box_width = @project.background.width
@@ -41,6 +47,14 @@
       distortion_params = nil
   end%>
 
+  <%# text overlay %>
+  <%  {angle:project_angle, distort:distortion_params, :gravity=>"north_west",
+      :overlay=>{
+        font_family: @project.font,font_size: @project.font_size,
+        text: @project.message_body},
+        opacity: @project.opacity,width: text_box_width,height: text_box_height,
+        x: text_box_x,y: text_box_y,crop: "fit",} %>
+
 
 <%= cl_video_tag(@project.videos[0].file.key,
     controls: true,
@@ -58,7 +72,6 @@
       # params for multiple videos
       {flags: "splice", overlay: "video:"+Rails.env+":"+@project.videos[1].file.key},
       {flags: "splice", overlay: "video:"+Rails.env+":"+@project.videos[2].file.key},
-
       # text overlay
       {angle:project_angle, distort:distortion_params, :gravity=>"north_west",
       :overlay=>{
