@@ -6,10 +6,10 @@
 
       <div style="width:400px">
 
-        <div class="flex space-between">
-          <p>Title:</p>
+        <%# <div class="flex space-between"> %>
+          <p>Project title:</p><br>
           <%= f.input :title, label: false, placeholder: "eg. Video for Elon @ Tesla", input_html: { class: "form-input-medium" } %>
-        </div>
+        <%# </div> %>
 
         <p>Videos:</p>
 
@@ -29,10 +29,10 @@
                   <h5 class="modal-title" id="popupModalLabel">Select a video</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body flex space-between wrap">
                     <% @user.videos.each do |video| %>
                       <div>
-                        <ul class="thumbnail_select" onClick="choosevid<%=video_number%>(this)" data-bs-dismiss="modal" data-value="<%=video.id %>" id="<%=video.title%>">
+                        <ul class="thumbnail_select " onClick="choosevid<%=video_number%>(this)" data-bs-dismiss="modal" data-value="<%=video.id %>" id="<%=video.title%>">
                           <img src="<%= video.service_url%>", id="thumbnail-<%= video.id %>", class="thumbnails"><br />
                           <%= video.title %>
                         </ul>
@@ -42,7 +42,6 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
                 </div>
               </div>
             </div>
@@ -60,13 +59,16 @@
             :value => @user_backgrounds, as: :select,
             input_html: { multiple: false, class: "form-input-medium" }%>
         <%# </div> %>
-        <div class="flex space-between">
+        <%# <div class="flex space-between"> %>
           <p>Audio Overlay:</p>
-          <%= f.association :audios, collection: @user.audios,
+          <%= f.association :audios,
+            collection: @user.audios,
             label: false,
-            :value => @user_audios, as: :select,
-            input_html: {  class: "form-input-medium" }%>
-        </div>
+            # :value => @user_audios,
+            as: :select
+            # input_html: {  class: "form-input-medium" }
+            %>
+        <%# </div> %>
         <div class="flex space-between">
           <div class="flex-column">
             <%= f.input :message_body, label: false,placeholder:
