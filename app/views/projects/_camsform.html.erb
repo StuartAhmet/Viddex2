@@ -32,7 +32,7 @@
                 <div class="modal-body">
                     <% @user.videos.each do |video| %>
                       <div>
-                        <ul class="thumbnail_select" onClick="choosevid<%=video_number%>(this)" data-value="<%=video.id %>" id="<%=video.title%>">
+                        <ul class="thumbnail_select" onClick="choosevid<%=video_number%>(this)" data-bs-dismiss="modal" data-value="<%=video.id %>" id="<%=video.title%>">
                           <img src="<%= video.service_url%>", id="thumbnail-<%= video.id %>", class="thumbnails"><br />
                           <%= video.title %>
                         </ul>
@@ -118,21 +118,10 @@
   var button1 = document.getElementById("thumbnail-button1");
   var button2 = document.getElementById("thumbnail-button2");
   var button3 = document.getElementById("thumbnail-button3");
-  var menu1 = document.getElementById("dropdown-menu1");
-  var menu2 = document.getElementById("dropdown-menu2");
-  var menu3 = document.getElementById("dropdown-menu3");
+  // var menu1 = document.getElementById("modal");
+  // var menu2 = document.getElementById("dropdown-menu2");
+  // var menu3 = document.getElementById("dropdown-menu3");
 
-  // function showvids1() {
-  //   menu1.classList.toggle('showthumbs');
-  // };
-
-  // function showvids2() {
-  //   menu2.classList.toggle('showthumbs');
-  // };
-
-  // function showvids3() {
-  //   menu3.classList.toggle('showthumbs');
-  // };
 
   function choosevid1(element) {
 
@@ -140,7 +129,6 @@
     document.getElementById("selected_video1").value = videoId;
     // if want to save three videos will need to be separated by commas can do so when generating or in the
     button1.innerHTML = element.innerText.trim() +  "<br /> <i class='fa fa-chevron-down'></i>";
-    menu1.classList.toggle('popupModal1');
     selectedVideos[0] = videoId;
   }
 
@@ -150,7 +138,6 @@
     document.getElementById("selected_video2").value = videoId;
     // if want to save three videos will need to be separated by commas can do so when generating or in the
     button2.innerHTML = element.innerText.trim() +  "<br /> <i class='fa fa-chevron-down'></i>";
-    menu2.classList.toggle('popupModal2');
     selectedVideos[1] = videoId;
   }
 
@@ -160,9 +147,7 @@
     document.getElementById("selected_video3").value = videoId;
     // if want to save three videos will need to be separated by commas can do so when generating or in the
     button3.innerHTML = element.innerText.trim() +  "<br /> <i class='fa fa-chevron-down'></i>";
-    menu3.classList.toggle('popupModal3');
     selectedVideos[2] = videoId;
-    console.log(selectedVideos);
   }
 
 </script>
