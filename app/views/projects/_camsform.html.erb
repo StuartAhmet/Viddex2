@@ -5,6 +5,7 @@
   <%= simple_form_for [@user, @project] do |f| %>
 
       <div style="width:400px">
+
         <div class="flex space-between">
           <p>Title:</p>
           <%= f.input :title, label: false, placeholder: "eg. Video for Elon @ Tesla", input_html: { class: "form-input-medium" } %>
@@ -13,28 +14,45 @@
         <p>Videos:</p>
 
         <div class="flex space-between">
-          <% video_number = 1 %>
-          <% 3.times do %>
-            <button type="button" id="thumbnail-button<%=video_number%>" onClick="showvids<%=video_number%>()">Video <%=video_number%><br>
-              <i class="fa-solid fa-circle-plus"></i>
-            </button>
-            <ul id="dropdown-menu<%=video_number%>" class="dropdown-menu-original">
-              <% @user.videos.each do |video| %>
-                <div>
-                  <li class="thumbnail_select" onClick="choosevid<%=video_number%>(this)" data-value="<%=video.id %>" id="<%=video.title%>">
-                    <img src="<%= video.service_url%>", id="thumbnail-<%= video.id %>", class="thumbnails"><br />
-                    <%= video.title %>
-                  </li>
+
+        <!-- Button trigger modal -->
+        <% video_number = 1 %>
+        <% 3.times do %>
+          <button type="button" class="btn btn-primary" id="thumbnail-button<%=video_number%>" data-bs-toggle="modal" data-bs-target="#popupModal<%=video_number%>">
+            Video <%= video_number %>
+          </button>
+          <!-- Modal -->
+          <div class="modal fade" id="popupModal<%=video_number%>" tabindex="-1" aria-labelledby="popupModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="popupModalLabel">Select a video</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-              <% end %>
-            </ul>
-              <%= f.association :videos, as: :hidden, collection: @selectedVideos, input_html: { id: "selected_video#{video_number}", multiple: true} %>
-            <% video_number += 1 %>
-          <% end %>
+                <div class="modal-body">
+                    <% @user.videos.each do |video| %>
+                      <div>
+                        <ul class="thumbnail_select" onClick="choosevid<%=video_number%>(this)" data-value="<%=video.id %>" id="<%=video.title%>">
+                          <img src="<%= video.service_url%>", id="thumbnail-<%= video.id %>", class="thumbnails"><br />
+                          <%= video.title %>
+                        </ul>
+                      </div>
+                    <% end %>
+                <%= f.association :videos, as: :hidden, collection: @selectedVideos, input_html: { id: "selected_video#{video_number}", multiple: true} %>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        <%# end of modal %>
+        <% video_number += 1 %>
+        <% end %>
+        <%# end of video select %>
         </div>
       </div>
-           <%# <%= f.association :videos, collection: @user.videos, label: false, placeholder: "Video 3", input_html: {  class: "form-input-medium" } %> <br>
-
         <%# <div class="flex space-between">
           <p>Background:</p>
           <%= f.association :backgrounds, collection: @user.backgrounds,
@@ -83,7 +101,7 @@
         </div>
       </div>
 
-      <%# <%= f.input :include_meeting_link, as: :boolean %> %>
+      <%= f.input :include_meeting_link, as: :boolean %>
 
       <div class="flex justify-start items-center pt-8">
         <div class="flex justify-center items-center h-10 rounded-lg" style="width:100%;border-radius:5px">
@@ -104,17 +122,17 @@
   var menu2 = document.getElementById("dropdown-menu2");
   var menu3 = document.getElementById("dropdown-menu3");
 
-  function showvids1() {
-    menu1.classList.toggle('showthumbs');
-  };
+  // function showvids1() {
+  //   menu1.classList.toggle('showthumbs');
+  // };
 
-  function showvids2() {
-    menu2.classList.toggle('showthumbs');
-  };
+  // function showvids2() {
+  //   menu2.classList.toggle('showthumbs');
+  // };
 
-  function showvids3() {
-    menu3.classList.toggle('showthumbs');
-  };
+  // function showvids3() {
+  //   menu3.classList.toggle('showthumbs');
+  // };
 
   function choosevid1(element) {
 
@@ -122,7 +140,7 @@
     document.getElementById("selected_video1").value = videoId;
     // if want to save three videos will need to be separated by commas can do so when generating or in the
     button1.innerHTML = element.innerText.trim() +  "<br /> <i class='fa fa-chevron-down'></i>";
-    menu1.classList.toggle('showthumbs');
+    menu1.classList.toggle('popupModal1');
     selectedVideos[0] = videoId;
   }
 
@@ -132,7 +150,7 @@
     document.getElementById("selected_video2").value = videoId;
     // if want to save three videos will need to be separated by commas can do so when generating or in the
     button2.innerHTML = element.innerText.trim() +  "<br /> <i class='fa fa-chevron-down'></i>";
-    menu2.classList.toggle('showthumbs');
+    menu2.classList.toggle('popupModal2');
     selectedVideos[1] = videoId;
   }
 
@@ -142,7 +160,7 @@
     document.getElementById("selected_video3").value = videoId;
     // if want to save three videos will need to be separated by commas can do so when generating or in the
     button3.innerHTML = element.innerText.trim() +  "<br /> <i class='fa fa-chevron-down'></i>";
-    menu3.classList.toggle('showthumbs');
+    menu3.classList.toggle('popupModal3');
     selectedVideos[2] = videoId;
     console.log(selectedVideos);
   }
