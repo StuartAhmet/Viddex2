@@ -70,57 +70,60 @@
               <label class="form-check-label" for="flexSwitchCheckDefault">Include a message?</label>
             </div>
 
-            <p><strong>Message Overlay:</strong></p>
-            <%= f.input :message_body, label: false,
-            placeholder:
-"Hi Elon,
-Are your SDR's underperforming?",
-            input_html: { multiple: false, class: "form-input-100" }%>
+            <div class="hidden message-options">
+
+              <p><strong>Message Overlay:</strong></p>
+              <%= f.input :message_body, label: false,
+              placeholder:
+  "Hi Elon,
+  Are your SDR's underperforming?",
+              input_html: { multiple: false, class: "form-input-100" }%>
 
 
-            <p><strong>Font:</strong></p>
-            <!-- Button trigger modal -->
-            <button type="button" id="font-select-btn"class="flex space-between form-control" data-bs-toggle="modal" data-bs-target="#fontModal">
-              Permanent Marker
-              <i class="bi bi-chevron-down"></i>
-            </button><br>
-            <!-- Modal -->
-            <div class="modal fade" id="fontModal" tabindex="-1" aria-labelledby="fontModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="fontModalLabel">Select your font</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <% font_number = 0 %>
-                    <% 10.times do %>
-                      <ul onClick="choosefont(this)" data-bs-dismiss="modal" data-value="<%=Project::FONT[font_number] %>">
-                        <button class="btn-font"id="fontType<%= Project::FONT[font_number] %>">
-                          <h4 style="font-family:<%= Project::FONT[font_number] %>"><%= Project::FONT[font_number] %></h4>
-                        </button>
-                      </ul>
-                      <% font_number +=1 %>
-                    <% end %>
-                    <%= f.input :font, as: :hidden, collection: @selectedFont, input_html: { id: "selected_font", multiple: false} %>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <p><strong>Font:</strong></p>
+              <!-- Button trigger modal -->
+              <button type="button" id="font-select-btn"class="flex space-between form-control" data-bs-toggle="modal" data-bs-target="#fontModal">
+                Permanent Marker
+                <i class="bi bi-chevron-down"></i>
+              </button><br>
+              <!-- Modal -->
+              <div class="modal fade" id="fontModal" tabindex="-1" aria-labelledby="fontModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="fontModalLabel">Select your font</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <% font_number = 0 %>
+                      <% 10.times do %>
+                        <ul onClick="choosefont(this)" data-bs-dismiss="modal" data-value="<%=Project::FONT[font_number] %>">
+                          <button class="btn-font"id="fontType<%= Project::FONT[font_number] %>">
+                            <h4 style="font-family:<%= Project::FONT[font_number] %>"><%= Project::FONT[font_number] %></h4>
+                          </button>
+                        </ul>
+                        <% font_number +=1 %>
+                      <% end %>
+                      <%= f.input :font, as: :hidden, collection: @selectedFont, input_html: { id: "selected_font", multiple: false} %>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <!-- End of modal -->
+              <!-- End of modal -->
 
-            <%# <%= f.input :font, label: false, collection: Project::FONT, input_html: {class: "form-input-100" }  %>
-            <div class="flex space-between">
-              <div>
-                <p><strong>Font Opacity:</strong></p>
-                <%= f.input :opacity, label: false , input_html: {class: "form-input-small" } %>
-              </div>
-              <div>
-                <p><strong>Font Size:</strong></p>
-                <%= f.input :font_size, label: false, input_html: {class: "form-input-small" } %>
+              <%# <%= f.input :font, label: false, collection: Project::FONT, input_html: {class: "form-input-100" }  %>
+              <div class="flex space-between">
+                <div>
+                  <p><strong>Font Opacity:</strong></p>
+                  <%= f.input :opacity, label: false , input_html: {class: "form-input-small" } %>
+                </div>
+                <div>
+                  <p><strong>Font Size:</strong></p>
+                  <%= f.input :font_size, label: false, input_html: {class: "form-input-small" } %>
+                </div>
               </div>
             </div>
 
@@ -155,6 +158,21 @@ Are your SDR's underperforming?",
   var button3 = document.getElementById("thumbnail-button3");
   var selectedFont = ""
   var fontbtn = document.getElementById("font-select-btn")
+
+  document.addEventListener('change', function(event) {
+  if (event.target.matches('#flexSwitchCheckDefault')) {
+    var messageOptions = document.getElementsByClassName("message-options");
+    if (event.target.checked) {
+      for (var i = 0; i < messageOptions.length; i++) {
+        messageOptions[i].classList.remove("hidden");
+      }
+    } else {
+      for (var i = 0; i < messageOptions.length; i++) {
+        messageOptions[i].classList.add("hidden");
+      }
+    }
+  }
+}, false);
 
   function choosefont(element) {
     var fontId = element.dataset.value;
