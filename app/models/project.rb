@@ -36,7 +36,7 @@ class Project < ApplicationRecord
     end
   end
 
-  FONT = ['Covered By Your Grace','Gloria Hallelujah','Indie Flower','Inspiration','Kalam','Nanum Brush Script',
-    'Nothing You Could Do','permanent marker', 'Reenie Beanie','Rock Salt','Shadows Into Light']
+  FONT = ['Covered By Your Grace','Gloria Hallelujah','Indie Flower','Kalam','Nanum Brush Script',
+    'Nothing You Could Do','Permanent Marker', 'Reenie Beanie','Rock Salt','Shadows Into Light']
 
 end

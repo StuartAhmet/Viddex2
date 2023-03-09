@@ -4,6 +4,15 @@
 @import "form_legend_clear";
 @import "navbar";
 
+.btn-font{
+  border: none;
+  background-color: transparent;
+}
+.btn-font:hover{
+  border: 1px solid grey;
+  border-radius: 10px;
+  padding: 5px;
+}
 .flex{
   display: flex;
 }
@@ -35,6 +44,15 @@
   width: 216px;
   margin-top: -8px;
 }
+.form-input-100{
+  border-radius: 10px;
+  width: 100%;
+  margin-top: -8px;
+}
+.blue-switch{
+  color: blue;
+  border-color: blue;
+}
 .hidden{
   display: none;
 }
@@ -44,7 +62,9 @@
 .tal{
   text-align: left;
 }
-
+.mb-16{
+  margin-bottom: 16px;
+}
 .mr10{
   margin-right: 10px;
 }
@@ -117,4 +137,8 @@
   background-image: url('https://res.cloudinary.com/dth8lnhas/image/upload/v1673337073/Backgrounds/photo_two_7_xvtvh6.png');
   background-position: top;
   background-repeat: no-repeat;
+}
+
+.wrap{
+  flex-wrap: wrap;
 }
