@@ -80,8 +80,8 @@ Are your SDR's underperforming?",
 
             <p><strong>Font:</strong></p>
             <!-- Button trigger modal -->
-            <button type="button" class="flex space-between form-control" data-bs-toggle="modal" data-bs-target="#fontModal">
-              <div> Permanent Marker</div>
+            <button type="button" id="font-select-btn"class="flex space-between form-control" data-bs-toggle="modal" data-bs-target="#fontModal">
+              Permanent Marker
               <i class="bi bi-chevron-down"></i>
             </button><br>
             <!-- Modal -->
@@ -93,19 +93,16 @@ Are your SDR's underperforming?",
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                    <ul>
-                      <h4 style="font-family:Covered By Your Grace">Covered By Your Grace</h4>
-                      <h4 style="font-family:Gloria Hallelujah">Gloria Hallelujah</h4>
-                      <h4 style="font-family:Indie Flower">Indie Flower</h4>
-                      <h4 style="font-family:Inspiration">Inspiration</h4>
-                      <h4 style="font-family:Kalam">Kalam</h4>
-                      <h4 style="font-family:Nanum Brush Script">Nanum Brush Script</h4>
-                      <h4 style="font-family:Nothing You Could Do">Nothing You Could Do</h4>
-                      <h4 style="font-family:permanent marker">Permanent Marker</h4>
-                      <h4 style="font-family:Reenie Beanie">Reenie Beanie</h4>
-                      <h4 style="font-family:Rock Salt">Rock Salt</h4>
-                      <h4 style="font-family:Shadows Into Light">Shadows Into Light</h4>
-                    </ul>
+                    <% font_number = 0 %>
+                    <% 10.times do %>
+                      <ul onClick="choosefont(this)" data-bs-dismiss="modal" data-value="<%=Project::FONT[font_number] %>">
+                        <button class="btn-font"id="fontType<%= Project::FONT[font_number] %>">
+                          <h4 style="font-family:<%= Project::FONT[font_number] %>"><%= Project::FONT[font_number] %></h4>
+                        </button>
+                      </ul>
+                      <% font_number +=1 %>
+                    <% end %>
+                    <%= f.input :font, as: :hidden, collection: @selectedFont, input_html: { id: "selected_font", multiple: false} %>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -113,7 +110,9 @@ Are your SDR's underperforming?",
                 </div>
               </div>
             </div>
-            <%= f.input :font, label: false, collection: Project::FONT, input_html: {class: "form-input-100" }  %>
+            <!-- End of modal -->
+
+            <%# <%= f.input :font, label: false, collection: Project::FONT, input_html: {class: "form-input-100" }  %>
             <div class="flex space-between">
               <div>
                 <p><strong>Font Opacity:</strong></p>
@@ -150,24 +149,24 @@ Are your SDR's underperforming?",
 <% end %>
 
 <script>
-
-
-
-  var thumbnails = document.getElementsByClassName("thumbnails");
   var selectedVideos = [];
   var button1 = document.getElementById("thumbnail-button1");
   var button2 = document.getElementById("thumbnail-button2");
   var button3 = document.getElementById("thumbnail-button3");
-  // var menu1 = document.getElementById("modal");
-  // var menu2 = document.getElementById("dropdown-menu2");
-  // var menu3 = document.getElementById("dropdown-menu3");
+  var selectedFont = ""
+  var fontbtn = document.getElementById("font-select-btn")
 
+  function choosefont(element) {
+    var fontId = element.dataset.value;
+    document.getElementById("selected_font").value = fontId;
+    fontbtn.innerHTML = element.innerText.trim() + "<i class='bi bi-chevron-down'></i>";
+    selectedFont = fontId;
+  }
 
   function choosevid1(element) {
 
     var videoId = element.dataset.value;
     document.getElementById("selected_video1").value = videoId;
-    // if want to save three videos will need to be separated by commas can do so when generating or in the
     button1.innerHTML = element.innerText.trim() +  "<br /> <i class='fa fa-chevron-down'></i>";
     selectedVideos[0] = videoId;
   }
@@ -176,7 +175,6 @@ Are your SDR's underperforming?",
 
     var videoId = element.dataset.value;
     document.getElementById("selected_video2").value = videoId;
-    // if want to save three videos will need to be separated by commas can do so when generating or in the
     button2.innerHTML = element.innerText.trim() +  "<br /> <i class='fa fa-chevron-down'></i>";
     selectedVideos[1] = videoId;
   }
@@ -185,7 +183,6 @@ Are your SDR's underperforming?",
 
     var videoId = element.dataset.value;
     document.getElementById("selected_video3").value = videoId;
-    // if want to save three videos will need to be separated by commas can do so when generating or in the
     button3.innerHTML = element.innerText.trim() +  "<br /> <i class='fa fa-chevron-down'></i>";
     selectedVideos[2] = videoId;
   }

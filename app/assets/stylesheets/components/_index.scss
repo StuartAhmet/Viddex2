@@ -4,6 +4,15 @@
 @import "form_legend_clear";
 @import "navbar";
 
+.btn-font{
+  border: none;
+  background-color: transparent;
+}
+.btn-font:hover{
+  border: 1px solid grey;
+  border-radius: 10px;
+  padding: 5px;
+}
 .flex{
   display: flex;
 }
