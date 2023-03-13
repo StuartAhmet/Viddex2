@@ -62,7 +62,7 @@
           <p><strong>Audio Overlay:</strong></p>
           <%= f.association :audios, collection: @user.audios,
             label: false,
-            :value => @user_audios, as: :select,
+            :value => @user_audio, as: :select,
             input_html: { multiple: false, class: "form-input-100" }%>
         <%# </div> %>
             <div class="form-check form-switch">
@@ -98,7 +98,7 @@
                       <% font_number = 0 %>
                       <% 10.times do %>
                         <ul onClick="choosefont(this)" data-bs-dismiss="modal" data-value="<%=Project::FONT[font_number] %>">
-                          <button class="btn-font"id="fontType<%= Project::FONT[font_number] %>">
+                          <button type="button" class="btn-font"id="fontType<%= Project::FONT[font_number] %>">
                             <h4 style="font-family:<%= Project::FONT[font_number] %>"><%= Project::FONT[font_number] %></h4>
                           </button>
                         </ul>
@@ -178,7 +178,7 @@
     var fontId = element.dataset.value;
     document.getElementById("selected_font").value = fontId;
     fontbtn.innerHTML = element.innerText.trim() + "<i class='bi bi-chevron-down'></i>";
-    selectedFont = fontId;
+    // selectedFont = fontId;
   }
 
   function choosevid1(element) {
