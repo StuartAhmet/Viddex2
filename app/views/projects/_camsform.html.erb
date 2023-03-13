@@ -62,8 +62,8 @@
           <p><strong>Audio Overlay:</strong></p>
           <%= f.association :audios, collection: @user.audios,
             label: false,
-            :value => @user_audio, as: :select,
-            input_html: { multiple: false, class: "form-input-100" }%>
+            :value => @user_audios, as: :select,
+            input_html: { class: "form-input-100" }%>
         <%# </div> %>
             <div class="form-check form-switch">
               <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
