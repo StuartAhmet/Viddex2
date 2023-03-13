@@ -2,6 +2,8 @@
 import "@hotwired/turbo-rails"
 import "./controllers"
 import "bootstrap"
+import * as bootstrap from "bootstrap"
+
 
 //= require files
 import "./copy"

@@ -1,70 +1,136 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
+
 <div class="flex">
-  <%= simple_form_for [@user, @project] do |f| %>
-    <div style="width:400px;padding-top: 20px;margin-right: 30px;">
+  <%= simple_form_for [@user, @project], html: { class: "form-container"} do |f| %>
+    <p><strong>Title:</strong></p>
+    <%= f.input :title, label: false, placeholder: "eg. Video for Elon @ Tesla", input_html: { class: "form-input-100" } %>
+    <p><strong>Videos:</strong></p>
+    <% video_number = 1 %>
+        <%# video buttons %>
         <div class="flex space-between">
-          <p>Title:</p>
-          <%= f.input :title, label: false, placeholder: "eg. Video for Elon @ Tesla", input_html: { class: "form-input-medium" } %>
+          <% 3.times do %>
+            <button class="form-btn-25" type="button" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Unable to edit videos. Please create a new project.">
+              <%= @project.videos[video_number-1].title%> <br>
+              <i class="bi bi-camera-video-off-fill"></i>
+            </button>
+
+            <% video_number += 1 %>
+          <% end %>
         </div>
-        <%# <div class="flex space-between">
-          <p>Video:</p>
-          <%= f.association :video, collection: @user.videos, label: false, :value => @user_videos, as: :select, input_html: { multiple: false, class: "form-input-medium" } %>
-        <%# </div> %>
-        <%= f.association :videos, collection: @user.videos, label: false, :value => @user_videos, as: :select, input_html: {multiple: :false, class: "form-input-medium" } %>
-        <%= f.association :videos, collection: @user.videos, as: :select, label: false, placeholder: "Video 2", input_html: { class: "form-input-medium" } %>
-        <%= f.association :videos, collection: @user.videos, label: false, placeholder: "Video 3", input_html: { class: "form-input-medium" } %>
-        <div class="flex space-between">
-          <p>Background:</p>
-          <%= f.association :backgrounds, collection: @user.backgrounds,
-            label: false,
-            :value => @user_backgrounds, as: :select,
-            input_html: { multiple: false, class: "form-input-medium" }%>
-        </div>
-         <div class="flex space-between">
-          <p>Audio:</p>
+        <%# audio overlay %>
+        <p><strong>Audio Overlay:</strong></p>
           <%= f.association :audios, collection: @user.audios,
             label: false,
-            :value => @user_audios, as: :select,
-            input_html: { multiple: false, class: "form-input-medium" }%>
+            :value => @user_audio, as: :select,
+            input_html: { multiple: false, class: "form-input-100" }%>
+
+        <%# Message switch %>
+        <div class="form-check form-switch">
+          <% if @project.message_body? %>
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckCheckedDisabled" checked disabled>
+            <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">Include a message?</label>
+          <% else %>
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+            <label class="form-check-label" for="flexSwitchCheckDefault">Include a message?</label>
+          <% end %>
         </div>
-        <div class="flex space-between">
-          <p>Message:</p>
-          <%= f.input :message_body, label: false,placeholder: "Message" %>
-        </div>
-      <div class="accordion" id="accordionPanelsStayOpenExample">
-         <div class="accordion-item" style="border-radius:10px">
-          <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-              Message options
-            </button>
-          </h2>
-          <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
-            <div class="accordion-body">
-              <div >
-                <div class="flex space-between">
-                  <p>Font:</p>
-                  <%= f.input :font, label: false, collection: Project::FONT, input_html: {class: "form-input-small" }  %>
+
+        <div class=" message-options">
+
+              <p><strong>Message Overlay:</strong></p>
+              <%= f.input :message_body, label: false,
+              placeholder:
+  "Hi Elon,
+  Are your SDR's underperforming?",
+              input_html: { multiple: false, class: "form-input-100" }%>
+
+
+              <p><strong>Font:</strong></p>
+              <!-- Button trigger modal -->
+              <button type="button" id="font-select-btn"class="flex space-between form-control" data-bs-toggle="modal" data-bs-target="#fontModal">
+                <%= @project.font %>
+                <i class="bi bi-chevron-down"></i>
+              </button><br>
+              <!-- Modal -->
+              <div class="modal fade" id="fontModal" tabindex="-1" aria-labelledby="fontModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="fontModalLabel">Select your font</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <% font_number = 0 %>
+                      <% 10.times do %>
+                        <ul onClick="choosefont(this)" data-bs-dismiss="modal" data-value="<%=Project::FONT[font_number] %>">
+                          <button type="button" class="btn-font"id="fontType<%= Project::FONT[font_number] %>">
+                            <h4 style="font-family:<%= Project::FONT[font_number] %>"><%= Project::FONT[font_number] %></h4>
+                          </button>
+                        </ul>
+                        <% font_number +=1 %>
+                      <% end %>
+                      <%= f.input :font, as: :hidden, collection: @selectedFont, input_html: { id: "selected_font", multiple: false} %>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                  </div>
                 </div>
-                <div class="flex space-between">
-                  <p>Font Opacity:</p>
-                  <%= f.input :opacity, label: false , input_html: {class: "form-input-small" } %>
+              </div>
+              <!-- End of modal -->
+
+              <%# <%= f.input :font, label: false, collection: Project::FONT, input_html: {class: "form-input-100" }  %>
+              <div class="flex space-between">
+                <div>
+                  <p><strong>Font Opacity:</strong></p>
+                  <%= f.input :opacity, label: false , input_html: {class: "form-input-small", style: "width:75%" } %>
                 </div>
-                <div class="flex space-between">
-                  <p>Font Size:</p>
-                  <%= f.input :font_size, label: false, input_html: {class: "form-input-small" } %>
+                <div>
+                  <p><strong>Font Size:</strong></p>
+                  <%= f.input :font_size, label: false, input_html: {class: "form-input-small", style: "width:75%" } %>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
 
-      <%= f.input :include_meeting_link, as: :boolean %>
+      <%# <%= f.input :include_meeting_link, as: :boolean %>
 
 
       <div class="flex justify-start items-center pt-8">
-        <div class="flex justify-center items-center h-10 rounded-lg bg-black" style="width:100%;border-radius:5px">
+        <div class="flex justify-center items-center h-10 rounded-lg" style="width:100%;border-radius:5px">
           <%= f.submit "Update and Preview", class: "nav-link lb-btn", style: "width:100%;border:none" %>
         </div>
       </div>
         <% end %>
 </div>
+
+<script>
+
+  var selectedFont = ""
+  var fontbtn = document.getElementById("font-select-btn")
+
+  document.addEventListener('change', function(event) {
+  if (event.target.matches('#flexSwitchCheckDefault')) {
+    var messageOptions = document.getElementsByClassName("message-options");
+    if (event.target.checked) {
+      for (var i = 0; i < messageOptions.length; i++) {
+        messageOptions[i].classList.remove("hidden");
+      }
+    } else {
+      for (var i = 0; i < messageOptions.length; i++) {
+        messageOptions[i].classList.add("hidden");
+      }
+    }
+  }
+}, false);
+
+  function choosefont(element) {
+    var fontId = element.dataset.value;
+    document.getElementById("selected_font").value = fontId;
+    fontbtn.innerHTML = element.innerText.trim() + "<i class='bi bi-chevron-down'></i>";
+    selectedFont = fontId;
+  }
+
+
+
+</script>

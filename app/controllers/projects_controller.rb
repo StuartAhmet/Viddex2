@@ -33,7 +33,7 @@ class ProjectsController < ApplicationController
         redirect_to user_projects_path
         flash[:notice] = "Project Created"
       else
-        flash.now[:error] = "Could not create project"
+        render 'new', status: :unprocessable_entity
       end
 
   end
@@ -43,9 +43,9 @@ class ProjectsController < ApplicationController
   end
 
   def update
-    @project = Project.find_by(public_uid: params[:id])
-    @project.video = Video.find(project_params[:video_id])
-    @project.update(project_params)
+    set_project
+    # @project.videos = Video.find(project_params[:video_ids])
+    @project.update(project_edit_params)
     redirect_to edit_user_project_path
     flash[:notice] = "Project Updated"
   end
@@ -74,5 +74,12 @@ class ProjectsController < ApplicationController
     video_ids = permitted_params.delete(:video_ids)
     project_video_params = video_ids.map.with_index { |id, index| { video_id: id, position: index } }
     permitted_params.merge(project_videos_attributes: project_video_params)
+  end
+
+  def project_edit_params
+    params.require(:project).permit(:prospect_first,
+      :prospect_last, :prospect_email, :prospect_company,
+      :message_body, :font, :opacity, :font_size, :title, :audio_id,
+      background_ids: [])
   end
 end
