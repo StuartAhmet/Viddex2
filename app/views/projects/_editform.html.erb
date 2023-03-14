@@ -23,7 +23,7 @@
           <%= f.association :audios, collection: @user.audios,
             label: false,
             :value => @user_audio, as: :select,
-            input_html: { multiple: false, class: "form-input-100" }%>
+            input_html: {  class: "form-input-100" }%>
 
         <%# Message switch %>
         <div class="form-check form-switch">
@@ -92,8 +92,18 @@
                 </div>
               </div>
             </div>
-
-      <%# <%= f.input :include_meeting_link, as: :boolean %>
+        <%# meeting link %>
+        <% if @user.meeting_link? %>
+          <div class="form-check form-switch"style="padding-left:1.0em">
+            <%= f.input :include_meeting_link, as: :boolean, class: "form-check-input blue-switch" %>
+          </div>
+        <% else %>
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDisabled" disabled>
+            <label class="form-check-label"
+              for="flexSwitchCheckDisabled">Include meeting link  </label><i class="bi bi-question-circle" data-bs-toggle="tooltip" data-bs-placement="right" title="You haven't provided a meeting link. Update it in the dashboard first"></i>
+          </div>
+        <% end %>
 
 
       <div class="flex justify-start items-center pt-8">
