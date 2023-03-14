@@ -48,12 +48,16 @@
   end%>
 
   <%# text overlay %>
-  <%  {angle:project_angle, distort:distortion_params, :gravity=>"north_west",
-      :overlay=>{
-        font_family: @project.font,font_size: @project.font_size,
-        text: @project.message_body},
-        opacity: @project.opacity,width: text_box_width,height: text_box_height,
-        x: text_box_x,y: text_box_y,crop: "fit",} %>
+  <% if @project.message_body? %>
+  <%  message_params = {angle:project_angle, distort:distortion_params, :gravity=>"north_west",
+              :overlay=>{
+                font_family: @project.font,font_size: @project.font_size,
+                text: @project.message_body},
+                opacity: @project.opacity,width: text_box_width,height: text_box_height,
+                x: text_box_x,y: text_box_y,crop: "fit",} %>
+  <% else
+      message_params = nil %>
+  <% end %>
 
 
 <%= cl_video_tag(@project.videos[0].file.key,
@@ -73,10 +77,6 @@
       {flags: "splice", overlay: "video:"+Rails.env+":"+@project.videos[1].file.key},
       {flags: "splice", overlay: "video:"+Rails.env+":"+@project.videos[2].file.key},
       # text overlay
-      {angle:project_angle, distort:distortion_params, :gravity=>"north_west",
-      :overlay=>{
-        font_family: @project.font,font_size: @project.font_size,
-        text: @project.message_body},
-        opacity: @project.opacity,width: text_box_width,height: text_box_height,
-        x: text_box_x,y: text_box_y,crop: "fit",}
+      message_params
+
   ]) %>

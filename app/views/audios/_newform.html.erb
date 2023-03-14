@@ -1,11 +1,9 @@
-<%= simple_form_for @audio, url: user_audios_path do |f| %>
-  <div style="width:400px;padding-top: 20px" >
-      <div class="flex space-between">
-        <p>Title</p>
-        <%= f.input :title, label: false, input_html: { class: "form-input-medium" }  %>
-      </div>
-        <%= f.input :file, as: :file, label: false, style: "width:400px" %>
 
-        <%= f.submit "Upload", class: 'nav-link lb-btn', style: "border:none;width:100%" %>
-  </div>
-<% end %>
+  <%= simple_form_for @audio, url: user_audios_path, html: { class: "form-container center-auto"} do |f| %>
+
+          <p><strong>Title</strong></p>
+          <%= f.input :title, label: false, input_html: { class: "form-input-100" }  %>
+          <%= f.input :file, as: :file, label: false, style: "width:400px" %>
+
+          <%= f.submit "Upload", class: 'nav-link lb-btn', style: "border:none;width:100%" %>
+  <% end %>

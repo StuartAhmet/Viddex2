@@ -62,8 +62,8 @@
           <p><strong>Audio Overlay:</strong></p>
           <%= f.association :audios, collection: @user.audios,
             label: false,
-            :value => @user_audio, as: :select,
-            input_html: { multiple: false, class: "form-input-100" }%>
+            :value => @user_audios, as: :select,
+            input_html: { class: "form-input-100" }%>
         <%# </div> %>
             <div class="form-check form-switch">
               <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
@@ -128,10 +128,6 @@
             </div>
 
       <% if @user.meeting_link? %>
-        <%# <div class="form-check form-switch">
-          <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked1" checked>
-          <label class="form-check-label" for="flexSwitchCheckChecked1">Include meeting link</label>
-        </div> %>
         <div class="form-check form-switch"style="padding-left:1.0em">
           <%= f.input :include_meeting_link, as: :boolean, class: "form-check-input blue-switch" %>
         </div>
