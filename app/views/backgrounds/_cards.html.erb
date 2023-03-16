@@ -3,16 +3,9 @@
               <div class="flex" style="flex-direction:column">
                 <div class="item-card" style="margin-bottom:20px;margin-right:20px">
                   <% if background.photo.attached? %>
-
-                      <%= cl_image_tag background.photo.key,
-                        height: 120, width: 213, crop: :fill,
-                        class: "d-block rounded-lg card-pic" %>
+                    <img style="width:100%"src="<%= background.service_url %>" alt="image unable to load">
                     <% else %>
-
-                    <p>image not loading</p>
-
-
-
+                    <p>Image not attached</p>
                   <% end %>
                   <p style="padding:10px 0px;margin-left:12px;" ><%= background.title.capitalize %></p>
                   <% mbsize = background.photo.byte_size.to_f / 1048576 %>
@@ -23,9 +16,9 @@
                               style="background-color:transparent;border-color:transparent">
                       </button>
                       <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-                        <li><a class="dropdown-item bi bi-pencil-square" href="/terminal/<%= @user.public_uid %>/backgrounds/<%= background.public_uid%>/edit"> Edit</a></li>
+                        <li><a class="dropdown-item bi bi-pencil-square" href="/terminal/<%= @user.public_uid %>/images/<%= background.public_uid%>/edit"> Edit</a></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a data-turbo-method="delete" class="dropdown-item bi bi-trash"data-turbo-confirm="Are you sure?" href="/terminal/<%= @user.public_uid %>/backgrounds/<%= background.public_uid%>"> Delete</a></li>
+                        <li><a data-turbo-method="delete" class="dropdown-item bi bi-trash"data-turbo-confirm="Are you sure?" href="/terminal/<%= @user.public_uid %>/images/<%= background.public_uid%>"> Delete</a></li>
                       </ul>
                     </div>
                   </div>
