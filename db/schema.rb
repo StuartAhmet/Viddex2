@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_28_165630) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_17_133323) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -66,15 +66,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_28_165630) do
     t.index ["user_id"], name: "index_audios_on_user_id"
   end
 
-  create_table "audios_projects", id: false, force: :cascade do |t|
-    t.bigint "project_id", null: false
-    t.bigint "audio_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["audio_id"], name: "index_audios_projects_on_audio_id"
-    t.index ["project_id"], name: "index_audios_projects_on_project_id"
-  end
-
   create_table "backgrounds", force: :cascade do |t|
     t.string "title"
     t.string "public_uid"
@@ -99,15 +90,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_28_165630) do
     t.index ["user_id"], name: "index_backgrounds_on_user_id"
   end
 
-  create_table "backgrounds_projects", id: false, force: :cascade do |t|
-    t.bigint "project_id", null: false
-    t.bigint "background_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["background_id"], name: "index_backgrounds_projects_on_background_id"
-    t.index ["project_id"], name: "index_backgrounds_projects_on_project_id"
-  end
-
   create_table "contacts", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -126,7 +108,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_28_165630) do
     t.integer "audio_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "projects_id"
+    t.bigint "audios_id"
+    t.index ["audios_id"], name: "index_project_audios_on_audios_id"
     t.index ["project_id", "audio_id"], name: "index_project_audios_on_project_id_and_audio_id", unique: true
+    t.index ["projects_id"], name: "index_project_audios_on_projects_id"
   end
 
   create_table "project_backgrounds", force: :cascade do |t|
@@ -134,7 +120,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_28_165630) do
     t.integer "background_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "projects_id"
+    t.bigint "backgrounds_id"
+    t.index ["backgrounds_id"], name: "index_project_backgrounds_on_backgrounds_id"
     t.index ["project_id", "background_id"], name: "index_project_backgrounds_on_project_id_and_background_id", unique: true
+    t.index ["projects_id"], name: "index_project_backgrounds_on_projects_id"
   end
 
   create_table "project_videos", force: :cascade do |t|
@@ -143,7 +133,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_28_165630) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "position"
+    t.bigint "projects_id"
+    t.bigint "videos_id"
     t.index ["project_id", "video_id"], name: "index_project_videos_on_project_id_and_video_id", unique: true
+    t.index ["projects_id"], name: "index_project_videos_on_projects_id"
+    t.index ["videos_id"], name: "index_project_videos_on_videos_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -168,15 +162,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_28_165630) do
     t.index ["background_id"], name: "index_projects_on_background_id"
     t.index ["user_id"], name: "index_projects_on_user_id"
     t.index ["video_id"], name: "index_projects_on_video_id"
-  end
-
-  create_table "projects_videos", id: false, force: :cascade do |t|
-    t.bigint "project_id", null: false
-    t.bigint "video_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["project_id"], name: "index_projects_videos_on_project_id"
-    t.index ["video_id"], name: "index_projects_videos_on_video_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -233,16 +218,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_28_165630) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "audios", "users"
-  add_foreign_key "audios_projects", "audios"
-  add_foreign_key "audios_projects", "projects"
   add_foreign_key "backgrounds", "users"
-  add_foreign_key "backgrounds_projects", "backgrounds"
-  add_foreign_key "backgrounds_projects", "projects"
+  add_foreign_key "project_audios", "audios", column: "audios_id"
+  add_foreign_key "project_audios", "projects", column: "projects_id"
+  add_foreign_key "project_backgrounds", "backgrounds", column: "backgrounds_id"
+  add_foreign_key "project_backgrounds", "projects", column: "projects_id"
+  add_foreign_key "project_videos", "projects", column: "projects_id"
+  add_foreign_key "project_videos", "videos", column: "videos_id"
   add_foreign_key "projects", "audios"
   add_foreign_key "projects", "backgrounds"
   add_foreign_key "projects", "users"
   add_foreign_key "projects", "videos"
-  add_foreign_key "projects_videos", "projects"
-  add_foreign_key "projects_videos", "videos"
   add_foreign_key "videos", "users"
 end

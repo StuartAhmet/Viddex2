@@ -6,7 +6,7 @@
       <%= render "shared/pagehead" %>
       <%= render "projects/pagetabs" %>
       <div data-bs-spy="scroll">
-        <%= render "projects/cards", user: @user, projects: @user.projects %>
+        <%= render "projects/index/table", user: @user, projects: @user.projects %>
       </div>
     </div>
   </div>

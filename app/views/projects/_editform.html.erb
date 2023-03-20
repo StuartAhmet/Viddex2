@@ -1,14 +1,14 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 
 
-<div class="flex">
-  <%= simple_form_for [@user, @project], html: { class: "form-container"} do |f| %>
+<div class="flex" style="width:47%">
+  <%= simple_form_for [@user, @project], html: { class: "form-container-100"} do |f| %>
     <p><strong>Title:</strong></p>
     <%= f.input :title, label: false, placeholder: "eg. Video for Elon @ Tesla", input_html: { class: "form-input-100" } %>
     <p><strong>Videos:</strong></p>
     <% video_number = 1 %>
         <%# video buttons %>
-        <div class="flex space-between">
+        <div class="flex space-between mb-16">
           <% 3.times do %>
             <button class="form-btn-25" type="button" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Unable to edit videos. Please create a new project.">
               <%= @project.videos[video_number-1].title%> <br>
@@ -18,12 +18,91 @@
             <% video_number += 1 %>
           <% end %>
         </div>
-        <%# audio overlay %>
-        <p><strong>Audio Overlay:</strong></p>
-          <%= f.association :audios, collection: @user.audios,
-            label: false,
-            :value => @user_audio, as: :select,
-            input_html: {  class: "form-input-100" }%>
+
+        <div class="flex space-between">
+          <%# Audio %>
+          <div class="flex-column w-48">
+            <p><strong>Audio: (optional)</strong></p>
+            <div class="flex space-between mb-16">
+              <button type="button" id="audio-select-btn"class="flex space-between form-control" data-bs-toggle="modal" data-bs-target="#audioModal">
+                <% if @project.audios.exists? %>
+                  <%= @project.audios[0].title%>
+                <% else %>
+                  None selected
+                <% end %>
+                <i class="bi bi-chevron-down"></i>
+              </button>
+              <button type="button" class="form-bin-btn">
+                <i class="bi bi-trash"></i>
+              </button>
+            </div>
+          </div>
+          <%# Thumbnail/background %>
+          <div class="flex-column w-48">
+            <p><strong>Thumbnail: (optional)</strong></p>
+            <div class="flex space-between mb-16">
+              <button type="button" id="thumb-select-btn"class="flex space-between form-control" data-bs-toggle="modal" data-bs-target="#thumbModal">
+                <%= @project.background.title %>
+                <i class="bi bi-chevron-down"></i>
+              </button>
+              <button type="button" class="form-bin-btn">
+                <i class="bi bi-trash"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <%# audio modal %>
+        <div class="modal fade" id="audioModal" tabindex="-1" aria-labelledby="audioModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="audioModalLabel">Select audio overlay</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body flex space-between wrap">
+                  <% @user.audios.each do |audio| %>
+                    <div>
+                      <ul class="audio_select " onClick="chooseaudio(this)" data-bs-dismiss="modal" data-value="<%=audio.id %>" id="<%=audio.title%>">
+                        <button type="button" id="audio-select"><%= audio.title %></button>
+                      </ul>
+                    </div>
+                  <% end %>
+              <%= f.association :audios, as: :hidden, collection: @user_audios, input_html: { id: "selected_audio", multiple: true} %>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <%# end of modal %>
+
+        <%# thumbnail modal %>
+        <div class="modal fade" id="thumbModal" tabindex="-1" aria-labelledby="thumbModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="thumbModalLabel">Select a thumbnail</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body flex space-between wrap">
+                    <% @user.backgrounds.each do |bg| %>
+                      <div>
+                        <ul class="thumbnail_select " onClick="choosethumb(this)" data-bs-dismiss="modal" data-value="<%=bg.id %>" id="<%=bg.title%>">
+                          <img src="<%= bg.service_url%>", id="thumbnail-select %>", class="thumbnails"><br />
+                          <%= bg.title %>
+                        </ul>
+                      </div>
+                    <% end %>
+                <%= f.association :background, as: :hidden, collection: @user_backgrounds, input_html: { id: "selected_thumb", multiple: false} %>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <%# end of modal %>
 
         <%# Message switch %>
         <div class="form-check form-switch">
@@ -38,7 +117,7 @@
 
         <div class=" message-options">
 
-              <p><strong>Message Overlay:</strong></p>
+              <p style="margin-top:16px"><strong>Message Overlay:</strong></p>
               <%= f.input :message_body, label: false,
               placeholder:
   "Hi Elon,
@@ -82,13 +161,13 @@
 
               <%# <%= f.input :font, label: false, collection: Project::FONT, input_html: {class: "form-input-100" }  %>
               <div class="flex space-between">
-                <div>
+                <div class="w-48">
                   <p><strong>Font Opacity:</strong></p>
-                  <%= f.input :opacity, label: false , input_html: {class: "form-input-small", style: "width:75%" } %>
+                  <%= f.input :opacity, label: false , input_html: {class: "form-input-100" } %>
                 </div>
-                <div>
+                <div class="w-48">
                   <p><strong>Font Size:</strong></p>
-                  <%= f.input :font_size, label: false, input_html: {class: "form-input-small", style: "width:75%" } %>
+                  <%= f.input :font_size, label: false, input_html: {class: "form-input-100" } %>
                 </div>
               </div>
             </div>
@@ -118,6 +197,9 @@
 
   var selectedFont = ""
   var fontbtn = document.getElementById("font-select-btn")
+  var thumbbtn = document.getElementById("thumb-select-btn")
+  var audiobtn = document.getElementById("audio-select-btn")
+
 
   document.addEventListener('change', function(event) {
   if (event.target.matches('#flexSwitchCheckDefault')) {
@@ -133,12 +215,21 @@
     }
   }
 }, false);
-
+  function choosethumb(element) {
+    var thumbId = element.dataset.value;
+    document.getElementById("selected_thumb").value = thumbId;
+    thumbbtn.innerHTML = element.innerText.trim() + "<i class='bi bi-chevron-down'></i>";
+  }
   function choosefont(element) {
     var fontId = element.dataset.value;
     document.getElementById("selected_font").value = fontId;
     fontbtn.innerHTML = element.innerText.trim() + "<i class='bi bi-chevron-down'></i>";
     selectedFont = fontId;
+  }
+  function chooseaudio(element) {
+    var audioId = element.dataset.value;
+    document.getElementById("selected_audio").value = audioId;
+    audiobtn.innerHTML = element.innerText.trim() + "<i class='bi bi-chevron-down'></i>";
   }
 
 

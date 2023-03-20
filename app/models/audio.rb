@@ -7,7 +7,9 @@ class Audio < ApplicationRecord
 
   belongs_to :user
   has_one_attached :file
-  has_and_belongs_to_many :projects
+  # has_and_belongs_to_many :projects
+  has_many :project_audios
+  has_many :projects, through: :project_audios, dependent: :destroy
 
 
   validates :title, presence: true

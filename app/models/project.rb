@@ -7,13 +7,13 @@ class Project < ApplicationRecord
 
   belongs_to :user
 
-  has_and_belongs_to_many :audios
+  # has_and_belongs_to_many :audios
   belongs_to :background
   # has_and_belongs_to_many :videos
 
 
-  # has_many :project_audios, dependent: :destroy
-  # has_many :audios, through: :project_audios
+  has_many :project_audios, dependent: :destroy
+  has_many :audios, through: :project_audios
 
   # has_many :project_backgrounds, dependent: :destroy
   # has_many :backgrounds, through: :project_backgrounds
@@ -33,6 +33,14 @@ class Project < ApplicationRecord
   def check_video_count
     if videos.count > 3
       errors.add(:videos, "You cannot add more than three videos to a project")
+    end
+  end
+
+  def thumbnail_key
+    if background_id?
+      background.photo.key
+    else
+      videos[0].file.key
     end
   end
 
