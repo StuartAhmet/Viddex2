@@ -1,0 +1,29 @@
+<table style="width:100%">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Created at</th>
+      <th>Audio</th>
+      <th>Thumbnail</th>
+      <th>ID</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @user.projects.order(:id).reverse.each do |project| %>
+    <tr>
+        <td><%= link_to "#{project.title}", preview_user_project_path(@user, project) %></td>
+        <td><%= project.created_at.strftime('%d/%m/%y') %></td>
+      <% if project.audios.exists? %>
+        <td><%= project.audios[0].title%></td>
+      <% else %>
+        <td>none</td>
+      <% end %>
+        <td><%= project.background.title || "none"%></td>
+        <td><%= project.public_uid %></td>
+        <td><a class="dropdown-item bi bi-binoculars mr10"><%= link_to "Edit", edit_user_project_path(@user, project) %> </a></td>
+        <td><a class="dropdown-item bi bi-pencil-square"><%= link_to "View", project_path(project) %> </a></td>
+        <td><a data-turbo-method="delete" class="dropdown-item bi bi-trash"data-turbo-confirm="Are you sure?" href="/terminal/<%= @user.public_uid %>/projects/<%= project.public_uid%>"> Delete</a></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

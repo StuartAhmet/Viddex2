@@ -1,0 +1,25 @@
+<div class="form-container">
+  <%=@project.title  %>
+
+  <div type="button" data-bs-toggle="modal" data-bs-target=<%= "#exampleModal#{@project.public_uid}"%>>
+          <%# <% render "projects/index/projectgif" %>
+          <img style="max-width:100%"src="<%= @project.videos[0].service_url %>" alt="project image">
+  </div>
+  <button type="button">
+    Copy
+  </button>
+
+  <div class="flex space-between">
+    <button type="button">
+      <a class="dropdown-item bi bi-binoculars mr10"><%= link_to "View", project_path %></a>
+    </button>
+    <button type="button">
+      <a class="dropdown-item bi bi-pencil-square"><%= link_to "Edit", edit_user_project_path %> </a>
+    </button>
+    <button type="button">
+      <%# <%= link_to "Delete", delete_user_project_path %>
+      <a data-turbo-method="delete" class="dropdown-item bi bi-trash"data-turbo-confirm="Are you sure?" href="/terminal/<%= @user.public_uid %>/projects/<%= @project.public_uid%>"> Delete</a>
+    </button>
+  </div>
+
+</div>

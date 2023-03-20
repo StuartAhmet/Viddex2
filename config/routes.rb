@@ -18,7 +18,9 @@ Rails.application.routes.draw do
 
   resources :users, :path => 'terminal' do
     resources :backgrounds, :path => 'images'
-    resources :projects, only: [:new, :create, :edit, :update, :index, :destroy]
+    resources :projects, only: [:new, :create, :edit, :update, :index, :destroy] do
+      get :preview, on: :member
+    end
     resources :videos
     resources :audios, :path => 'audio-files'
   end

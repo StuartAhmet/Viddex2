@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
-  before_action :set_user, only: %i[index show new edit update destroy]
-  before_action :set_project, only: %i[show edit update destroy]
+  before_action :set_user, only: %i[index show new edit update destroy preview]
+  before_action :set_project, only: %i[show edit update destroy preview]
   before_action :authenticate_user!, :except => [:show]
 
   def index
@@ -21,6 +21,10 @@ class ProjectsController < ApplicationController
     @project = Project.new
 
     # @user_backgrounds = Background.find(params[:id])
+  end
+
+  def preview
+    @project = Project.find_by(public_uid: params[:id])
   end
 
   def create
