@@ -42,28 +42,35 @@
   else
   message_params = nil
   end%>
-<div class="thumbnail-image">
-  <%= cl_image_tag(@project.thumbnail_key+'.gif',
-    resource_type: "video",
-    controls: false,
-    preload: "metadata",
-    width: "100%",
-    poster: false,
-    effect: "loop:5",
-    :transformation=>[
-      # {:width=>1280, audio_codec: audio_codec_params, end_offset: "2", :quality=>"auto", :crop=>"scale"},
-      # message params
-      message_params,
-        # overlay play btn
-        {:overlay=>"play-button-icon-png-18919_ssamfy", :opacity=>60, :width=>200, :crop=>"scale"},
-        ])
-  %>
-
-  <p style="color: white;background-color: black;padding-left: 8px; margin-bottom: 0;"><%= @project.title %> (opens in new window)</p>
+  <div class="image-container">
+    <a id="image-link" href="https://www.viddex.io/watch/<%= @project.public_uid %>">
+      <div class="thumbnail-image" id="image" style="border:5px solid black;border-radius: 10px;">
+        <%= cl_image_tag(@project.thumbnail_key+'.gif',
+          resource_type: "video",
+          style: "border-bottom:5px solid black;",
+          controls: false,
+          preload: "metadata",
+          width: "100%",
+          poster: false,
+          effect: "loop:5",
+          :transformation=>[
+            # {:width=>1280, audio_codec: audio_codec_params, end_offset: "2", :quality=>"auto", :crop=>"scale"},
+            # message params
+            message_params,
+              # overlay play btn
+              {:overlay=>"play-button-icon-png-18919_ssamfy", :opacity=>60, :width=>200, :crop=>"scale"},
+              ])
+        %>
+        <h4 style="color:black; padding-left: 8px; margin-top: 0;margin-bottom: 0;"><%= @project.title %> - (opens in new window)</h4>
+      </div>
+    </a>
+  <button id="copy-button" style="width:100%;margin:5px 0px;"><i class="bi bi-clipboard mr10"></i>Copy to clipboard</button>
   </div>
 
-  <button style="width:100%;margin:5px 0px;"><i class="bi bi-clipboard mr10"></i>Copy to clipboard</button>
   <div class="flex space-between">
+    <%# <% if current_page?(user_project_path) %>
+      <button style="width:100%"><i class="bi-pencil-square mr10"></i> Edit</button>
+    <%# <% end %>
     <button style="width:100%"><i class="bi bi-binoculars mr10"></i> View</button>
     <button style="width:100%"><i class="bi bi-trash mr10"></i>Delete</button>
    </div>

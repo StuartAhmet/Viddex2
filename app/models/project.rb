@@ -8,15 +8,15 @@ class Project < ApplicationRecord
   belongs_to :user
 
   # has_and_belongs_to_many :audios
-  belongs_to :background
+  # belongs_to :background
   # has_and_belongs_to_many :videos
 
 
   has_many :project_audios, dependent: :destroy
   has_many :audios, through: :project_audios
 
-  # has_many :project_backgrounds, dependent: :destroy
-  # has_many :backgrounds, through: :project_backgrounds
+  has_many :project_backgrounds, dependent: :destroy
+  has_many :backgrounds, through: :project_backgrounds
 
   has_many :project_videos, -> { order(position: :asc) }, dependent: :destroy
   has_many :videos, through: :project_videos

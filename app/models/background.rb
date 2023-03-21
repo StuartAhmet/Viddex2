@@ -15,7 +15,8 @@ class Background < ApplicationRecord
 
   belongs_to :user
   has_one_attached :photo
-  has_many :projects
+  has_many :project_backgrounds
+  has_many :projects, through: :project_backgrounds, dependent: :destroy
 
   def title_with_thumbnail
     "<img src='#{cl_image_path(@background.image_attachment)}' /> #{title}".html_safe
