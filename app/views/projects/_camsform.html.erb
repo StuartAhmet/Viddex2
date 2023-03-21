@@ -52,11 +52,23 @@
       </div>
 
       <%# Audio %>
-      <p><strong>Audio: (optional)</strong></p>
-      <button type="button" id="audio-select-btn"class="flex space-between form-control" data-bs-toggle="modal" data-bs-target="#audioModal">
-        None selected
-        <i class="bi bi-chevron-down"></i>
-      </button>
+      <div class="flex space-between mb-16">
+        <div class="flex-column w-48">
+          <p><strong>Audio: (optional)</strong></p>
+          <button type="button" id="audio-select-btn"class="flex space-between form-control" data-bs-toggle="modal" data-bs-target="#audioModal">
+            None selected
+            <i class="bi bi-chevron-down"></i>
+          </button>
+        </div>
+        <%# Thumbnail/background %>
+        <div class="flex-column w-48">
+          <p><strong>Thumbnail: (optional)</strong></p>
+          <button type="button" id="thumb-select-btn"class="flex space-between form-control" data-bs-toggle="modal" data-bs-target="#thumbModal">
+            None selected
+            <i class="bi bi-chevron-down"></i>
+          </button>
+        </div>
+      </div>
       <%# audio modal %>
       <div class="modal fade" id="audioModal" tabindex="-1" aria-labelledby="audioModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -82,19 +94,6 @@
         </div>
       </div>
       <%# end of modal %>
-
-
-          <%# <%= f.association :audios, collection: @user.audios,
-            label: false,
-            :value => @user_audios, as: :select,
-            input_html: { class: "form-input-100" }%>
-
-        <%# Thumbnail/background %>
-        <p><strong>Thumbnail: (optional)</strong></p>
-        <button type="button" id="thumb-select-btn"class="flex space-between form-control" data-bs-toggle="modal" data-bs-target="#thumbModal">
-          None selected
-          <i class="bi bi-chevron-down"></i>
-        </button>
         <%# thumbnail modal %>
         <div class="modal fade" id="thumbModal" tabindex="-1" aria-labelledby="thumbModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -112,7 +111,7 @@
                         </ul>
                       </div>
                     <% end %>
-                <%= f.association :background, as: :hidden, collection: @user_backgrounds, input_html: { id: "selected_thumb", multiple: false} %>
+                <%= f.association :backgrounds, as: :hidden, collection: @user_backgrounds, input_html: { id: "selected_thumb", multiple: true} %>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -186,14 +185,14 @@
             </div>
 
       <% if @user.meeting_link? %>
-        <div class="form-check form-switch"style="padding-left:1.0em">
+        <div class="form-check form-switch mb-16"style="padding-left:1.0em">
           <%= f.input :include_meeting_link, as: :boolean, class: "form-check-input blue-switch" %>
         </div>
       <% else %>
-        <div class="form-check form-switch">
+        <div class="form-check form-switch mb-16">
           <input class="form-check-input" type="checkbox" id="flexSwitchCheckDisabled" disabled>
-          <label class="form-check-label"
-            for="flexSwitchCheckDisabled">Include meeting link  </label><i class="bi bi-question-circle" data-bs-toggle="tooltip" data-bs-placement="right" title="You haven't provided a meeting link. Update it in the dashboard first"></i>
+          <label class="form-check-label mr10"
+            for="flexSwitchCheckDisabled">Include meeting link (disabled) </label><i class="bi bi-question-circle" data-bs-toggle="tooltip" data-bs-placement="right" title="You haven't provided a meeting link. Update it in the dashboard first"></i>
         </div>
       <% end %>
 

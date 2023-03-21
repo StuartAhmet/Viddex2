@@ -1,14 +1,16 @@
-<div class="page-wrap">
-  <%= render"shared/terminalnav" %>
-  <div class="flex">
-    <%= render "shared/sidebar" %>
-    <div class="flex-column"style="width:100%; margin: 20px; ">
-      <%= render "shared/pagehead" %>
-      <%= render "projects/pagetabs" %>
-      <div class="flex space-between">
-        <%= render "projects/previewform" %>
+<%= render  "projects/show/shownav"%>
+  <img src="https://res.cloudinary.com/dth8lnhas/image/upload/v1676267363/Backgrounds/Untitled_design_47_xsscem.png"
+            alt="background image" class="img-showbg">
+  <div class="flex" style="justify-content:center">
+    <div class="vs-container">
+      <h1><%= @project.title %> </h1>
+      <%= render "projects/projectfile"%>
 
-      </div>
+      <% if @project.include_meeting_link? %>
+        <a class="btn btn-primary btn-ps"  href="<%= @project.user.meeting_link %>" target="_blank" role="button">
+        <i class="bi bi-calendar-week mr10"></i>
+        Book a meeting with <%= @project.user.first_name.capitalize || @project.user.full_name.capitalize%>
+      <% end %>
+        </a>
     </div>
   </div>
-</div>

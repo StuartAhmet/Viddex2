@@ -42,7 +42,11 @@
             <p><strong>Thumbnail: (optional)</strong></p>
             <div class="flex space-between mb-16">
               <button type="button" id="thumb-select-btn"class="flex space-between form-control" data-bs-toggle="modal" data-bs-target="#thumbModal">
-                <%= @project.background.title %>
+                <% if @project.backgrounds.exists? %>
+                  <%= @project.backgrounds[0].title %>
+                <% else %>
+                  None selected
+                <% end %>
                 <i class="bi bi-chevron-down"></i>
               </button>
               <button type="button" class="form-bin-btn">
@@ -94,7 +98,7 @@
                         </ul>
                       </div>
                     <% end %>
-                <%= f.association :background, as: :hidden, collection: @user_backgrounds, input_html: { id: "selected_thumb", multiple: false} %>
+                <%= f.association :backgrounds, as: :hidden, collection: @user_backgrounds, input_html: { id: "selected_thumb", multiple: false} %>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
