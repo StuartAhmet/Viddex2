@@ -39,7 +39,6 @@ gem "omniauth-google-oauth2"
 gem "omniauth-rails_csrf_protection"
 gem 'ruby-audioinfo', require: 'audioinfo'
 gem 'select2-rails'
-gem 'webpacker'
 
 
 

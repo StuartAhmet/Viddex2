@@ -1,4 +1,4 @@
-<table style="width:100%">
+<table class="table table-striped table-hover" style="width:100%">
   <thead>
     <tr>
       <th>Title</th>
@@ -6,6 +6,9 @@
       <th>Audio</th>
       <th>Thumbnail</th>
       <th>ID</th>
+      <th>Edit</th>
+      <th>View</th>
+      <th>Delete</th>
     </tr>
   </thead>
   <tbody>
@@ -24,9 +27,9 @@
         <td>none</td>
       <% end %>
         <td><%= project.public_uid %></td>
-        <td><a class="dropdown-item bi bi-pencil-square"><%= link_to "Edit", edit_user_project_path(@user, project) %> </a></td>
-        <td><a class="dropdown-item bi bi-binoculars mr10"href="/projects/<%= project.public_uid %>/watch"> View</a></td>
-        <td><a data-turbo-method="delete" class="dropdown-item bi bi-trash"data-turbo-confirm="Are you sure?" href="/terminal/<%= @user.public_uid %>/projects/<%= project.public_uid%>"> Delete</a></td>
+        <td><%= link_to "", edit_user_project_path(@user, project), {class: "dropdown-item bi bi-pencil-square"} %></td>
+        <td><a class="dropdown-item bi bi-binoculars mr10"href="/projects/<%= project.public_uid %>/watch"></a></td>
+        <td><a data-turbo-method="delete" class="dropdown-item bi bi-trash"data-turbo-confirm="Are you sure?" href="/terminal/<%= @user.public_uid %>/projects/<%= project.public_uid%>"></a></td>
     </tr>
     <% end %>
   </tbody>
