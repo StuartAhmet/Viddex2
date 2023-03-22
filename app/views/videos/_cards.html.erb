@@ -16,7 +16,7 @@
           <p class="card-text"><%=file_size_mb.round(2)  %> MB</p>
           <div class="flex space-between">
             <%= link_to "Edit", edit_user_video_path(@user, video), {class: "btn btn-primary"}  %>
-            <a data-turbo-method="delete" class="btn btn-primary"data-turbo-confirm="Are you sure?" href="/terminal/<%= @user.public_uid %>/videos/<%= video.public_uid%>"> Delete</a>
+            <a data-turbo-method="delete" class="btn btn-primary"data-turbo-confirm="WARNING - Projects containing this video will become unusable. Are you sure you want to delete?" href="/terminal/<%= @user.public_uid %>/videos/<%= video.public_uid%>"> Delete</a>
           </div>
         </div>
       </div>

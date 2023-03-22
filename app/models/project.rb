@@ -38,8 +38,8 @@ class Project < ApplicationRecord
   end
 
   def thumbnail_key
-    if background_id?
-      background.photo.key
+    if backgrounds.exists?
+      backgrounds[0].photo.key
     else
       videos[0].file.key
     end

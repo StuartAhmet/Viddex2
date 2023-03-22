@@ -1,11 +1,8 @@
 <%= render  "projects/show/shownav"%>
-  <img src="https://res.cloudinary.com/dth8lnhas/image/upload/v1676267363/Backgrounds/Untitled_design_47_xsscem.png"
-            alt="background image" class="img-showbg">
   <div class="flex" style="justify-content:center">
     <div class="vs-container">
       <h1><%= @project.title %> </h1>
-      <%= render "projects/projectfile"%>
-
+        <%= render "projects/projectfile"%>
       <% if @project.include_meeting_link? %>
         <a class="btn btn-primary btn-ps"  href="<%= @project.user.meeting_link %>" target="_blank" role="button">
         <i class="bi bi-calendar-week mr10"></i>
