@@ -43,7 +43,7 @@
   message_params = nil
   end%>
   <div class="image-container">
-    <a id="image-link" href="https://www.viddex.io/watch/<%= @project.public_uid %>">
+    <a id="image-link" href="https://www.viddex.io/projects/<%= @project.public_uid %>/watch">
       <div class="thumbnail-image" id="image" style="border:5px solid black;border-radius: 10px;">
         <%= cl_image_tag(@project.thumbnail_key+'.gif',
           resource_type: "video",
