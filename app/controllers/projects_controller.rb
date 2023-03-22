@@ -3,9 +3,9 @@ class ProjectsController < ApplicationController
   before_action :set_project, only: %i[ edit update destroy preview]
   before_action :authenticate_user!, :except => [:preview]
 
-
   def index
-   @projects = Project.all
+    @user = current_user
+    @projects = @user.projects.order(id: :desc).page(params[:page]).per(10)
   end
 
   def choosevid

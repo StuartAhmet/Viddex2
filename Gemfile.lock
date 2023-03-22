@@ -375,6 +375,7 @@ DEPENDENCIES
   font-awesome-sass (~> 6.1)
   jbuilder
   jsbundling-rails
+  kaminari
   omniauth
   omniauth-google-oauth2
   omniauth-rails_csrf_protection
