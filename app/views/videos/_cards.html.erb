@@ -5,10 +5,8 @@
         <div type="button" data-bs-toggle="modal" data-bs-target=<%= "#videoModal#{video.id}" %>>
             <%= render "videos/modal", video: video %>
             <%= cl_video_tag video.file.key,
-              # height: 120,
               width: 300,
               crop: :fill,
-              angle: video.rotation,
               class: "d-block rounded-lg card-pic"
               %>
         </div>

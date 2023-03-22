@@ -1,31 +1,23 @@
 
 
-<%= simple_form_for @video, url: user_videos_path do |f| %>
-  <div style="width:400px;padding-top: 20px" >
-      <div class="flex space-between">
-        <p>Title</p>
-        <%= f.input :title, label: false, input_html: { class: "form-input-medium" }  %>
-      </div>
+<%= simple_form_for @video, url: user_videos_path, html: { class: "form-container-50 center-auto"} do |f| %>
+        <p><strong>Title:</strong></p>
+        <%= f.input :title, label: false, input_html: { class: "form-input-100" }  %>
 
         <%# <div class="form-check form-switch">
           <%= f.check_box :bgrem_require, class: "form-check-input"  %>
           <%# <label class="form-check-label">Remove background for this video?</label>
         </div> %>
 
-        <%= f.hidden_field :thumbnail, id: "thumbnail_data" %>
-        <p style="color:red">File types supported (mp4, quicktime/MOV, webm)</p>
+        <%# <%= f.hidden_field :thumbnail, id: "thumbnail_data" %>
         <div id="fileParentDiv">
-        <%= f.input :file, as: :file, label: false, style: "width:400px" %>
+        <%= f.input :file, as: :file, label: "Supported (mp4, quicktime/MOV, webm)", style: "width:400px" %>
         </div>
-
         <%= f.submit "Upload", class: 'nav-link lb-btn', style: "border:none;width:100%" %>
-
-        <div class="displayvid_div">
-          <video id="displayvid"></video>
-        </div>
-
-  </div>
 <% end %>
+  <%# <div class="displayvid_div">
+      <video id="displayvid"></video>
+   </div> %>
 
 <script>
 
