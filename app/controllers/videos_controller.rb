@@ -4,8 +4,8 @@ class VideosController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @videos = Video.all
-    @referer = request.referer
+    @user = current_user
+    @videos = @user.videos.order(id: :desc).page(params[:page]).per(10)
   end
 
   def show

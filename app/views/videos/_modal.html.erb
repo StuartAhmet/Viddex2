@@ -1,4 +1,4 @@
-<div class="modal fade" id=<%= "exampleModal#{video.id}" %> tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id=<%= "videoModal#{video.id}" %> tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content flex flex-col justify-center items-center rounded-lg px-8 pt-8 pb-12" style="padding:5px;border-radius:5px">
       <div class="w-full">
@@ -6,7 +6,7 @@
       </div>
       <div id="video_box">
           <video width="560" height="315" controls preload="metadata" >
-            <source src="https://res.cloudinary.com/dth8lnhas/video/upload/a_<%= video.rotation.to_s %>/v1664988466/<%= Rails.env %>/<%=video.file.key%>.mp4" type="video/mp4" allowfullscreen=0>
+            <source src="https://res.cloudinary.com/dth8lnhas/video/upload/v1664988466/<%= Rails.env %>/<%=video.file.key%>.mp4" type="video/mp4" allowfullscreen=0>
               Your browser does not support HTML video.
           </video>
 

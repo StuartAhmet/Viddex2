@@ -1,10 +1,10 @@
 <%# projects with thumbnail %>
-<% if @project.background_id?
-    text_box_width = @project.background.width
-    text_box_height = @project.background.text_box_height
-    text_box_x = @project.background.x_axis
-    text_box_y = @project.background.y_axis
-    project_angle = @project.background.angle
+<% if @project.backgrounds.exists?
+    text_box_width = @project.backgrounds[0].width
+    text_box_height = @project.backgrounds[0].text_box_height
+    text_box_x = @project.backgrounds[0].x_axis
+    text_box_y = @project.backgrounds[0].y_axis
+    project_angle = @project.backgrounds[0].angle
 
 # projects without backgrounds
    else
