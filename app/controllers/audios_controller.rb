@@ -3,7 +3,9 @@ class AudiosController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @audios = Audio.all
+    # @audios = Audio.all
+    @user = current_user
+    @audios = @user.audios.order(title: :asc).page(params[:page]).per(10)
   end
 
   def show

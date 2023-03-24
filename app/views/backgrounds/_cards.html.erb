@@ -2,7 +2,6 @@
 
  <div class="flex space-between">
   <% @user.backgrounds.reverse.each do |background| %>
-    <%# <div class="flex" style="flex-direction:column"> %>
       <div class="card" sstyle="width: 18rem; margin:5px">
         <% if background.photo.attached? %>
           <img style="width:300px;max-height:200px"src="<%= background.service_url %>" alt="image unable to load">
@@ -19,7 +18,6 @@
           </div>
         </div>
       </div>
-    <%# <div> %>
   <% end %>
 </div>
 <%= paginate @backgrounds %>

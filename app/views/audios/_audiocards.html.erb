@@ -1,5 +1,5 @@
  <div class="flex flex-wrap content-start overflow-auto " style="justify-content:flex-start">
-  <% @user.audios.reverse.each do |audio| %>
+  <% @user.audios.order(title: :asc).each do |audio| %>
     <div class="audio-card" style="margin-bottom:20px;margin-right:20px">
       <div class="flex space-around">
         <div><%= audio.title.capitalize %></div>
