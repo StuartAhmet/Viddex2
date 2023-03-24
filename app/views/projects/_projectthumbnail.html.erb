@@ -5,6 +5,11 @@
     text_box_x = @project.backgrounds[0].x_axis
     text_box_y = @project.backgrounds[0].y_axis
     project_angle = @project.backgrounds[0].angle
+      if @project.backgrounds[0].photo.content_type.include? "image"
+        resource_params = "image"
+      else
+        resource_params = "video"
+      end
 
 # projects without backgrounds
    else
@@ -14,6 +19,7 @@
      text_box_y = @project.videos[0].y_axis
      project_angle = @project.videos[0].angle
      underlay_params = nil
+     resource_params = "video"
   end%>
 
 <% if @project.background_id && @project.background.text_distortion == true
@@ -43,6 +49,8 @@
   message_params = nil
   end%>
 
+
+
   <div class="flex space-between">
     <button id="copy-button" class="btn btn-primary w-100" style="margin:5px"><i class="bi bi-clipboard mr10"></i>Copy link and thumbnail</button>
     <button type="button" class="btn btn-primary w-100"style="margin:5px"><i class="bi-pencil-square mr10"></i>Copy link</button>
@@ -52,16 +60,14 @@
     <a id="image-link" href="https://www.viddex.io/projects/<%= @project.public_uid %>/watch">
       <div class="thumbnail-image" id="image" style="border:5px solid black;border-radius: 10px;">
         <%= cl_image_tag(@project.thumbnail_key+'.gif',
-          resource_type: "video",
+          resource_type: resource_params,
           style: "border-bottom:5px solid black;",
-          controls: false,
+          # controls: false,
           preload: "metadata",
           width: "100%",
-          poster: false,
+          # poster: false,
           effect: "loop:5",
           :transformation=>[
-            # {:width=>1280, audio_codec: audio_codec_params, end_offset: "2", :quality=>"auto", :crop=>"scale"},
-            # message params
             message_params,
               # overlay play btn
               {:overlay=>"play-button-icon-png-18919_ssamfy", :opacity=>60, :width=>200, :crop=>"scale"},
