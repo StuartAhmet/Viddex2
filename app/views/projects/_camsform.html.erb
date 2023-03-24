@@ -78,10 +78,10 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body flex space-between wrap">
-                <% @user.audios.each do |audio| %>
+                <% @user.audios.order(title: :asc).each do |audio| %>
                   <div>
                     <ul class="audio_select " onClick="chooseaudio(this)" data-bs-dismiss="modal" data-value="<%=audio.id %>" id="<%=audio.title%>">
-                      <button type="button" id="audio-select"><%= audio.title %></button>
+                      <button class="btn btn-primary"type="button" id="audio-select"><%= audio.title %></button>
                     </ul>
                   </div>
                 <% end %>
