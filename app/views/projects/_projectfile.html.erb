@@ -64,10 +64,9 @@
     controls: true,
     preload: "metadata",
     width: "100%",
-    poster: @project.videos[0].service_url,
+    poster: @project.thumbnail_key+".jpg",
     :transformation=>[
       {audio_codec:audio_codec_params, effect: "fade:1",end_offset:offset_params, quality:"auto", crop:"scale"},
-      # {angle: @project.video.rotation},
       audio_overlay_video,
       # background underlay
       # underlay_params, **uncomment this line if you want to add backgrounds/images**
