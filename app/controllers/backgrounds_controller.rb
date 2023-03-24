@@ -5,7 +5,10 @@ class BackgroundsController < ApplicationController
 
 
   def index
-    @backgrounds = Background.all
+    @user = current_user
+    @backgrounds = @user.backgrounds.order(id: :desc).page(params[:page]).per(10)
+
+    # @backgrounds = Background.all
   end
 
   def show
