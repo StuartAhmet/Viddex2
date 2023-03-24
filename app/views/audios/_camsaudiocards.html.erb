@@ -1,3 +1,5 @@
+<p><%= page_entries_info @audios, entry_name: "audio file" %></p>
+
  <div class="flex flex-wrap content-start  " style="justify-content:flex-start">
   <% audio_number = 0 %>
   <% @user.audios.order(title: :asc).each do |audio| %>
@@ -45,3 +47,4 @@
   <% audio_number += 1 %>
   <% end %>
 </div>
+<%= paginate @audios %>
