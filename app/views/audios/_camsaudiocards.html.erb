@@ -1,6 +1,6 @@
  <div class="flex flex-wrap content-start  " style="justify-content:flex-start">
   <% audio_number = 0 %>
-  <% @user.audios.reverse.each do |audio| %>
+  <% @user.audios.order(title: :asc).each do |audio| %>
     <div class="audio-card flex space-between" style="margin-bottom:20px;margin-right:20px">
       <!-- Button trigger modal -->
       <button type="button" class="audio-card flex space-between" data-bs-toggle="modal" data-bs-target="#audioModal<%= audio_number %>">
