@@ -27,5 +27,8 @@ class Video < ApplicationRecord
   validates :title, presence: true
   validates :file, presence: true
 
-  ROTATION = ['0', '90', '180', '270']
+  def file_size
+    file.byte_size.to_f/ 1048576
+  end
+
 end
