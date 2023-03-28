@@ -14,4 +14,9 @@ class Audio < ApplicationRecord
 
   validates :title, presence: true
   validates :file, presence: true
+
+  def file_size
+    file.byte_size.to_f/ 1048576
+  end
+
 end

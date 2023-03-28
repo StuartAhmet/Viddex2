@@ -22,6 +22,10 @@ class Background < ApplicationRecord
     "<img src='#{cl_image_path(@background.image_attachment)}' /> #{title}".html_safe
   end
 
+  def file_size
+    photo.byte_size.to_f/ 1048576
+  end
+
 
   validates :title, presence: true
   validates :title, uniqueness: { scope: :user }

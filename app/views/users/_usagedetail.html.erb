@@ -1,9 +1,17 @@
-Total Videos
-Total Video MB
+<%  video_storage = @user.videos.sum { |video| video.file_size }.round(2)
+    bg_storage = @user.backgrounds.sum { |bg| bg.file_size }.round(2)
+    audio_storage = @user.audios.sum { |audio| audio.file_size }.round(2)
+    total_storage = video_storage+bg_storage+audio_storage%>
 
-Total Images
-Total Images MB
+Total Videos <%= @user.videos.count %> <br>
+Total Video  <%= video_storage %> MB<br>
+
+Total Images <%= @user.backgrounds.count %> <br>
+Total Images <%= bg_storage %> MB<br>
+
+Total Audio Files <%= @user.audios.count %> <br>
+Total Audio Files <%= audio_storage %> MB<br>
 
 
-Total Projects
-Total Projects MB
+Total Projects <%= @user.projects.count %> <br>
+Total storage <%=  total_storage.round(2)%> MB
