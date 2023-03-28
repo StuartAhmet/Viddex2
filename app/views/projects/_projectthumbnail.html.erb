@@ -1,79 +1,12 @@
-<%# projects with thumbnail %>
-<% if @project.backgrounds.exists?
-    text_box_width = @project.backgrounds[0].width
-    text_box_height = @project.backgrounds[0].text_box_height
-    text_box_x = @project.backgrounds[0].x_axis
-    text_box_y = @project.backgrounds[0].y_axis
-    project_angle = @project.backgrounds[0].angle
-      if @project.backgrounds[0].photo.content_type.include? "image"
-        resource_params = "image"
-      else
-        resource_params = "video"
-      end
-
-# projects without backgrounds
-   else
-     text_box_width = @project.videos[0].text_width
-     text_box_height = @project.videos[0].text_box_height
-     text_box_x = @project.videos[0].x_axis
-     text_box_y = @project.videos[0].y_axis
-     project_angle = @project.videos[0].angle
-     underlay_params = nil
-     resource_params = "video"
-  end%>
-
-<% if @project.background_id && @project.background.text_distortion == true
-      distortion_params = "#{@project.background.distort_nw_x}:#{@project.background.distort_nw_y}:#{@project.background.distort_ne_x}:#{@project.background.distort_ne_y}:#{@project.background.distort_se_x}:#{@project.background.distort_se_y}:#{@project.background.distort_sw_x}:#{@project.background.distort_sw_x}:"
-    # elsif @project.video.text_distortion == true
-    #   distortion_params = "#{@project.video.distort_nw_x}:#{@project.video.distort_nw_y}:#{@project.video.distort_ne_x}:#{@project.video.distort_ne_y}:#{@project.video.distort_se_x}:#{@project.video.distort_se_y}:#{@project.video.distort_sw_x}:#{@project.video.distort_sw_x}:"
-    else
-      distortion_params = nil
-  end%>
-
-<% if @project.message_body?
-  message_params = {angle: project_angle,
-                    distort: distortion_params,
-                    gravity: "north_west",
-                    :overlay=>{
-                      font_family: @project.font,
-                      font_size: @project.font_size,
-                      text: @project.message_body},
-                      opacity: @project.opacity,
-                      width: text_box_width,
-                      height: text_box_height,
-                      x: text_box_x,
-                      y: text_box_y,
-                      crop: "fit",
-                      }
-  else
-  message_params = nil
-  end%>
-
-
 
   <div class="flex space-between">
     <button id="copy-button" class="btn btn-primary w-100" style="margin:5px"><i class="bi bi-clipboard mr10"></i>Copy link and thumbnail</button>
     <button type="button" class="btn btn-primary w-100"style="margin:5px"><i class="bi-pencil-square mr10"></i>Copy link</button>
   </div>
-
   <div class="image-container">
     <a id="image-link" href="https://www.viddex.io/projects/<%= @project.public_uid %>/watch">
       <div class="thumbnail-image" id="image" style="border:5px solid black;border-radius: 10px;">
-        <%= cl_image_tag(@project.thumbnail_key+'.gif',
-          resource_type: resource_params,
-          style: "border-bottom:5px solid black;",
-          # controls: false,
-          preload: "metadata",
-          width: "100%",
-          # poster: false,
-          end_offset: "2",
-          effect: "loop:5",
-          :transformation=>[
-            message_params,
-              # overlay play btn
-              {:overlay=>"play-button-icon-png-18919_ssamfy", :opacity=>60, :width=>200, :crop=>"scale"},
-              ])
-        %>
+        <img style="max-width:100%" src="<%=@project.thumbnail_path%>" alt="unable to load image">
         <h4 style="color:black; padding-left: 8px; margin-top: 0;margin-bottom: 0;"><%= @project.title %> - (opens in new window)</h4>
       </div>
     </a>
