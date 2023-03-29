@@ -1,8 +1,11 @@
-<p><%= page_entries_info @videos %></p>
-<div style="padding-top:20px">
-  <div >
-    <div class="flex flex-wrap">
-      <% @user.videos.reverse.each do |video| %>
+<div class="flex space-between">
+  <p><%= page_entries_info @videos %></p>
+  <%= paginate @videos %>
+</div>
+
+<div style="height:88vh;width:100%;overflow:auto;padding-top:20px">
+  <div class="flex flex-wrap">
+    <% @user.videos.reverse.each do |video| %>
       <div class="card" style="width: 18rem; margin:5px">
         <div type="button" data-bs-toggle="modal" data-bs-target=<%= "#videoModal#{video.id}" %>>
             <%= render "videos/modal", video: video %>
@@ -22,9 +25,6 @@
           </div>
         </div>
       </div>
-      <% end %>
-    </div>
-      <div>
-    </div>
+    <% end %>
   </div>
-    <%= paginate @videos %>
+</div>
