@@ -21,12 +21,12 @@
       <% if project.audios.exists? %>
         <td><%= project.audios[0].title%></td>
       <% else %>
-        <td>none</td>
+        <td>-</td>
       <% end %>
       <% if project.backgrounds.exists? %>
         <td><%= project.backgrounds[0].title%></td>
       <% else %>
-        <td>none</td>
+        <td>-</td>
       <% end %>
         <td><%= project.public_uid %></td>
         <td><%= link_to "", edit_user_project_path(@user, project), {class: "dropdown-item bi bi-pencil-square"} %></td>

@@ -1,21 +1,23 @@
-
   <div class="flex space-between">
-    <button id="copy-button" class="btn btn-primary w-100" style="margin:5px"><i class="bi bi-clipboard mr10"></i>Copy link and thumbnail</button>
-    <button type="button" class="btn btn-primary w-100"style="margin:5px"><i class="bi-pencil-square mr10"></i>Copy link</button>
+    <%= link_to edit_user_project_path(@user, @project), {class: "btn btn-outline-dark w-100", style: "margin:5px"} do %>
+      <i class="bi-pencil-square mr10"></i> Edit
+    <% end %>
+    <a style="margin:5px" class="btn btn-outline-dark w-100" href="/projects/<%= @project.public_uid %>/watch">
+      <i class="bi bi-binoculars mr10" ></i> View
+    </a>
+    <a data-turbo-method="delete" style="margin:5px" class="btn btn-outline-dark w-100"data-turbo-confirm="Are you sure you want to delete this project?" href="/terminal/<%= @user.public_uid %>/projects/<%= @project.public_uid%>">
+      <i class="bi bi-trash mr10"></i> Delete
+    </a>
   </div>
   <div class="image-container">
     <a id="image-link" href="https://www.viddex.io/projects/<%= @project.public_uid %>/watch">
-      <div class="thumbnail-image" id="image" style="border:5px solid black;border-radius: 10px;">
-        <img style="max-width:100%" src="<%=@project.thumbnail_path%>" alt="unable to load image">
+      <div class="thumbnail-image" id="image" style="border:5px solid black;border-radius: 10px; margin:5px">
+        <img style="max-width:100%" src="<%=@project.thumbnail_path%>"alt="unable to load image">
         <h4 style="color:black; padding-left: 8px; margin-top: 0;margin-bottom: 0;"><%= @project.title %> - (opens in new window)</h4>
       </div>
     </a>
-      <button id="copy-button" style="width:100%;margin:5px 0px;"><i class="bi bi-clipboard mr10"></i>Copy to clipboard</button>
-
+    <div class="flex space-between">
+      <button id="copy-button" class="btn btn-primary w-100" style="margin:5px"><i class="bi bi-clipboard mr10"></i>Copy thumbnail</button>
+      <button id="copy-link" class="btn btn-outline-primary w-100" style="margin:5px"><i class="bi bi-link-45deg mr10"></i>Copy link only</button>
+    </div>
   </div>
-
-  <div class="flex space-between">
-    <button type="button" class="btn btn-primary w-100"style="margin:5px"><i class="bi-pencil-square mr10"></i>Edit</button>
-    <button type="button" class="btn btn-primary w-100"style="margin:5px"><i class="bi bi-binoculars mr10"></i>View</button>
-    <button type="button" class="btn btn-primary w-100"style="margin:5px"><i class="bi bi-trash mr10"></i>Delete</button>
-   </div>
