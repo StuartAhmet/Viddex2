@@ -1,29 +1,31 @@
-<%= simple_form_for @user, url: user_path do |f| %>
-  <div style="width:400px">
-    <div class="flex space-between">
-      <p>First Name:</p>
-      <%= f.input :first_name, label: false, input_html: { class: "form-input-medium" } %>
+<%= simple_form_for @user, url: user_path , html: { class: "form-container-50 center-auto"} do |f| %>
+  <div class="flex space-between">
+    <div class="flex-column w-48">
+      <p><strong>First Name:</strong></p>
+      <%= f.input :first_name, label: false, input_html: { class: "form-input-100" } %>
     </div>
-    <div class="flex space-between">
-      <p>Last Name:</p>
-      <%= f.input :last_name, label: false, input_html: { class: "form-input-medium" } %>
-    </div>
-    <div class="flex space-between">
-      <p>Email:</p>
-      <%= f.input :email, disabled: true,label: false, input_html: { class: "form-input-medium" } %>
-    </div>
-    <div class="flex space-between">
-      <p>Company:</p>
-      <%= f.input :company_name, label: false, input_html: { class: "form-input-medium" } %>
-    </div>
-    <div class="flex space-between">
-      <p>Industry:</p>
-      <%= f.input :industry, collection: User::INDUSTRY, label: false, input_html: { class: "form-input-medium" } %>
-    </div>
-    <div class="flex space-between">
-      <p>Meeting link:</p>
-      <%= f.input :meeting_link, label: false, input_html: { class: "form-input-medium" } %>
+    <div class="flex-column w-48">
+      <p><strong>Last Name:</strong></p>
+      <%= f.input :last_name, label: false, input_html: { class: "form-input-100" } %>
     </div>
   </div>
-    <%= f.submit 'Save', class: 'nav-link lb-btn', id: "savebutton", style: "border:none"%>
+  <div class="flex space-between">
+    <div class="flex-column w-48">
+      <p><strong>Company:</strong></p>
+      <%= f.input :company_name, label: false, input_html: { class: "form-input-100" } %>
+    </div>
+    <div class="flex-column w-48">
+      <p><strong>Industry:</strong></p>
+      <%= f.input :industry, collection: User::INDUSTRY, label: false, input_html: { class: "form-input-100" } %>
+    </div>
+  </div>
+    <div>
+      <p><strong>Email:</strong></p>
+      <%= f.input :email, disabled: true,label: false, input_html: { class: "form-input-100" } %>
+    </div>
+    <div>
+      <p><strong>Meeting link:</strong></p>
+      <%= f.input :meeting_link, label: false, input_html: { class: "form-input-100" } %>
+    </div>
+    <%= f.submit 'Save/Update', class:"btn btn-primary w-100", id: "savebutton"%>
 <% end %>
