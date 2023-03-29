@@ -1,21 +1,17 @@
-
-  <div class="flex space-between">
-    <button id="copy-button" class="btn btn-primary w-100" style="margin:5px"><i class="bi bi-clipboard mr10"></i>Copy link and thumbnail</button>
-    <button type="button" class="btn btn-primary w-100"style="margin:5px"><i class="bi-pencil-square mr10"></i>Copy link</button>
-  </div>
-  <div class="image-container">
-    <a id="image-link" href="https://www.viddex.io/projects/<%= @project.public_uid %>/watch">
-      <div class="thumbnail-image" id="image" style="border:5px solid black;border-radius: 10px;">
-        <img style="max-width:100%" src="<%=@project.thumbnail_path%>" alt="unable to load image">
-        <h4 style="color:black; padding-left: 8px; margin-top: 0;margin-bottom: 0;"><%= @project.title %> - (opens in new window)</h4>
-      </div>
-    </a>
-      <button id="copy-button" style="width:100%;margin:5px 0px;"><i class="bi bi-clipboard mr10"></i>Copy to clipboard</button>
-
-  </div>
-
   <div class="flex space-between">
     <button type="button" class="btn btn-primary w-100"style="margin:5px"><i class="bi-pencil-square mr10"></i>Edit</button>
     <button type="button" class="btn btn-primary w-100"style="margin:5px"><i class="bi bi-binoculars mr10"></i>View</button>
     <button type="button" class="btn btn-primary w-100"style="margin:5px"><i class="bi bi-trash mr10"></i>Delete</button>
    </div>
+  <div class="image-container">
+    <a id="image-link" href="https://www.viddex.io/projects/<%= @project.public_uid %>/watch">
+      <div class="thumbnail-image" id="image" style="border:5px solid black;border-radius: 10px;">
+        <img style="max-width:100%" src="<%=@project.thumbnail_path%>"alt="unable to load image">
+        <h4 style="color:black; padding-left: 8px; margin-top: 0;margin-bottom: 0;"><%= @project.title %> - (opens in new window)</h4>
+      </div>
+    </a>
+    <div class="flex space-between">
+      <button id="copy-button" class="btn btn-primary w-100" style="margin:5px"><i class="bi bi-clipboard mr10"></i>Copy thumbnail</button>
+      <button id="copy-link" class="btn btn-primary w-100" style="margin:5px"><i class="bi bi-link-45deg mr10"></i>Copy link only</button>
+    </div>
+  </div>
