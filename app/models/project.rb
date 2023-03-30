@@ -76,6 +76,7 @@ class Project < ApplicationRecord
   def thumbnail_path
     Cloudinary::Utils.cloudinary_url("#{Rails.env}/#{thumbnail_key}.gif",
           resource_type: resource_params,
+          secure: true,
           style: "border-bottom:5px solid black;",
           preload: "metadata",
           width: "100%",
@@ -122,6 +123,7 @@ class Project < ApplicationRecord
   # project video
   def project_path
     Cloudinary::Utils.cloudinary_url(Rails.env+"/"+videos[0].file.key+".mp4",
+      secure: true,
       resource_type: "video",
       :transformation=>[
         audio_params,
