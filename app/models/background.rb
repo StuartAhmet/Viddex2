@@ -26,6 +26,39 @@ class Background < ApplicationRecord
     photo.byte_size.to_f/ 1048576
   end
 
+  def bg_key
+    if photo.content_type.include? "video"
+      "#{Rails.env}/#{photo.key}.gif"
+    elsif photo.content_type.include? "image"
+      "#{Rails.env}/#{photo.key}"
+    end
+  end
+
+  def distortion_params
+    if text_distortion?
+      "distort:"+distort_nw_x.to_s+":"+distort_nw_y.to_s+":"+distort_ne_x.to_s+":"+distort_ne_y.to_s+":"+distort_se_x.to_s+":"+distort_se_y.to_s+":"+distort_sw_x.to_s+":"+distort_sw_y.to_s
+    else
+      nil
+    end
+  end
+
+  def resource
+    if photo.content_type.include? "video"
+      "video"
+    else
+      "image"
+    end
+  end
+
+  def cl_path
+    Cloudinary::Utils.cloudinary_url(bg_key,
+      resource_type: resource, :transformation=>[
+        { height: 720, width: 1280, crop: "limit" },
+        { angle: angle, border: "1px_solid_rgb:000", effect: distortion_params, height: text_box_height,
+      :overlay=>{ font_family: "arial", font_size: 45, text: "hello%20viewers" },
+      width: width, x: x_axis, y: y_axis, crop: "scale" }
+        ])
+  end
 
   validates :title, presence: true
   validates :title, uniqueness: { scope: :user }

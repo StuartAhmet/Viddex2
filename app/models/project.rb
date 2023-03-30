@@ -82,9 +82,10 @@ class Project < ApplicationRecord
           end_offset: "2",
           effect: "loop:5",
           :transformation=>[
+            { height: 720, width: 1280, crop: "crop" },
             message_params,
               {:overlay=>"play-button-icon-png-18919_ssamfy", :opacity=>60, :width=>200, :crop=>"scale"},
-              ])
+          ].compact)
   end
 
   def audio_params
@@ -129,7 +130,8 @@ class Project < ApplicationRecord
       ].compact)
   end
 
-  FONT = ['Covered By Your Grace','Gloria Hallelujah','Indie Flower','Kalam','Nanum Brush Script',
-    'Nothing You Could Do','Permanent Marker', 'Reenie Beanie','Rock Salt','Shadows Into Light']
+  FONT = ['Covered By Your Grace', 'Gloria Hallelujah', 'Indie Flower',
+          'Kalam', 'Nanum Brush Script', 'Nothing You Could Do', 'Permanent Marker',
+          'Reenie Beanie', 'Rock Salt', 'Shadows Into Light']
 
 end
