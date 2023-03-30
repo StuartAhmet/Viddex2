@@ -1,16 +1,11 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 
-<div>
-
+<div style="overflow:auto; height:77vh;">
   <%= simple_form_for [@user, @project], html: { class: "form-container-50 center-auto"} do |f| %>
+    <p><strong>Project title:</strong></p>
+    <%= f.input :title, label: false, placeholder: "eg. Video for Elon @ Tesla", input_html: { class: "form-input-100" } %>
 
-
-        <%# <div class="flex space-between"> %>
-          <p><strong>Project title:</strong></p>
-          <%= f.input :title, label: false, placeholder: "eg. Video for Elon @ Tesla", input_html: { class: "form-input-100" } %>
-        <%# </div> %>
-
-        <p><strong>Videos:</strong></p>
+    <p><strong>Videos:</strong></p>
 
       <div class="flex space-between mb-16">
         <!-- Button trigger modal -->
