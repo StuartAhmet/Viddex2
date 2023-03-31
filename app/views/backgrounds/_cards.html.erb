@@ -1,10 +1,13 @@
- <p><%= page_entries_info @backgrounds, entry_name: "image" %></p>
+<div class="flex space-between">
+  <p><%= page_entries_info @backgrounds, entry_name: "image" %></p>
+  <%= paginate @backgrounds %>
+</div>
 
- <div class="flex space-between">
+ <div class="flex flex-wrap">
   <% @user.backgrounds.reverse.each do |background| %>
-      <div class="card" sstyle="width: 18rem; margin:5px">
+      <div class="card" style="width: 18rem; margin:5px">
         <% if background.photo.attached? %>
-          <img style="width:300px;max-height:200px"src="<%= background.service_url %>" alt="image unable to load">
+          <img style="width:100%;max-height:200px"src="<%= background.service_url %>" alt="image unable to load">
           <% else %>
           <p>Image not attached</p>
         <% end %>
@@ -21,11 +24,3 @@
   <% end %>
 </div>
 <%= paginate @backgrounds %>
-
-
-
-
-
-
-
-<%# </div> %>
