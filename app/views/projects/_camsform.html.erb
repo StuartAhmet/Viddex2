@@ -117,7 +117,11 @@
           <%# end of modal %>
 
         <%# </div> %>
-            <div class="form-check form-switch">
+            <div id="switch-disabled" class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" id="flexSwitchCheckDisabled" disabled>
+              <label class="form-check-label" for="flexSwitchCheckDisabled">Include a message?</label>
+            </div>
+            <div id="switch-default" class="form-check form-switch">
               <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
               <label class="form-check-label" for="flexSwitchCheckDefault">Include a message?</label>
             </div>
@@ -128,7 +132,7 @@
               <%= f.input :message_body, label: false,
               placeholder:
   "Hi Elon,
-  Are your SDR's underperforming?",
+Are your SDR's underperforming?",
               input_html: { multiple: false, class: "form-input-100" }%>
 
 
@@ -223,6 +227,30 @@
     }
   }
 }, false);
+
+  function toggleSwitches() {
+    const selectedThumb = document.querySelector("#thumb-select-btn").value;
+    const switchDisabled = document.querySelector("#switch-disabled");
+    const switchDefault = document.querySelector("#switch-default");
+
+    if (selectedThumb) {
+      switchDisabled.style.display = "none";
+      switchDefault.style.display = "block";
+    } else {
+      switchDisabled.style.display = "block";
+      switchDefault.style.display = "none";
+    }
+  }
+
+  // Call the toggleSwitches function when the thumbnail select box changes
+  document.querySelector("#thumb-select-btn").addEventListener("change", function() {
+    console.log("selected_thumb changed");
+    toggleSwitches();
+  });
+
+  // Call the toggleSwitches function on page load to set the initial visibility of the switches
+  toggleSwitches();
+
 
   function choosefont(element) {
     var fontId = element.dataset.value;

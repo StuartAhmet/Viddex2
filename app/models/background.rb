@@ -52,7 +52,9 @@ class Background < ApplicationRecord
 
   def cl_path
     Cloudinary::Utils.cloudinary_url(bg_key,
-      resource_type: resource, :transformation=>[
+      resource_type: resource,
+      secure: true,
+      :transformation=>[
         { height: 720, width: 1280, crop: "limit" },
         { angle: angle, border: "1px_solid_rgb:000", effect: distortion_params, height: text_box_height,
       :overlay=>{ font_family: "arial", font_size: 45, text: "hello%20viewers" },

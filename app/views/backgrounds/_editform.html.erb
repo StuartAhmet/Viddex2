@@ -1,5 +1,5 @@
-<%= @background.cl_path %>
-<div class="flex">
+
+<div class="flex space-between">
     <div>
       <%= simple_form_for [@user, @background], html: { class: "form-container"} do |f| %>
       <%# <div style="width:400px;padding-top: 20px;margin-right: 30px;"> %>
@@ -60,8 +60,8 @@
           <%= f.submit 'Save and preview', class: "btn btn-primary w-100"%>
         <% end %>
     </div>
-  </div>
-  <div>
-  <img src="<%= @background.cl_path %>" alt="Unable to load image">
+  <%# </div> %>
+  <div style="text-align:end">
+    <img style="max-width:90%" src="<%= @background.cl_path %>" alt="Unable to load image">
   </div>
 </div>
