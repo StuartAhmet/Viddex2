@@ -5,14 +5,6 @@ class Background < ApplicationRecord
     public_uid
   end
 
-  def service_url
-    if photo.content_type.include? "video"
-      "https://res.cloudinary.com/dth8lnhas/video/upload/#{Rails.env}/#{photo.key}.jpg"
-    elsif photo.content_type.include? "image"
-      "http://res.cloudinary.com/dth8lnhas/image/upload/#{Rails.env}/#{photo.key}"
-    end
-  end
-
   belongs_to :user
   has_one_attached :photo
   has_many :project_backgrounds
@@ -50,13 +42,22 @@ class Background < ApplicationRecord
     end
   end
 
+  def card_path
+    Cloudinary::Utils.cloudinary_url(bg_key,
+      resource_type: resource,
+      secure: true,
+      :transformation=>[
+        { height: 720, width: 1280, crop: "pad" },
+        ])
+  end
+
   def cl_path
     Cloudinary::Utils.cloudinary_url(bg_key,
       resource_type: resource,
       secure: true,
       :transformation=>[
-        { height: 720, width: 1280, crop: "limit" },
-        { angle: angle, border: "1px_solid_rgb:000", effect: distortion_params, height: text_box_height,
+        { height: 720, width: 1280, crop: "pad"},
+        { angle: angle, border: "1px_solid_rgb:000", effect: distortion_params, height: text_box_height, gravity: "north_west",
       :overlay=>{ font_family: "arial", font_size: 45, text: "hello%20viewers" },
       width: width, x: x_axis, y: y_axis, crop: "scale" }
         ])
