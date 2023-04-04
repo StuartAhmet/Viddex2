@@ -76,15 +76,17 @@ class Project < ApplicationRecord
   def thumbnail_path
     Cloudinary::Utils.cloudinary_url("#{Rails.env}/#{thumbnail_key}.gif",
           resource_type: resource_params,
+          secure: true,
           style: "border-bottom:5px solid black;",
           preload: "metadata",
           width: "100%",
           end_offset: "2",
           effect: "loop:5",
           :transformation=>[
+            { height: 720, width: 1280, crop: "crop" },
             message_params,
               {:overlay=>"play-button-icon-png-18919_ssamfy", :opacity=>60, :width=>200, :crop=>"scale"},
-              ])
+          ].compact)
   end
 
   def audio_params
@@ -121,6 +123,7 @@ class Project < ApplicationRecord
   # project video
   def project_path
     Cloudinary::Utils.cloudinary_url(Rails.env+"/"+videos[0].file.key+".mp4",
+      secure: true,
       resource_type: "video",
       :transformation=>[
         audio_params,
@@ -129,7 +132,8 @@ class Project < ApplicationRecord
       ].compact)
   end
 
-  FONT = ['Covered By Your Grace','Gloria Hallelujah','Indie Flower','Kalam','Nanum Brush Script',
-    'Nothing You Could Do','Permanent Marker', 'Reenie Beanie','Rock Salt','Shadows Into Light']
+  FONT = ['Covered By Your Grace', 'Gloria Hallelujah', 'Indie Flower',
+          'Kalam', 'Nanum Brush Script', 'Nothing You Could Do', 'Permanent Marker',
+          'Reenie Beanie', 'Rock Salt', 'Shadows Into Light']
 
 end

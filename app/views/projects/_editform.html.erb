@@ -2,7 +2,7 @@
 
 
 <div class="flex" style="width:47%">
-  <%= simple_form_for [@user, @project], html: { class: "form-container-100"} do |f| %>
+  <%= simple_form_for [@user, @project], html: { class: "form-container-100", style: "overflow: auto;height: 77vh;"} do |f| %>
     <p><strong>Title:</strong></p>
     <%= f.input :title, label: false, placeholder: "eg. Video for Elon @ Tesla", input_html: { class: "form-input-100" } %>
     <p><strong>Videos:</strong></p>
@@ -191,7 +191,7 @@
 
       <div class="flex justify-start items-center pt-8">
         <div class="flex justify-center items-center h-10 rounded-lg" style="width:100%;border-radius:5px">
-          <%= f.submit "Update and Preview", class: "nav-link lb-btn", style: "width:100%;border:none" %>
+          <%= f.submit "Update and Preview", class: "btn btn-primary w-100" %>
         </div>
       </div>
         <% end %>

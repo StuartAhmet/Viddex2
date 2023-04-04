@@ -20,6 +20,8 @@ class UsersController < ApplicationController
   def update
     @user = User.find_by(public_uid: params[:id])
     @user.update(user_params)
+    redirect_to user_path
+    flash[:notice] = "Personal Details Updated"
   end
 
   def create

@@ -1,4 +1,8 @@
-<p><%= page_entries_info @videos %></p>
+<div class="flex space-between">
+  <p><%= page_entries_info @videos %></p>
+  <%= paginate @videos %>
+</div>
+
 <div style="padding-top:20px">
   <div >
     <div class="flex flex-wrap">
