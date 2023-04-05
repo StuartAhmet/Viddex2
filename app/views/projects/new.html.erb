@@ -1,8 +1,8 @@
-<div class="page-wrap">
+<div class="vh100">
   <%= render"shared/terminalnav" %>
   <div class="flex">
     <%= render "shared/sidebarbs" %>
-    <div class="flex-column"style="width:100%; margin: 20px; ">
+    <div class="flex-column content-container">
       <%= render "shared/pagehead" %>
       <%= render "projects/pagetabs" %>
         <%= render "projects/camsform", user: @user, projects: @user.projects %>

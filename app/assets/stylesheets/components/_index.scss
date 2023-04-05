@@ -23,6 +23,11 @@
 .center-auto{
   margin: auto;
 }
+.content-container{
+  width: 100%;
+  padding: 20px;
+  height: 100vh;
+}
 
 .flex-left{
   width: 18%;
@@ -81,6 +86,10 @@
   padding-left: 20px;
 }
 
+.vh100{
+  height: 100vh;
+}
+
 .pt10{
   padding-top: 10px;
 }
@@ -89,6 +98,12 @@
 }
 .space-between{
   justify-content: space-between;
+}
+.tile-container{
+  height:70%;
+  width:100%;
+  overflow:auto;
+  padding-top:20px
 }
 
 .up-btn{

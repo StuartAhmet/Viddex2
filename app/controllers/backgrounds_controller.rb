@@ -26,9 +26,10 @@ class BackgroundsController < ApplicationController
     if @background.save
       redirect_to user_backgrounds_path
     else
-      render :new, stauts: :unprocessable_entity
+      render :new, status: :unprocessable_entity
     end
   end
+
 
   def edit
     @background = Background.find_by(public_uid: params[:id])

@@ -44,7 +44,7 @@ class Project < ApplicationRecord
 
   def distortion_params
     if backgrounds[0].text_distortion?
-      "#{backgrounds[0].distort_nw_x}:#{backgrounds[0].distort_nw_y}:#{backgrounds[0].distort_ne_x}:#{backgrounds[0].distort_ne_y}:#{backgrounds[0].distort_se_x}:#{backgrounds[0].distort_se_y}:#{backgrounds[0].distort_sw_x}:#{backgrounds[0].distort_sw_x}:"
+      "distort: #{backgrounds[0].distort_nw_x}:#{backgrounds[0].distort_nw_y}:#{backgrounds[0].distort_ne_x}:#{backgrounds[0].distort_ne_y}:#{backgrounds[0].distort_se_x}:#{backgrounds[0].distort_se_y}:#{backgrounds[0].distort_sw_x}:#{backgrounds[0].distort_sw_y}:"
     else
       nil
     end
@@ -54,7 +54,7 @@ class Project < ApplicationRecord
   def message_params
     if message_body?
       {angle: backgrounds[0].angle,
-        distort: distortion_params,
+        effect: distortion_params,
         gravity: "north_west",
         :overlay=>{
           font_family: font,
@@ -83,7 +83,7 @@ class Project < ApplicationRecord
           end_offset: "2",
           effect: "loop:5",
           :transformation=>[
-            { height: 720, width: 1280, crop: "crop" },
+            { height: 720, width: 1280, crop: "pad" },
             message_params,
               {:overlay=>"play-button-icon-png-18919_ssamfy", :opacity=>60, :width=>200, :crop=>"scale"},
           ].compact)

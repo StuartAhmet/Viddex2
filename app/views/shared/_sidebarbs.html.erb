@@ -1,12 +1,16 @@
-  <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px;">
+  <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark vh100" style="width: 280px;">
     <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-      <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
-      <span class="fs-4">Viddex Terminal</span>
+      <%# <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg> %>
+      <div style="margin-top:26px; padding:0px 10px" >
+        <img style="margin-bottom:8px; margin-right:20px"src="https://res.cloudinary.com/dth8lnhas/image/upload/v1675409519/Logos/6_cnzkfl.png" height="32">
+        <span class="fs-4">My Viddex</span>
+      </div>
     </a>
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
       <li class="nav-item">
-        <a href=" <%= user_projects_path(@user) %>" class="nav-link active">
+        <%# change class to 'nav-link active' to highlight the active tab %>
+        <a href=" <%= user_projects_path(@user) %>" class="nav-link text-white">
           <i class="bi bi-record-circle mr10"></i>
           Projects
         </a>
