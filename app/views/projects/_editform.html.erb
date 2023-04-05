@@ -93,7 +93,7 @@
                     <% @user.backgrounds.each do |bg| %>
                       <div>
                         <ul class="thumbnail_select " onClick="choosethumb(this)" data-bs-dismiss="modal" data-value="<%=bg.id %>" id="<%=bg.title%>">
-                          <img src="<%= bg.service_url%>", id="thumbnail-select %>", class="thumbnails"><br />
+                          <img src="<%= bg.cl_path%>", id="thumbnail-select %>", class="thumbnails"><br />
                           <%= bg.title %>
                         </ul>
                       </div>

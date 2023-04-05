@@ -11,8 +11,8 @@
   </div>
   <div class="image-container">
     <a id="image-link" href="https://www.viddex.io/projects/<%= @project.public_uid %>/watch">
-      <div class="thumbnail-image" id="image" style="border:5px solid black;border-radius: 10px; margin:5px">
-        <img style="max-width:100%" src="<%=@project.thumbnail_path%>"alt="unable to load image">
+      <div id="image" style="margin:5px">
+        <img style="max-width:500px; border:3px solid black;border-radius: 10px;" src="<%=@project.thumbnail_path%>"alt="<%= @project.title %>">
         <h4 style="color:black; padding-left: 8px; margin-top: 0;margin-bottom: 0;"><%= @project.title %> - (opens in new window)</h4>
       </div>
     </a>

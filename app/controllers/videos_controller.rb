@@ -5,7 +5,7 @@ class VideosController < ApplicationController
 
   def index
     @user = current_user
-    @videos = @user.videos.order(id: :desc).page(params[:page]).per(20)
+    @videos = @user.videos.order(id: :desc).page(params[:page]).per(15)
   end
 
   def show

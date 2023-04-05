@@ -58,8 +58,8 @@ class Background < ApplicationRecord
       :transformation=>[
         { height: 720, width: 1280, crop: "pad"},
         { angle: angle, border: "1px_solid_rgb:000", effect: distortion_params, height: text_box_height, gravity: "north_west",
-      :overlay=>{ font_family: "arial", font_size: 45, text: "hello%20viewers" },
-      width: width, x: x_axis, y: y_axis, crop: "scale" }
+      :overlay=>{ font_family: "arial", font_size: 30, text: "Use this to help you determine the size of your text box. "*5 },
+      width: width, x: x_axis, y: y_axis, crop: "fit" }
         ])
   end
 
