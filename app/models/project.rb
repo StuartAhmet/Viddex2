@@ -91,8 +91,8 @@ class Project < ApplicationRecord
 
   def audio_params
     if audios.exists?
-      params_1 = {audio_codec:"none", effect: "fade:1",end_offset:"2", quality:"auto", crop:"scale"}
-      params_2 = {flags:"splice", overlay:"video:"+Rails.env+":"+videos[0].file.key, start_offset:"2"}
+      params_1 = {audio_codec:"none",end_offset:"1", quality:"auto", crop:"scale"}
+      params_2 = {flags:"splice", overlay:"video:"+Rails.env+":"+videos[0].file.key, start_offset:"1"}
       params_3 = {:flags=>"layer_apply", :start_offset=>"2"}
       params_4 = {overlay: "video:"+Rails.env+":"+audios[0].file.key}
     else

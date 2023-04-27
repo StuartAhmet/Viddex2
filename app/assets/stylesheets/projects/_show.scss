@@ -37,8 +37,12 @@
   @media (min-width:$tablet){
     max-width: 90%;
   }
+  @media (min-width:$laptop){
+    max-width: 70%;
+  }
   @media (min-width:$screen){
     max-width: 1000px;
+    padding-top: 2.5rem;
   }
   @media (max-width:$tablet){
     padding-top: 15%;
