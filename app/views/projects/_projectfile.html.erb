@@ -1,6 +1,7 @@
 
 
-<video width="100%" controls poster="<%=@project.thumbnail_path%>">
+<video style="border-radius:20px" width="100%" controls poster="<%=@project.thumbnail_path%>">
   <source src="<%= @project.project_path %>" type="video/mp4">
+  <track src="public/subtitle.vtt" kind="subtitles" srclang="en" label="English">
   Your browser does not support the video tag.
 </video>
