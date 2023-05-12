@@ -9,7 +9,7 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-          #  for Google OmniAuth
+         # for Google OmniAuth
          :omniauthable, omniauth_providers: [:google_oauth2]
 
   def self.from_omniauth(auth)
@@ -30,9 +30,22 @@ class User < ApplicationRecord
   has_many :projects
   has_many :audios
   has_many :thumbnails
-
+  after_create :assign_company
 
   INDUSTRY = ["Advertising", "Finance", "Financial Services", "Information Technology", "Insurance",
               "Marketing", "Media", "Real Estate", "Recruitment", "Software", "Technology",
-              "Telecommunications","Other - not listed"]
+              "Telecommunications", "Other - not listed"]
+
+  private
+
+  def assign_company
+    # Extract the domain from the user's email address
+    domain = email.split('@').last
+    # Find the company with the matching domain
+    company = Company.find_by(domain: domain)
+    # Assign the user to the company if found
+    self.company = company if company.present?
+    # Save the user record
+    save
+  end
 end

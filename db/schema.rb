@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_12_122820) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_11_100127) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -93,6 +93,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_12_122820) do
   create_table "companies", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "public_uid"
+    t.string "industry"
+    t.string "subscription_type"
+    t.string "domain"
+    t.string "color_theme1"
+    t.string "color_theme2"
   end
 
   create_table "contacts", force: :cascade do |t|
@@ -189,6 +196,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_12_122820) do
     t.boolean "admin", default: false
     t.string "meeting_link"
     t.boolean "company_admin", default: false
+    t.bigint "company_id"
+    t.index ["company_id"], name: "index_users_on_company_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["public_uid"], name: "index_users_on_public_uid", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -235,5 +244,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_12_122820) do
   add_foreign_key "projects", "backgrounds"
   add_foreign_key "projects", "users"
   add_foreign_key "projects", "videos"
+  add_foreign_key "users", "companies"
   add_foreign_key "videos", "users"
 end
