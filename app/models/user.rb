@@ -24,28 +24,30 @@ class User < ApplicationRecord
     end
   end
 
-  belongs_to :company
+  # belongs_to :company
   has_many :videos
+  has_many :categories
   has_many :backgrounds
   has_many :projects
   has_many :audios
   has_many :thumbnails
-  after_create :assign_company
+  # after_create :assign_company
 
   INDUSTRY = ["Advertising", "Finance", "Financial Services", "Information Technology", "Insurance",
               "Marketing", "Media", "Real Estate", "Recruitment", "Software", "Technology",
               "Telecommunications", "Other - not listed"]
 
   private
-
   def assign_company
     # Extract the domain from the user's email address
     domain = email.split('@').last
     # Find the company with the matching domain
     company = Company.find_by(domain: domain)
-    # Assign the user to the company if found
-    self.company = company if company.present?
-    # Save the user record
+    # If no company is found, create a new one with the matching domain
+    company ||= Company.create(domain: domain)
+    # Assign the user to the company
+    self.company = company
     save
   end
+
 end

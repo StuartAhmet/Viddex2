@@ -15,6 +15,13 @@
           Projects
         </a>
       </li>
+       <li class="nav-item">
+        <%# change class to 'nav-link active' to highlight the active tab %>
+        <a href=" <%= user_templates_path(@user) %>" class="nav-link text-white">
+          <i class="bi bi-collection-play mr10"></i>
+          Templates
+        </a>
+      </li>
       <li>
         <a href="<%= user_path(@user) %>" class="nav-link text-white">
           <i class="bi bi-speedometer2 mr10"></i>

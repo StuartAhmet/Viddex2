@@ -21,13 +21,19 @@ Rails.application.routes.draw do
     resources :projects, only: [:new, :create, :edit, :update, :index, :destroy, :show]
     resources :videos
     resources :audios, :path => 'audio-files'
+    resources :companies, :path => 'company'
+    resources :templates
+    resources :categories
   end
+
   resources :projects do
     get :preview, :path => 'watch', on: :member
   end
+
   resources :contacts do
     collection do
       post :new
     end
   end
+
 end
