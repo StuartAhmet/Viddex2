@@ -2,9 +2,16 @@
 
 <div style="overflow:auto; height:77vh;">
   <%= simple_form_for [@user, @project], html: { class: "form-container-50 center-auto"} do |f| %>
-    <p><strong>Project title:</strong></p>
-    <%= f.input :title, label: false, placeholder: "eg. Video for Elon @ Tesla", input_html: { class: "form-input-100" } %>
-
+    <div class="flex space-between">
+      <div class= "form-input-100">
+        <p><strong>Project title:</strong></p>
+        <%= f.input :title, label: false, placeholder: "eg. Video for Elon @ Tesla", input_html: { class: "form-input-100" } %>
+      </div>
+      <div class= "form-input-100">
+        <p><strong>Prospect first name:</strong></p>
+        <%= f.input :prospect_first, label: false, placeholder: "eg. Elon", input_html: { class: "form-input-100" } %>
+      </div>
+    </div>
     <p><strong>Videos:</strong></p>
 
       <div class="flex space-between mb-16">

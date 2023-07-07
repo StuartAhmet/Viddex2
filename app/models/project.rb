@@ -53,7 +53,7 @@ class Project < ApplicationRecord
 
   def message_params
     if message_body?
-      {angle: backgrounds[0].angle,
+      {
         effect: distortion_params,
         gravity: "north_west",
         :overlay=>{

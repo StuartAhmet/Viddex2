@@ -1,6 +1,7 @@
 <%= simple_form_for @video, url: user_videos_path, html: { class: "form-container-50 center-auto"} do |f| %>
-        <p><strong>Title:</strong></p>
         <%= f.input :title, label: false, input_html: { class: "form-input-100" }  %>
+        <%= f.input :industry, collection: Video::INDUSTRY, label: false, input_html: { class: "form-input-100" }  %>
+
 
         <div id="fileParentDiv">
         <%= f.input :file, as: :file, label: false, input_html: { class: "form-input-100", placeholder: "drag and drop or click here" } %>

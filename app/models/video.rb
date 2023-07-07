@@ -16,7 +16,6 @@ class Video < ApplicationRecord
   end
 
   belongs_to :user
-  belongs_to :category
   has_one_attached :file
 
   has_many :project_videos
@@ -27,6 +26,10 @@ class Video < ApplicationRecord
 
   validates :title, presence: true
   validates :file, presence: true
+
+  INDUSTRY = ['N/A (not sector specific)', 'Retail & Ecommerce', 'Financial Services', 'Healthcare',
+              'Construction', 'Travel & Hospitality', 'Education',
+              'Media & Entertainment', 'Technology']
 
   def file_size
     file.byte_size.to_f/ 1048576

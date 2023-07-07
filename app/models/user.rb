@@ -26,7 +26,6 @@ class User < ApplicationRecord
 
   # belongs_to :company
   has_many :videos
-  has_many :categories
   has_many :backgrounds
   has_many :projects
   has_many :audios

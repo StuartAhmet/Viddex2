@@ -14,5 +14,12 @@
           </button>
         <% end %>
       </li>
+      <li class="nav-item">
+        <%=link_to user_company_path(@user) do %>
+          <button class="btn nav-link <%= "active" if current_page? user_company_path(@user) %> br5">
+            <i class="bi bi-cloud-plus mr10"></i>Company Admin
+          </button>
+        <% end %>
+      </li>
     </ul>
 </div>

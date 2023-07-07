@@ -3,7 +3,8 @@
   .home_first_tab{
     width: 100%;
     font-family: 'BarlowMedium', sans-serif;
-    background-image: url('https://res.cloudinary.com/dth8lnhas/image/upload/v1675682725/Backgrounds/Untitled_design_20_rfjqr1.png');
+    // background-image: url('https://res.cloudinary.com/dth8lnhas/image/upload/v1675682725/Backgrounds/Untitled_design_20_rfjqr1.png');
+    background-color: ivory;
     background-repeat: no-repeat;
     background-size: cover;
   }
@@ -11,6 +12,7 @@
   .home_first_header{
   text-align:center;
   color:#475066;
+  padding: 4rem;
 }
 
 .home_first_paragraph{
@@ -70,6 +72,19 @@
   color:#475066;
   background-color:#DDE1F0;
   border-top: 0.5px solid #4eabff;
+}
+
+.img_1_t{
+  width: 60%;
+  margin-left: -5rem;
+}
+
+.col-1-t{
+  align-items: center;
+}
+
+.col-2-t{
+  padding-left:7% ;
 }
 
 #ticks{
