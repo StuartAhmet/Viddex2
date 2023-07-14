@@ -132,6 +132,8 @@ class Project < ApplicationRecord
       ].compact)
   end
 
+
+
   FONT = ['Covered By Your Grace', 'Gloria Hallelujah', 'Indie Flower',
           'Kalam', 'Nanum Brush Script', 'Nothing You Could Do', 'Permanent Marker',
           'Reenie Beanie', 'Rock Salt', 'Shadows Into Light']

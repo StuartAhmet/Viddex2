@@ -214,16 +214,15 @@ p.navright-bigtext_second{
 }
 
 .home-logo{
-  margin-bottom: 10px;
-  height:50px;
+  max-width: 100px;
 }
 
 // my terminal nav button
 .terminalbutton{
-  background-color: #4eabff;
-  font-size: 18px;
-  border-style: none;
-  color:white;
+  background-color: #6352ec;
+  font-size: 20px;
+  border: 1px solid;
+  color:#6352ec;
   font-family: "BarlowSemiCondensedMedium", sans-serif;
   padding-left: 15px;
   padding-top: 12px;

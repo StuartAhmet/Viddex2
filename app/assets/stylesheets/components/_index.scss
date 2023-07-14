@@ -128,22 +128,22 @@
   overflow: hidden;
  }
 
-.container{
-  margin-right: auto;
-  margin-left: auto;
-  padding-left: 15px;
-  padding-right: 15px;
-  @media (min-width:$tablet){
-    max-width: 720px;
-  }
-  @media (min-width:$laptop){
-    max-width: 940px;
-  }
-  @media (min-width:$screen){
-    max-width: 1200px;
-  }
+// .container{
+//   margin-right: auto;
+//   margin-left: auto;
+//   padding-left: 15px;
+//   padding-right: 15px;
+//   @media (min-width:$tablet){
+//     max-width: 720px;
+//   }
+//   @media (min-width:$laptop){
+//     max-width: 940px;
+//   }
+//   @media (min-width:$screen){
+//     max-width: 1200px;
+//   }
 
-}
+// }
 .row{
   margin-left: -15px;
   margin-right: -15px;

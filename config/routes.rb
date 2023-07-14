@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   root to: "pages#home"
+  get 'test-home', to: 'pages#test-home'
   get 'blogs', to: 'pages#blogs'
   get 'contactus', to: 'pages#contactus'    # to get to 'contact us' page
   get 'myadmin', to: 'admin#admin'
@@ -17,7 +18,7 @@ Rails.application.routes.draw do
   get '/contacts/:id', to: 'contacts#show'
   patch '/contacts/:id', to: 'contacts#update'
 
-
+  resources :payments
 
   resources :users, :path => 'terminal' do
     resources :backgrounds, :path => 'images'
