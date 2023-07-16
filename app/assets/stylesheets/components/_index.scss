@@ -4,6 +4,10 @@
 @import "form_legend_clear";
 @import "navbar";
 
+.horizontal-center{
+  display: grid;
+  place-items: center;
+}
 .btn-font{
   border: none;
   background-color: transparent;

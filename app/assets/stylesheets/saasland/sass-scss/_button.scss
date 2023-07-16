@@ -47,6 +47,28 @@
     }
 }
 
+.btn_get_three {
+  font: 500 14px/47px $pop;
+  color: white;
+  background-color: #6754e2;
+  border: 2px solid rgb(204, 197, 250);
+  border-radius: 4px;
+  box-shadow: 0px 20px 24px 0px rgba(0, 11, 40, 0.1);
+  padding: 0px 23px;
+  transform: perspective(1px) translateZ(0);
+  transition-property: color;
+  transition: all 0.3s ease;
+  min-width: 120px;
+  text-align: center;
+
+  &:hover {
+      color: #fff;
+      background: #6754e2;
+      border-color: #6754e2;
+      box-shadow: none;
+  }
+}
+
 .price_btn {
     font: 500 15px/53px $pop;
     color: #6754e2;
@@ -135,6 +157,23 @@
     }
 }
 
+.agency_banner_btn_three {
+  font: 500 14px $pop;
+  color: white;
+  background: transparent;
+  box-shadow: 0px 20px 30px 0px rgba(12, 0, 46, 0.1);
+  border-radius: 3px;
+  padding: 16px 38px;
+  border: 1px solid white;
+  transition: all 0.2s linear;
+  cursor: pointer;
+
+  &:hover {
+      color: #5e2ced;
+      box-shadow: none;
+      background: transparent;
+  }
+}
 
 .software_banner_btn {
     font: 500 14px $pop;
