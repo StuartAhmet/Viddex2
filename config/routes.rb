@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   root to: "pages#home"
-  get 'test-home', to: 'pages#test-home'
+  get 'home2', to: 'pages#home2'
   get 'blogs', to: 'pages#blogs'
   get 'contactus', to: 'pages#contactus'    # to get to 'contact us' page
   get 'myadmin', to: 'admin#admin'
