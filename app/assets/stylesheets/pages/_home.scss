@@ -44,11 +44,7 @@
   color: #4eabff;
 }
 
-.camsnav{
-  position: fixed;
-  width: 100%;
-  z-index: 3;
-}
+
 
 .main-body{
   display: block;
@@ -100,4 +96,15 @@ color: #4eabff;
     text-align: center;
   }
 
+}
+
+.bold-brand{
+  color: #6754e2;
+  font-weight: bolder;
+}
+
+.homepage_hero{
+  margin: 0 auto 64px;
+  max-width: 100%;
+  width: 872px;
 }

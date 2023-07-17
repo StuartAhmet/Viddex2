@@ -1,10 +1,15 @@
-<header class="camsnav" id="navshadow">
-<%# <div class="camsnav"> %>
+<header class="vd-nav-container" id="navshadow">
+<%# <div class="vd-nav-container"> %>
   <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-    <div class="container-fluid" style="max-width:1200px; height:70px;">
+    <div class="container-fluid" style="padding-left:10%;padding-right:10%">
       <%= link_to root_path, class: "" do %>
-        <%= image_tag "https://res.cloudinary.com/dth8lnhas/image/upload/v1671646453/Logos/Screenshot_2022-12-21_at_18.00.50-removebg-preview_copy_n65wmo.png", :class => "home-logo" %>
+        <%# <%= image_tag "app/assets/images/logo", :class => "home-logo" %>
+        <%# <a class="home-logo" href="#"> %>
+          <%# <img src="app/assets/images/logo.png" alt="Viddex"> %>
+          <%= image_tag("Viddex-logo.png", class:"home-logo") %>
+        <%# </a> %>
         <%= image_tag "https://res.cloudinary.com/dth8lnhas/image/upload/v1675409517/Logos/1_tke2gy.png", :class => "home-logo2" %>
+
       <% end %>
       <%= render "pages/home/navdropdown" %>
       <%= render "pages/home/navlogins" %>
@@ -23,12 +28,19 @@
   function addDropShadow() {
     var header = document.getElementById('navshadow');
     header.style.boxShadow = '0 4px 20px rgb(15 31 41 / 16%)';
+    header.style.backgroundColor ='white';
+    header.style.transition = 'background-color 0.3s ease'; // Adjust the duration as needed
+
   }
 
   function removeDropShadow() {
     var header = document.getElementById('navshadow');
     header.style.boxShadow = '0 0 0 rgba(0, 0, 0, 0)';
     header.style.transition = 'box-shadow 0.5s ease-out';
+    header.style.backgroundColor ='transparent';
+    header.style.transition = 'background-color 0.3s ease'; // Adjust the duration as needed
+
+
   }
 
   window.addEventListener('scroll', function() {

@@ -1,8 +1,8 @@
 <div class="flex space-between">
   <div style="padding-top: 20px;margin-right: 30px;">
     <%= simple_form_for [@user, @video] , html: { class: "form-container-100 center-auto"} do |f| %>
-        <p><strong>Title</strong></p>
-        <%= f.input :title, label: false, input_html: { class: "form-input-100" }  %>
+        <%= f.input :title, label: false, placeholder: 'Title', input_html: { class: "form-input-100" }  %>
+        <%= f.input :text_body, label: false, placeholder: 'Text', input_html: { class: "form-input-100" }  %>
       <%= f.submit 'Save and preview', class: "btn btn-primary w-100" %>
     <% end %>
   </div>

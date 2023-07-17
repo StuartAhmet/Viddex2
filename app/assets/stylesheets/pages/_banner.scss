@@ -1,0 +1,38 @@
+.banner_video{
+  border-radius: 20px;
+  max-width: 100%;
+}
+.banner_head{
+  font-weight: bolder;
+  font-family: 'Gabriel Sans', sans-serif;
+}
+@media (min-width: 0px) and (max-width:$mobile) {
+  .banner_head{
+    font-size: 44px;
+    text-shadow: -2px 1px 0 rgb(147, 105, 250), -1px 1px 0 rgb(147, 105, 250), 1px -1px 0 rgb(147, 105, 250), -1px -1px 0 rgb(147, 105, 250);
+  }
+}
+@media (min-width:$mobile) and (max-width:$tablet) {
+  .banner_head{
+    font-size: 44px;
+    text-shadow: -2px 1px 0 rgb(147, 105, 250), -1px 1px 0 rgb(147, 105, 250), 1px -1px 0 rgb(147, 105, 250), -1px -1px 0 rgb(147, 105, 250);
+  }
+}
+@media (min-width:$tablet) and (max-width:$laptop) {
+  .banner_head{
+    font-size: 44px;
+    text-shadow: -2px 1px 0 rgb(147, 105, 250), -1px 1px 0 rgb(147, 105, 250), 1px -1px 0 rgb(147, 105, 250), -1px -1px 0 rgb(147, 105, 250);
+  }
+}
+@media (min-width:$laptop) and (max-width:$screen) {
+  .banner_head{
+    font-size: 85px;
+    text-shadow: -4px 2px 0 rgb(147, 105, 250), /* Right-Down */ -2px 2px 0 rgb(147, 105, 250), /* Left-Down */ 2px -2px 0 rgb(147, 105, 250), /* Right-Up */ -2px -2px 0 rgb(147, 105, 250);
+  }
+}
+@media (min-width:$screen){
+  .banner_head{
+    font-size: 85px;
+    text-shadow: -4px 2px 0 rgb(147, 105, 250), /* Right-Down */ -2px 2px 0 rgb(147, 105, 250), /* Left-Down */ 2px -2px 0 rgb(147, 105, 250), /* Right-Up */ -2px -2px 0 rgb(147, 105, 250);
+  }
+}

@@ -12,30 +12,40 @@
 }
 
 .heroheader{
-  color:#475066;
-  font-family: "BarlowMedium", sans-serif;
-  background-color:fafafa;
+  color:white;
+  // font-family: "BarlowMedium", sans-serif;
+  // background-color:fafafa;
+  font-size:larger;
 }
 
 .heroparagraph{
-  color:#5B627D;
+  color:white;
   font-family: "BarlowMedium", sans-serif;
   margin-top: 24px;
   line-height: 1.9;
 }
 
 .herobuttonone{
-  background-color: #4eabff;
+  background-color:transparent;
   color:white;
   font-family: "BarlowSemiCondensedMedium", sans-serif;
-  border-color: #4eabff;
+  // border-color: #4eabff;
+  border-radius: 25px;
+  border: 1px solid;
+  // width: 80%;
+  margin-top: 23px;
+  margin-right: 20px;
 }
 
 .herobuttontwo{
   background-color: white;
-  color:#4eabff;
+  color: rgb(99,82,236);
   font-family: "BarlowSemiCondensedMedium", sans-serif;
-  border-color: #4eabff;
+  border-color: white;
+  border: 1px solid;
+  border-radius: 25px;
+
+
 }
 
 .herobuttonone:hover{
@@ -92,20 +102,23 @@
   .home_hero_container{
     justify-content: center;
     flex-direction: row;
-    padding:2%;
+    padding:10%;
+    padding-top: 12%;
+    position: relative;
+    margin-top: -10vh;
   }
 
   .herotab{
-    background-image: url('https://res.cloudinary.com/dth8lnhas/image/upload/v1673336524/Backgrounds/photo_two_7_atzruj.png');
+    background-image: linear-gradient(40deg,rgb(94,44,237) 0%,rgb(164,133,253) 100%);
     background-repeat: no-repeat;
-    background-size: 1900px;
+    // background-size: 1900px;
     background-position: right;
-    height: 750px;
+    height: 101vh;
   }
 
   .hero_text{
-    width: 600px;
-    padding-top: 2%;
+    // width: 600px;
+    padding-top: 8%;
   }
 
   .hero_content{
@@ -124,16 +137,16 @@
   }
 
   .herobuttonone{
-    padding:10px;
+    padding:13px;
     font-size:20px;
-    border-radius: 10px;
+    border-radius: 25px;
 
   }
 
   .herobuttontwo{
     font-size:20px;
-    border-radius: 10px;
-    padding:10px;
+    border-radius: 25px;
+    padding:13px;
   }
 
   .herolink{
@@ -289,10 +302,10 @@
   }
 
   .herobuttons{
+    width: 80%;
     display: flex;
-    flex-direction: column;
-    gap: 30px;
-    align-items: flex-start;
+    justify-content: space-between;
+
   }
 
 }

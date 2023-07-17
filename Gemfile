@@ -40,7 +40,8 @@ gem "omniauth-rails_csrf_protection"
 gem 'ruby-audioinfo', require: 'audioinfo'
 gem 'select2-rails'
 gem 'kaminari'
-
+gem 'stripe'
+gem 'jquery-rails'
 
 
 

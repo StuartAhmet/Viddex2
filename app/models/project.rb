@@ -53,7 +53,7 @@ class Project < ApplicationRecord
 
   def message_params
     if message_body?
-      {angle: backgrounds[0].angle,
+      {
         effect: distortion_params,
         gravity: "north_west",
         :overlay=>{
@@ -131,6 +131,8 @@ class Project < ApplicationRecord
         video_params1, video_params2,
       ].compact)
   end
+
+
 
   FONT = ['Covered By Your Grace', 'Gloria Hallelujah', 'Indie Flower',
           'Kalam', 'Nanum Brush Script', 'Nothing You Could Do', 'Permanent Marker',

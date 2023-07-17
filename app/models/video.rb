@@ -27,6 +27,10 @@ class Video < ApplicationRecord
   validates :title, presence: true
   validates :file, presence: true
 
+  INDUSTRY = ['N/A (not sector specific)', 'Retail & Ecommerce', 'Financial Services', 'Healthcare',
+              'Construction', 'Travel & Hospitality', 'Education',
+              'Media & Entertainment', 'Technology']
+
   def file_size
     file.byte_size.to_f/ 1048576
   end

@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   root to: "pages#home"
+  get 'home2', to: 'pages#home2'
+  get 'blogs', to: 'pages#blogs'
   get 'contactus', to: 'pages#contactus'    # to get to 'contact us' page
   get 'myadmin', to: 'admin#admin'
   get 'pricing', to: 'pages#pricing'        # to get to 'pricing' page
@@ -16,18 +18,25 @@ Rails.application.routes.draw do
   get '/contacts/:id', to: 'contacts#show'
   patch '/contacts/:id', to: 'contacts#update'
 
+  resources :payments
+
   resources :users, :path => 'terminal' do
     resources :backgrounds, :path => 'images'
     resources :projects, only: [:new, :create, :edit, :update, :index, :destroy, :show]
     resources :videos
     resources :audios, :path => 'audio-files'
+    resources :companies, :path => 'company'
+    resources :templates
   end
+
   resources :projects do
     get :preview, :path => 'watch', on: :member
   end
+
   resources :contacts do
     collection do
       post :new
     end
   end
+
 end

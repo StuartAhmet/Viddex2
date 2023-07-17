@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_11_100127) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_31_105502) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -176,6 +176,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_11_100127) do
     t.index ["video_id"], name: "index_projects_on_video_id"
   end
 
+  create_table "templates", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -206,7 +212,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_11_100127) do
   create_table "videos", force: :cascade do |t|
     t.string "title"
     t.string "public_uid"
-    t.string "rotation"
+    t.string "industry"
     t.bigint "user_id"
     t.boolean "bgrem_require", default: false
     t.boolean "bgrem_complete", default: false
@@ -227,6 +233,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_11_100127) do
     t.integer "text_box_height", default: 200
     t.boolean "text_distortion", default: false
     t.string "thumbnail"
+    t.text "text_body"
     t.index ["user_id"], name: "index_videos_on_user_id"
   end
 

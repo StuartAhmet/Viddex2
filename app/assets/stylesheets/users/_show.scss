@@ -28,15 +28,15 @@ a {
   color: hsl(228, 45%, 44%);
 }
 
-h1:first-of-type {
-  font-weight: var(--weight1);
-  color: var(--varyDarkBlue);
+// h1:first-of-type {
+//   font-weight: var(--weight1);
+//   color: var(--varyDarkBlue);
 
-}
+// }
 
-h1:last-of-type {
-  color: var(--varyDarkBlue);
-}
+// h1:last-of-type {
+//   color: var(--varyDarkBlue);
+// }
 
 @media (max-width: 400px) {
   h1 {

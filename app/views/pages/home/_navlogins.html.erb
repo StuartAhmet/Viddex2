@@ -12,7 +12,7 @@
           </li>
 
           <li class="">
-            <button type="button" class="terminalbutton"><a href="/terminal/<%= current_user.public_uid %>" style="color:white;">My Terminal</a></button>
+            <button type="button" class="terminalbutton"><a href="/terminal/<%= current_user.public_uid %>" style="color:ivory;">My Terminal</a></button>
           </li>
 
         <% else %>
@@ -26,7 +26,7 @@
           <%# </li> %>
 
           <li class="">
-            <%= link_to "Register For Free", new_user_registration_path, class: "nav-link lb-btn"%>
+            <%= link_to "Register For Free", new_user_registration_path, class: "terminalbutton", style: "color:ivory;"%>
           </li>
         <% end %>
 
