@@ -90,13 +90,24 @@
                                 </a>
                             </li>
                             <li class="nav-item dropdown submenu mega_menu">
+                              <% if user_signed_in? %>
+                                <a class="nav-link dropdown-toggle" id="dropdown-toggle" href="/users/sign_out" role="button" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                    Log out
+                                </a>
+                              <% else %>
                                 <a class="nav-link dropdown-toggle" id="dropdown-toggle" href="/users/sign_in" role="button" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">
                                     Sign In
                                 </a>
+                              <% end %>
                             </li>
                         </ul>
-                        <a class="btn_get btn_hover" id="sl_nav_btn" href="/users/sign_up">Sign up for free</a>
+                        <% if user_signed_in? %>
+                          <a class="btn_get btn_hover" id="sl_nav_btn" href="/terminal/<%= current_user.public_uid %>">My terminal</a>
+                        <% else %>
+                          <a class="btn_get btn_hover" id="sl_nav_btn" href="/users/sign_up">Sign up for free</a>
+                        <% end %>
                     </div>
                 </div>
             </nav>
