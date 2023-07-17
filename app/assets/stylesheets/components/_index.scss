@@ -20,6 +20,9 @@
 .flex{
   display: flex;
 }
+.col-white{
+  color: white;
+}
 
 .center{
   justify-content: center;
@@ -102,6 +105,9 @@
 }
 .space-between{
   justify-content: space-between;
+}
+.row{
+  flex-direction: row;
 }
 .tile-container{
   height:70%;
