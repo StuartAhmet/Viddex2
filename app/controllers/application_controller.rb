@@ -30,7 +30,10 @@ class ApplicationController < ActionController::Base
   #     user_url(resource)
   #   end
   # end
+  # def after_sign_up_path_for(user)
+  #   user_url(user)
+  # end
   def after_sign_up_path_for(user)
-    user_url(user)
+    edit_user_path(user)
   end
 end
