@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+# template seeds
+puts "create template database"
+Template.create(title: "template 1")
+Template.create(title: "template 2")

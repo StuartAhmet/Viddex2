@@ -7,6 +7,10 @@
         <%= render "templateshead" %>
       </div>
       <%= render "templates/pagetabs" %>
+
+      <% @templates.each do |template| %>
+      <%= template.title %>
+      <% end %>
     </div>
   </div>
 </div>
