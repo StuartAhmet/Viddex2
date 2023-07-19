@@ -132,6 +132,20 @@
     }
 }
 
+.google_login_btn{
+  // font: 400 15px/60px "Poppins",sans-serif;
+  color: #222d39;
+  height: 60px;
+  background-color: transparent;
+  width: 100%;
+  border: 1px solid transparent;
+  padding-left: 30px;
+  background-image: url("https://raw.githubusercontent.com/react-native-google-signin/google-signin/HEAD/img/signin-button.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
 .mapbox2{
     height: 440px;
     border-top: 10px solid #fff;
@@ -259,7 +273,7 @@
 .sign_info{
     border: 20px solid #fff;
     background: #fbfbfd;
-    padding: 80px 50px;
+    padding: 50px 50px;
     box-shadow: 0px 50px 100px 0px rgba(12, 0, 46, 0.05);
     .login_info{
         padding-left: 30px;
@@ -387,7 +401,7 @@
     min-height: 600px;
     background: #fbfbfd;
     display: flex;
-    flex-wrap: wrap;  
+    flex-wrap: wrap;
     .saasland_bg{
         position: absolute;
         width: 100%;
@@ -453,7 +467,7 @@
             }
         }
     }
-} 
+}
 .saasland_col_screen{
     background-image: linear-gradient( -120deg, rgb(94,44,237) 0%, rgb(164,133,253) 100%);
     width: 60%;

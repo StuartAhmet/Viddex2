@@ -1,55 +1,61 @@
-<div class="devise-wrap twirl-bg">
-  <div class="devise-box">
-    <div class="dev-head">
-      <a href="<%= root_path %>"> <img class ="dev-logo" src="https://res.cloudinary.com/dth8lnhas/image/upload/v1671646453/Logos/Screenshot_2022-12-21_at_18.00.50-removebg-preview_copy_n65wmo.png" alt="Viddex Logo"> </a>
-      <h4 class="head-panel">Welcome back!</h4>
-    </div>
-    <div class="login-panel">
-      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: {turbo: false}) do |f| %>
+<div class="body_wrapper" style="height:100vh">
+  <%= render "pages/navbar/login_nav" %>
+    <section class="breadcrumb_area_login">
+            <%# <img class="breadcrumb_shap" src="img/breadcrumb/banner_bg.png" alt=""> %>
+            <%= image_tag "backgrounds/banner_bg.png", class: "breadcrumb_shap"%>
+            <div class="container">
+                <div class="sign_info"style="max-width:600px">
+                    <div class="row" >
+                        <div class="horizontal-center">
+                            <div class="login_info" style="width:100%">
+                              <div class="horizontal-center">
+                                <h2 class="f_p f_600 f_size_24 t_color3 mb_40">Welcome back</h2>
+                              </div>
+                                <%- if devise_mapping.omniauthable? %>
+                                  <%- resource_class.omniauth_providers.each do |provider| %>
+                                    <% link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), method: :post %>
+                                    <%= form_for "Login",
+                                      url: omniauth_authorize_path(resource_name, provider),
+                                      method: :post,
+                                      data: {turbo: "false"} do |f| %>
+                                        <%= f.submit  value: '', placeholder: nil,class: "google_login_btn" %>
+                                    <% end %>
+                                  <% end %>
+                                <% end %>
+                                <p class="horizontal-center">or</p>
+                                <%= simple_form_for(resource, as: resource_name,  url: session_path(resource_name), data: {turbo: false}) do |f| %>
+                                  <div class="form-group text_box">
+                                    <%= f.input :email,
+                                                required: false,
+                                                placeholder: "Email",
+                                                autofocus: true,
+                                                label: false,
+                                                input_html: { autocomplete: "email" } %>
+                                    <%= f.input :password,
+                                                required: false,
+                                                label: false,
+                                                class:"form-group text_box",
+                                                placeholder: "Password",
+                                                input_html: { autocomplete: "current-password", class: "form-group text_box" } %>
+                                  </div>
 
-        <div class="form-inputs">
-          <%= f.input :email,
-                      required: false,
-                      placeholder: "Email address",
-                      autofocus: true,
-                      label: false,
-                      input_html: { autocomplete: "email" } %>
-          <%= f.input :password,
-                      required: false,
-                      label: false,
-                      placeholder: "Password",
-                      input_html: { autocomplete: "current-password" } %>
-          <%= link_to "Forgot your password?", new_password_path(resource_name) %> <br>
-        </div>
+                                  <div class="form-actions">
+                                    <%= f.button :submit, "Sign in with email", class: "btn_get w-100" %>
+                                <% end %>
+                                    <div class="horizontal-center">
+                                      <%= link_to "Forgot your password?", new_password_path(resource_name) %> <br>
+                                      <a href="/users/sign_up">
+                                        <div class="lead-text">Don't have an account?</div>
+                                      </a>
+                                    </div>
+                                  </div>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+            </div>
+            <%# <div> %>
+            <%# Check out our recent blog posts </div> %>
+        </section>
 
-        <div class="form-actions">
-          <%= f.button :submit, "Continue", class: "nav-link lb-btn dev-btn" %>
-        </div>
-      <% end %>
-      New here? <%= link_to "Sign up", new_registration_path(resource_name) %>
-      <div class="flex" style="margin-top:10px">
-        <div class="separator" style="margin-right:10px"></div>
-        <p>or</p>
-        <div class="separator" style="margin-left:10px"></div>
-      </div>
-      <%- if devise_mapping.omniauthable? %>
-        <%- resource_class.omniauth_providers.each do |provider| %>
-          <% link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), method: :post %>
-          <%= form_for "Login",
-            url: omniauth_authorize_path(resource_name, provider),
-            method: :post,
-            data: {turbo: "false"} do |f| %>
-              <%= f.submit "Login", type: "image", src: url_for("https://developers.google.com/static/identity/images/btn_google_signin_dark_normal_web.png") %>
-          <% end %>
-        <% end %>
-      <% end %>
-
-    </div>
-
-
-  </div>
-
-  <div class="devise-logo">
-    © <%= Date.today.year %> Viddex Limited
-  </div>
 </div>

@@ -2,7 +2,6 @@
 @import "alert";
 @import "avatar";
 @import "form_legend_clear";
-// @import "navbar";
 
 .horizontal-center{
   display: grid;
@@ -19,6 +18,9 @@
 }
 .flex{
   display: flex;
+}
+.col-white{
+  color: white;
 }
 
 .center{
@@ -102,6 +104,9 @@
 }
 .space-between{
   justify-content: space-between;
+}
+.row{
+  flex-direction: row;
 }
 .tile-container{
   height:70%;

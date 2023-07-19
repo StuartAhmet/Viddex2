@@ -1,0 +1,23 @@
+.yt_vid_box{
+
+  @media (min-width: 0px) and (max-width:$mobile){
+    width: 360px;
+    height: 202px;
+  }
+  @media (min-width:$mobile) and (max-width:$tablet){
+    width: 680px;
+    height: 382px;
+  }
+  @media (min-width:$tablet) and (max-width:$laptop){
+    width: 680px;
+    height: 382px;
+  }
+  @media (min-width:$laptop) and (max-width:$screen){
+    width: 955px;
+    height: 534px;
+  }
+  @media (min-width:$screen) {
+    width: 955px;
+    height: 534px;
+  }
+}
