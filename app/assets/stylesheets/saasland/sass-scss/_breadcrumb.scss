@@ -12,6 +12,21 @@
         z-index: -1;
     }
 }
+
+.breadcrumb_area_login{
+  // background-image: linear-gradient( 180deg, rgb(94,44,237) 0%, rgb(164,133,253) 100%);
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  padding: 120px 0px 125px;
+  .breadcrumb_shap{
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: -1;
+      width: -webkit-fill-available;
+  }
+}
 /*================= End breadcrumb_area css =================*/
 
 /*================= Start breadcrumb_area_two css =================*/
@@ -105,7 +120,7 @@
             position: relative;
             color: #525c7c;
             a{
-                color:#051441; 
+                color:#051441;
             }
             & + li{
                 padding-left: 32px;
@@ -151,10 +166,10 @@
         transform: translateX(0);
     }
     25%{
-       transform: translateY(10px); 
+       transform: translateY(10px);
     }
     50%{
-       transform: translateX(30px); 
+       transform: translateX(30px);
     }
     100%{
         transform: translateX(50px);
@@ -205,7 +220,7 @@
                         display: inline-block;
                         font-family: 'themify';
                         font-size: 10px;
-                        margin:0px 5px 0px 3px; 
+                        margin:0px 5px 0px 3px;
                     }
                 }
             }
