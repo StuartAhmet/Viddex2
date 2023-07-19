@@ -1,0 +1,81 @@
+<div class="devise-wrap twirl-bg">
+    <div class="devise-box">
+    <div class="dev-head">
+      <a href="<%= root_path %>"><img class ="dev-logo" src="https://res.cloudinary.com/dth8lnhas/image/upload/v1671646453/Logos/Screenshot_2022-12-21_at_18.00.50-removebg-preview_copy_n65wmo.png" alt="Viddex Logo"></a>
+      <h4 class="head-panel">Start using Viddex for free today</h4>
+    </div>
+      <div class="login-panel">
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: {turbo: false}) do |f| %>
+          <%= f.error_notification %>
+                <div class="form-inputs">
+                  <%= f.input :first_name,
+                              required: true,
+                              placeholder: "First Name",
+                              label: false,
+                              autofocus: true,
+                              input_html: { autocomplete: "first name" }%>
+                  <%= f.input :last_name,
+                              required: true,
+                              placeholder: "Last Name",
+                              label: false,
+                              autofocus: true,
+                              input_html: { autocomplete: "last name" }%>
+                  <%= f.input :company_name,
+                              autofocus: true,
+                              placeholder: "Company Name",
+                              label: false,
+                              input_html: { autocomplete: "company name" }%>
+                  <%= f.input :industry, collection: User::INDUSTRY,
+                              prompt: "Industry",
+                              label: false,
+                              required: true %>
+                  <%= f.input :email,
+                              required: true,
+                              placeholder: "Email",
+                              label: false,
+                              autofocus: true,
+                              input_html: { autocomplete: "email" }%>
+                  <%= f.input :password,
+                              required: true,
+                              placeholder: "Password",
+                              label: false,
+                              hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                              input_html: { autocomplete: "new-password" } %>
+                  <%= f.input :password_confirmation,
+                              placeholder: "Password Confirmation",
+                              label: false,
+                              required: true,
+                              input_html: { autocomplete: "new-password" } %>
+                </div>
+
+              <div class="form-actions" >
+                <%= f.button :submit, "Create an account", class: "nav-link lb-btn dev-btn", style: "width:100%;border:none" %>
+              </div>
+      <% end %>
+
+      Already have an account? <%= link_to "Log In", new_session_path(resource_name) %>
+      <div class="flex" style="margin-top:10px">
+        <div class="separator" style="margin-right:10px"></div>
+        <p>or</p>
+        <div class="separator" style="margin-left:10px"></div>
+      </div>
+      <%- if devise_mapping.omniauthable? %>
+        <%- resource_class.omniauth_providers.each do |provider| %>
+          <% link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), method: :post %>
+          <%= form_for "Login",
+            url: omniauth_authorize_path(resource_name, provider),
+            method: :post,
+            data: {turbo: "false"} do |f| %>
+              <%= f.submit "Login", type: "image", src: url_for("https://developers.google.com/static/identity/images/btn_google_signin_dark_normal_web.png") %>
+          <% end %>
+        <% end %>
+      <% end %>
+
+
+      </div>
+
+  </div>
+      <div class="devise-logo">
+        © <%= Date.today.year %> Viddex Limited
+      </div>
+</div>
