@@ -8,10 +8,12 @@
         <% end %>
       </li>
       <li class="nav-item">
-        <%=link_to new_user_template_path(@user) do %>
-          <button class="btn nav-link <%= "active" if current_page?(new_user_template_path) %> br5">
-            <i class="bi bi-cloud-plus mr10"></i>Upload
-          </button>
+        <% if current_user.admin? %>
+          <%=link_to new_user_template_path(@user) do %>
+            <button class="btn nav-link <%= "active" if current_page?(new_user_template_path) %> br5">
+              <i class="bi bi-cloud-plus mr10"></i>Upload
+            </button>
+          <% end %>
         <% end %>
       </li> <br>
     </ul>
