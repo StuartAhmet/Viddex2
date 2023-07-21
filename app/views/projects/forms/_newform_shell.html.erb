@@ -1,0 +1,25 @@
+Select your template <br>
+
+<% @templates.each do |template| %>
+  <button>
+    <%= template.title %>
+  </button>
+<% end %>
+
+<%= simple_form_for [@user, @project], html: { class: "form-container-50 center-auto"} do |f| %>
+  <%= f.association :template, collection: @templates, as: :select, input_html: { id: "selected_template", multiple: false}   %>
+  <div id="templatePartialContainer"></div>
+<% end %>
+<script>
+
+  var templateDisplay = document.getElementById("templatePartialContainer")
+
+  function chooseTemplate(element) {
+
+    var templateId = element.dataset.value;
+    document.getElementById("selected_template").value = templateId;
+    console.log("hello");
+    templateDisplay.innerHTML = element.innerText.trim() +  "<br /> <i class='fa fa-chevron-down'></i>";
+    // selectedVideos[0] = videoId;
+  }
+</script>

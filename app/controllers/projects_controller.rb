@@ -15,11 +15,11 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find_by(public_uid: params[:id])
-
   end
 
   def new
     @project = Project.new
+    @templates = Template.all
     # @user_backgrounds = Background.find(params[:id])
   end
 

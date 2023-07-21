@@ -6,6 +6,10 @@ class TemplatesController < ApplicationController
     @templates = Template.all
   end
 
+  def show
+    @template = Template.find_by(params[:id])
+  end
+
   def new
     @template = Template.new
   end

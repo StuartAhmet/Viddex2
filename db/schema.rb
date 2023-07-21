@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_31_105502) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_20_161022) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -170,8 +170,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_31_105502) do
     t.text "message_body"
     t.string "title"
     t.bigint "audio_id"
+    t.bigint "template_id"
     t.index ["audio_id"], name: "index_projects_on_audio_id"
     t.index ["background_id"], name: "index_projects_on_background_id"
+    t.index ["template_id"], name: "index_projects_on_template_id"
     t.index ["user_id"], name: "index_projects_on_user_id"
     t.index ["video_id"], name: "index_projects_on_video_id"
   end
@@ -249,6 +251,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_31_105502) do
   add_foreign_key "project_videos", "videos", column: "videos_id"
   add_foreign_key "projects", "audios"
   add_foreign_key "projects", "backgrounds"
+  add_foreign_key "projects", "templates"
   add_foreign_key "projects", "users"
   add_foreign_key "projects", "videos"
   add_foreign_key "users", "companies"
