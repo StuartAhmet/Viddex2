@@ -16,7 +16,7 @@ class TemplatesController < ApplicationController
 
   def create
     @template = Template.new(template_params)
-    # @template.user = current_user
+    @template.user = current_user
     if @template.save
       redirect_to user_templates_path
     else

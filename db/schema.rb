@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_20_161022) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_21_172755) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -91,8 +91,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_20_161022) do
   end
 
   create_table "companies", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.string "name"
     t.string "public_uid"
     t.string "industry"
@@ -100,6 +98,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_20_161022) do
     t.string "domain"
     t.string "color_theme1"
     t.string "color_theme2"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "contacts", force: :cascade do |t|
@@ -180,6 +180,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_20_161022) do
 
   create_table "templates", force: :cascade do |t|
     t.string "title"
+    t.string "category"
+    t.text "synopsis"
+    t.integer "video_count"
+    t.boolean "audio_required"
+    t.string "video_link"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -236,6 +241,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_20_161022) do
     t.boolean "text_distortion", default: false
     t.string "thumbnail"
     t.text "text_body"
+    t.string "category"
     t.index ["user_id"], name: "index_videos_on_user_id"
   end
 
