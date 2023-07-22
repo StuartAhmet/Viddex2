@@ -1,1 +1,12 @@
-test for new template
+
+
+
+<%= simple_form_for @template, url: user_templates_path  do |f|%>
+  <%= f.input :title%>
+  <%= f.input :category, collection: FormSelection::TEMPLATE_CATEGORY %>
+  <%= f.input :synopsis%>
+  <%= f.input :video_count%>
+  <%= f.input :audio_required, as: :boolean%>
+  <%= f.input :video_link%>
+  <%= f.submit "upload" %>
+<% end %>

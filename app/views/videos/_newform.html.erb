@@ -1,3 +1,6 @@
+<% require_dependency 'template' %>
+
+
 <%= simple_form_for @video, url: user_videos_path, html: { class: "form-container-50 center-auto"} do |f| %>
         <%= f.input :title, label: false, input_html: { class: "form-input-100" }  %>
         <%= f.input :industry, collection: Video::INDUSTRY, label: false, input_html: { class: "form-input-100" }  %>

@@ -32,7 +32,6 @@ class Video < ApplicationRecord
               'Media & Entertainment', 'Technology']
 
   def file_size
-    file.byte_size.to_f/ 1048576
+    file.byte_size.to_f / 1_048_576
   end
-
 end

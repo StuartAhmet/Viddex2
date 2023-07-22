@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_21_172755) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_22_142640) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -187,6 +187,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_21_172755) do
     t.string "video_link"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_templates_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -260,6 +262,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_21_172755) do
   add_foreign_key "projects", "templates"
   add_foreign_key "projects", "users"
   add_foreign_key "projects", "videos"
+  add_foreign_key "templates", "users"
   add_foreign_key "users", "companies"
   add_foreign_key "videos", "users"
 end

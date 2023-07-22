@@ -11,6 +11,7 @@ class TemplatesController < ApplicationController
   end
 
   def new
+    @user = current_user
     @template = Template.new
   end
 
@@ -27,7 +28,8 @@ class TemplatesController < ApplicationController
   private
 
   def template_params
-    params.require(:template).permit(:title)
+    params.require(:template).permit(:title, :synopsis, :category, :video_count,
+                :audio_required, :video_link)
   end
 
   def set_user
