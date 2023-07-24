@@ -2,12 +2,10 @@
 Cold outreach and Introductions <br>
 <% @templates.each do |template| %>
   <article >
+    <a href="templates/<%= template.public_uid %>">
       <video src="<%= template.video_link %>"></video> <br>
-
-
-      <%= link_to template.title, user_template_path(@user, template) %>
-      <%# <%= template.title %>
-
+      <%= template.title %>
+    </a>
   </article>
 <% end %> <br>
 
