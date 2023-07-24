@@ -7,7 +7,7 @@ class TemplatesController < ApplicationController
   end
 
   def show
-    @template = Template.find_by(id: params[:id])
+    @template = Template.find_by(public_uid: params[:id])
   end
 
   def new
