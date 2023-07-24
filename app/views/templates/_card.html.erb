@@ -1,3 +1,13 @@
- <% @templates.each do |template| %>
-      <%= template.title %>
-<% end %>
+
+Cold outreach and Introductions <br>
+<% @templates.each do |template| %>
+  <div>
+    <%= link_to template.title, user_template_path(@user, template) %>
+      <%# <%= template.title %>
+  </div>
+<% end %> <br>
+
+Follow ups <br>
+
+
+Product demos <br>

@@ -1,9 +1,6 @@
 class FormSelection < ApplicationRecord
 
-  TEMPLATE_CATEGORY = ['first touch', 'follow-up']
+  TEMPLATE_CATEGORY = ['First Touch', 'Follow-up', 'Product Demo']
 
 
-  INDUSTRY = ['N/A (not sector specific)', 'Retail & Ecommerce', 'Financial Services', 'Healthcare',
-    'Construction', 'Travel & Hospitality', 'Education',
-    'Media & Entertainment', 'Technology']
 end
