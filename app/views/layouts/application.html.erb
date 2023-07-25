@@ -11,27 +11,27 @@
 
     <%= stylesheet_link_tag "old_application", "data-turbo-track": "reload"%>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
-    <%# <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'%>
-    <%# <%= stylesheet_pack_tag 'old_application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Inspiration&display=swap');
     </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
         <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://droitthemes.com/html/saasland/css/bootstrap.min.css">
+    <%# <link rel="stylesheet" href="https://droitthemes.com/html/saasland/css/bootstrap.min.css"> %>
+
     <!--icon font css-->
-    <link rel="stylesheet" href="https://droitthemes.com/html/saasland/vendors/themify-icon/themify-icons.css">
-    <link rel="stylesheet" href="https://droitthemes.com/html/saasland/vendors/font-awesome/css/all.css">
-    <link rel="stylesheet" href="https://droitthemes.com/html/saasland/vendors/flaticon/flaticon.css">
-    <link rel="stylesheet" href="https://droitthemes.com/html/saasland/vendors/animation/animate.css">
-    <link rel="stylesheet" href="https://droitthemes.com/html/saasland/vendors/owl-carousel/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="https://droitthemes.com/html/saasland/vendors/animation/animate.css">
-    <link rel="stylesheet" href="https://droitthemes.com/html/saasland/vendors/magnify-pop/magnific-popup.css">
-    <link rel="stylesheet" href="https://droitthemes.com/html/saasland/vendors/elagent/style.css">
-    <link rel="stylesheet" href="https://droitthemes.com/html/saasland/vendors/scroll/jquery.mCustomScrollbar.min.css">
-    <link rel="stylesheet" href="https://droitthemes.com/html/saasland/css/style.css">
-    <link rel="stylesheet" href="https://droitthemes.com/html/saasland/css/responsive.css">
-    <%# <link rel="stylesheet" href="css/bootstrap.min.css"> %>
+    <%# <link rel="stylesheet" href="https://droitthemes.com/html/saasland/vendors/themify-icon/themify-icons.css"> - %>
+    <%# <link rel="stylesheet" href="https://droitthemes.com/html/saasland/vendors/font-awesome/css/all.css"> %>
+    <%# <link rel="stylesheet" href="https://droitthemes.com/html/saasland/vendors/flaticon/flaticon.css"> - %>
+    <%# <link rel="stylesheet" href="https://droitthemes.com/html/saasland/vendors/animation/animate.css"> - %>
+    <%# <link rel="stylesheet" href="https://droitthemes.com/html/saasland/vendors/owl-carousel/assets/owl.carousel.min.css"> - %>
+    <%# <link rel="stylesheet" href="https://droitthemes.com/html/saasland/vendors/animation/animate.css"> %>
+    <%# <link rel="stylesheet" href="https://droitthemes.com/html/saasland/vendors/magnify-pop/magnific-popup.css"> - %>
+    <%# <link rel="stylesheet" href="https://droitthemes.com/html/saasland/vendors/elagent/style.css"> %>
+    <%# <link rel="stylesheet" href="https://droitthemes.com/html/saasland/vendors/scroll/jquery.mCustomScrollbar.min.css"> - %>
+    <%# <link rel="stylesheet" href="https://droitthemes.com/html/saasland/css/style.css"> - %>
+    <%# <link rel="stylesheet" href="https://droitthemes.com/html/saasland/css/responsive.css"> %>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <!--icon font css-->
 
     <style>
@@ -40,8 +40,6 @@
   </head>
 
   <body>
-      <%# below was advised from the devise lecture, however not certain if it is required %>
-
 
     <%= yield %>
       <%# <%= render "shared/flashes" %>
