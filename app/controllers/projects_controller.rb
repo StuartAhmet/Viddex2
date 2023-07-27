@@ -69,10 +69,11 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    permitted_params = params.require(:project).permit(:prospect_first,
-                                    :prospect_last, :prospect_email, :prospect_company,
-                                    :message_body, :font, :opacity, :font_size, :title, :include_meeting_link,
-                                    background_ids: [] , audio_ids: [], video_ids: [])
+    permitted_params = params.require(:project).permit(
+      :prospect_first, :prospect_last, :prospect_email, :prospect_company,
+      :message_body, :font, :opacity, :font_size, :title, :include_meeting_link,
+      background_ids: [], audio_ids: [], video_ids: []
+    )
     video_ids = permitted_params.delete(:video_ids)
     project_video_params = video_ids.map.with_index { |id, index| { video_id: id, position: index } }
     permitted_params.merge(project_videos_attributes: project_video_params)

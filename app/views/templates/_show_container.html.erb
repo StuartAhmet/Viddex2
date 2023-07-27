@@ -1,0 +1,40 @@
+<div class="ts-grid-container">
+  <div class="template-grid">
+    <div class="template-summary">
+      <h3><%= @template.title %></h3>
+      <div class="synopsis-text">
+        <p><%= simple_format @template.synopsis %> <br></p>
+      </div>
+      <div>
+        <h5>Custom Inputs</h5>
+          Video count - <%= @template.video_count %> <br>
+          Custom audio - <%= @template.audio_required %> <br>
+          Custom messaging
+      </div>
+    </div>
+    <div class="template-video-container">
+      <video controls=true src="<%= @template.video_link %> " class="mw-100"></video>
+      <div class="flex space-between">
+        <a href="projects/new" class="btn_hover agency_banner_btn mr10">Use template</a>
+        <a href="#" class="agency_banner_btn btn_hover ml10">Watch turorial</a>
+      </div>
+    </div>
+  </div>
+  <div class="video-sequence-box">
+    <h3>Video sequence</h3>
+    Use this script as an example to help you create your own personalised content
+  </div>
+  <div>
+    <div class="flex space-between">
+      <% index = 1 %>
+      <% @template.video_count.times do %>
+        <div class="script-box">
+          <h3>Video <%= index %></h3>
+          <h5><%= @template["video_title#{index}"]%></h5>
+            <%= simple_format @template["video_script#{index}"]%>
+        </div>
+        <% index += 1 %>
+      <% end %>
+    </div>
+  </div>
+</div>

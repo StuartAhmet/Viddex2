@@ -1,4 +1,15 @@
-<%= @template.title %> <br>
-<%= simple_format @template.synopsis %> <br>
-<%= @template.video_count %> <br>
-<%= @template.video_link %>
+
+<div class="vh100">
+  <%= render"shared/terminalnav" %>
+  <div class="flex">
+    <%= render "shared/sidebarbs" %>
+    <div class="flex-column content-container">
+      <div class="flex space-between">
+        <%= render "templateshead" %>
+      </div>
+      <%= render "templates/pagetabs" %>
+      <%= render "templates/show_container" %>
+
+    </div>
+  </div>
+</div>
