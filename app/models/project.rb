@@ -6,6 +6,7 @@ class Project < ApplicationRecord
   end
 
   belongs_to :user
+  # belongs_to :template
 
   has_many :project_audios, dependent: :destroy
   has_many :audios, through: :project_audios
@@ -18,13 +19,6 @@ class Project < ApplicationRecord
   accepts_nested_attributes_for :project_videos
 
   validates :title, presence: true
-  validate :check_video_count
-
-  def check_video_count
-    if videos.count > 3
-      errors.add(:videos, "You cannot add more than three videos to a project")
-    end
-  end
 
   def thumbnail_key
     if backgrounds.exists?

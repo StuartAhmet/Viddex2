@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   get '/contacts/:id', to: 'contacts#show'
   patch '/contacts/:id', to: 'contacts#update'
 
+
+
   resources :payments
 
   resources :users, :path => 'terminal' do

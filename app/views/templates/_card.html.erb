@@ -1,0 +1,37 @@
+
+<div class="grid-container">
+  <div class="category-heading">
+    Cold outreach and Introductions <br>
+  </div>
+  <% @templates.where(category: "First Touch").each do |template| %>
+    <article class="template-card">
+      <a href="templates/<%= template.public_uid %>">
+        <video src="<%= template.video_link %>" class="template-video"></video> <br>
+        <%= template.title %>
+      </a>
+    </article>
+  <% end %> <br>
+  <div class="category-heading">
+    Follow ups <br>
+  </div>
+  <% @templates.where(category: "Follow-up").each do |template| %>
+    <article class="template-card">
+      <a href="templates/<%= template.public_uid %>">
+        <video src="<%= template.video_link %>" class="template-video"></video> <br>
+        <%= template.title %>
+      </a>
+    </article>
+  <% end %> <br>
+
+  <div class="category-heading">
+    Product demos <br>
+  </div>
+    <% @templates.where(category: "Product Demo").each do |template| %>
+    <article class="template-card">
+      <a href="templates/<%= template.public_uid %>">
+        <video src="<%= template.video_link %>" class="template-video"></video> <br>
+        <%= template.title %>
+      </a>
+    </article>
+  <% end %> <br>
+</div>

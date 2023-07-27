@@ -4,6 +4,7 @@
   <%= simple_form_for [@user, @project], html: { class: "form-container-50 center-auto"} do |f| %>
     <div class="flex space-between">
       <div class= "form-input-100">
+        <%# <%= f.association :template, collection: @templates, as: :select  %>
         <p><strong>Project title:</strong></p>
         <%= f.input :title, label: false, placeholder: "eg. Video for Elon @ Tesla", input_html: { class: "form-input-100" } %>
       </div>
@@ -17,7 +18,7 @@
       <div class="flex space-between mb-16">
         <!-- Button trigger modal -->
         <% video_number = 1 %>
-        <% 3.times do %>
+        <% 2.times do %>
           <button type="button" class="form-btn-25" id="thumbnail-button<%=video_number%>" data-bs-toggle="modal" data-bs-target="#popupModal<%=video_number%>">
             Video <%= video_number %> <br>
             <i class="fa-solid fa-circle-plus"></i>
@@ -33,7 +34,8 @@
                 <div class="modal-body flex space-between wrap">
                     <% @user.videos.each do |video| %>
                       <div>
-                        <ul class="thumbnail_select " onClick="choosevid<%=video_number%>(this)" data-bs-dismiss="modal" data-value="<%=video.id %>" id="<%=video.title%>">
+                        <!--  <ul class="thumbnail_select " onClick="choosevid<%=video_number%>(this)" data-bs-dismiss="modal" data-value="<%=video.id %>" id="<%=video.title%>">-->
+                       <ul class="thumbnail_select " onClick="chooseVideo(<%=video_number%>, this)" data-bs-dismiss="modal" data-value="<%=video.id %>" id="<%=video.title%>">
                           <img src="<%= video.service_url%>", id="thumbnail-<%= video.id %>", class="thumbnails"><br />
                           <%= video.title %>
                         </ul>
@@ -207,10 +209,15 @@ Are your SDR's underperforming?",
 <% end %>
 
 <script>
+
   var selectedVideos = [];
-  var button1 = document.getElementById("thumbnail-button1");
-  var button2 = document.getElementById("thumbnail-button2");
-  var button3 = document.getElementById("thumbnail-button3");
+
+  var buttons = [
+    document.getElementById("thumbnail-button1"),
+    document.getElementById("thumbnail-button2")
+    // document.getElementById("thumbnail-button3")
+  ];
+
   var selectedFont = ""
   var fontbtn = document.getElementById("font-select-btn")
   var thumbbtn = document.getElementById("thumb-select-btn")
@@ -250,12 +257,7 @@ Are your SDR's underperforming?",
     // selectedFont = fontId;
   }
 
-  function choosethumb(element) {
-    var thumbId = element.dataset.value;
-    document.getElementById("selected_thumb").value = thumbId;
-    thumbbtn.innerHTML = element.innerText.trim() + "<i class='bi bi-chevron-down'></i>";
-    document.getElementById('flexSwitchCheckDefault').disabled = false;
-  }
+
 
   function chooseaudio(element) {
     var audioId = element.dataset.value;
@@ -263,28 +265,48 @@ Are your SDR's underperforming?",
     audiobtn.innerHTML = element.innerText.trim() + "<i class='bi bi-chevron-down'></i>";
   }
 
-  function choosevid1(element) {
+  // var button1 = document.getElementById("thumbnail-button1");
+  // var button2 = document.getElementById("thumbnail-button2");
+  // var button3 = document.getElementById("thumbnail-button3");
 
-    var videoId = element.dataset.value;
-    document.getElementById("selected_video1").value = videoId;
-    button1.innerHTML = element.innerText.trim() +  "<br /> <i class='fa fa-chevron-down'></i>";
-    selectedVideos[0] = videoId;
+  // function choosevid1(element) {
+
+  //   var videoId = element.dataset.value;
+  //   document.getElementById("selected_video1").value = videoId;
+  //   button1.innerHTML = element.innerText.trim() +  "<br /> <i class='fa fa-chevron-down'></i>";
+  //   selectedVideos[0] = videoId;
+  // }
+
+  // function choosevid2(element) {
+
+  //   var videoId = element.dataset.value;
+  //   document.getElementById("selected_video2").value = videoId;
+  //   button2.innerHTML = element.innerText.trim() +  "<br /> <i class='fa fa-chevron-down'></i>";
+  //   selectedVideos[1] = videoId;
+  // }
+
+  // function choosevid3(element) {
+
+  //   var videoId = element.dataset.value;
+  //   document.getElementById("selected_video3").value = videoId;
+  //   button3.innerHTML = element.innerText.trim() +  "<br /> <i class='fa fa-chevron-down'></i>";
+  //   selectedVideos[2] = videoId;
+  // }
+
+
+
+  function choosethumb(element) {
+    var thumbId = element.dataset.value;
+    document.getElementById("selected_thumb").value = thumbId;
+    thumbbtn.innerHTML = element.innerText.trim() + "<i class='bi bi-chevron-down'></i>";
+    document.getElementById('flexSwitchCheckDefault').disabled = false;
   }
 
-  function choosevid2(element) {
-
-    var videoId = element.dataset.value;
-    document.getElementById("selected_video2").value = videoId;
-    button2.innerHTML = element.innerText.trim() +  "<br /> <i class='fa fa-chevron-down'></i>";
-    selectedVideos[1] = videoId;
-  }
-
-  function choosevid3(element) {
-
-    var videoId = element.dataset.value;
-    document.getElementById("selected_video3").value = videoId;
-    button3.innerHTML = element.innerText.trim() +  "<br /> <i class='fa fa-chevron-down'></i>";
-    selectedVideos[2] = videoId;
+  function chooseVideo(index, element) {
+  var videoId = element.dataset.value;
+  document.getElementById("selected_video" + index).value = videoId;
+  buttons[index - 1].innerHTML = element.innerText.trim() + "<br /> <i class='fa fa-chevron-down'></i>";
+  selectedVideos[index - 1] = videoId;
   }
 
 </script>

@@ -49,7 +49,7 @@ class VideosController < ApplicationController
   private
 
   def video_params
-    params.require(:video).permit(:title, :text_body, :cadence_step, :rotation, :addressed, :file, :bgrem_require,
+    params.require(:video).permit(:title, :text_body, :cadence_step, :industry, :addressed, :file, :bgrem_require,
       :text_distortion,
       :distort_nw_x,
       :distort_nw_y,

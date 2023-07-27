@@ -1,0 +1,44 @@
+.synopsis-text{
+  overflow-wrap: break-word;
+}
+
+.template-summary{
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  grid-area: initial;
+  grid-column-start: span 5;
+}
+
+.template-grid{
+  display: grid;
+  grid-template-areas: none;
+  grid-template-columns: repeat(12,1fr);
+  grid-gap: 40px;
+  padding: 40px;
+}
+
+.template-video-container{
+  grid-area: initial;
+  grid-column-start: span 7;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.ts-grid-container{
+  background: #fff;
+  box-shadow: 0 2px 2px #1a1b221f, 0 0 2px #1a1b2233;
+  margin: 0 auto;
+  max-width: 1000px;
+  width: 70%;
+}
+.script-box{
+  background: aliceblue;
+  padding: 10px;
+}
+
+.video-sequence-box{
+  padding: 20px 40px 40px 40px;
+  border-top: 1px solid lightgray;
+}

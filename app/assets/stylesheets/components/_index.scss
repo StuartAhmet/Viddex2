@@ -108,6 +108,9 @@
 .row{
   flex-direction: row;
 }
+.column{
+  flex-direction: column;
+}
 .tile-container{
   height:70%;
   width:100%;
@@ -182,4 +185,8 @@
 
 .w-100{
   width: 100%;
+}
+
+.mw-100{
+  max-width: 100%;
 }

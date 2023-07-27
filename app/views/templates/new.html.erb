@@ -1,0 +1,29 @@
+<%= simple_form_for @template, url: user_templates_path  do |f|%>
+  <%= f.input :title%>
+  <%= f.input :category, collection: FormSelection::TEMPLATE_CATEGORY %>
+  <%= f.input :synopsis%>
+  <%= f.input :video_count, collection:[1,2,3,4]%>
+  <%= f.input :audio_required, as: :boolean%>
+  <%= f.input :video_link%>
+  <%= f.input :tutorial_link %>
+  <div class="flex space-between">
+    <div class="flex column">
+      <%= f.input :video_title1 %>
+      <%= f.input :video_script1 %>
+    </div>
+    <div class="flex column">
+      <%= f.input :video_title2 %>
+      <%= f.input :video_script2 %>
+    </div>
+    <div class="flex column">
+      <%= f.input :video_title3 %>
+      <%= f.input :video_script3 %>
+    </div>
+    <div class="flex column">
+      <%= f.input :video_title4 %>
+      <%= f.input :video_script4 %>
+    </div>
+  </div>
+  <%= f.submit "upload" %>
+
+<% end %>

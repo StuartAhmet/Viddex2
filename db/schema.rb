@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_31_105502) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_26_134045) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -91,8 +91,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_31_105502) do
   end
 
   create_table "companies", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.string "name"
     t.string "public_uid"
     t.string "industry"
@@ -100,6 +98,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_31_105502) do
     t.string "domain"
     t.string "color_theme1"
     t.string "color_theme2"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "contacts", force: :cascade do |t|
@@ -170,16 +170,35 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_31_105502) do
     t.text "message_body"
     t.string "title"
     t.bigint "audio_id"
+    t.bigint "template_id"
     t.index ["audio_id"], name: "index_projects_on_audio_id"
     t.index ["background_id"], name: "index_projects_on_background_id"
+    t.index ["template_id"], name: "index_projects_on_template_id"
     t.index ["user_id"], name: "index_projects_on_user_id"
     t.index ["video_id"], name: "index_projects_on_video_id"
   end
 
   create_table "templates", force: :cascade do |t|
     t.string "title"
+    t.string "category"
+    t.integer "video_count"
+    t.boolean "audio_required"
+    t.string "video_link"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.string "public_uid"
+    t.text "synopsis"
+    t.string "video_title1"
+    t.string "video_title2"
+    t.string "video_title3"
+    t.string "video_title4"
+    t.text "video_script1"
+    t.text "video_script2"
+    t.text "video_script3"
+    t.text "video_script4"
+    t.string "tutorial_link"
+    t.index ["user_id"], name: "index_templates_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -234,6 +253,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_31_105502) do
     t.boolean "text_distortion", default: false
     t.string "thumbnail"
     t.text "text_body"
+    t.string "category"
     t.index ["user_id"], name: "index_videos_on_user_id"
   end
 
@@ -249,8 +269,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_31_105502) do
   add_foreign_key "project_videos", "videos", column: "videos_id"
   add_foreign_key "projects", "audios"
   add_foreign_key "projects", "backgrounds"
+  add_foreign_key "projects", "templates"
   add_foreign_key "projects", "users"
   add_foreign_key "projects", "videos"
+  add_foreign_key "templates", "users"
   add_foreign_key "users", "companies"
   add_foreign_key "videos", "users"
 end

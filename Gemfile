@@ -42,6 +42,7 @@ gem 'select2-rails'
 gem 'kaminari'
 gem 'stripe'
 gem 'jquery-rails'
+gem 'wow-rails'
 
 
 
