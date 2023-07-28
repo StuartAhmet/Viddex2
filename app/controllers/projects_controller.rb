@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_user, only: %i[index show new edit update destroy preview]
+  before_action :set_user, only: [:index, :show, :new, :edit, :update, :destroy, :preview]
   before_action :set_project, only: %i[ edit update destroy preview]
   before_action :authenticate_user!, :except => [:preview]
 
@@ -18,6 +18,7 @@ class ProjectsController < ApplicationController
   end
 
   def new
+    @user = current_user
     @project = Project.new
     @templates = Template.all
     # @user_backgrounds = Background.find(params[:id])
