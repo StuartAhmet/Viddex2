@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_26_134045) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_28_091530) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -139,6 +139,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_26_134045) do
     t.index ["projects_id"], name: "index_project_backgrounds_on_projects_id"
   end
 
+  create_table "project_templates", force: :cascade do |t|
+    t.bigint "project_id"
+    t.bigint "template_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id", "template_id"], name: "index_project_templates_on_project_id_and_template_id", unique: true
+    t.index ["project_id"], name: "index_project_templates_on_project_id"
+    t.index ["template_id"], name: "index_project_templates_on_template_id"
+  end
+
   create_table "project_videos", force: :cascade do |t|
     t.integer "project_id", null: false
     t.integer "video_id", null: false
@@ -265,6 +275,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_26_134045) do
   add_foreign_key "project_audios", "projects", column: "projects_id"
   add_foreign_key "project_backgrounds", "backgrounds", column: "backgrounds_id"
   add_foreign_key "project_backgrounds", "projects", column: "projects_id"
+  add_foreign_key "project_templates", "projects"
+  add_foreign_key "project_templates", "templates"
   add_foreign_key "project_videos", "projects", column: "projects_id"
   add_foreign_key "project_videos", "videos", column: "videos_id"
   add_foreign_key "projects", "audios"
