@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_user, only: %i[index show new edit update destroy preview]
+  before_action :set_user, only: [:index, :show, :new, :edit, :update, :destroy, :preview]
   before_action :set_project, only: %i[ edit update destroy preview]
   before_action :authenticate_user!, :except => [:preview]
 
@@ -18,6 +18,7 @@ class ProjectsController < ApplicationController
   end
 
   def new
+    @user = current_user
     @project = Project.new
     @templates = Template.all
     # @user_backgrounds = Background.find(params[:id])
@@ -72,7 +73,7 @@ class ProjectsController < ApplicationController
     permitted_params = params.require(:project).permit(
       :prospect_first, :prospect_last, :prospect_email, :prospect_company,
       :message_body, :font, :opacity, :font_size, :title, :include_meeting_link,
-      background_ids: [], audio_ids: [], video_ids: []
+      background_ids: [], audio_ids: [], video_ids: [], template_ids: []
     )
     video_ids = permitted_params.delete(:video_ids)
     project_video_params = video_ids.map.with_index { |id, index| { video_id: id, position: index } }
@@ -80,10 +81,11 @@ class ProjectsController < ApplicationController
   end
 
   def project_edit_params
-    params.require(:project).permit(:prospect_first,
-      :prospect_last, :prospect_email, :prospect_company,
+    params.require(:project).permit(
+      :prospect_first, :prospect_last, :prospect_email, :prospect_company,
       :message_body, :font, :opacity, :font_size, :title, :include_meeting_link,
-      background_ids: [] , audio_ids: [])
+      background_ids: [], audio_ids: [], template_ids: []
+    )
 
   end
 end

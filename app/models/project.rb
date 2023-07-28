@@ -6,7 +6,9 @@ class Project < ApplicationRecord
   end
 
   belongs_to :user
-  # belongs_to :template
+
+  has_many :project_templates, dependent: :destroy
+  has_many :templates, through: :project_templates
 
   has_many :project_audios, dependent: :destroy
   has_many :audios, through: :project_audios
