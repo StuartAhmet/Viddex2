@@ -21,6 +21,7 @@ class ProjectsController < ApplicationController
     @user = current_user
     @project = Project.new
     @templates = Template.all
+    @selected_template = Template.find_by(id: params[:id])
     # @user_backgrounds = Background.find(params[:id])
   end
 

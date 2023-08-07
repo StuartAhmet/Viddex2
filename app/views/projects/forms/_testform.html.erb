@@ -1,0 +1,45 @@
+<div data-controller="slideshow">
+  <button data-action="slideshow#previous"> Previous </button>
+  <button data-action="slideshow#next"> Next </button>
+
+  <div data-controller="new-project-form">
+
+    <div data-slideshow-target="slide">
+      <%= render "projects/forms/template_new_forms/slide1_project_type" %>
+    </div>
+    <div data-slideshow-target="slide">
+      <%= render "projects/forms/template_new_forms/slide_template" %>
+    </div>
+    <div data-slideshow-target="slide">
+      <%= render "projects/forms/template_new_forms/slide_video" %>
+    </div>
+    <div data-slideshow-target="slide">
+
+    <%= simple_form_for [@user, @project], html: { class: "form-container-50 center-auto"} do |f| %>
+        <%= f.association :templates, as: :hidden, collection: @templates, input_html: { id: "selected_template", multiple: true}%>
+    <% end %>
+    </div>
+    <div data-slideshow-target="slide">
+      🙊
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+
+
+  // script to select template
+  function chooseTemplate(element) {
+    var templateId = element.dataset.value;
+    var templateVideoCount = document.getElementById("template_video_count").innerHTML;
+    var videoRepeat = document.getElementById("video_repeat").innerHTML;
+    document.getElementById("selected_template").value = templateId;
+    document.getElementById("video_repeat").innerHTML = templateVideoCount;
+    console.log(templateId)
+    console.log(templateVideoCount)
+    console.log(videoRepeat)
+  }
+
+</script>

@@ -1,34 +1,7 @@
-<body>
-Step 1 - Select your template <br>
-Step 2 - Select your videos <br>
-<div data-controller="slideshow">
-  <button data-action="slideshow#previous"> ← </button>
-  <button data-action="slideshow#next"> → </button>
-
-  <div data-slideshow-target="slide">
-    <%= render "projects/forms/template_new_forms/slide_template" %>
-  </div>
-    <div data-slideshow-target="slide">
-    <%= render "projects/forms/template_new_forms/slide_video" %>
-  </div>
-  <%= simple_form_for [@user, @project], html: { class: "form-container-50 center-auto"} do |f| %>
-    <div data-controller="disable-button">
-      <%# <% template_id = 1 %>
-
-      <%= f.association :templates, as: :hidden, collection: @templates, input_html: { id: "selected_template", multiple: true}%>
-    </div>
-    <button class="">Next</button>
-
-    <%= f.input :title %>
-    <%= f.input :prospect_first %>
-    <%= f.input :prospect_company %>
-
-    <div class="flex space-between mb-16">
+<div class="flex space-between mb-16">
         <!-- Button trigger modal -->
         <% video_number = 1 %>
-        <div id="video_repeat"><%= video_repeat = 2 %></div>
-          <% video_repeat.times do %>
-
+        <% 2.times do %>
           <button type="button" class="form-btn-25" id="thumbnail-button<%=video_number%>" data-bs-toggle="modal" data-bs-target="#popupModal<%=video_number%>">
             Video <%= video_number %> <br>
             <i class="fa-solid fa-circle-plus"></i>
@@ -65,13 +38,9 @@ Step 2 - Select your videos <br>
         <%# end of video select %>
       </div>
 
-    <%= f.submit %>
-  <% end %>
-</div>
-
-</body>
 <script>
- var selectedVideos = [];
+
+  var selectedVideos = [];
 
   var buttons = [
     document.getElementById("thumbnail-button1"),
@@ -79,18 +48,81 @@ Step 2 - Select your videos <br>
     // document.getElementById("thumbnail-button3")
   ];
 
+  var selectedFont = ""
+  var fontbtn = document.getElementById("font-select-btn")
+  var thumbbtn = document.getElementById("thumb-select-btn")
+  var audiobtn = document.getElementById("audio-select-btn")
 
-  // script to select template
-  function chooseTemplate(element) {
-    var templateId = element.dataset.value;
-    var templateVideoCount = document.getElementById("template_video_count").innerHTML;
-    var videoRepeat = document.getElementById("video_repeat").innerHTML;
-    document.getElementById("selected_template").value = templateId;
-    document.getElementById("video_repeat").innerHTML = templateVideoCount;
-    console.log(templateId)
-    console.log(templateVideoCount)
-    console.log(videoRepeat)
+  document.addEventListener('change', function(event) {
+  if (event.target.matches('#flexSwitchCheckDefault')) {
+    var messageOptions = document.getElementsByClassName("message-options");
+    if (event.target.checked) {
+      for (var i = 0; i < messageOptions.length; i++) {
+        messageOptions[i].classList.remove("hidden");
+      }
+    } else {
+      for (var i = 0; i < messageOptions.length; i++) {
+        messageOptions[i].classList.add("hidden");
+      }
+    }
   }
+}, false);
+
+
+
+  // Call the toggleSwitches function when the thumbnail select box changes
+  document.querySelector("#thumb-select-btn").addEventListener("change", function() {
+    console.log("selected_thumb changed");
+    toggleSwitches();
+  });
+
+  // Call the toggleSwitches function on page load to set the initial visibility of the switches
+  toggleSwitches();
+
+
+  function choosefont(element) {
+    var fontId = element.dataset.value;
+    document.getElementById("selected_font").value = fontId;
+    fontbtn.innerHTML = element.innerText.trim() + "<i class='bi bi-chevron-down'></i>";
+    // selectedFont = fontId;
+  }
+
+
+
+  function chooseaudio(element) {
+    var audioId = element.dataset.value;
+    document.getElementById("selected_audio").value = audioId;
+    audiobtn.innerHTML = element.innerText.trim() + "<i class='bi bi-chevron-down'></i>";
+  }
+
+  // var button1 = document.getElementById("thumbnail-button1");
+  // var button2 = document.getElementById("thumbnail-button2");
+  // var button3 = document.getElementById("thumbnail-button3");
+
+  // function choosevid1(element) {
+
+  //   var videoId = element.dataset.value;
+  //   document.getElementById("selected_video1").value = videoId;
+  //   button1.innerHTML = element.innerText.trim() +  "<br /> <i class='fa fa-chevron-down'></i>";
+  //   selectedVideos[0] = videoId;
+  // }
+
+  // function choosevid2(element) {
+
+  //   var videoId = element.dataset.value;
+  //   document.getElementById("selected_video2").value = videoId;
+  //   button2.innerHTML = element.innerText.trim() +  "<br /> <i class='fa fa-chevron-down'></i>";
+  //   selectedVideos[1] = videoId;
+  // }
+
+  // function choosevid3(element) {
+
+  //   var videoId = element.dataset.value;
+  //   document.getElementById("selected_video3").value = videoId;
+  //   button3.innerHTML = element.innerText.trim() +  "<br /> <i class='fa fa-chevron-down'></i>";
+  //   selectedVideos[2] = videoId;
+  // }
+
 
 
   function choosethumb(element) {
