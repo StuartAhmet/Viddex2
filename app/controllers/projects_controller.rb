@@ -21,7 +21,7 @@ class ProjectsController < ApplicationController
     @user = current_user
     @project = Project.new
     @templates = Template.all
-    @selected_template = Template.find_by(id: params[:id])
+    @selected_template = Template.find_by(id: params[:template_id])
     # @user_backgrounds = Background.find(params[:id])
   end
 
@@ -74,7 +74,7 @@ class ProjectsController < ApplicationController
     permitted_params = params.require(:project).permit(
       :prospect_first, :prospect_last, :prospect_email, :prospect_company,
       :message_body, :font, :opacity, :font_size, :title, :include_meeting_link,
-      background_ids: [], audio_ids: [], video_ids: [], template_ids: []
+      template_ids: [], background_ids: [], audio_ids: [], video_ids: []
     )
     video_ids = permitted_params.delete(:video_ids)
     project_video_params = video_ids.map.with_index { |id, index| { video_id: id, position: index } }

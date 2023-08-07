@@ -11,6 +11,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(public_uid: params[:id])
+    @templates = Template.all
   end
 
   def edit
