@@ -30,6 +30,7 @@ class ProjectsController < ApplicationController
   end
 
   def create
+    # @user = User.find(params[:id])
     @project = Project.new(project_params)
     @project.user = current_user
     # @project.project_videos = project_params[:project_videos]
