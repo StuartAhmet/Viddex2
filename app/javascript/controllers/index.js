@@ -4,8 +4,17 @@
 
 import { application } from "./application"
 
+import NewProjectFormController from "./new_project_form_controller"
+application.register("new-project-form", NewProjectFormController)
+
 import ShowHideBgremOptionsController from "./show_hide_bgrem_options_controller"
 application.register("show-hide-bgrem-options", ShowHideBgremOptionsController)
 
-import HelloController from "./hello_controller"
-application.register("hello", HelloController)
+import SlideshowController from "./slideshow_controller"
+application.register("slideshow", SlideshowController)
+
+import TemplateSelectController from "./template_select_controller"
+application.register("template-select", TemplateSelectController)
+
+import VideoSelectController from "./video_select_controller"
+application.register("video-select", VideoSelectController)

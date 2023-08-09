@@ -30,6 +30,7 @@ class User < ApplicationRecord
   has_many :projects
   has_many :audios
   has_many :thumbnails
+  has_many :templates
   # after_create :assign_company
 
   INDUSTRY = ["Advertising", "Finance", "Financial Services", "Information Technology", "Insurance",

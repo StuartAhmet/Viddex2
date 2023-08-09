@@ -1,4 +1,11 @@
 // Entry point for the build script in your package.json
+// import { Application } from "stimulus";
+// import DisableBtnController from "./controllers/disable_btn_controller.js";
+
+// window.Stimulus = Application.start();
+
+// Stimulus.register("disable-button", DisableBtnController);
+
 import "@hotwired/turbo-rails"
 import "./controllers"
 import "bootstrap"

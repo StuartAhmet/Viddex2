@@ -16,8 +16,9 @@
       <div class="template-video-container">
         <video controls=true src="<%= @template.video_link %> " class="mw-100"></video>
         <div class="flex space-between">
-          <a href="projects/new" class="btn_hover agency_banner_btn mr10">Use template</a>
+          <a href="/terminal/<%= @user.public_uid %>/projects/new?template_id=<%= @template.id %>" class="btn_hover agency_banner_btn mr10">Use template</a>
           <a href="#" class="agency_banner_btn btn_hover ml10">Watch turorial</a>
+
         </div>
       </div>
     </div>
