@@ -57,21 +57,27 @@
           </div>
 
           <div data-slideshow-target="slide">
-              <!--insert each slideshow target here-->
+              <%= f.input :message_body %>
+              <%= f.input :font %>
+              <%= f.input :font_size %>
+
+              <button type="button" data-action="slideshow#previous"> Previous </button>
+              <button type="button" data-action="slideshow#next"> Next </button>
+          </div>
+
+          <div data-slideshow-target="slide">
+              <%= f.association :backgrounds %>
+              <%= f.association :audios %>
+              <button type="button" data-action="slideshow#previous"> Previous </button>
+              <button type="button" data-action="slideshow#next"> Next </button>
+          </div>
+
+          <div data-slideshow-target="slide">
               <%= f.input :title %>
-              <button type="button" data-action="slideshow#previous"> Previous </button>
-              <button type="button" data-action="slideshow#next"> Next </button>
-          </div>
-
-          <div data-slideshow-target="slide">
-              <!--insert each slideshow target here-->
-              third
-              <button type="button" data-action="slideshow#previous"> Previous </button>
-              <button type="button" data-action="slideshow#next"> Next </button>
-          </div>
-
-          <div data-slideshow-target="slide">
-              <!--insert each slideshow target here-->
+              <%= f.input :prospect_first %>
+              <%= f.input :prospect_email %>
+              <%= f.input :prospect_company %>
+              <%= f.input :include_meeting_link %>
               <button type="button" data-action="slideshow#previous"> Previous </button>
               <%= f.submit %>
           </div>
