@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_10_145404) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_11_203314) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -213,6 +213,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_10_145404) do
     t.bigint "user_id"
     t.string "public_uid"
     t.text "synopsis"
+    t.text "tutorial_link"
     t.index ["user_id"], name: "index_templates_on_user_id"
   end
 
