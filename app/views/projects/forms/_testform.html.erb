@@ -9,13 +9,14 @@
 
           <div data-slideshow-target="slide">
             <div  class="project-content-box fl-cl-sb">
-              <div>
+              <div class="d-contents">
                 <% video_count = 1 %>
                 <% @selected_template.template_videos.count.times do %>
                   <div class="flex space-between">
                     <div class="mr20 mb20 mw-50">
-                      <p><strong>Video <%= video_count %> : </strong>
-                      <%= @selected_template.template_videos[video_count-1].title %></p>
+                      <p>Video <%= video_count %> :
+                        <%= @selected_template.template_videos[video_count-1].title %>
+                      </p>
                       <%= @selected_template.template_videos[video_count-1].video_instructions %>
                       <br>
                     </div>
@@ -83,17 +84,15 @@
                   <% end %>
                 <div class="project-grid-c4">
                   <p>Font style</p>
-                  <p>Font size</p>
                 </div>
                 <div class="project-grid-c8">
                   <div>
-                    <div>
-                      <button type="button" id="font-select-btn"class="btn_hover agency_banner_btn video_select w-100" data-bs-toggle="modal" data-bs-target="#fontModal">
-                        Select font
-                      </button><br>
-                    </div>
-                      <%# Modal for font %>
-                      <div class="modal fade" id="fontModal" tabindex="-1" aria-labelledby="fontModalLabel" aria-hidden="true">
+                    <button type="button" id="font-select-btn"class="btn_hover agency_banner_btn video_select w-100" data-bs-toggle="modal" data-bs-target="#fontModal">
+                      Select font
+                    </button><br>
+                  </div>
+                  <%# Modal for font %>
+                  <div class="modal fade" id="fontModal" tabindex="-1" aria-labelledby="fontModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                           <div class="modal-content">
                             <div class="modal-header">
@@ -118,11 +117,15 @@
                           </div>
                         </div>
                       </div><%# end of model for font %>
-                  </div>
-                  <div>
-                    <%= f.input :font_size, label: false, input_html: { class: "btn-get"}  %>
-                  </div>
+
                 </div>
+                <div class="project-grid-c4">
+                  <p>Font size</p>
+                </div>
+                <div class="project-grid-c8">
+                  <%= f.input :font_size, label: false, input_html: { id: "form-input-string"}  %>
+                </div>
+
               </div> <!--end of grid-->
               <div class="flex space-between">
                 <button type="button" class="btn_get btn_hover" data-action="slideshow#previous"> Back </button>
@@ -216,15 +219,45 @@
           </div>
 
           <div data-slideshow-target="slide">
-              <%= f.input :title %>
-              <%= f.input :prospect_first %>
-              <%= f.input :prospect_email %>
-              <%= f.input :prospect_company %>
-              <%= f.input :include_meeting_link %>
+            <div class="project-content-box fl-cl-sb">
+              <div class="project-grid">
+                <div class="project-grid-c4">
+                  <p>Project title</p>
+                </div>
+                <div class="project-grid-c8">
+                  <%= f.input :title, placeholder: "eg. Video for Elon @ Tesla", label: false,
+                  input_html: {class: "form-input-string "} %>
+                </div>
+                <div class="project-grid-c4">
+                  <p>Prospect first name</p>
+                </div>
+                <div class="project-grid-c8">
+                  <%= f.input :prospect_first, placeholder: "eg. Elon", label: false, input_html: {class: "form-input-string "} %>
+                </div>
+                <div class="project-grid-c4">
+                  <p>Prospect email address</p>
+                </div>
+                <div class="project-grid-c8">
+                  <%= f.input :prospect_email, placeholder: "eg. elon@tesla.com", label: false, input_html: {class: "form-input-string "} %>
+                </div>
+                <div class="project-grid-c4">
+                  <p>Prospect company name</p>
+                </div>
+                <div class="project-grid-c8">
+                  <%= f.input :prospect_company, placeholder: "eg. Tesla", label: false, input_html: {class: "form-input-string "} %>
+                </div>
+                <div class="project-grid-c4">
+                  <p>Include meeting link</p>
+                </div>
+                <div class="project-grid-c8">
+                  <%= f.input :include_meeting_link, label: false %>
+                </div>
+              </div>
               <div class="flex space-between">
                 <button type="button" class="btn_get btn_hover" data-action="slideshow#previous"> Back </button>
                 <%= f.submit class: "btn_get btn_hover"%>
               </div>
+            </div>
           </div>
 
           <%= f.association :templates, collection: @templates, as: :hidden, input_html: { value: @selected_template&.id, multiple: true} %>
