@@ -38,29 +38,20 @@ class Project < ApplicationRecord
     end
   end
 
-  def distortion_params
-    if backgrounds[0].text_distortion?
-      "distort: #{backgrounds[0].distort_nw_x}:#{backgrounds[0].distort_nw_y}:#{backgrounds[0].distort_ne_x}:#{backgrounds[0].distort_ne_y}:#{backgrounds[0].distort_se_x}:#{backgrounds[0].distort_se_y}:#{backgrounds[0].distort_sw_x}:#{backgrounds[0].distort_sw_y}:"
-    else
-      nil
-    end
-
-  end
 
   def message_params
     if message_body?
       {
-        effect: distortion_params,
         gravity: "north_west",
         :overlay=>{
           font_family: font,
           font_size: font_size,
           text: message_body},
           opacity: opacity,
-          width: backgrounds[0].width,
-          height: backgrounds[0].text_box_height,
-          x: backgrounds[0].x_axis,
-          y: backgrounds[0].y_axis,
+          # width: backgrounds[0].width,
+          # height: backgrounds[0].text_box_height,
+          # x: backgrounds[0].x_axis,
+          # y: backgrounds[0].y_axis,
           crop: "fit",
           }
     else

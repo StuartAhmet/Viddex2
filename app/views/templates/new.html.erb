@@ -1,4 +1,7 @@
-<%= simple_form_for @template, url: user_templates_path  do |f|%>
+<%= simple_form_for @template, url: user_templates_path, data:{
+  controller: "nested-form",
+  nested_form_wrapper_selector_value: '.nested-form-wrapper'
+}  do |f|%>
   <%= f.input :title%>
   <%= f.input :category, collection: FormSelection::TEMPLATE_CATEGORY %>
   <%= f.input :synopsis%>
@@ -7,21 +10,19 @@
   <%= f.input :video_link%>
   <%= f.input :tutorial_link %>
   <div class="flex space-between">
+
     <div class="flex column">
-      <%= f.input :video_title1 %>
-      <%= f.input :video_script1 %>
-    </div>
-    <div class="flex column">
-      <%= f.input :video_title2 %>
-      <%= f.input :video_script2 %>
-    </div>
-    <div class="flex column">
-      <%= f.input :video_title3 %>
-      <%= f.input :video_script3 %>
-    </div>
-    <div class="flex column">
-      <%= f.input :video_title4 %>
-      <%= f.input :video_script4 %>
+      <template data-nested-form-target="template">
+        <%= f.simple_fields_for :template_videos, TemplateVideo.new, child_index: 'NEW_RECORD' do |template_fields| %>
+          <%= render "template_video_fields", f: template_fields %>
+        <% end %>
+      </template>
+      <%= f.simple_fields_for :template_videos do |template_fields| %>
+        <%= render "template_video_fields", f: template_fields %>
+      <% end %>
+      <div data-nested-form-target="target"></div>
+
+      <button type="button" data-action="nested-form#add">Add Video</button>
     </div>
   </div>
   <%= f.submit "upload" %>

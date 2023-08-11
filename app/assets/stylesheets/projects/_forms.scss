@@ -1,12 +1,68 @@
+#form-input-string{
+  color: #6754e2;
+  border: 2px solid #ccc5fa;
+  border-radius: 4px;
+  box-shadow: 0px 20px 24px 0px rgba(0, 11, 40, 0.1);
+  transform: perspective(1px) translateZ(0);
+}
+.form-input-string{
+  color: #6754e2;
+  border: 2px solid #ccc5fa;
+  border-radius: 4px;
+  box-shadow: 0px 20px 24px 0px rgba(0, 11, 40, 0.1);
+  transform: perspective(1px) translateZ(0);
+}
+
 .message_styling{
   height: 30px;
   width: 250px;
 
 }
 
+#message-input{
+  min-height: 100px;
+  color: #6754e2;
+  border: 2px solid #ccc5fa;
+  border-radius: 4px;
+  box-shadow: 0px 20px 24px 0px rgba(0, 11, 40, 0.1);
+  transform: perspective(1px) translateZ(0);
+}
+
 .dropdown-menu-original{
   display:none;
   }
+
+.project-grid{
+  display: grid;
+  grid-template-areas: none;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: 40px;
+}
+.project-grid-c4{
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  grid-area: initial;
+  grid-column-start: span 4;
+}
+.project-grid-c8{
+  grid-area: initial;
+  grid-column-start: span 8;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.project-content-box{
+  padding: 40px 40px 40px 40px;
+  border-top: 1px solid lightgray;
+  min-height: 60vh;
+}
+
+.fl-cl-sb{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
   .thumbnails{
   width:150px;

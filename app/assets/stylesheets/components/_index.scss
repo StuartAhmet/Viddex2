@@ -3,10 +3,11 @@
 @import "avatar";
 @import "form_legend_clear";
 
-.horizontal-center{
-  display: grid;
-  place-items: center;
+.blue-switch{
+  color: blue;
+  border-color: blue;
 }
+
 .btn-font{
   border: none;
   background-color: transparent;
@@ -16,13 +17,12 @@
   border-radius: 10px;
   padding: 5px;
 }
-.flex{
-  display: flex;
-}
 .col-white{
   color: white;
 }
-
+.column{
+  flex-direction: column;
+}
 .center{
   justify-content: center;
 }
@@ -33,6 +33,14 @@
   width: 100%;
   padding: 20px;
   height: 100vh;
+}
+
+.d-contents{
+  display: contents;
+}
+
+.flex{
+  display: flex;
 }
 
 .flex-left{
@@ -60,19 +68,20 @@
   width: 100%;
   margin-top: -8px;
 }
-.blue-switch{
-  color: blue;
-  border-color: blue;
-}
+
 .hidden{
   display: none;
 }
+
+.horizontal-center{
+  display: grid;
+  place-items: center;
+}
+
 .image-100 img{
   max-width: 100%;
 }
-.tal{
-  text-align: left;
-}
+
 .ma-50{
   max-width: 50%;
   margin: auto;
@@ -80,21 +89,37 @@
 .mb-16{
   margin-bottom: 16px;
 }
+
+.mb20{
+  margin-bottom: 20px;
+}
 .mr10{
   margin-right: 10px;
+}
+
+.mr20{
+  margin-right: 20px;
 }
 
 .ml10{
   margin-left: 10px;
 }
 
+.mw-50{
+  max-width: 50%;
+}
+.mw-100{
+  max-width: 100%;
+}
+
+.p40{
+  padding:40px
+}
 .pl20{
   padding-left: 20px;
 }
 
-.vh100{
-  height: 100vh;
-}
+
 
 .pt10{
   padding-top: 10px;
@@ -108,8 +133,10 @@
 .row{
   flex-direction: row;
 }
-.column{
-  flex-direction: column;
+
+
+.tal{
+  text-align: left;
 }
 .tile-container{
   height:70%;
@@ -187,6 +214,6 @@
   width: 100%;
 }
 
-.mw-100{
-  max-width: 100%;
+.vh100{
+  height: 100vh;
 }
