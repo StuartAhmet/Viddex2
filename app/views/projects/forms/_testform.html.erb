@@ -1,103 +1,182 @@
 <div style="overflow:auto">
   <div class="ts-grid-container">
-    <div class="template-grid">
-      <div class="template-summary">
+    <div class="p40">
         <h3><%= @selected_template.title %></h3>
-      </div>
     </div>
-    <div class="video-sequence-box" data-controller="slideshow">
-      <div data-controller="new-project-form">
+    <div data-controller="slideshow">
+      <%# <div data-controller="new-project-form"> %>
         <%= simple_form_for [@user, @project] do |f| %>
 
           <div data-slideshow-target="slide">
-            <% video_count = 1 %>
-            <% @selected_template.template_videos.count.times do %>
-              <div class="flex space-between">
-                <div class="mr20 mb20 mw-50">
-                  <p><strong>Video <%= video_count %> : </strong>
-                  <%= @selected_template.template_videos[video_count-1].title %></p>
-                  <%= @selected_template.template_videos[video_count-1].video_instructions %>
-                  <br>
-                </div>
-                <!-- Modal button -->
-                <button type="button" class="btn_hover agency_banner_btn video_select"
-                  id="thumbnail-button<%=video_count%>" data-bs-toggle="modal"
-                  data-bs-target="#popupModal<%=video_count%>">
-                    Select video
-                </button>
-                <!-- Modal -->
-                <div class="modal fade" id="popupModal<%=video_count%>" tabindex="-1" aria-labelledby="popupModalLabel" aria-hidden="true">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="popupModalLabel">Select a video</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                      <div class="modal-body flex space-between wrap">
-                          <% @user.videos.each do |video| %>
-                            <div>
-                              <!--  <ul class="thumbnail_select " onClick="choosevid<%=video_count%>(this)" data-bs-dismiss="modal" data-value="<%=video.id %>" id="<%=video.title%>">-->
-                            <ul class="thumbnail_select " onClick="chooseVideo(<%=video_count%>, this)" data-bs-dismiss="modal" data-value="<%=video.id %>" id="<%=video.title%>">
-                                <img src="<%= video.service_url%>", id="thumbnail-<%= video.id %>", class="thumbnails"><br />
-                                <%= video.title %>
-                              </ul>
-                            </div>
-                          <% end %>
-                      <%= f.association :videos, as: :hidden, collection: @selectedVideos, input_html: { id: "selected_video#{video_count}", multiple: true}%>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <div  class="project-content-box fl-cl-sb">
+              <div>
+                <% video_count = 1 %>
+                <% @selected_template.template_videos.count.times do %>
+                  <div class="flex space-between">
+                    <div class="mr20 mb20 mw-50">
+                      <p><strong>Video <%= video_count %> : </strong>
+                      <%= @selected_template.template_videos[video_count-1].title %></p>
+                      <%= @selected_template.template_videos[video_count-1].video_instructions %>
+                      <br>
+                    </div>
+                    <!-- Modal button -->
+                    <button type="button" class="btn_hover agency_banner_btn video_select"
+                      id="thumbnail-button<%=video_count%>" data-bs-toggle="modal"
+                      data-bs-target="#popupModal<%=video_count%>">
+                        Select video
+                    </button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="popupModal<%=video_count%>" tabindex="-1" aria-labelledby="popupModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="popupModalLabel">Select a video</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body flex space-between wrap">
+                              <% @user.videos.each do |video| %>
+                                <div>
+                                  <!--  <ul class="thumbnail_select " onClick="choosevid<%=video_count%>(this)" data-bs-dismiss="modal" data-value="<%=video.id %>" id="<%=video.title%>">-->
+                                <ul class="thumbnail_select " onClick="chooseVideo(<%=video_count%>, this)" data-bs-dismiss="modal" data-value="<%=video.id %>" id="<%=video.title%>">
+                                    <img src="<%= video.service_url%>", id="thumbnail-<%= video.id %>", class="thumbnails"><br />
+                                    <%= video.title %>
+                                  </ul>
+                                </div>
+                              <% end %>
+                          <%= f.association :videos, as: :hidden, collection: @selectedVideos, input_html: { id: "selected_video#{video_count}", multiple: true}%>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                          </div>
+                        </div>
                       </div>
                     </div>
+                    <%# end of modal %>
                   </div>
-                </div>
-                <%# end of modal %>
+                  <% video_count += 1 %>
+                <% end %><!--end of loop -->
               </div>
-              <% video_count += 1 %>
-            <% end %><!--end of loop -->
-            <div style="text-align:end">
-              <button type="button" class="btn_get btn_hover" data-action="slideshow#next"> Next </button>
+              <div style="text-align:end">
+                <button type="button" class="btn_get btn_hover" data-action="slideshow#next"> Next </button>
+              </div>
             </div>
           </div>
 
           <div data-slideshow-target="slide">
-            <% index = 0 %>
-            <% @selected_template.template_videos.count.times do %>
-               <% if @selected_template.template_videos[index].message?%>
-                <div class="flex space-between">
-                  <p>Video <%= index+1 %> Message</p>
-                  <%= f.input :message_body, label: false,
-                  placeholder: @selected_template.template_videos[0].message_instructions %>
+            <div class="project-content-box fl-cl-sb">
+              <div class="project-grid">
+                <% index = 0 %>
+                <% @selected_template.template_videos.count.times do %>
+                  <% if @selected_template.template_videos[index].message?%>
+                  <div class="project-grid-c4">
+                    <p>Message for video <%= index+1 %></p>
+                  </div>
+                  <div class="project-grid-c8">
+                    <div>
+                      <%= f.input :message_body, label: false, placeholder:
+                      @selected_template.template_videos[index].message_instructions,
+                      input_html: { style: 'min-height: 100px;' } %>
+                    </div>
+                  </div>
+                    <% end %>
+                    <% index +=1 %>
+                  <% end %>
+                <div class="project-grid-c4">
+                  <p>Font style</p>
+                  <p>Font size</p>
                 </div>
-              <% end %>
-              <% index +=1 %>
-            <% end %>
-            <div class="flex space-between">
-              <p>Font type</p>
-              <button type="button" id="font-select-btn"class="flex space-between form-control" data-bs-toggle="modal" data-bs-target="#fontModal">
-                Permanent Marker
-                <i class="bi bi-chevron-down"></i>
-              </button><br>
+                <div class="project-grid-c8">
+                  <div>
+                    <div>
+                      <button type="button" id="font-select-btn"class="btn_hover agency_banner_btn video_select w-100" data-bs-toggle="modal" data-bs-target="#fontModal">
+                        Select font
+                      </button><br>
+                    </div>
+                      <%# Modal for font %>
+                      <div class="modal fade" id="fontModal" tabindex="-1" aria-labelledby="fontModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="fontModalLabel">Select your font</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              <% font_number = 0 %>
+                              <% Project::FONT.each do %>
+                                <ul onClick="choosefont(this)" data-bs-dismiss="modal" data-value="<%=Project::FONT[font_number] %>">
+                                  <button type="button" class="btn-font"id="fontType<%= Project::FONT[font_number] %>">
+                                    <h4 style="font-family:<%= Project::FONT[font_number] %>"><%= Project::FONT[font_number] %></h4>
+                                  </button>
+                                </ul>
+                                <% font_number +=1 %>
+                              <% end %>
+                              <%= f.input :font, as: :hidden, collection: @selectedFont, input_html: { id: "selected_font", multiple: false} %>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div><%# end of model for font %>
+                  </div>
+                  <div>
+                    <%= f.input :font_size, label: false %>
+                  </div>
+                </div>
+              </div> <!--end of grid-->
+              <div class="flex space-between">
+                <button type="button" class="btn_get btn_hover" data-action="slideshow#previous"> Back </button>
+                <button type="button" class="btn_get btn_hover" data-action="slideshow#next"> Next </button>
+              </div>
             </div>
-            <%# Modal for font %>
-             <div class="modal fade" id="fontModal" tabindex="-1" aria-labelledby="fontModalLabel" aria-hidden="true">
+          </div>
+
+          <div data-slideshow-target="slide">
+            <div class="project-content-box fl-cl-sb">
+              <div class="project-grid">
+                <% index = 0%>
+                <% @selected_template.template_videos.count.times do %>
+                  <% if @selected_template.template_videos[index].image_url?%>
+                    <div class="project-grid-c4">
+                      <p>Select image for video <%= index+1 %></p>
+                    </div>
+                    <div class="project-grid-c8">
+                      <button type="button" id="thumb-select-btn"class="btn_hover agency_banner_btn video_select w-100" data-bs-toggle="modal" data-bs-target="#thumbModal">
+                        Select Background
+                      </button>
+                    </div>
+                  <% end %>
+                  <% index +=1 %>
+                <% end %>
+                <% if @selected_template.audio_required? %>
+                  <div class="project-grid-c4">
+                    <p>Select audio</p>
+                  </div>
+                  <div class="project-grid-c8">
+                    <button type="button" id="audio-select-btn"class="btn_hover agency_banner_btn video_select w-100" data-bs-toggle="modal" data-bs-target="#audioModal">
+                      Select audio
+                    </button>
+                  </div>
+                <% end %>
+              </div>
+              <%# modal for background %>
+              <div class="modal fade" id="thumbModal" tabindex="-1" aria-labelledby="thumbModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title" id="fontModalLabel">Select your font</h5>
+                      <h5 class="modal-title" id="thumbModalLabel">Select a thumbnail</h5>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
-                      <% font_number = 0 %>
-                      <% Project::FONT.each do %>
-                        <ul onClick="choosefont(this)" data-bs-dismiss="modal" data-value="<%=Project::FONT[font_number] %>">
-                          <button type="button" class="btn-font"id="fontType<%= Project::FONT[font_number] %>">
-                            <h4 style="font-family:<%= Project::FONT[font_number] %>"><%= Project::FONT[font_number] %></h4>
-                          </button>
-                        </ul>
-                        <% font_number +=1 %>
-                      <% end %>
-                      <%= f.input :font, as: :hidden, collection: @selectedFont, input_html: { id: "selected_font", multiple: false} %>
+                    <div class="modal-body flex space-between wrap">
+                        <% @user.backgrounds.each do |bg| %>
+                          <div>
+                            <ul class="thumbnail_select " onClick="choosethumb(this)" data-bs-dismiss="modal" data-value="<%=bg.id %>" id="<%=bg.title%>">
+                              <img src="<%= bg.card_path%>", id="thumbnail-select %>", class="thumbnails"><br />
+                              <%= bg.title %>
+                            </ul>
+                          </div>
+                        <% end %>
+                    <%= f.association :backgrounds, as: :hidden, collection: @user_backgrounds, input_html: { id: "selected_thumb", multiple: true} %>
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -105,29 +184,35 @@
                   </div>
                 </div>
               </div>
-            <%# end of model for font %>
-            <div class="flex space-between">
-              <p>Font size</p>
-              <%= f.input :font_size, label: false %>
+              <%# modal for audio %>
+              <div class="modal fade" id="audioModal" tabindex="-1" aria-labelledby="audioModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="audioModalLabel">Select audio overlay</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body flex space-between wrap">
+                        <% @user.audios.order(title: :asc).each do |audio| %>
+                          <div>
+                            <ul class="audio_select " onClick="chooseaudio(this)" data-bs-dismiss="modal" data-value="<%=audio.id %>" id="<%=audio.title%>">
+                              <button class="btn btn-primary"type="button" id="audio-select"><%= audio.title %></button>
+                            </ul>
+                          </div>
+                        <% end %>
+                    <%= f.association :audios, as: :hidden, collection: @user_audios, input_html: { id: "selected_audio", multiple: true} %>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+                <div class="flex space-between">
+                  <button type="button" class="btn_get btn_hover" data-action="slideshow#previous"> Back </button>
+                  <button type="button" class="btn_get btn_hover" data-action="slideshow#next"> Next </button>
+                </div>
             </div>
-
-              <div class="flex space-between">
-                <button type="button" class="btn_get btn_hover" data-action="slideshow#previous"> Back </button>
-                <button type="button" class="btn_get btn_hover" data-action="slideshow#next"> Next </button>
-              </div>
-          </div>
-
-          <div data-slideshow-target="slide">
-            <% @selected_template.count_template_videos_with_image.times do %>
-              <%= f.association :backgrounds %>
-            <% end %>
-              <% if @selected_template.audio_required? %>
-                <%= f.association :audios %>
-              <% end %>
-              <div class="flex space-between">
-                <button type="button" class="btn_get btn_hover" data-action="slideshow#previous"> Back </button>
-                <button type="button" class="btn_get btn_hover" data-action="slideshow#next"> Next </button>
-              </div>
           </div>
 
           <div data-slideshow-target="slide">
@@ -145,7 +230,7 @@
           <%= f.association :templates, collection: @templates, as: :hidden, input_html: { value: @selected_template&.id, multiple: true} %>
 
         <% end %>
-      </div>
+      <%# </div> %>
     </div>
   </div>
 </div>
@@ -170,14 +255,25 @@
     selectedVideos[index -1] = videoId;
   }
   // font selection
-   var selectedFont = ""
+  var selectedFont = ""
 
   function choosefont(element) {
     var fontId = element.dataset.value;
     var fontbtn = document.getElementById("font-select-btn")
     document.getElementById("selected_font").value = fontId;
-    fontbtn.innerHTML = element.innerText.trim() + "<i class='bi bi-chevron-down'></i>";
+    fontbtn.innerHTML = element.innerText.trim();
+    fontbtn.classList.replace("agency_banner_btn", "btn_get");
     selectedFont = fontId;
+  }
+  // background selection
+  var thumbbtn = document.getElementById("thumb-select-btn")
+
+  function choosethumb(element) {
+    var thumbId = element.dataset.value;
+    document.getElementById("selected_thumb").value = thumbId;
+    thumbbtn.innerHTML = element.innerText.trim();
+    thumbbtn.classList.replace("agency_banner_btn", "btn_get");
+    document.getElementById('flexSwitchCheckDefault').disabled = false;
   }
 
 
