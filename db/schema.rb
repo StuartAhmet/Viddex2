@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_28_091530) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_10_145404) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -188,6 +188,20 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_28_091530) do
     t.index ["video_id"], name: "index_projects_on_video_id"
   end
 
+  create_table "template_videos", force: :cascade do |t|
+    t.string "title"
+    t.text "video_script"
+    t.text "message"
+    t.string "image_url"
+    t.bigint "template_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "video_instructions"
+    t.text "message_instructions"
+    t.text "image_instructions"
+    t.index ["template_id"], name: "index_template_videos_on_template_id"
+  end
+
   create_table "templates", force: :cascade do |t|
     t.string "title"
     t.string "category"
@@ -199,15 +213,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_28_091530) do
     t.bigint "user_id"
     t.string "public_uid"
     t.text "synopsis"
-    t.string "video_title1"
-    t.string "video_title2"
-    t.string "video_title3"
-    t.string "video_title4"
-    t.text "video_script1"
-    t.text "video_script2"
-    t.text "video_script3"
-    t.text "video_script4"
-    t.string "tutorial_link"
     t.index ["user_id"], name: "index_templates_on_user_id"
   end
 
@@ -284,6 +289,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_28_091530) do
   add_foreign_key "projects", "templates"
   add_foreign_key "projects", "users"
   add_foreign_key "projects", "videos"
+  add_foreign_key "template_videos", "templates"
   add_foreign_key "templates", "users"
   add_foreign_key "users", "companies"
   add_foreign_key "videos", "users"

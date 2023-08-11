@@ -13,6 +13,7 @@ class TemplatesController < ApplicationController
   def new
     @user = current_user
     @template = Template.new
+    @template.template_videos.build
     # @template.video_items.build
   end
 
@@ -31,8 +32,9 @@ class TemplatesController < ApplicationController
   def template_params
     params.require(:template).permit(
       :title, :synopsis, :category, :video_count, :audio_required,
-      :video_link, :tutorial_link, :video_title1, :video_title2, :video_title3,
-      :video_title4, :video_script1, :video_script2, :video_script3, :video_script4
+      :video_link, :tutorial_link, template_videos_attributes:
+        [:id, :title, :video_script, :message, :image_url, :video_instructions,
+          :message_instructions, :image_instructions, :_destroy]
     )
   end
 

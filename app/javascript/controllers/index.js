@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import NestedFormController from "./nested_form_controller"
+application.register("nested-form", NestedFormController)
+
 import NewProjectFormController from "./new_project_form_controller"
 application.register("new-project-form", NewProjectFormController)
 
