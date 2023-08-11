@@ -4,6 +4,15 @@
 
 }
 
+#message-input{
+  min-height: 100px;
+  color: #6754e2;
+  border: 2px solid #ccc5fa;
+  border-radius: 4px;
+  box-shadow: 0px 20px 24px 0px rgba(0, 11, 40, 0.1);
+  transform: perspective(1px) translateZ(0);
+}
+
 .dropdown-menu-original{
   display:none;
   }

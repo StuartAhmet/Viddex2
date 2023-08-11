@@ -75,7 +75,7 @@
                     <div>
                       <%= f.input :message_body, label: false, placeholder:
                       @selected_template.template_videos[index].message_instructions,
-                      input_html: { style: 'min-height: 100px;' } %>
+                      input_html: { id: "message-input" }%>
                     </div>
                   </div>
                     <% end %>
@@ -120,7 +120,7 @@
                       </div><%# end of model for font %>
                   </div>
                   <div>
-                    <%= f.input :font_size, label: false %>
+                    <%= f.input :font_size, label: false, input_html: { class: "btn-get"}  %>
                   </div>
                 </div>
               </div> <!--end of grid-->
@@ -274,6 +274,16 @@
     thumbbtn.innerHTML = element.innerText.trim();
     thumbbtn.classList.replace("agency_banner_btn", "btn_get");
     document.getElementById('flexSwitchCheckDefault').disabled = false;
+  }
+  // audio selection
+  var audiobtn = document.getElementById("audio-select-btn")
+
+  function chooseaudio(element) {
+    var audioId = element.dataset.value;
+    document.getElementById("selected_audio").value = audioId;
+    audiobtn.innerHTML = element.innerText.trim();
+    audiobtn.classList.replace("agency_banner_btn", "btn_get");
+
   }
 
 
