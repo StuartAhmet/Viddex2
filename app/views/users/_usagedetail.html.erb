@@ -15,9 +15,3 @@ Total Audio Files <%= audio_storage %> MB<br>
 
 Total Projects <%= @user.projects.count %> <br>
 Total storage <%=  total_storage.round(2)%> MB
-
-<%= form_tag new_user_project_path(@user), method: :get do %>
-  <%= select_tag :template_id,
-  options_from_collection_for_select(@templates, :id, :title) %>
-  <%= submit_tag "New Project", name: nil %>
-<% end %>

@@ -74,7 +74,7 @@
         <% end %>
       </a>
       <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-        <li><%= link_to "New Project", new_user_project_path(@user), class: "dropdown-item" %></li>
+        <li><%= link_to "New Project", select_user_projects_path(@user), class: "dropdown-item" %></li>
         <li><%= link_to "My details", edit_user_path(@user), class: "dropdown-item" %></li>
         <li><hr class="dropdown-divider"></li>
         <li><%= link_to "Sign out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :false} %></li>

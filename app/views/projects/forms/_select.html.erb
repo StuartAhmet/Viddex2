@@ -27,17 +27,18 @@
     <div data-slideshow-target="slide">
       <div class="ts-grid-container">
         <div class="p40">
-          <h3 class="">There are <span></span> templates in this category</h3>
+          <h3 class="">There are <span><%= index %></span> templates in this category</h3>
         </div>
         <div >
           <div class="project-content-box fl-cl-sb ">
-            <% index = "First Touch" %>
-            <% @templates.where(category: "#{index}").each do |template|%>
+            <% index_category = "First Touch" %>
+            <% @templates.where(category: "#{index_category}").each do |template|%>
               <a href="/terminal/<%= @user.public_uid %>/projects/new?template_id=<%= template.id %>" class="btn_hover agency_banner_btn video_select w-100">
                 <%= template.title %> <br>
                 <p><%= template.synopsis %></p>
               </a>
             <% end %>
+            <button type="button" class="btn_get btn_hover" data-action="slideshow#previous"> Back </button>
           </div>
         </div>
       </div>
