@@ -19,4 +19,9 @@ class Audio < ApplicationRecord
     file.byte_size.to_f/ 1048576
   end
 
+  def duration_in_seconds
+    audio = Cloudinary::Api.resource(file.key, resource_type: 'video')
+    audio['duration']
+  end
+
 end

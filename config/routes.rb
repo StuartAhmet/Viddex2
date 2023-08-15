@@ -24,7 +24,9 @@ Rails.application.routes.draw do
 
   resources :users, :path => 'terminal' do
     resources :backgrounds, :path => 'images'
-    resources :projects, only: [:new, :create, :edit, :update, :index, :destroy, :show]
+    resources :projects, only: [:new, :create, :edit, :update, :index, :destroy, :show] do
+      get :select, on: :collection
+    end
     resources :videos
     resources :audios, :path => 'audio-files'
     resources :companies, :path => 'company'

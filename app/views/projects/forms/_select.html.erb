@@ -1,0 +1,56 @@
+
+
+<div style="overflow:auto">
+  <div data-controller="slideshow">
+    <div data-slideshow-target="slide">
+      <div class="ts-grid-container">
+        <div class="p40">
+          <h3>What are you creating today? </h3>
+          <h3 class="hidden">There are <span></span> templates in this category</h3>
+        </div>
+
+        <div class="">
+          <div class="project-content-box fl-cl-sb">
+              <% index = 0 %>
+              <% FormSelection::TEMPLATE_CATEGORY.each do |t|%>
+                <button data-action="slideshow#next" class="btn_hover agency_banner_btn video_select w-100"
+                  id="template-btn-select<%= index %>">
+                  <%= FormSelection::TEMPLATE_CATEGORY[index] %>
+                </button>
+                <% index += 1 %>
+              <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div data-slideshow-target="slide">
+      <div class="ts-grid-container">
+        <div class="p40">
+          <h3 class="">There are <span></span> templates in this category</h3>
+        </div>
+        <div >
+          <div class="project-content-box fl-cl-sb ">
+            <% index = "First Touch" %>
+            <% @templates.where(category: "#{index}").each do |template|%>
+              <a href="/terminal/<%= @user.public_uid %>/projects/new?template_id=<%= template.id %>" class="btn_hover agency_banner_btn video_select w-100">
+                <%= template.title %> <br>
+                <p><%= template.synopsis %></p>
+              </a>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+
+  function categorySelect(index, element) {
+    var category = element.dataset.value;
+    document.getElementById("template-btn-select"+index).value = category;
+    console.log(category)
+  }
+
+</script>

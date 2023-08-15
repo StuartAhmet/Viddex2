@@ -17,6 +17,11 @@ class ProjectsController < ApplicationController
     @project = Project.find_by(public_uid: params[:id])
   end
 
+  def select
+    @user = current_user
+    @templates = Template.all
+  end
+
   def new
     @user = current_user
     @project = Project.new

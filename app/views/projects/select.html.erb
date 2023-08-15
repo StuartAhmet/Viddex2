@@ -3,9 +3,9 @@
   <div class="flex">
     <%= render "shared/sidebarbs" %>
     <div class="flex-column content-container">
-      <%= render "shared/pagehead" %>
+      <%# <%= render "shared/pagehead" %>
       <%= render "projects/pagetabs" %>
-        <%= render "projects/forms/new_project_form", user: @user, projects: @user.projects %>
+      <%= render "projects/forms/select", user: @user, projects: @user.projects %>
     </div>
   </div>
 </div>
