@@ -1,6 +1,11 @@
-
+<div class="flex space-between">
   <p><%= page_entries_info @videos %></p>
-
+   <%=link_to new_user_video_path(@user) do %>
+    <button class="btn_get btn_hover">
+      <i class="bi bi-cloud-plus mr10"></i>New Video
+     </button>
+  <% end %>
+</div>
 
 <div class="tile-container">
   <div class="flex flex-wrap">
