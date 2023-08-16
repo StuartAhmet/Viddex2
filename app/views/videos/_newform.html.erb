@@ -1,13 +1,24 @@
 
 
 
-<%= simple_form_for @video, url: user_videos_path, html: { class: "form-container-50 center-auto"} do |f| %>
+<%= simple_form_for @video, url: user_videos_path,
+  html: { class: "form-container-50 center-auto"},
+  data:{
+    controller: "nested-form",
+    nested_form_wrapper_selector_value: '.nested-form-wrapper'
+  } do |f| %>
         <%= f.input :title, label: false, input_html: { class: "form-input-100" }  %>
-        <%= f.input :industry, collection: Video::INDUSTRY, label: false, input_html: { class: "form-input-100" }  %>
-
-
-        <div id="fileParentDiv">
-        <%= f.input :file, as: :file, label: false, input_html: { class: "form-input-100", placeholder: "drag and drop or click here" } %>
-        </div>
-        <%= f.submit "Upload", class: "btn btn-primary w-100" %>
+        <%= f.input :file, as: :file,  input_html: { class: "d-none"},
+           label_html: { class: 'drag-drop-file w-100 '}, label: 'Drag and drop or click to upload'%> <br>
+        <template  data-nested-form-target="template">
+          <%= f.simple_fields_for :video_tags, VideoTag.new, child_index: 'NEW_RECORD' do |tag_fields| %>
+            <%= render "video_tag_fields", f: tag_fields %>
+          <% end %>
+        </template>
+        <%= f.simple_fields_for :video_tags do |tag_fields| %>
+          <%= render "video_tag_fields", f: tag_fields %>
+        <% end %>
+        <div data-nested-form-target="target"></div>
+        <button type="button" data-action="nested-form#add">Add Tag</button>
+        <%= f.submit "Upload", class: "btn_get w-100" %>
 <% end %>

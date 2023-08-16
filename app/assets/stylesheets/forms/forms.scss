@@ -1,3 +1,16 @@
+.drag-drop-file{
+  cursor: pointer;
+  background: white;
+  font: 500 14px/47px "Poppins", sans-serif;
+  color: #6754e2;
+  border: 2px solid #ccc5fa;
+  border-radius: 4px;
+  box-shadow: 0px 20px 24px 0px rgba(0, 11, 40, 0.1);
+  padding: 0px 23px;
+  text-align: center;
+  height: 100px;
+}
+
 .form-container{
   width: 400px;
   border: 1px solid lightgray;

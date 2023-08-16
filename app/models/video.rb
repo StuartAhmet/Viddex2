@@ -17,6 +17,9 @@ class Video < ApplicationRecord
 
   belongs_to :user
   has_one_attached :file
+  has_many :video_tags
+  accepts_nested_attributes_for :video_tags, allow_destroy: true, reject_if: :all_blank
+
 
   has_many :project_videos
   has_many :projects, through: :project_videos, dependent: :destroy
