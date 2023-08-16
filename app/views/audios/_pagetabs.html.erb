@@ -1,18 +1,26 @@
 <div style="margin-top:10px">
     <ul class="nav nav-tabs" style="margin-bottom:20px">
       <li class="nav-item">
-        <%=link_to user_audios_path(@user, @audios) do %>
+        <%=link_to user_audios_path(@user) do %>
           <button class="btn nav-link <%= "active" if current_page?(user_audios_path) %> br5">
-            <i class="bi bi-bounding-box mr10"></i>All Audio
+            <i class="bi bi-bounding-box mr10"></i>Audio Files
           </button>
         <% end %>
       </li>
       <li class="nav-item">
-        <%=link_to new_user_audio_path(@user) do %>
-          <button class="btn nav-link <%= "active" if current_page?(new_user_audio_path) %> br5">
-            <i class="bi bi-cloud-plus mr10"></i>New Audio
+        <%=link_to user_backgrounds_path(@user) do %>
+          <button class="btn nav-link <%= "active" if current_page?(user_backgrounds_path) %> br5">
+            <i class="bi bi-bounding-box mr10"></i>Images
           </button>
         <% end %>
-      </li> <br>
+      </li>
+      <li class="nav-item">
+        <%=link_to user_videos_path(@user) do %>
+          <button class="btn nav-link <%= "active" if current_page?(user_videos_path) %> br5">
+            <i class="bi bi-bounding-box mr10"></i>Videos
+          </button>
+        <% end %>
+      </li>
+
     </ul>
 </div>

@@ -1,42 +1,58 @@
-<p><%= page_entries_info @audios, entry_name: "audio file" %></p>
-
- <div class="flex flex-wrap content-start  " style="justify-content:flex-start">
-  <% audio_number = 0 %>
-  <% @user.audios.order(title: :asc).each do |audio| %>
-    <div class="flex space-between" style="margin-bottom:20px;margin-right:20px">
-      <!-- Button trigger modal -->
-      <button type="button" class="btn btn-outline-primary space-between" data-bs-toggle="modal" data-bs-target="#audioModal<%= audio_number %>">
-        <%= audio.title.capitalize %>
-      </button>
-      <button type="button" class="btn btn-outline-secondary">
-        <a data-turbo-method="delete" class="dropdown-item bi bi-trash"data-turbo-confirm="Are you sure?" href="/terminal/<%= @user.public_uid %>/audio-files/<%= audio.public_uid%>"></a>
-      </button>
-      <!-- Modal -->
-      <div class="modal fade" id="audioModal<%= audio_number %>" tabindex="-1" aria-labelledby="audioModal<%= audio_number %>Label" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="audioModal<%= audio_number %>Label"><%= audio.title.capitalize %> - recorded <%= audio.created_at.strftime('%d/%m/%y')%></h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <% audio_source = cloudinary_url(audio.file.key+".mp3", :resource_type=>"video") %>
-              <audio controls>
-                <source src=<%=audio_source %>  type="audio/aac">
-                <source src=<%=audio_source %>  type="audio/ogg">
-                <source src=<%=audio_source %>  type="audio/mpeg">
-                <source src=<%=audio_source %>  type="audio/wav">
-                Your browser does not support the audio element.
-              </audio>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  <% audio_number += 1 %>
+<div class="flex space-between">
+  <p><%= page_entries_info @audios, entry_name: "audio file" %></p>
+  <%=link_to new_user_audio_path(@user) do %>
+    <button class="btn_get btn_hover">
+      <i class="bi bi-cloud-plus mr10"></i>New Audio
+     </button>
   <% end %>
 </div>
+
+<div style="overflow:auto">
+  <div class="ts-grid-container">
+    <div class="p40">
+      <div class="flex flex-wrap content-start  " style="justify-content:flex-start">
+        <% audio_number = 0 %>
+        <% @user.audios.order(title: :asc).each do |audio| %>
+          <div class="flex space-between" style="margin-bottom:20px;margin-right:20px">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-outline-primary space-between" data-bs-toggle="modal" data-bs-target="#audioModal<%= audio_number %>">
+              <%= audio.title.capitalize %>
+            </button>
+            <button type="button" class="btn btn-outline-secondary">
+              <a data-turbo-method="delete" class="dropdown-item bi bi-trash"data-turbo-confirm="Are you sure?" href="/terminal/<%= @user.public_uid %>/audio-files/<%= audio.public_uid%>"></a>
+            </button>
+            <!-- Modal -->
+            <div class="modal fade" id="audioModal<%= audio_number %>" tabindex="-1" aria-labelledby="audioModal<%= audio_number %>Label" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="audioModal<%= audio_number %>Label"><%= audio.title.capitalize %> - recorded <%= audio.created_at.strftime('%d/%m/%y')%></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <% audio_source = cloudinary_url(audio.file.key+".mp3", :resource_type=>"video") %>
+                    <audio controls>
+                      <source src=<%=audio_source %>  type="audio/aac">
+                      <source src=<%=audio_source %>  type="audio/ogg">
+                      <source src=<%=audio_source %>  type="audio/mpeg">
+                      <source src=<%=audio_source %>  type="audio/wav">
+                      Your browser does not support the audio element.
+                    </audio>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% audio_number += 1 %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 <%= paginate @audios %>
