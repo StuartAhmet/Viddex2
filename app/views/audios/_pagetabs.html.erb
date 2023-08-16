@@ -3,21 +3,21 @@
       <li class="nav-item">
         <%=link_to user_audios_path(@user) do %>
           <button class="btn nav-link <%= "active" if current_page?(user_audios_path) %> br5">
-            <i class="bi bi-bounding-box mr10"></i>Audio Files
+            <i class="bi bi-file-earmark-music-fill mr10"></i>Audio Files
           </button>
         <% end %>
       </li>
       <li class="nav-item">
         <%=link_to user_backgrounds_path(@user) do %>
           <button class="btn nav-link <%= "active" if current_page?(user_backgrounds_path) %> br5">
-            <i class="bi bi-bounding-box mr10"></i>Images
+            <i class="bi bi-image-fill mr10"></i>Images
           </button>
         <% end %>
       </li>
       <li class="nav-item">
         <%=link_to user_videos_path(@user) do %>
           <button class="btn nav-link <%= "active" if current_page?(user_videos_path) %> br5">
-            <i class="bi bi-bounding-box mr10"></i>Videos
+            <i class="bi bi-camera-reels  mr10"></i>Videos
           </button>
         <% end %>
       </li>
