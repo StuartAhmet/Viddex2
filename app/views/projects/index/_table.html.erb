@@ -8,7 +8,6 @@
       <th>Audio</th>
       <th>Thumbnail</th>
       <th>ID</th>
-      <th>Edit</th>
       <th>View</th>
       <th>Delete</th>
     </tr>
@@ -29,7 +28,6 @@
         <td>-</td>
       <% end %>
         <td><%= project.public_uid %></td>
-        <td><%= link_to "", edit_user_project_path(@user, project), {class: "dropdown-item bi bi-pencil-square"} %></td>
         <td><a class="dropdown-item bi bi-binoculars mr10"href="/projects/<%= project.public_uid %>/watch"></a></td>
         <td><a data-turbo-method="delete" class="dropdown-item bi bi-trash"data-turbo-confirm="Are you sure?" href="/terminal/<%= @user.public_uid %>/projects/<%= project.public_uid%>"></a></td>
     </tr>

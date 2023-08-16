@@ -1,7 +1,5 @@
   <div class="flex space-between">
-    <%= link_to edit_user_project_path(@user, @project), {class: "btn btn-outline-dark w-100", style: "margin:5px"} do %>
-      <i class="bi-pencil-square mr10"></i> Edit
-    <% end %>
+
     <a style="margin:5px" class="btn btn-outline-dark w-100" href="/projects/<%= @project.public_uid %>/watch">
       <i class="bi bi-binoculars mr10" ></i> View
     </a>
