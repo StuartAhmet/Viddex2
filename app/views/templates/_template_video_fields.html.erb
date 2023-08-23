@@ -1,8 +1,17 @@
 <div class="nested-form-wrapper" data-new-record="<%= f.object.new_record? %>">
   <%= f.input :title %>
-  <%= f.input :video_script %>
-  <%= f.input :message %>
-  <%= f.input :image_url %>
+  <div class="flex space-between">
+    <%= f.input :video_script %>
+    <%= f.input :video_instructions %>
+  </div>
+  <div class="flex space-between">
+    <%= f.input :message, as: :boolean  %>
+    <%= f.input :message_instructions %>
+  </div>
+  <div class="flex space-between">
+    <%= f.input :image_url, as: :boolean  %>
+    <%= f.input :image_instructions%>
+  </div>
   <button type="button" data-action="nested-form#remove">Remove Video</button>
   <%= f.hidden_field :_destroy %>
 </div>

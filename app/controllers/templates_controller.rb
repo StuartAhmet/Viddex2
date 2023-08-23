@@ -31,7 +31,7 @@ class TemplatesController < ApplicationController
 
   def template_params
     params.require(:template).permit(
-      :title, :synopsis, :category, :video_count, :audio_required,
+      :title, :synopsis, :category, :audio_required,
       :video_link, :tutorial_link, template_videos_attributes:
         [:id, :title, :video_script, :message, :image_url, :video_instructions,
           :message_instructions, :image_instructions, :_destroy]

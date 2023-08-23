@@ -107,6 +107,20 @@ class Project < ApplicationRecord
     end
   end
 
+  def gc_template_dd_automation
+    Cloudinary::Utils.cloudinary_url(Rails.env+"/"+videos[0].file.key+".mp4",
+      secure: true,
+      resource_type: "video",
+      :transformation=>[
+        {:height=>720, :width=>1280, :crop=>"scale"},
+        {:color=>"#ffffff", :end_offset=>"21", :gravity=>"north_west", :height=>350,
+          :overlay=>{
+            :font_family=>"Permanent Marker", :font_size=>52,
+            :text=>"Hey #{prospect_first}%2C%20%0A%0ADirect%20Debit%20giving%20you%20a%20headache%20at%20"+prospect_company+"%3F"},
+            :width=>650, :x=>500, :y=>300, :crop=>"fit"}
+      ])
+  end
+
   # project video
   def project_path
     Cloudinary::Utils.cloudinary_url(Rails.env+"/"+videos[0].file.key+".mp4",

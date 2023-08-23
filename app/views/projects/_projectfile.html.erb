@@ -1,6 +1,84 @@
 
-
+<!--
 <video style="border-radius:20px" width="100%" controls poster="<%=@project.thumbnail_path%>">
   <source src="<%= @project.project_path %>" type="video/mp4">
   Your browser does not support the video tag.
 </video>
+-->
+<video style="border-radius:20px" width="100%" controls poster="<%=@project.gc_template_dd_automation%>">
+  <source src="<%= @project.gc_template_dd_automation %>" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+<!--
+<%
+    def project_path_test
+    Cloudinary::Utils.cloudinary_url(Rails.env+"/boqif5iek8mnr4h0olrl3z39i5uw.mp4",
+      secure: true,
+      resource_type: "video",
+      :height=>180, :width=>180, :crop=>"scale",
+      :transformation=>[
+        {:audio_codec=>"none"},
+        # params for multiple videos
+      ].compact)
+  end
+
+%>
+
+<video style="border-radius:20px" width="100%" controls poster="<%=@project.thumbnail_path%>">
+  <source src="<%= project_path_test %>" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+<%# LinkedIn BG template %>
+<%=
+  cl_video_tag("boqif5iek8mnr4h0olrl3z39i5uw",
+  controls: true,
+  width: 1280,
+  poster: @project.thumbnail_key+".jpg",
+  :transformation=>[
+    # FIRST VIDEO SEGMENT
+      # background video params
+      {:audio_codec=>"none"},
+      # audio params
+      {overlay: "video:development:e7iavkakbi56sxard8aaegt6d92n"},
+      {:overlay=>"development:fyzk45rlz8krmk2aeuflthyacvli"},
+      {:flags=>"layer_apply",:crop=>"scale", height:720, width:1080, start_offset:"2", end_offset:"40" },
+      # overlay video params (first vid - part 1)
+      {:audio_codec=>"none", :height=>180, :overlay=>"video:development:boqif5iek8mnr4h0olrl3z39i5uw", :end_offset=>"2", :radius=>"max", :width=>180, :crop=>"fill"},
+      {:flags=>"layer_apply", :gravity=>"south_west", :x=>50, :y=>100, },
+      # overlay video params (first vid - part 2)
+      {:height=>180, :overlay=>"video:development:boqif5iek8mnr4h0olrl3z39i5uw", :start_offset=>"2", :radius=>"max", :width=>180, :crop=>"fill"},
+      {:flags=>"layer_apply", :gravity=>"south_west", :x=>50, :y=>100, :start_offset=>"2"},
+
+
+
+      {flags:"splice", overlay:"video:development:anhlcob5b1b3qz9l6syzjex1dogo"},
+
+      {flags:"splice", overlay:"video:development:tn90atevrbtaunn2o0asfp3jnwm1"},
+
+      {flags:"splice", overlay:"video:development:w0al6qh49m6qg7ki2th5d45jcy9y"},
+      # background image params
+      {:overlay=>"development:fyzk45rlz8krmk2aeuflthyacvli"},
+      {:flags=>"layer_apply",:crop=>"scale", height:720, width:1080, start_offset:"2", end_offset:"40" },
+      # overlay video params (first vid - part 1)
+      {:audio_codec=>"none", :height=>180, :overlay=>"video:development:boqif5iek8mnr4h0olrl3z39i5uw", :end_offset=>"2", :radius=>"max", :width=>180, :crop=>"fill"},
+      {:flags=>"layer_apply", :gravity=>"south_west", :x=>50, :y=>100, },
+      # overlay video params (first vid - part 2)
+      {:height=>180, :overlay=>"video:development:boqif5iek8mnr4h0olrl3z39i5uw", :start_offset=>"2", :radius=>"max", :width=>180, :crop=>"fill"},
+      {:flags=>"layer_apply", :gravity=>"south_west", :x=>50, :y=>100, :start_offset=>"2"},
+      # audio params
+      {overlay: "video:development:e7iavkakbi56sxard8aaegt6d92n"},
+    # SECOND VIDEO SEGMENT
+      # video params
+
+      # background params
+      # {:overlay=>"development:fyzk45rlz8krmk2aeuflthyacvli"},
+      # {:flags=>"layer_apply",:crop=>"scale", height:720, width:1080 },
+      # {:flags=>"layer_apply", :gravity=>"south_west", :x=>50, :y=>100, },
+
+
+
+  ])
+%>
+-->

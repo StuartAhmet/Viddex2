@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_16_093320) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_16_151131) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -191,14 +191,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_16_093320) do
   create_table "template_videos", force: :cascade do |t|
     t.string "title"
     t.text "video_script"
-    t.text "message"
-    t.string "image_url"
     t.bigint "template_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "video_instructions"
     t.text "message_instructions"
     t.text "image_instructions"
+    t.boolean "message"
+    t.boolean "image_url"
     t.index ["template_id"], name: "index_template_videos_on_template_id"
   end
 

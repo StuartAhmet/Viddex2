@@ -43,7 +43,7 @@ gem 'kaminari'
 gem 'stripe'
 gem 'jquery-rails'
 gem 'wow-rails'
-
+gem 'streamio-ffmpeg'
 
 
 # Use Redis adapter to run Action Cable in production

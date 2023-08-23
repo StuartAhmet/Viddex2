@@ -11,10 +11,10 @@ class Template < ApplicationRecord
   has_many :projects, through: :project_templates
 
   def count_template_videos_with_message
-    template_videos.where.not(message: [nil, ""]).count
+    template_videos.where(message: true).count
   end
 
   def count_template_videos_with_image
-    template_videos.where.not(image_url: [nil, ""]).count
+    template_videos.where(image_url: true).count
   end
 end
